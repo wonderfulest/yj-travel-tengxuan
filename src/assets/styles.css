@@ -365,22 +365,28 @@ button:disabled {
 
 .company-section {
   width: 100%;
-  padding: 86px max(16px, calc((100% - var(--max)) / 2));
+  padding: 92px max(16px, calc((100% - var(--max)) / 2));
   background:
-    linear-gradient(135deg, rgba(40, 107, 88, 0.1), transparent 42%),
+    linear-gradient(135deg, rgba(40, 107, 88, 0.12), transparent 38%),
+    linear-gradient(315deg, rgba(184, 50, 34, 0.08), transparent 34%),
     var(--soft);
 }
 
 .company-shell {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
-  gap: 32px;
-  align-items: start;
+  gap: 18px;
 }
 
-.company-copy {
-  position: sticky;
-  top: 112px;
+.company-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
+  gap: 28px;
+  align-items: stretch;
+  padding: 34px;
+  border: 1px solid rgba(222, 215, 205, 0.92);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 18px 54px rgba(23, 20, 17, 0.08);
 }
 
 .company-copy > span {
@@ -395,22 +401,23 @@ button:disabled {
 }
 
 .company-copy h2 {
-  max-width: 680px;
   margin: 0;
-  font-size: clamp(2.5rem, 5vw, 5.8rem);
-  line-height: 0.96;
+  max-width: 780px;
+  font-size: clamp(2.4rem, 4.6vw, 4.9rem);
+  line-height: 1;
   letter-spacing: 0;
 }
 
 .company-copy p,
 .company-panel p,
-.milestone-list p {
+.milestone-list p,
+.company-capabilities p {
   color: var(--muted);
   font-family: "Trebuchet MS", Verdana, sans-serif;
 }
 
 .company-copy p {
-  max-width: 660px;
+  max-width: 780px;
   margin: 18px 0 0;
 }
 
@@ -420,33 +427,46 @@ button:disabled {
   line-height: 1.55;
 }
 
-.company-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.company-actions {
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
+  margin-top: 28px;
 }
 
-.company-stats div,
+.company-secondary {
+  background: transparent;
+  border-color: rgba(23, 20, 17, 0.2);
+}
+
+.company-proof {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.company-proof div,
+.company-capabilities article,
 .company-panel {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: white;
 }
 
-.company-stats div {
-  min-height: 118px;
-  padding: 20px;
+.company-proof div {
+  min-height: 112px;
+  padding: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.company-stats strong {
-  font-size: clamp(1.75rem, 3vw, 2.7rem);
+.company-proof strong {
+  font-size: clamp(1.65rem, 2.6vw, 2.35rem);
   line-height: 1;
 }
 
-.company-stats span,
+.company-proof span,
 .company-values span {
   font-family: "Trebuchet MS", Verdana, sans-serif;
   font-size: 0.78rem;
@@ -454,24 +474,74 @@ button:disabled {
   text-transform: uppercase;
 }
 
-.company-stats span {
+.company-proof span {
   color: var(--jade);
 }
 
+.company-capabilities {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.company-capabilities article {
+  min-height: 214px;
+  padding: 24px;
+}
+
+.company-capabilities article > span {
+  width: 38px;
+  height: 6px;
+  display: block;
+  margin-bottom: 34px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--vermilion), var(--gold), var(--jade));
+}
+
+.company-capabilities h3 {
+  max-width: 260px;
+  margin: 0;
+  font-size: 1.42rem;
+  line-height: 1.16;
+}
+
+.company-capabilities p {
+  margin: 12px 0 0;
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
 .company-panel {
-  grid-column: 2;
-  padding: 26px;
+  padding: 30px;
 }
 
 .company-panel-block + .company-panel-block {
-  margin-top: 28px;
-  padding-top: 26px;
+  margin-top: 30px;
+  padding-top: 30px;
   border-top: 1px solid var(--line);
 }
 
+.company-brand-block,
+.company-timeline-block {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.panel-kicker {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: var(--jade);
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .company-panel h3 {
-  margin: 0 0 16px;
-  font-size: 1.45rem;
+  margin: 0;
+  font-size: 1.5rem;
   line-height: 1.15;
 }
 
@@ -482,8 +552,9 @@ button:disabled {
 }
 
 .brand-list article {
-  min-height: 142px;
+  min-height: 136px;
   padding: 18px;
+  border: 1px solid rgba(222, 215, 205, 0.76);
   border-radius: var(--radius);
   background: var(--soft);
 }
@@ -503,7 +574,7 @@ button:disabled {
 
 .milestone-list {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -511,9 +582,10 @@ button:disabled {
 
 .milestone-list li {
   display: grid;
-  grid-template-columns: 72px 1fr;
+  grid-template-columns: 78px 1fr;
   gap: 14px;
   align-items: start;
+  min-height: 58px;
 }
 
 .milestone-list span {
@@ -526,11 +598,11 @@ button:disabled {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 26px;
+  padding: 14px 0 0;
 }
 
 .company-values span {
-  min-height: 34px;
+  min-height: 36px;
   display: inline-flex;
   align-items: center;
   padding: 0 12px;
@@ -890,16 +962,18 @@ button:disabled {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .company-shell {
+  .company-hero,
+  .company-brand-block,
+  .company-timeline-block {
     grid-template-columns: 1fr;
   }
 
-  .company-copy {
-    position: static;
+  .company-proof {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .company-panel {
-    grid-column: auto;
+  .company-capabilities {
+    grid-template-columns: 1fr;
   }
 
   .planning-band {
@@ -989,9 +1063,29 @@ button:disabled {
     padding-bottom: 54px;
   }
 
-  .company-stats,
+  .company-hero {
+    padding: 22px;
+  }
+
+  .company-copy h2 {
+    font-size: clamp(2.15rem, 11vw, 3.35rem);
+  }
+
+  .company-actions {
+    flex-direction: column;
+  }
+
+  .company-proof,
   .brand-list {
     grid-template-columns: 1fr;
+  }
+
+  .company-capabilities article {
+    min-height: auto;
+  }
+
+  .company-capabilities article > span {
+    margin-bottom: 24px;
   }
 
   .company-panel {

@@ -40,12 +40,18 @@ export type CompanyMilestone = {
   event: string
 }
 
+export type CompanyPillar = {
+  title: string
+  text: string
+}
+
 export type CompanyIntro = {
   eyebrow: string
   title: string
   summary: string
   description: string
   stats: CompanyStat[]
+  pillars: CompanyPillar[]
   brands: CompanyBrand[]
   milestones: CompanyMilestone[]
   values: string[]
@@ -78,6 +84,20 @@ export const companyIntro: CompanyIntro = {
     { value: '20,000+', label: 'Quality customers' },
     { value: '9', label: 'Branch cities' },
     { value: '700', label: 'Team members' }
+  ],
+  pillars: [
+    {
+      title: 'Enterprise travel management',
+      text: 'Policy, budget, approval, and service workflows for government, enterprise, exhibition, and study-tour teams.'
+    },
+    {
+      title: 'Global air supply chain',
+      text: 'Private fares, airline resources, ticketing support, and major-transportation allocation across business scenarios.'
+    },
+    {
+      title: 'Technology-enabled service',
+      text: 'Online booking, customer operations, and travel-resource systems that connect teams, suppliers, and agencies.'
+    }
   ],
   brands: [
     {
