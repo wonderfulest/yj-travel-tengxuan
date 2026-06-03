@@ -15,7 +15,8 @@ export interface SubscriptionStatus {
   subscribed: boolean
 }
 
-const API_BASE_URL = String(import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
+const configuredApiBaseUrl = String(import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
+const API_BASE_URL = shouldUseSameOriginApi(configuredApiBaseUrl) ? '' : configuredApiBaseUrl
 
 export async function unsubscribe(payload: SubscriptionPayload): Promise<SubscriptionStatus> {
   return postSubscription('/api/subscriptions/unsubscribe', payload)
@@ -64,4 +65,18 @@ function errorMessage(body: unknown): string {
     return String((body as { msg?: unknown }).msg || '')
   }
   return ''
+}
+
+function shouldUseSameOriginApi(apiBaseUrl: string): boolean {
+  if (!apiBaseUrl || typeof window === 'undefined') {
+    return !apiBaseUrl
+  }
+  if (!['www.tengxuantrip.com', 'tengxuantrip.com'].includes(window.location.hostname)) {
+    return false
+  }
+  try {
+    return new URL(apiBaseUrl).hostname === 'api.tengxuantrip.com'
+  } catch {
+    return false
+  }
 }
