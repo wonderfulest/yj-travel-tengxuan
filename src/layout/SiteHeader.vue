@@ -33,6 +33,7 @@ function closeMenu() {
         <RouterLink :to="{ name: 'home', hash: '#company' }" @click="closeMenu">Company</RouterLink>
         <RouterLink :to="{ name: 'home', hash: '#attractions' }" @click="closeMenu">Attractions</RouterLink>
         <RouterLink :to="{ name: 'home', hash: '#trips' }" @click="closeMenu">Trips</RouterLink>
+        <RouterLink :to="{ name: 'beijing-xian-shanghai' }" @click="closeMenu">Product</RouterLink>
         <RouterLink :to="{ name: 'home', hash: '#planning' }" @click="closeMenu">Planning</RouterLink>
       </div>
 

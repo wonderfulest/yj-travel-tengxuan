@@ -59,6 +59,7 @@ async function updateNewsletterSubscription(action: 'subscribe' | 'unsubscribe')
         <RouterLink :to="{ name: 'home', hash: '#cities' }">City Guides</RouterLink>
         <RouterLink :to="{ name: 'home', hash: '#attractions' }">Attractions</RouterLink>
         <RouterLink :to="{ name: 'home', hash: '#trips' }">Travel Products</RouterLink>
+        <RouterLink :to="{ name: 'beijing-xian-shanghai' }">Beijing-Xi’an-Shanghai</RouterLink>
       </div>
       <div>
         <h2>Plan</h2>

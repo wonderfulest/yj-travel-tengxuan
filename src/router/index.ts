@@ -14,6 +14,11 @@ export const router = createRouter({
       component: () => import('@/views/SubscriptionView.vue')
     },
     {
+      path: '/products/beijing-xian-shanghai',
+      name: 'beijing-xian-shanghai',
+      component: () => import('@/views/ProductBeijingXianShanghaiView.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       redirect: '/'
     }

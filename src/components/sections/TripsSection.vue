@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { RouterLink } from 'vue-router'
 import { trips } from '@/content/travel'
 
 const featuredTrip = computed(() => trips.find((trip) => trip.featured))
@@ -35,7 +36,10 @@ const standardTrips = computed(() => trips.filter((trip) => !trip.featured))
       <article v-for="trip in standardTrips" :key="trip.name" class="trip-card">
         <h3>{{ trip.name }}</h3>
         <p>{{ trip.summary }}</p>
-        <span>{{ trip.meta }}</span>
+        <RouterLink v-if="trip.routeName" class="trip-card-link" :to="{ name: trip.routeName }">
+          View itinerary
+        </RouterLink>
+        <span v-else>{{ trip.meta }}</span>
       </article>
     </div>
   </section>

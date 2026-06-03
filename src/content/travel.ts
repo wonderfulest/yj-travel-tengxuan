@@ -1,3 +1,11 @@
+import forbiddenCityImage from '@/assets/products/beijing-xian-shanghai/forbidden-city.png'
+import olympicParkImage from '@/assets/products/beijing-xian-shanghai/olympic-park.png'
+import palaceRoofDetailImage from '@/assets/products/beijing-xian-shanghai/palace-roof-detail.png'
+import shanghaiSkylineImage from '@/assets/products/beijing-xian-shanghai/shanghai-skyline.png'
+import summerPalaceImage from '@/assets/products/beijing-xian-shanghai/summer-palace.png'
+import templeOfHeavenImage from '@/assets/products/beijing-xian-shanghai/temple-of-heaven.png'
+import terracottaWarriorsImage from '@/assets/products/beijing-xian-shanghai/terracotta-warriors.png'
+
 export type City = {
   name: string
   summary: string
@@ -22,7 +30,50 @@ export type Trip = {
   featured?: boolean
   image?: string
   alt?: string
+  routeName?: string
   facts?: Array<{ label: string; value: string }>
+}
+
+export type ProductDay = {
+  day: string
+  city: string
+  meals: string
+  title: string
+  summary: string
+  sights: string[]
+  note?: string
+}
+
+export type ProductPrice = {
+  group: string
+  price: string
+  basis: string
+}
+
+export type ProductGalleryImage = {
+  title: string
+  city: string
+  image: string
+  alt: string
+  featured?: boolean
+}
+
+export type TourProduct = {
+  name: string
+  eyebrow: string
+  duration: string
+  route: string
+  heroImage: string
+  heroAlt: string
+  summary: string
+  highlights: string[]
+  facts: Array<{ label: string; value: string }>
+  gallery: ProductGalleryImage[]
+  days: ProductDay[]
+  hotels: Array<{ city: string; hotel: string }>
+  prices: ProductPrice[]
+  inclusions: string[]
+  exclusions: string[]
 }
 
 export type CompanyStat = {
@@ -256,6 +307,20 @@ export const attractions: Attraction[] = [
 
 export const trips: Trip[] = [
   {
+    name: 'Beijing-Xi’an-Shanghai',
+    summary:
+      '8-day heritage route with Beijing, high-speed rail to Xi’an, Shanghai city touring, English-speaking guides, and 4-star hotels.',
+    meta: '8 days · From USD 892',
+    routeName: 'beijing-xian-shanghai',
+    image: images.greatWall,
+    alt: 'Great Wall landscape for the Beijing Xi’an Shanghai route',
+    facts: [
+      { label: 'Length', value: '8 days' },
+      { label: 'Route', value: 'BJS-XIY-SHA' },
+      { label: 'From', value: 'USD 892' }
+    ]
+  },
+  {
     name: 'Classic First-Time China Tour',
     summary: "Beijing, Xi'an, Guilin, and Shanghai with private guides and rail or flight planning.",
     meta: '10 days · From USD 2,380',
@@ -304,3 +369,173 @@ export const trips: Trip[] = [
     meta: '8-12 days · Custom quote'
   }
 ]
+
+export const beijingXianShanghaiProduct: TourProduct = {
+  name: 'Beijing-Xi’an-Shanghai',
+  eyebrow: '8-day escorted China heritage tour',
+  duration: '8 days / 7 nights',
+  route: 'Beijing · Xi’an · Shanghai · Beijing',
+  heroImage: images.greatWall,
+  heroAlt: 'Great Wall near Beijing on a green mountain ridge',
+  summary:
+    'A compact first-time China route for international groups, covering imperial Beijing, the Terracotta Warriors in Xi’an, and classic Shanghai city sights with guides, private vehicle service, high-speed rail, and 4-star hotel options.',
+  highlights: [
+    'Walk Tiananmen Square, the Forbidden City, hutongs, Temple of Heaven, and Juyongguan Great Wall.',
+    'Travel Beijing to Xi’an and Shanghai back to Beijing by second-class high-speed rail.',
+    'Visit the Terracotta Warriors, Muslim Quarter, The Bund, Yuyuan Garden, Tianzifang, and Huangpu River.',
+    'Use English-speaking local guides and private air-conditioned vehicles throughout listed touring days.'
+  ],
+  facts: [
+    { label: 'Starts', value: 'Beijing' },
+    { label: 'Ends', value: 'Beijing' },
+    { label: 'Hotels', value: '4-star or similar' },
+    { label: 'Guide', value: 'English-speaking local guides' },
+    { label: 'Transport', value: 'Private vehicle + high-speed rail' },
+    { label: 'Best for', value: 'Inbound leisure groups' }
+  ],
+  gallery: [
+    {
+      title: 'Summer Palace',
+      city: 'Beijing',
+      image: summerPalaceImage,
+      alt: 'Summer Palace lakeside pavilions in Beijing',
+      featured: true
+    },
+    {
+      title: 'Olympic Park',
+      city: 'Beijing',
+      image: olympicParkImage,
+      alt: 'Bird’s Nest and Water Cube illuminated at Olympic Park'
+    },
+    {
+      title: 'Forbidden City',
+      city: 'Beijing',
+      image: forbiddenCityImage,
+      alt: 'Forbidden City palace roofs and entrance courtyard'
+    },
+    {
+      title: 'Palace Detail',
+      city: 'Beijing',
+      image: palaceRoofDetailImage,
+      alt: 'Colorful traditional palace roof detail in Beijing'
+    },
+    {
+      title: 'Temple of Heaven',
+      city: 'Beijing',
+      image: templeOfHeavenImage,
+      alt: 'Temple of Heaven at sunset in Beijing'
+    },
+    {
+      title: 'Terracotta Warriors',
+      city: 'Xi’an',
+      image: terracottaWarriorsImage,
+      alt: 'Terracotta Warriors archaeological pit in Xi’an'
+    },
+    {
+      title: 'Shanghai Skyline',
+      city: 'Shanghai',
+      image: shanghaiSkylineImage,
+      alt: 'Shanghai skyline at night along the Huangpu River'
+    }
+  ],
+  days: [
+    {
+      day: 'Day 1',
+      city: 'Beijing',
+      meals: '- / - / -',
+      title: 'Arrival, Tiananmen Square, National Museum, Wangfujing',
+      summary:
+        'Arrive in Beijing, meet the local English-speaking guide, transfer to the hotel for rest after 2pm, then visit Tiananmen Square, the National Museum, and Wangfujing Street at night.',
+      sights: ['Tiananmen Square', 'National Museum', 'Wangfujing Street']
+    },
+    {
+      day: 'Day 2',
+      city: 'Beijing',
+      meals: 'B / - / -',
+      title: 'Great Wall, Summer Palace, Olympic Park',
+      summary:
+        'Full-day tour to Juyongguan Great Wall, Summer Palace excluding cruise, and an outside visit to Olympic Park including the Bird’s Nest and Water Cube.',
+      sights: ['Juyongguan Great Wall', 'Summer Palace', 'Bird’s Nest', 'Water Cube']
+    },
+    {
+      day: 'Day 3',
+      city: 'Beijing',
+      meals: 'B / - / -',
+      title: 'Forbidden City and Hutong walking tour',
+      summary:
+        'Visit the symbolic heart of Beijing at the Forbidden City and continue with a hutong walking tour through traditional residential lanes.',
+      sights: ['Forbidden City', 'Hutong walking tour'],
+      note: 'Passport is required for Forbidden City and Tiananmen Square visits. Forbidden City closes every Monday except national holidays.'
+    },
+    {
+      day: 'Day 4',
+      city: 'Beijing to Xi’an',
+      meals: 'B / - / -',
+      title: 'Temple of Heaven, Hongqiao Market, high-speed rail to Xi’an',
+      summary:
+        'Visit Temple of Heaven and Hongqiao Market, then take high-speed train G57 or similar from Beijing to Xi’an. On arrival, visit the Muslim Quarter before hotel transfer.',
+      sights: ['Temple of Heaven', 'Hongqiao Market', 'G57 or similar train', 'Muslim Quarter']
+    },
+    {
+      day: 'Day 5',
+      city: 'Xi’an',
+      meals: 'B / - / -',
+      title: 'Terracotta Warriors and Big Wild Goose Pagoda',
+      summary:
+        'Tour the Terracotta Warriors, excluding electric car, and visit Big Wild Goose Pagoda, the landmark connected with Master Xuanzang.',
+      sights: ['Terracotta Warriors', 'Big Wild Goose Pagoda']
+    },
+    {
+      day: 'Day 6',
+      city: 'Xi’an to Shanghai',
+      meals: 'B / - / -',
+      title: 'Flight to Shanghai, The Bund, Nanjing Road, Huangpu River cruise',
+      summary:
+        'Transfer to the airport for the Xi’an to Shanghai flight. After arrival, visit The Bund and Nanjing Road, then take an evening cruise on the Huangpu River.',
+      sights: ['The Bund', 'Nanjing Road', 'Huangpu River cruise']
+    },
+    {
+      day: 'Day 7',
+      city: 'Shanghai to Beijing',
+      meals: 'B / - / -',
+      title: 'Shanghai Museum, Yuyuan Garden, old quarter, Tianzifang',
+      summary:
+        'Visit Shanghai Museum, Yuyuan Garden, the old quarter, and Tianzifang Market, then take high-speed train G26 or similar from Shanghai back to Beijing.',
+      sights: ['Shanghai Museum', 'Yuyuan Garden', 'Old quarter', 'Tianzifang Market', 'G26 or similar train']
+    },
+    {
+      day: 'Day 8',
+      city: 'Departure',
+      meals: 'B / - / -',
+      title: 'International departure',
+      summary: 'After breakfast, transfer for the international departure flight home and end service.',
+      sights: ['Airport transfer']
+    }
+  ],
+  hotels: [
+    { city: 'Beijing', hotel: '5L Hotel' },
+    { city: 'Xi’an', hotel: 'Huanyu Metropark Hotel, Xi’an High-speed Railway North Station' },
+    { city: 'Shanghai', hotel: 'Baixia Pagoda Hotel' }
+  ],
+  prices: [
+    { group: '4-6 pax', price: 'EUR 1,560', basis: 'Per person, based on double/twin share' },
+    { group: '4-6 pax single supplement', price: 'EUR 360', basis: 'Per person supplement' },
+    { group: '10 pax', price: 'USD 1,200', basis: 'Per person, based on twin/double share' },
+    { group: '20 pax', price: 'USD 974', basis: 'Per person, based on twin/double share' },
+    { group: '30 pax', price: 'USD 892', basis: 'Per person, based on twin/double share' },
+    { group: 'USD single supplement', price: 'USD 460', basis: 'Per person supplement' }
+  ],
+  inclusions: [
+    '7 nights’ accommodation including daily breakfast at hotel',
+    'First gate entrance fees to sites listed in the program',
+    'English-speaking local guide during the tour',
+    'Private air-conditioned vehicle',
+    'Second-class high-speed train tickets for Beijing-Xi’an and Shanghai-Beijing'
+  ],
+  exclusions: [
+    'Tips to guide and driver',
+    'Personal expenses',
+    'International arrival and departure flights',
+    'Other service not mentioned'
+  ]
+}
