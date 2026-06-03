@@ -2,6 +2,11 @@ export interface SubscriptionPayload {
   token: string
 }
 
+export interface OpenSubscriptionPayload {
+  tenantId: string
+  email: string
+}
+
 export interface SubscriptionStatus {
   tenantId: string
   customerId: string
@@ -20,7 +25,15 @@ export async function subscribe(payload: SubscriptionPayload): Promise<Subscript
   return postSubscription('/api/subscriptions/subscribe', payload)
 }
 
-async function postSubscription(path: string, payload: SubscriptionPayload): Promise<SubscriptionStatus> {
+export async function openSubscribe(payload: OpenSubscriptionPayload): Promise<SubscriptionStatus> {
+  return postSubscription('/api/subscriptions/open', payload)
+}
+
+export async function openUnsubscribe(payload: OpenSubscriptionPayload): Promise<SubscriptionStatus> {
+  return postSubscription('/api/subscriptions/open/unsubscribe', payload)
+}
+
+async function postSubscription(path: string, payload: SubscriptionPayload | OpenSubscriptionPayload): Promise<SubscriptionStatus> {
   const response = await fetch(`${API_BASE_URL}${path}`, {
     method: 'POST',
     headers: {
