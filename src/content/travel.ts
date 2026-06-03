@@ -67,7 +67,17 @@ export const images = {
   chengdu:
     'https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=900&q=82',
   guilin:
-    'https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?auto=format&fit=crop&w=900&q=82'
+    'https://commons.wikimedia.org/wiki/Special:FilePath/Karst%20peaks%20and%20bamboo%20forest.jpg?width=900',
+  hangzhou:
+    'https://commons.wikimedia.org/wiki/Special:FilePath/West_Lake_IMG_8795_leifeng_pagoda.jpg?width=900',
+  guangzhou:
+    'https://commons.wikimedia.org/wiki/Special:FilePath/View_of_Pearl_River_From_Canton_Tower.jpg?width=900',
+  shenzhen:
+    'https://commons.wikimedia.org/wiki/Special:FilePath/Shenzhen_Skyline_from_Meilin_Reservoir_Dam8.jpg?width=900',
+  chongqing:
+    'https://commons.wikimedia.org/wiki/Special:FilePath/Chongqing_Skyline_At_Night.png?width=900',
+  zhangjiajie:
+    'https://commons.wikimedia.org/wiki/Special:FilePath/1_zhangjiajie_huangshizhai_wulingyuan_panorama_2012.jpg?width=900'
 }
 
 export const companyIntro: CompanyIntro = {
@@ -164,30 +174,42 @@ export const cities: City[] = [
     summary: 'Karst peaks, Li River cruises, cycling routes, and countryside stays.',
     duration: '2-4 days',
     image: images.guilin,
-    alt: 'Karst landscape similar to Guilin and Yangshuo'
+    alt: 'Karst peaks and bamboo forest near Guilin'
   },
   {
     name: 'Hangzhou',
     summary: 'West Lake, tea villages, temples, and an easy soft landing from Shanghai.',
     duration: '1-3 days',
-    image: images.guilin,
+    image: images.hangzhou,
     alt: 'Traditional lake scenery in Hangzhou'
   },
   {
     name: 'Guangzhou',
-    summary: 'Cantonese food, trade culture, riverfront evenings, and Greater Bay links.'
+    summary: 'Cantonese food, trade culture, riverfront evenings, and Greater Bay links.',
+    duration: '1-3 days',
+    image: images.guangzhou,
+    alt: 'Pearl River view from Canton Tower in Guangzhou'
   },
   {
     name: 'Shenzhen',
-    summary: 'Modern design, technology districts, theme parks, and Hong Kong connections.'
+    summary: 'Modern design, technology districts, theme parks, and Hong Kong connections.',
+    duration: '1-3 days',
+    image: images.shenzhen,
+    alt: 'Shenzhen skyline seen from Meilin Reservoir'
   },
   {
     name: 'Chongqing',
-    summary: 'Mountain-city streets, hotpot, Yangtze cruises, and dramatic night views.'
+    summary: 'Mountain-city streets, hotpot, Yangtze cruises, and dramatic night views.',
+    duration: '2-3 days',
+    image: images.chongqing,
+    alt: 'Chongqing skyline at night across the river'
   },
   {
     name: 'Zhangjiajie',
-    summary: 'Sandstone pillars, glass bridges, cableways, and high-impact nature days.'
+    summary: 'Sandstone pillars, glass bridges, cableways, and high-impact nature days.',
+    duration: '2-3 days',
+    image: images.zhangjiajie,
+    alt: 'Sandstone pillars in Zhangjiajie Wulingyuan'
   }
 ]
 
@@ -227,7 +249,7 @@ export const attractions: Attraction[] = [
   {
     city: 'Hangzhou',
     name: 'West Lake',
-    image: images.guilin,
+    image: images.hangzhou,
     alt: 'Chinese lakeside garden scenery'
   }
 ]
