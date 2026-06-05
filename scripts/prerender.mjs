@@ -19,8 +19,7 @@ for (const urlPath of paths) {
     .replace(/    <!--static-seo-fallback-start-->[\s\S]*?    <!--static-seo-fallback-end-->\n/, '')
     .replace('<html lang="en">', `<html ${rendered.htmlAttrs}>`)
     .replace('<!--app-head-->', rendered.headTags)
-    .replace('<!--app-html-->', rendered.appHtml)
-    .replace(/\n      <noscript>[\s\S]*?      <\/noscript>/, '')
+    .replace(/    <div id="app">[\s\S]*?    <\/div>/, `    <div id="app">${rendered.appHtml}</div>`)
 
   const targetPath = urlPath === '/404' ? path.join(clientDir, '404.html') : path.join(clientDir, normalizeOutputPath(urlPath), 'index.html')
   await mkdir(path.dirname(targetPath), { recursive: true })
