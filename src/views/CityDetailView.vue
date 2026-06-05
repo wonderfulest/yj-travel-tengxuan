@@ -5,12 +5,50 @@ import { useI18n, useTravelContent } from '@/i18n'
 
 const route = useRoute()
 const { t } = useI18n()
-const { cities } = useTravelContent()
+const { attractionDetails, cities, tourProducts } = useTravelContent()
 
 const city = computed(() => cities.value.find((item) => item.slug === route.params.slug) ?? cities.value[0])
 const nearbyCities = computed(() => cities.value.filter((item) => item.slug !== city.value.slug).slice(0, 3))
+const cityAttractions = computed(() =>
+  attractionDetails.value.filter((item) => item.city === city.value.name).slice(0, 4)
+)
+const cityProducts = computed(() =>
+  tourProducts.value
+    .filter((product) => routeMentionsCity(product.route, city.value.name))
+    .slice(0, 3)
+)
+const cityFaq = computed(() => [
+  {
+    question: t('city.faqBestFor', { city: city.value.name }),
+    answer: `${city.value.name} works best for ${city.value.bestFor.join(', ').toLowerCase()} travelers. ${city.value.signature}`
+  },
+  {
+    question: t('city.faqStay', { city: city.value.name }),
+    answer: `${city.value.duration || '2-4 days'} is the usual planning range. ${city.value.itinerary[0] || city.value.travelNote}`
+  },
+  {
+    question: t('city.faqSeason', { city: city.value.name }),
+    answer: city.value.season
+  },
+  {
+    question: t('city.faqTransport', { city: city.value.name }),
+    answer: city.value.connections
+  }
+])
+
+function routeMentionsCity(route: string, name: string) {
+  const normalizedRoute = normalizeRouteText(route)
+  const normalizedCity = normalizeRouteText(name)
+  return normalizedRoute.includes(normalizedCity)
+}
+
+function normalizeRouteText(value: string) {
+  return value.toLowerCase().replace(/[’']/g, '').replace(/\s+/g, '')
+}
 
 function updateTitle() {
+  if (typeof document === 'undefined') return
+
   document.title = `${city.value.name} ${t('city.titleSuffix')} | Tengxuan Travel`
 }
 
@@ -31,7 +69,7 @@ watch([city, () => t('city.titleSuffix')], updateTitle)
         <p>{{ city.signature }}</p>
       </div>
       <figure class="city-detail-media">
-        <img v-if="city.image" :src="city.image" :alt="city.alt" />
+        <img v-if="city.image" :src="city.image" :alt="city.alt" width="1100" height="733" loading="eager" fetchpriority="high" />
         <figcaption>{{ city.summary }}</figcaption>
       </figure>
     </section>
@@ -42,11 +80,15 @@ watch([city, () => t('city.titleSuffix')], updateTitle)
         <strong>{{ city.bestFor.join(' · ') }}</strong>
       </div>
       <div>
+        <span>{{ t('city.recommendedStay') }}</span>
+        <strong>{{ city.duration }}</strong>
+      </div>
+      <div>
         <span>{{ t('city.season') }}</span>
         <strong>{{ city.season }}</strong>
       </div>
       <div>
-        <span>{{ t('city.connections') }}</span>
+        <span>{{ t('city.transport') }}</span>
         <strong>{{ city.connections }}</strong>
       </div>
     </section>
@@ -69,6 +111,48 @@ watch([city, () => t('city.titleSuffix')], updateTitle)
       <ol class="city-itinerary-list">
         <li v-for="step in city.itinerary" :key="step">{{ step }}</li>
       </ol>
+    </section>
+
+    <section v-if="cityAttractions.length || cityProducts.length" class="city-detail-section" aria-labelledby="city-links-title">
+      <div class="city-detail-heading">
+        <p class="product-eyebrow">{{ t('city.internalLinks') }}</p>
+        <h2 id="city-links-title">{{ t('city.linkTitle', { city: city.name }) }}</h2>
+      </div>
+      <div class="seo-link-grid">
+        <RouterLink
+          v-for="item in cityAttractions"
+          :key="item.slug"
+          class="seo-link-card"
+          :to="{ name: 'attraction-detail', params: { slug: item.slug } }"
+        >
+          <span>{{ t('city.relatedAttraction') }}</span>
+          <strong>{{ item.name }}</strong>
+          <p>{{ item.summary }}</p>
+        </RouterLink>
+        <RouterLink
+          v-for="item in cityProducts"
+          :key="item.slug"
+          class="seo-link-card"
+          :to="{ name: 'product-detail', params: { slug: item.slug } }"
+        >
+          <span>{{ t('city.relatedProduct') }}</span>
+          <strong>{{ item.name }}</strong>
+          <p>{{ item.summary }}</p>
+        </RouterLink>
+      </div>
+    </section>
+
+    <section class="city-detail-section" aria-labelledby="city-faq-title">
+      <div class="city-detail-heading">
+        <p class="product-eyebrow">{{ t('city.faq') }}</p>
+        <h2 id="city-faq-title">{{ t('city.faqTitle', { city: city.name }) }}</h2>
+      </div>
+      <div class="seo-faq-list">
+        <article v-for="item in cityFaq" :key="item.question">
+          <h3>{{ item.question }}</h3>
+          <p>{{ item.answer }}</p>
+        </article>
+      </div>
     </section>
 
     <section class="city-note-band" :aria-label="t('city.noteAria')">

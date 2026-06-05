@@ -27,9 +27,9 @@ const standardTrips = computed(() => trips.value.filter((trip) => !trip.featured
           :to="{ name: 'product-detail', params: { slug: featuredTrip.productSlug } }"
           :aria-label="`${t('product.viewItinerary')}: ${featuredTrip.name}`"
         >
-          <img :src="featuredTrip.image" :alt="featuredTrip.alt" />
+          <img :src="featuredTrip.image" :alt="featuredTrip.alt" width="800" height="1170" loading="lazy" />
         </RouterLink>
-        <img v-else :src="featuredTrip.image" :alt="featuredTrip.alt" />
+        <img v-else :src="featuredTrip.image" :alt="featuredTrip.alt" width="800" height="1170" loading="lazy" />
         <div class="trip-body">
           <div>
             <h3>

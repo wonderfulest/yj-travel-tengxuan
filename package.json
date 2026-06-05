@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1 --port 18084 --strictPort",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit && vite build --outDir dist/client && vite build --ssr src/entry-server.ts --outDir dist/server && node scripts/prerender.mjs && node scripts/promote-client-dist.mjs",
     "preview": "vite preview --host 127.0.0.1 --port 18084 --strictPort"
   },
   "dependencies": {

@@ -26,7 +26,7 @@ const { attractions } = useTravelContent()
         :class="{ large: attraction.large }"
         :to="{ name: 'attraction-detail', params: { slug: attraction.slug } }"
       >
-        <img :src="attraction.image" :alt="attraction.alt" />
+        <img :src="attraction.image" :alt="attraction.alt" width="900" height="600" loading="lazy" />
         <div>
           <span>{{ attraction.city }}</span>
           <h3>{{ attraction.name }}</h3>

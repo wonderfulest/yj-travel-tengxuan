@@ -7,6 +7,8 @@ const { t } = useI18n()
 const { companyDetail: company } = useTravelContent()
 
 watchEffect(() => {
+  if (typeof document === 'undefined') return
+
   document.title = `${t('footer.companyProfile')} | Tengxuan Travel Group`
 
   const description =
@@ -46,7 +48,14 @@ watchEffect(() => {
           class="company-photo-slot"
           :class="{ featured: index === 0 }"
         >
-          <img :src="slot.image" :alt="slot.alt" />
+          <img
+            :src="slot.image"
+            :alt="slot.alt"
+            width="900"
+            height="600"
+            :loading="index === 0 ? 'eager' : 'lazy'"
+            :fetchpriority="index === 0 ? 'high' : 'auto'"
+          />
           <div aria-hidden="true" class="company-photo-label">
             <span>{{ slot.label }}</span>
           </div>
@@ -87,7 +96,7 @@ watchEffect(() => {
           class="company-media-card"
           :class="{ featured: image.featured }"
         >
-          <img :src="image.image" :alt="image.alt" loading="lazy" />
+          <img :src="image.image" :alt="image.alt" width="900" height="600" loading="lazy" />
           <figcaption>
             <span>{{ image.label }}</span>
             <strong>{{ image.title }}</strong>
@@ -176,7 +185,7 @@ watchEffect(() => {
       </div>
       <div class="company-award-gallery" :aria-label="t('company.awardsAria')">
         <figure v-for="image in company.honorImages" :key="image.title">
-          <img :src="image.image" :alt="image.alt" loading="lazy" />
+          <img :src="image.image" :alt="image.alt" width="900" height="600" loading="lazy" />
           <figcaption>
             <span>{{ image.label }}</span>
             <strong>{{ image.title }}</strong>

@@ -21,7 +21,7 @@ const compactCities = computed(() => cities.value.filter((city) => !city.image))
 
     <div class="city-grid">
       <article v-for="city in featuredCities" :key="city.name" class="city-card">
-        <img :src="city.image" :alt="city.alt" />
+        <img :src="city.image" :alt="city.alt" width="900" height="600" loading="lazy" />
         <div>
           <span>{{ city.region }} · {{ city.duration }}</span>
           <h3>{{ city.name }}</h3>

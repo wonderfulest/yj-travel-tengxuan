@@ -138,8 +138,10 @@ const messages = {
       allGuides: 'All city guides',
       factsAria: 'City planning facts',
       bestFor: 'Best for',
+      recommendedStay: 'Recommended stay',
       season: 'Season',
       connections: 'Connections',
+      transport: 'Transport',
       whatToSee: 'What to see',
       coreExperiences: 'Core experiences',
       pace: 'How to pace it',
@@ -149,6 +151,16 @@ const messages = {
       customRoute: 'Ask for a custom route',
       ideas: 'Route ideas',
       pairWith: 'Pair {city} with',
+      internalLinks: 'Related planning',
+      linkTitle: 'Use {city} in a China private tour',
+      relatedAttraction: 'Attraction guide',
+      relatedProduct: 'Tour product',
+      faq: 'FAQ',
+      faqTitle: '{city} travel FAQ',
+      faqBestFor: 'Who is {city} best for?',
+      faqStay: 'How long should travelers stay in {city}?',
+      faqSeason: 'What is the best season for {city}?',
+      faqTransport: 'How should travelers connect {city} with other China cities?',
       titleSuffix: 'City Guide'
     },
     attraction: {
@@ -167,6 +179,19 @@ const messages = {
       related: 'Related attractions',
       pairWith: 'Pair this with',
       planRoute: 'Plan this route',
+      bestSeason: 'Best season',
+      transport: 'Transport',
+      seasonFallback: 'Check the destination season and operating hours before confirming the route.',
+      internalLinks: 'Related planning',
+      linkTitle: 'Build this attraction into a route',
+      relatedCity: 'City guide',
+      relatedProduct: 'Tour product',
+      faq: 'FAQ',
+      faqTitle: '{attraction} tour FAQ',
+      faqBestFor: 'Who is {attraction} best for?',
+      faqStay: 'How long does {attraction} need?',
+      faqSeason: 'What is the best season for {attraction}?',
+      faqTransport: 'What is the best way to visit {attraction}?',
       titleSuffix: 'Attraction Guide'
     },
     product: {
@@ -187,7 +212,22 @@ const messages = {
       including: 'Service including',
       excluding: 'Service excluding',
       ready: 'Ready to quote',
-      cta: 'Use this route as a fixed group product or customize it for your market.'
+      cta: 'Use this route as a fixed group product or customize it for your market.',
+      suitableGroups: 'Suitable groups',
+      customGroups: 'Private groups, families, MICE add-ons, and agency groups',
+      faq: 'FAQ',
+      faqTitle: 'Product questions before quotation',
+      faqGroupType: 'What group type is this product suitable for?',
+      faqIncluded: 'What is included?',
+      faqExcluded: 'What is not included?',
+      faqQuote: 'What information is needed for a quote?',
+      internalLinks: 'Related planning',
+      linkTitle: 'Cities, attractions, and preparation',
+      relatedCity: 'City guide',
+      relatedAttraction: 'Attraction guide',
+      planningLink: 'Planning guide',
+      visaLinkText: 'Check visa, transit, passport, hotel, and invitation-letter planning before booking.',
+      beforeYouGoLinkText: 'Prepare names, rooming, trains, attractions, guide language, payment, meals, and weather buffers.'
     },
     company: {
       metaDescription:
@@ -1069,8 +1109,10 @@ const messages = {
       allGuides: '全部城市指南',
       factsAria: '城市规划信息',
       bestFor: '适合',
+      recommendedStay: '推荐停留',
       season: '季节',
       connections: '交通连接',
+      transport: '交通方式',
       whatToSee: '看什么',
       coreExperiences: '核心体验',
       pace: '如何安排节奏',
@@ -1080,6 +1122,16 @@ const messages = {
       customRoute: '咨询定制线路',
       ideas: '线路想法',
       pairWith: '{city} 可搭配',
+      internalLinks: '相关规划',
+      linkTitle: '把 {city} 放入中国私家游线路',
+      relatedAttraction: '景点指南',
+      relatedProduct: '旅行产品',
+      faq: 'FAQ',
+      faqTitle: '{city} 旅行常见问题',
+      faqBestFor: '{city} 适合哪些人？',
+      faqStay: '{city} 建议停留多久？',
+      faqSeason: '{city} 什么季节最适合？',
+      faqTransport: '{city} 如何和其他中国城市衔接？',
       titleSuffix: '城市指南'
     },
     attraction: {
@@ -1097,6 +1149,19 @@ const messages = {
       related: '相关景点',
       pairWith: '可搭配景点',
       planRoute: '规划这条线路',
+      bestSeason: '最佳季节',
+      transport: '交通方式',
+      seasonFallback: '确认线路前需核验目的地季节、开放时间和运营安排。',
+      internalLinks: '相关规划',
+      linkTitle: '把该景点放入线路',
+      relatedCity: '城市指南',
+      relatedProduct: '旅行产品',
+      faq: 'FAQ',
+      faqTitle: '{attraction} 常见问题',
+      faqBestFor: '{attraction} 适合哪些人？',
+      faqStay: '{attraction} 需要多久？',
+      faqSeason: '{attraction} 什么季节最适合？',
+      faqTransport: '如何安排 {attraction} 游览？',
       titleSuffix: '景点指南'
     },
     product: {
@@ -1117,7 +1182,22 @@ const messages = {
       including: '服务包含',
       excluding: '服务不含',
       ready: '可以报价',
-      cta: '可将该线路作为固定团队产品，也可按客源市场进行定制。'
+      cta: '可将该线路作为固定团队产品，也可按客源市场进行定制。',
+      suitableGroups: '适合团型',
+      customGroups: '私家团、家庭团、MICE 延展和旅行社团队',
+      faq: 'FAQ',
+      faqTitle: '报价前常见问题',
+      faqGroupType: '该产品适合什么团型？',
+      faqIncluded: '包含什么？',
+      faqExcluded: '不包含什么？',
+      faqQuote: '询价需要提供哪些信息？',
+      internalLinks: '相关规划',
+      linkTitle: '城市、景点与行前准备',
+      relatedCity: '城市指南',
+      relatedAttraction: '景点指南',
+      planningLink: '规划指南',
+      visaLinkText: '预订前核对签证、过境、护照、酒店和邀请函等入境准备。',
+      beforeYouGoLinkText: '准备姓名、房型、火车、景点、导游语言、支付、餐食和天气缓冲。'
     },
     company: {
       metaDescription: '腾轩旅行集团公司简介，包含集团概况、航司资源、入境游能力、分支网络、品牌体系、发展节点、荣誉资质和企业文化。',
@@ -2470,6 +2550,7 @@ const productGenericCopy: Record<Exclude<Locale, 'en'>, {
   }
 }
 
+const isBrowser = typeof window !== 'undefined'
 const currentLocale = ref<Locale>(detectLocale())
 
 export function useI18n() {
@@ -2553,23 +2634,33 @@ export function setLocale(locale: Locale) {
   currentLocale.value = locale
 }
 
+export function getCurrentLocale() {
+  return currentLocale.value
+}
+
+export function getStoredLocale(): Locale {
+  if (!isBrowser) return defaultLocale
+
+  const storedLocale = localStorage.getItem(storedLocaleKey)
+  if (isLocale(storedLocale)) return storedLocale
+
+  return defaultLocale
+}
+
 watchEffect(() => {
+  if (!isBrowser) return
   const meta = locales.find((item) => item.code === currentLocale.value) ?? locales[0]
   document.documentElement.lang = meta.htmlLang
   localStorage.setItem(storedLocaleKey, currentLocale.value)
 })
 
 function detectLocale(): Locale {
-  const urlLocale = new URLSearchParams(window.location.search).get('lang')
-  if (isLocale(urlLocale)) return urlLocale
+  if (!isBrowser) return defaultLocale
 
-  const stored = localStorage.getItem(storedLocaleKey)
-  if (isLocale(stored)) return stored
+  const pathLocale = window.location.pathname.split('/').filter(Boolean)[0]
+  if (isLocale(pathLocale)) return pathLocale
 
-  const browserLocale = navigator.language.split('-')[0]
-  if (isLocale(browserLocale)) return browserLocale
-
-  return defaultLocale
+  return getStoredLocale()
 }
 
 function isLocale(value: string | null): value is Locale {

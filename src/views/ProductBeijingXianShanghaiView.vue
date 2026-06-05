@@ -5,13 +5,49 @@ import { useI18n, useTravelContent } from '@/i18n'
 
 const route = useRoute()
 const { t } = useI18n()
-const { productBySlug, tourProducts } = useTravelContent()
+const { attractionDetails, cities, productBySlug, tourProducts } = useTravelContent()
 const fallbackProduct = computed(() => tourProducts.value[0])
 const product = computed(() => {
   const slug = Array.isArray(route.params.slug) ? route.params.slug[0] : route.params.slug
   return productBySlug.value[slug || fallbackProduct.value.slug] || fallbackProduct.value
 })
+const productCities = computed(() =>
+  cities.value.filter((city) => routeMentionsCity(product.value.route, city.name)).slice(0, 4)
+)
+const productAttractions = computed(() =>
+  attractionDetails.value.filter((attraction) => routeMentionsCity(product.value.route, attraction.city)).slice(0, 4)
+)
+const bestForFact = computed(() => product.value.facts.find((fact) => fact.label === 'Best for')?.value || t('product.customGroups'))
+const productFaq = computed(() => [
+  {
+    question: t('product.faqGroupType'),
+    answer: `${bestForFact.value}. The route can be adjusted by hotel level, guide language, rooming, flight or rail timing, and daily pace.`
+  },
+  {
+    question: t('product.faqIncluded'),
+    answer: product.value.inclusions.join(' ')
+  },
+  {
+    question: t('product.faqExcluded'),
+    answer: product.value.exclusions.join(' ')
+  },
+  {
+    question: t('product.faqQuote'),
+    answer: 'Send travel dates, arrival and departure cities, group size, hotel level, guide language, rooming list, and must-see places for a confirmed quotation.'
+  }
+])
+
+function routeMentionsCity(route: string, name: string) {
+  return normalizeRouteText(route).includes(normalizeRouteText(name))
+}
+
+function normalizeRouteText(value: string) {
+  return value.toLowerCase().replace(/[’']/g, '').replace(/\s+/g, '')
+}
+
 watchEffect(() => {
+  if (typeof document === 'undefined') return
+
   document.title = `${product.value.name} | Tengxuan Travel`
 
   const description =
@@ -26,7 +62,7 @@ watchEffect(() => {
   <article class="product-page">
     <section class="product-hero" aria-labelledby="product-title">
       <div class="product-hero-media">
-        <img :src="product.heroImage" :alt="product.heroAlt" />
+        <img :src="product.heroImage" :alt="product.heroAlt" width="800" height="1170" loading="eager" fetchpriority="high" />
       </div>
       <div class="product-hero-copy">
         <RouterLink class="product-back-link" :to="{ name: 'home', hash: '#trips' }">
@@ -52,6 +88,10 @@ watchEffect(() => {
       <div v-for="fact in product.facts" :key="fact.label">
         <span>{{ fact.label }}</span>
         <strong>{{ fact.value }}</strong>
+      </div>
+      <div>
+        <span>{{ t('product.suitableGroups') }}</span>
+        <strong>{{ bestForFact }}</strong>
       </div>
     </section>
 
@@ -112,7 +152,7 @@ watchEffect(() => {
           class="route-media-card"
           :class="{ featured: image.featured }"
         >
-          <img :src="image.image" :alt="image.alt" loading="lazy" />
+          <img :src="image.image" :alt="image.alt" width="900" height="600" loading="lazy" />
           <figcaption>
             <span>{{ image.city }}</span>
             <strong>{{ image.title }}</strong>
@@ -161,6 +201,58 @@ watchEffect(() => {
         <ul>
           <li v-for="item in product.exclusions" :key="item">{{ item }}</li>
         </ul>
+      </div>
+    </section>
+
+    <section class="product-section" aria-labelledby="product-faq-title">
+      <div class="product-section-heading">
+        <p class="product-eyebrow">{{ t('product.faq') }}</p>
+        <h2 id="product-faq-title">{{ t('product.faqTitle') }}</h2>
+      </div>
+      <div class="seo-faq-list">
+        <article v-for="item in productFaq" :key="item.question">
+          <h3>{{ item.question }}</h3>
+          <p>{{ item.answer }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="product-section" aria-labelledby="product-links-title">
+      <div class="product-section-heading">
+        <p class="product-eyebrow">{{ t('product.internalLinks') }}</p>
+        <h2 id="product-links-title">{{ t('product.linkTitle') }}</h2>
+      </div>
+      <div class="seo-link-grid">
+        <RouterLink
+          v-for="item in productCities"
+          :key="item.slug"
+          class="seo-link-card"
+          :to="{ name: 'city-detail', params: { slug: item.slug } }"
+        >
+          <span>{{ t('product.relatedCity') }}</span>
+          <strong>{{ item.name }}</strong>
+          <p>{{ item.summary }}</p>
+        </RouterLink>
+        <RouterLink
+          v-for="item in productAttractions"
+          :key="item.slug"
+          class="seo-link-card"
+          :to="{ name: 'attraction-detail', params: { slug: item.slug } }"
+        >
+          <span>{{ t('product.relatedAttraction') }}</span>
+          <strong>{{ item.name }}</strong>
+          <p>{{ item.summary }}</p>
+        </RouterLink>
+        <RouterLink class="seo-link-card" :to="{ name: 'visa-entry' }">
+          <span>{{ t('product.planningLink') }}</span>
+          <strong>{{ t('footer.visaEntry') }}</strong>
+          <p>{{ t('product.visaLinkText') }}</p>
+        </RouterLink>
+        <RouterLink class="seo-link-card" :to="{ name: 'before-you-go' }">
+          <span>{{ t('product.planningLink') }}</span>
+          <strong>{{ t('footer.beforeYouGo') }}</strong>
+          <p>{{ t('product.beforeYouGoLinkText') }}</p>
+        </RouterLink>
       </div>
     </section>
 

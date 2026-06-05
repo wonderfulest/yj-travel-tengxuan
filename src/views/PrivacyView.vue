@@ -13,6 +13,8 @@ type InfoPage = {
 const page = computed(() => tm<InfoPage>('pages.privacy'))
 
 watchEffect(() => {
+  if (typeof document === 'undefined') return
+
   document.title = `${page.value.eyebrow} | Tengxuan Travel`
 })
 </script>

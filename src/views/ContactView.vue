@@ -29,6 +29,8 @@ const mailtoHref = computed(() => {
 })
 
 watchEffect(() => {
+  if (typeof document === 'undefined') return
+
   document.title = `${page.value.eyebrow} | Tengxuan Travel`
 })
 </script>

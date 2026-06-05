@@ -9,6 +9,8 @@ onMounted(() => {
   document.title = `${t('footer.cityGuides')} | Tengxuan Travel`
 })
 watchEffect(() => {
+  if (typeof document === 'undefined') return
+
   document.title = `${t('footer.cityGuides')} | Tengxuan Travel`
 })
 </script>
@@ -31,7 +33,7 @@ watchEffect(() => {
         </div>
       </div>
       <div class="city-index-feature" aria-hidden="true">
-        <img :src="cities[0].image" :alt="cities[0].alt" />
+        <img :src="cities[0].image" :alt="cities[0].alt" width="1100" height="733" loading="eager" fetchpriority="high" />
       </div>
     </section>
 
@@ -42,7 +44,7 @@ watchEffect(() => {
         class="city-guide-card"
         :to="{ name: 'city-detail', params: { slug: city.slug } }"
       >
-        <img v-if="city.image" :src="city.image" :alt="city.alt" />
+        <img v-if="city.image" :src="city.image" :alt="city.alt" width="900" height="600" loading="lazy" />
         <div class="city-guide-card-body">
           <span>{{ city.region }} · {{ city.duration }}</span>
           <h2>{{ city.name }}</h2>

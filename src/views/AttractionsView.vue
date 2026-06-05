@@ -7,6 +7,8 @@ const { t } = useI18n()
 const { attractionDetails } = useTravelContent()
 
 watchEffect(() => {
+  if (typeof document === 'undefined') return
+
   document.title = `${t('attraction.title')} | Tengxuan Travel`
 })
 </script>
@@ -29,7 +31,7 @@ watchEffect(() => {
         </div>
       </div>
       <figure class="attraction-index-feature">
-        <img :src="attractionDetails[0].image" :alt="attractionDetails[0].alt" />
+        <img :src="attractionDetails[0].image" :alt="attractionDetails[0].alt" width="1100" height="733" loading="eager" fetchpriority="high" />
         <figcaption>{{ attractionDetails[0].summary }}</figcaption>
       </figure>
     </section>
@@ -41,7 +43,7 @@ watchEffect(() => {
         class="attraction-guide-card"
         :to="{ name: 'attraction-detail', params: { slug: attraction.slug } }"
       >
-        <img :src="attraction.image" :alt="attraction.alt" loading="lazy" />
+        <img :src="attraction.image" :alt="attraction.alt" width="900" height="600" loading="lazy" />
         <div class="attraction-guide-card-body">
           <span>{{ attraction.city }}</span>
           <h2>{{ attraction.name }}</h2>

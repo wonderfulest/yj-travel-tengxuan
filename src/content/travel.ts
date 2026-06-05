@@ -1,10 +1,10 @@
-import forbiddenCityImage from '@/assets/products/beijing-xian-shanghai/forbidden-city.png'
-import olympicParkImage from '@/assets/products/beijing-xian-shanghai/olympic-park.png'
-import palaceRoofDetailImage from '@/assets/products/beijing-xian-shanghai/palace-roof-detail.png'
-import shanghaiSkylineImage from '@/assets/products/beijing-xian-shanghai/shanghai-skyline.png'
-import summerPalaceImage from '@/assets/products/beijing-xian-shanghai/summer-palace.png'
-import templeOfHeavenImage from '@/assets/products/beijing-xian-shanghai/temple-of-heaven.png'
-import terracottaWarriorsImage from '@/assets/products/beijing-xian-shanghai/terracotta-warriors.png'
+import forbiddenCityImage from '@/assets/products/beijing-xian-shanghai/forbidden-city.webp'
+import olympicParkImage from '@/assets/products/beijing-xian-shanghai/olympic-park.webp'
+import palaceRoofDetailImage from '@/assets/products/beijing-xian-shanghai/palace-roof-detail.webp'
+import shanghaiSkylineImage from '@/assets/products/beijing-xian-shanghai/shanghai-skyline.webp'
+import summerPalaceImage from '@/assets/products/beijing-xian-shanghai/summer-palace.webp'
+import templeOfHeavenImage from '@/assets/products/beijing-xian-shanghai/temple-of-heaven.webp'
+import terracottaWarriorsImage from '@/assets/products/beijing-xian-shanghai/terracotta-warriors.webp'
 
 export type City = {
   slug: string

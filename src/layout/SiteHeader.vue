@@ -1,14 +1,25 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute, useRouter } from 'vue-router'
 import BrandLogo from '@/components/brand/BrandLogo.vue'
 import { useI18n, type Locale } from '@/i18n'
+import { localizePath, normalizeContentPath } from '@/seo'
 
 const menuOpen = ref(false)
 const { locale, locales, setLocale, t } = useI18n()
+const route = useRoute()
+const router = useRouter()
 
 function closeMenu() {
   menuOpen.value = false
+}
+
+function changeLocale(nextLocale: Locale) {
+  setLocale(nextLocale)
+  closeMenu()
+
+  const nextPath = localizePath(normalizeContentPath(route.path), nextLocale)
+  void router.push({ path: nextPath, hash: route.hash, query: route.query })
 }
 </script>
 
@@ -39,7 +50,7 @@ function closeMenu() {
         <RouterLink :to="{ name: 'before-you-go' }" @click="closeMenu">{{ t('nav.planning') }}</RouterLink>
         <label class="language-select language-select--mobile">
           <span class="sr-only">{{ t('nav.language') }}</span>
-          <select :value="locale" :aria-label="t('nav.language')" @change="setLocale(($event.target as HTMLSelectElement).value as Locale)">
+          <select v-model="locale" :aria-label="t('nav.language')" @change="changeLocale(($event.target as HTMLSelectElement).value as Locale)">
             <option v-for="item in locales" :key="item.code" :value="item.code">
               {{ item.label }}
             </option>
@@ -50,7 +61,7 @@ function closeMenu() {
       <div class="nav-actions">
         <label class="language-select">
           <span class="sr-only">{{ t('nav.language') }}</span>
-          <select :value="locale" :aria-label="t('nav.language')" @change="setLocale(($event.target as HTMLSelectElement).value as Locale)">
+          <select v-model="locale" :aria-label="t('nav.language')" @change="changeLocale(($event.target as HTMLSelectElement).value as Locale)">
             <option v-for="item in locales" :key="item.code" :value="item.code">
               {{ item.shortLabel }}
             </option>
