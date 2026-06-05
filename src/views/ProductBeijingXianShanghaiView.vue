@@ -1,17 +1,24 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { RouterLink } from 'vue-router'
-import { beijingXianShanghaiProduct as product } from '@/content/travel'
+import { computed, watchEffect } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
+import { useI18n, useTravelContent } from '@/i18n'
 
-onMounted(() => {
-  document.title = `${product.name} | Tengxuan Travel`
+const route = useRoute()
+const { t } = useI18n()
+const { productBySlug, tourProducts } = useTravelContent()
+const fallbackProduct = computed(() => tourProducts.value[0])
+const product = computed(() => {
+  const slug = Array.isArray(route.params.slug) ? route.params.slug[0] : route.params.slug
+  return productBySlug.value[slug || fallbackProduct.value.slug] || fallbackProduct.value
+})
+watchEffect(() => {
+  document.title = `${product.value.name} | Tengxuan Travel`
 
   const description =
     document.querySelector<HTMLMetaElement>('meta[name="description"]') ||
     document.head.appendChild(document.createElement('meta'))
   description.name = 'description'
-  description.content =
-    '8-day Beijing, Xi’an, and Shanghai China tour with English-speaking guides, private vehicle service, high-speed rail, 4-star hotels, and group pricing.'
+  description.content = product.value.summary
 })
 </script>
 
@@ -23,25 +30,25 @@ onMounted(() => {
       </div>
       <div class="product-hero-copy">
         <RouterLink class="product-back-link" :to="{ name: 'home', hash: '#trips' }">
-          Back to travel products
+          {{ t('product.back') }}
         </RouterLink>
         <p class="product-eyebrow">{{ product.eyebrow }}</p>
         <h1 id="product-title">{{ product.name }}</h1>
         <p>{{ product.summary }}</p>
         <div class="product-actions">
-          <a class="primary-button" href="mailto:support@tengxuan.com?subject=Beijing-Xi'an-Shanghai%20tour%20quote">
-            Ask for a quote
+          <RouterLink class="primary-button" :to="{ name: 'contact' }">
+            {{ t('product.quote') }}
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
-          </a>
+          </RouterLink>
           <a class="secondary-button" href="#itinerary">
-            View itinerary
+            {{ t('product.viewItinerary') }}
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9h12M6 15h12M4 4h16v16H4z" /></svg>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="product-facts" aria-label="Tour facts">
+    <section class="product-facts" :aria-label="t('product.factsAria')">
       <div v-for="fact in product.facts" :key="fact.label">
         <span>{{ fact.label }}</span>
         <strong>{{ fact.value }}</strong>
@@ -50,9 +57,12 @@ onMounted(() => {
 
     <section class="product-section product-intro" aria-labelledby="product-overview-title">
       <div class="product-section-heading">
-        <p class="product-eyebrow">Route overview</p>
+        <p class="product-eyebrow">{{ t('product.overview') }}</p>
         <h2 id="product-overview-title">{{ product.duration }}</h2>
-        <p>{{ product.route }}</p>
+        <div class="product-route-copy">
+          <p>{{ product.route }}</p>
+          <small>{{ product.sourceNote }}</small>
+        </div>
       </div>
       <div class="product-highlight-grid">
         <article v-for="highlight in product.highlights" :key="highlight">
@@ -64,9 +74,9 @@ onMounted(() => {
 
     <section id="itinerary" class="product-section" aria-labelledby="itinerary-title">
       <div class="product-section-heading">
-        <p class="product-eyebrow">Day by day</p>
-        <h2 id="itinerary-title">Itinerary</h2>
-        <p>Meals are shown as breakfast / lunch / dinner.</p>
+        <p class="product-eyebrow">{{ t('product.dayByDay') }}</p>
+        <h2 id="itinerary-title">{{ t('product.itinerary') }}</h2>
+        <p>{{ t('product.mealNote') }}</p>
       </div>
 
       <div class="itinerary-list">
@@ -92,8 +102,8 @@ onMounted(() => {
 
     <section class="product-section product-media-band" aria-labelledby="route-title">
       <div>
-        <p class="product-eyebrow">Tour gallery</p>
-        <h2 id="route-title">Imperial Beijing, ancient Xi’an, and riverfront Shanghai.</h2>
+        <p class="product-eyebrow">{{ t('product.gallery') }}</p>
+        <h2 id="route-title">{{ product.galleryTitle }}</h2>
       </div>
       <div class="route-media-grid">
         <figure
@@ -113,13 +123,13 @@ onMounted(() => {
 
     <section class="product-section product-details-grid" aria-labelledby="details-title">
       <div class="product-section-heading">
-        <p class="product-eyebrow">Commercial details</p>
-        <h2 id="details-title">Hotels, pricing, and service scope</h2>
-        <p>Hotels are 4-star properties or similar; rooms are based on standard rooms.</p>
+        <p class="product-eyebrow">{{ t('product.details') }}</p>
+        <h2 id="details-title">{{ t('product.detailTitle') }}</h2>
+        <p>{{ t('product.hotelNote') }}</p>
       </div>
 
       <div class="detail-panel hotel-panel">
-        <h3>Hotels</h3>
+        <h3>{{ t('product.hotels') }}</h3>
         <dl>
           <div v-for="hotel in product.hotels" :key="hotel.city">
             <dt>{{ hotel.city }}</dt>
@@ -129,7 +139,7 @@ onMounted(() => {
       </div>
 
       <div class="detail-panel price-panel">
-        <h3>Quotation</h3>
+        <h3>{{ t('product.quotation') }}</h3>
         <div class="price-list">
           <article v-for="price in product.prices" :key="price.group">
             <span>{{ price.group }}</span>
@@ -140,14 +150,14 @@ onMounted(() => {
       </div>
 
       <div class="detail-panel service-panel">
-        <h3>Service including</h3>
+        <h3>{{ t('product.including') }}</h3>
         <ul>
           <li v-for="item in product.inclusions" :key="item">{{ item }}</li>
         </ul>
       </div>
 
       <div class="detail-panel service-panel">
-        <h3>Service excluding</h3>
+        <h3>{{ t('product.excluding') }}</h3>
         <ul>
           <li v-for="item in product.exclusions" :key="item">{{ item }}</li>
         </ul>
@@ -156,13 +166,13 @@ onMounted(() => {
 
     <section class="product-cta" aria-labelledby="product-cta-title">
       <div>
-        <p class="product-eyebrow">Ready to quote</p>
-        <h2 id="product-cta-title">Use this route as a fixed group product or customize it for your market.</h2>
+        <p class="product-eyebrow">{{ t('product.ready') }}</p>
+        <h2 id="product-cta-title">{{ t('product.cta') }}</h2>
       </div>
-      <a class="primary-button" href="mailto:support@tengxuan.com?subject=Beijing-Xi'an-Shanghai%20tour%20quote">
-        Contact Our Experts
+      <RouterLink class="primary-button" :to="{ name: 'contact' }">
+        {{ t('common.contactExperts') }}
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
-      </a>
+      </RouterLink>
     </section>
   </article>
 </template>

@@ -1,3 +1,10 @@
+<script setup lang="ts">
+import { RouterLink } from 'vue-router'
+import { useI18n } from '@/i18n'
+
+const { t } = useI18n()
+</script>
+
 <template>
   <section id="top" class="hero" aria-labelledby="hero-title">
     <div class="hero-media" aria-hidden="true">
@@ -7,20 +14,17 @@
     </div>
 
     <div class="hero-content">
-      <h1 id="hero-title">Discover China, City by City</h1>
-      <p>
-        Expert private guides, visa-friendly planning, and flexible trips designed around the
-        way international visitors actually travel.
-      </p>
+      <h1 id="hero-title">{{ t('hero.title') }}</h1>
+      <p>{{ t('hero.summary') }}</p>
       <div class="hero-actions">
-        <a class="primary-button" href="#cities">
-          Explore Cities
+        <RouterLink class="primary-button" :to="{ name: 'cities' }">
+          {{ t('hero.citiesCta') }}
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
-        </a>
-        <a class="secondary-button" href="#company">
-          About Tengxuan
+        </RouterLink>
+        <RouterLink class="secondary-button" :to="{ name: 'company' }">
+          {{ t('hero.companyCta') }}
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
-        </a>
+        </RouterLink>
       </div>
     </div>
   </section>

@@ -1,33 +1,43 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { cities } from '@/content/travel'
+import { RouterLink } from 'vue-router'
+import { useI18n, useTravelContent } from '@/i18n'
 
-const featuredCities = computed(() => cities.filter((city) => city.image))
-const compactCities = computed(() => cities.filter((city) => !city.image))
+const { t } = useI18n()
+const { cities } = useTravelContent()
+const featuredCities = computed(() => cities.value.filter((city) => city.image))
+const compactCities = computed(() => cities.value.filter((city) => !city.image))
 </script>
 
 <template>
   <section id="cities" class="section" aria-labelledby="cities-title">
     <div class="section-heading">
       <div>
-        <h2 id="cities-title">Major City Guides</h2>
-        <p>Choose your base by travel style, pace, and first-time visitor priorities.</p>
+        <h2 id="cities-title">{{ t('sections.cities.title') }}</h2>
+        <p>{{ t('sections.cities.summary') }}</p>
       </div>
-      <a class="text-link" href="#planning">Build a route</a>
+      <RouterLink class="text-link" :to="{ name: 'cities' }">{{ t('sections.cities.all') }}</RouterLink>
     </div>
 
     <div class="city-grid">
       <article v-for="city in featuredCities" :key="city.name" class="city-card">
         <img :src="city.image" :alt="city.alt" />
         <div>
+          <span>{{ city.region }} · {{ city.duration }}</span>
           <h3>{{ city.name }}</h3>
           <p>{{ city.summary }}</p>
-          <span>{{ city.duration }}</span>
+          <RouterLink class="city-card-link" :to="{ name: 'city-detail', params: { slug: city.slug } }">
+            {{ t('sections.cities.read') }}
+          </RouterLink>
         </div>
       </article>
       <article v-for="city in compactCities" :key="city.name" class="city-card compact">
+        <span>{{ city.region }} · {{ city.duration }}</span>
         <h3>{{ city.name }}</h3>
         <p>{{ city.summary }}</p>
+        <RouterLink class="city-card-link" :to="{ name: 'city-detail', params: { slug: city.slug } }">
+          {{ t('sections.cities.read') }}
+        </RouterLink>
       </article>
     </div>
   </section>

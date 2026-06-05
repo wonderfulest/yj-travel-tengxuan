@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { openSubscribe, openUnsubscribe, type SubscriptionStatus } from '@/api/subscriptions'
 import BrandLogo from '@/components/brand/BrandLogo.vue'
+import { useI18n } from '@/i18n'
 
 const subscribed = ref(false)
 const email = ref('')
@@ -11,6 +12,7 @@ const subscriptionError = ref('')
 const subscriptionStatus = ref<SubscriptionStatus | null>(null)
 const subscriptionTenantId = String(import.meta.env.VITE_SUBSCRIPTION_TENANT_ID || 'otw')
 const canUnsubscribe = computed(() => Boolean(subscriptionStatus.value?.subscribed && email.value.trim()))
+const { t } = useI18n()
 
 async function handleNewsletterSubmit() {
   await updateNewsletterSubscription('subscribe')
@@ -22,7 +24,7 @@ async function handleNewsletterUnsubscribe() {
 
 async function updateNewsletterSubscription(action: 'subscribe' | 'unsubscribe') {
   if (!email.value.trim()) {
-    subscriptionError.value = 'Enter an email address.'
+    subscriptionError.value = t('footer.emailRequired')
     return
   }
   subscriptionLoading.value = true
@@ -38,7 +40,7 @@ async function updateNewsletterSubscription(action: 'subscribe' | 'unsubscribe')
     subscriptionStatus.value = status
     subscribed.value = status.subscribed
   } catch (error) {
-    subscriptionError.value = error instanceof Error ? error.message : 'Subscription request failed.'
+    subscriptionError.value = error instanceof Error ? error.message : t('footer.requestFailed')
   } finally {
     subscriptionLoading.value = false
   }
@@ -49,26 +51,34 @@ async function updateNewsletterSubscription(action: 'subscribe' | 'unsubscribe')
   <footer class="site-footer">
     <div class="footer-grid">
       <div>
-        <RouterLink class="brand footer-brand" :to="{ name: 'home', hash: '#top' }" aria-label="Tengxuan Travel home">
+        <RouterLink class="brand footer-brand" :to="{ name: 'home', hash: '#top' }" :aria-label="t('nav.homeAria')">
           <BrandLogo />
         </RouterLink>
-        <p>Private travel experiences, thoughtfully planned for international visitors.</p>
+        <p>{{ t('footer.intro') }}</p>
       </div>
       <div>
-        <h2>Explore</h2>
-        <RouterLink :to="{ name: 'home', hash: '#cities' }">City Guides</RouterLink>
-        <RouterLink :to="{ name: 'home', hash: '#attractions' }">Attractions</RouterLink>
-        <RouterLink :to="{ name: 'home', hash: '#trips' }">Travel Products</RouterLink>
-        <RouterLink :to="{ name: 'beijing-xian-shanghai' }">Beijing-Xi’an-Shanghai</RouterLink>
+        <h2>{{ t('footer.explore') }}</h2>
+        <RouterLink :to="{ name: 'company' }">{{ t('footer.companyProfile') }}</RouterLink>
+        <RouterLink :to="{ name: 'cities' }">{{ t('footer.cityGuides') }}</RouterLink>
+        <RouterLink :to="{ name: 'attractions' }">{{ t('footer.attractions') }}</RouterLink>
+        <RouterLink :to="{ name: 'home', hash: '#trips' }">{{ t('footer.travelProducts') }}</RouterLink>
+        <RouterLink :to="{ name: 'product-detail', params: { slug: 'beijing-xian-shanghai' } }">{{ t('footer.productName') }}</RouterLink>
       </div>
       <div>
-        <h2>Plan</h2>
-        <RouterLink :to="{ name: 'home', hash: '#planning' }">Before You Go</RouterLink>
-        <RouterLink :to="{ name: 'home', hash: '#planning' }">Visa & Entry</RouterLink>
-        <RouterLink :to="{ name: 'home', hash: '#planning' }">FAQ</RouterLink>
+        <h2>{{ t('footer.plan') }}</h2>
+        <RouterLink :to="{ name: 'before-you-go' }">{{ t('footer.beforeYouGo') }}</RouterLink>
+        <RouterLink :to="{ name: 'visa-entry' }">{{ t('footer.visaEntry') }}</RouterLink>
+        <RouterLink :to="{ name: 'faq' }">{{ t('footer.faq') }}</RouterLink>
+        <RouterLink :to="{ name: 'contact' }">{{ t('footer.contact') }}</RouterLink>
       </div>
-      <form class="newsletter" aria-label="Newsletter signup" @submit.prevent="handleNewsletterSubmit">
-        <label for="email">Stay inspired</label>
+      <div>
+        <h2>{{ t('footer.legal') }}</h2>
+        <RouterLink :to="{ name: 'privacy' }">{{ t('footer.privacy') }}</RouterLink>
+        <RouterLink :to="{ name: 'terms' }">{{ t('footer.terms') }}</RouterLink>
+        <RouterLink :to="{ name: 'cookie-policy' }">{{ t('footer.cookies') }}</RouterLink>
+      </div>
+      <form class="newsletter" :aria-label="t('footer.newsletterAria')" @submit.prevent="handleNewsletterSubmit">
+        <label for="email">{{ t('footer.stayInspired') }}</label>
         <div>
           <input
             id="email"
@@ -77,15 +87,15 @@ async function updateNewsletterSubscription(action: 'subscribe' | 'unsubscribe')
             type="email"
             autocomplete="email"
             required
-            placeholder="Enter your email"
+            :placeholder="t('footer.emailPlaceholder')"
           />
           <button type="submit" :disabled="subscribed || subscriptionLoading">
-            {{ subscriptionLoading ? 'Sending...' : subscribed ? 'Subscribed' : 'Subscribe now' }}
+            {{ subscriptionLoading ? t('footer.sending') : subscribed ? t('footer.subscribed') : t('footer.subscribeNow') }}
           </button>
         </div>
         <p v-if="subscriptionError" class="newsletter-message error">{{ subscriptionError }}</p>
-        <p v-else-if="subscribed" class="newsletter-message success">Subscription confirmed.</p>
-        <p v-else-if="subscriptionStatus" class="newsletter-message muted">You are unsubscribed.</p>
+        <p v-else-if="subscribed" class="newsletter-message success">{{ t('footer.confirmed') }}</p>
+        <p v-else-if="subscriptionStatus" class="newsletter-message muted">{{ t('footer.unsubscribed') }}</p>
         <button
           v-if="canUnsubscribe"
           class="newsletter-unsubscribe"
@@ -93,7 +103,7 @@ async function updateNewsletterSubscription(action: 'subscribe' | 'unsubscribe')
           :disabled="subscriptionLoading"
           @click="handleNewsletterUnsubscribe"
         >
-          Unsubscribe this email
+          {{ t('footer.unsubscribeThisEmail') }}
         </button>
       </form>
     </div>
