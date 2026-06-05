@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, watchEffect } from 'vue'
+import { computed } from 'vue'
 import InfoPageView from '@/views/InfoPageView.vue'
 import { tm } from '@/i18n'
 
@@ -11,12 +11,6 @@ type InfoPage = {
 }
 
 const page = computed(() => tm<InfoPage>('pages.privacy'))
-
-watchEffect(() => {
-  if (typeof document === 'undefined') return
-
-  document.title = `${page.value.eyebrow} | Tengxuan Travel`
-})
 </script>
 
 <template>

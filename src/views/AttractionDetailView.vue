@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, watchEffect } from 'vue'
+import { computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { useI18n, useTravelContent } from '@/i18n'
 
@@ -49,18 +49,6 @@ function routeMentionsCity(route: string, name: string) {
 function normalizeRouteText(value: string) {
   return value.toLowerCase().replace(/[’']/g, '').replace(/\s+/g, '')
 }
-
-watchEffect(() => {
-  if (typeof document === 'undefined') return
-
-  document.title = `${attraction.value.name} ${t('attraction.titleSuffix')} | Tengxuan Travel`
-
-  const description =
-    document.querySelector<HTMLMetaElement>('meta[name="description"]') ||
-    document.head.appendChild(document.createElement('meta'))
-  description.name = 'description'
-  description.content = attraction.value.summary || attraction.value.intro
-})
 </script>
 
 <template>

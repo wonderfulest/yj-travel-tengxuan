@@ -16,9 +16,11 @@ const paths = getPrerenderPaths()
 for (const urlPath of paths) {
   const rendered = await render(urlPath)
   const html = template
+    .replace(/    <!--static-seo-fallback-start-->[\s\S]*?    <!--static-seo-fallback-end-->\n/, '')
     .replace('<html lang="en">', `<html ${rendered.htmlAttrs}>`)
     .replace('<!--app-head-->', rendered.headTags)
-    .replace('<div id="app"><!--app-html--></div>', `<div id="app">${rendered.appHtml}</div>`)
+    .replace('<!--app-html-->', rendered.appHtml)
+    .replace(/\n      <noscript>[\s\S]*?      <\/noscript>/, '')
 
   const targetPath = urlPath === '/404' ? path.join(clientDir, '404.html') : path.join(clientDir, normalizeOutputPath(urlPath), 'index.html')
   await mkdir(path.dirname(targetPath), { recursive: true })

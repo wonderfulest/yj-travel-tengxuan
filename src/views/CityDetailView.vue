@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, watch } from 'vue'
+import { computed } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { useI18n, useTravelContent } from '@/i18n'
 
@@ -45,15 +45,6 @@ function routeMentionsCity(route: string, name: string) {
 function normalizeRouteText(value: string) {
   return value.toLowerCase().replace(/[’']/g, '').replace(/\s+/g, '')
 }
-
-function updateTitle() {
-  if (typeof document === 'undefined') return
-
-  document.title = `${city.value.name} ${t('city.titleSuffix')} | Tengxuan Travel`
-}
-
-onMounted(updateTitle)
-watch([city, () => t('city.titleSuffix')], updateTitle)
 </script>
 
 <template>

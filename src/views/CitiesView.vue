@@ -1,18 +1,9 @@
 <script setup lang="ts">
-import { onMounted, watchEffect } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useI18n, useTravelContent } from '@/i18n'
 
 const { t } = useI18n()
 const { cities } = useTravelContent()
-onMounted(() => {
-  document.title = `${t('footer.cityGuides')} | Tengxuan Travel`
-})
-watchEffect(() => {
-  if (typeof document === 'undefined') return
-
-  document.title = `${t('footer.cityGuides')} | Tengxuan Travel`
-})
 </script>
 
 <template>

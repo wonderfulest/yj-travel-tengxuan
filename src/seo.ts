@@ -24,7 +24,7 @@ export type SeoMeta = {
 }
 
 export const defaultLocale = 'en'
-export const seoLocales = ['en', 'de', 'fr'] as const
+export const seoLocales = ['en', 'de', 'fr', 'es', 'zh'] as const
 export type SeoLocale = (typeof seoLocales)[number]
 export type UrlLocale = 'en' | 'de' | 'fr' | 'es' | 'zh'
 type JsonLd = Record<string, unknown>
@@ -32,7 +32,9 @@ type JsonLd = Record<string, unknown>
 const localeHtmlLang: Record<SeoLocale, string> = {
   en: 'en',
   de: 'de',
-  fr: 'fr'
+  fr: 'fr',
+  es: 'es',
+  zh: 'zh-CN'
 }
 
 const siteUrl = String(import.meta.env.VITE_SITE_URL || 'https://www.tengxuantrip.com').replace(/\/$/, '')
@@ -140,6 +142,8 @@ export function renderHeadTags(seo: SeoMeta) {
     <meta property="og:type" content="${escapeAttr(seo.type)}" />
     <meta property="og:url" content="${escapeAttr(seo.canonical)}" />
     <meta property="og:image" content="${escapeAttr(seo.image)}" />
+    <meta property="og:site_name" content="Tengxuan Travel" />
+    <meta property="og:locale" content="${escapeAttr(openGraphLocale(seo.htmlLang))}" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeAttr(seo.title)}" />
     <meta name="twitter:description" content="${escapeAttr(seo.description)}" />
@@ -161,6 +165,8 @@ export function applySeoMeta(path: string) {
   setMeta('property', 'og:type', seo.type)
   setMeta('property', 'og:url', seo.canonical)
   setMeta('property', 'og:image', seo.image)
+  setMeta('property', 'og:site_name', 'Tengxuan Travel')
+  setMeta('property', 'og:locale', openGraphLocale(seo.htmlLang))
   setMeta('name', 'twitter:card', 'summary_large_image')
   setMeta('name', 'twitter:title', seo.title)
   setMeta('name', 'twitter:description', seo.description)
@@ -325,64 +331,75 @@ function buildAlternates(contentPath: string) {
 function buildStructuredData(path: string): JsonLd[] {
   if (path === '/404' || path === '/unsubscribe') return []
 
-  const data: JsonLd[] = []
+  const data: JsonLd[] = [buildTravelAgencySchema(), buildWebsiteSchema()]
 
-  if (path === '/' || path === '/company') {
-    data.push(buildTravelAgencySchema())
+  if (path !== '/' && !path.startsWith('/cities/') && !path.startsWith('/attractions/') && !path.startsWith('/products/')) {
+    data.push(buildBreadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: pageLabel(path), path }
+    ]))
   }
 
   if (path === '/faq') {
-    data.push({
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'Are prices final?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text:
-              'Published prices are guide prices. Final quotes depend on date, hotel class, transport inventory, guide language, and group size.'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: 'Can routes be customized?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text:
-              'Yes. Products can be adjusted for arrival city, departure city, hotel standard, pace, dietary needs, and special interests.'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: 'Do tours include shopping stops?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text:
-              'The quoted private products are designed around sightseeing and service delivery. Shopping stops are not used as a price subsidy.'
-          }
-        },
-        {
-          '@type': 'Question',
-          name: 'What should agencies send?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text:
-              'Send market, expected group size, travel window, target price, hotel level, guide language, and required inclusions.'
-          }
-        }
-      ]
-    })
+    data.push(buildFaqSchema([
+      {
+        question: 'Are prices final?',
+        answer: 'Published prices are guide prices. Final quotes depend on date, hotel class, transport inventory, guide language, and group size.'
+      },
+      {
+        question: 'Can routes be customized?',
+        answer: 'Yes. Products can be adjusted for arrival city, departure city, hotel standard, pace, dietary needs, and special interests.'
+      },
+      {
+        question: 'Do tours include shopping stops?',
+        answer: 'The quoted private products are designed around sightseeing and service delivery. Shopping stops are not used as a price subsidy.'
+      },
+      {
+        question: 'What should agencies send?',
+        answer: 'Send market, expected group size, travel window, target price, hotel level, guide language, and required inclusions.'
+      }
+    ]))
+  }
+
+  if (path === '/visa-entry') {
+    data.push(buildHowToSchema('China visa-free transit and entry planning checklist', [
+      'Confirm traveler nationality, passport validity, and entry purpose against current official rules.',
+      'Check arrival city, departure city, transit cities, and ticketed routing before quoting the route.',
+      'Prepare hotel details, invitation letter needs, and passport copies required for booking.'
+    ]))
+  }
+
+  if (path === '/before-you-go') {
+    data.push(buildHowToSchema('China trip preparation checklist', [
+      'Collect full passport names, passport numbers, rooming needs, dietary needs, and mobility notes.',
+      'Confirm hotels, trains, flights, guide language, attraction tickets, and local contact details.',
+      'Plan payment methods, comfortable walking gear, weather buffers, and final emergency contacts.'
+    ]))
   }
 
   const city = matchDetail(path, '/cities/', cities)
   if (city) {
-    data.push(buildBreadcrumbSchema([
-      { name: 'Home', path: '/' },
-      { name: 'City Guides', path: '/cities' },
-      { name: city.name, path }
-    ]))
+    data.push(
+      buildFaqSchema([
+        {
+          question: `Who is ${city.name} best for?`,
+          answer: `${city.name} works best for ${city.bestFor.join(', ').toLowerCase()} travelers. ${city.signature}`
+        },
+        {
+          question: `How long should travelers stay in ${city.name}?`,
+          answer: `${city.duration} is the usual planning range. ${city.itinerary[0] || city.travelNote}`
+        },
+        {
+          question: `What is the best season for ${city.name}?`,
+          answer: city.season
+        }
+      ]),
+      buildBreadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: 'City Guides', path: '/cities' },
+        { name: city.name, path }
+      ])
+    )
     return data
   }
 
@@ -404,6 +421,20 @@ function buildStructuredData(path: string): JsonLd[] {
         },
         touristType: attraction.facts.find((fact) => fact.label === 'Good for')?.value
       },
+      buildFaqSchema([
+        {
+          question: `Who is ${attraction.name} best for?`,
+          answer: attraction.facts.find((fact) => fact.label === 'Good for')?.value || attraction.intro
+        },
+        {
+          question: `How long does ${attraction.name} need?`,
+          answer: attraction.facts.find((fact) => fact.label === 'Best pace')?.value || attraction.visitFlow[0]
+        },
+        {
+          question: `What is the best way to visit ${attraction.name}?`,
+          answer: attraction.visitFlow[0]
+        }
+      ]),
       buildBreadcrumbSchema([
         { name: 'Home', path: '/' },
         { name: 'Attractions', path: '/attractions' },
@@ -424,6 +455,15 @@ function buildStructuredData(path: string): JsonLd[] {
         description: product.summary,
         image: absoluteAssetUrl(product.heroImage),
         url: absoluteUrl(path),
+        duration: product.duration,
+        touristType: product.facts.find((fact) => fact.label === 'Best for')?.value,
+        offers: product.prices.map((price) => ({
+          '@type': 'Offer',
+          name: price.group,
+          description: `${price.price}. ${price.basis}`,
+          availability: 'https://schema.org/InStock',
+          url: absoluteUrl(path)
+        })),
         itinerary: product.days.map((day) => ({
           '@type': 'ItemList',
           name: `${day.day}: ${day.title}`,
@@ -438,6 +478,23 @@ function buildStructuredData(path: string): JsonLd[] {
           '@id': `${siteUrl}/#travelagency`
         }
       },
+      buildFaqSchema([
+        {
+          question: 'What group type is this product suitable for?',
+          answer:
+            product.facts.find((fact) => fact.label === 'Best for')?.value ||
+            'Private groups, families, MICE add-ons, and agency groups.'
+        },
+        {
+          question: 'What is included?',
+          answer: product.inclusions.join(' ')
+        },
+        {
+          question: 'What information is needed for a quote?',
+          answer:
+            'Send travel dates, arrival and departure cities, group size, hotel level, guide language, rooming list, and must-see places for a confirmed quotation.'
+        }
+      ]),
       buildBreadcrumbSchema([
         { name: 'Home', path: '/' },
         { name: 'Products', path: '/#trips' },
@@ -452,7 +509,7 @@ function buildStructuredData(path: string): JsonLd[] {
 function buildTravelAgencySchema(): JsonLd {
   return {
     '@context': 'https://schema.org',
-    '@type': 'TravelAgency',
+    '@type': ['Organization', 'TravelAgency'],
     '@id': `${siteUrl}/#travelagency`,
     name: 'Tengxuan Travel Group',
     alternateName: 'Tengxuan Travel',
@@ -460,14 +517,68 @@ function buildTravelAgencySchema(): JsonLd {
     image: absoluteAssetUrl(companyDetail.photoSlots[0]?.image || defaultImage),
     foundingDate: '2001',
     email: 'support@tengxuan.com',
+    identifier: [
+      {
+        '@type': 'PropertyValue',
+        name: 'NEEQ securities code',
+        value: '833741'
+      }
+    ],
+    numberOfEmployees: {
+      '@type': 'QuantitativeValue',
+      value: 546
+    },
     address: {
       '@type': 'PostalAddress',
+      streetAddress: '北京市东城区南竹杆胡同2号1幢5层50519',
       addressLocality: 'Beijing',
       addressCountry: 'CN'
     },
     areaServed: ['China', 'Global inbound travel markets'],
     description: companyDetail.heroSummary,
     sameAs: ['https://www.tengxuantrip.com/company']
+  }
+}
+
+function buildWebsiteSchema(): JsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${siteUrl}/#website`,
+    name: 'Tengxuan Travel',
+    url: siteUrl,
+    publisher: {
+      '@id': `${siteUrl}/#travelagency`
+    },
+    inLanguage: seoLocales.map((locale) => localeHtmlLang[locale])
+  }
+}
+
+function buildFaqSchema(items: Array<{ question: string; answer: string }>): JsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer
+      }
+    }))
+  }
+}
+
+function buildHowToSchema(name: string, steps: string[]): JsonLd {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name,
+    step: steps.map((text, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      text
+    }))
   }
 }
 
@@ -482,6 +593,18 @@ function buildBreadcrumbSchema(items: Array<{ name: string; path: string }>): Js
       item: absoluteUrl(item.path)
     }))
   }
+}
+
+function pageLabel(path: string) {
+  const staticPage = staticSeo[path]
+  if (staticPage) return staticPage.title
+  return path
+    .split('/')
+    .filter(Boolean)
+    .slice(-1)[0]
+    ?.split('-')
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ') || 'Tengxuan Travel'
 }
 
 function hasLocalePrefix(path: string) {
@@ -501,6 +624,12 @@ function absoluteUrl(path: string) {
 function absoluteAssetUrl(asset: string) {
   if (/^https?:\/\//.test(asset)) return asset
   return `${siteUrl}${asset.startsWith('/') ? asset : `/${asset}`}`
+}
+
+function openGraphLocale(htmlLang: string) {
+  if (htmlLang === 'zh-CN') return 'zh_CN'
+  if (htmlLang === 'en') return 'en_US'
+  return htmlLang.replace('-', '_')
 }
 
 function renderJsonLdScript(jsonLd: JsonLd) {

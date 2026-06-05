@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useI18n } from '@/i18n'
 
@@ -18,16 +17,6 @@ const props = defineProps<{
   ctaLabel?: string
 }>()
 const { t } = useI18n()
-
-onMounted(() => {
-  document.title = `${props.title} | Tengxuan Travel`
-
-  const description =
-    document.querySelector<HTMLMetaElement>('meta[name="description"]') ||
-    document.head.appendChild(document.createElement('meta'))
-  description.name = 'description'
-  description.content = props.summary
-})
 </script>
 
 <template>

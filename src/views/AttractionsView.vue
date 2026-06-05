@@ -1,16 +1,9 @@
 <script setup lang="ts">
-import { watchEffect } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useI18n, useTravelContent } from '@/i18n'
 
 const { t } = useI18n()
 const { attractionDetails } = useTravelContent()
-
-watchEffect(() => {
-  if (typeof document === 'undefined') return
-
-  document.title = `${t('attraction.title')} | Tengxuan Travel`
-})
 </script>
 
 <template>

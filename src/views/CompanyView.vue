@@ -1,22 +1,9 @@
 <script setup lang="ts">
-import { watchEffect } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useI18n, useTravelContent } from '@/i18n'
 
 const { t } = useI18n()
 const { companyDetail: company } = useTravelContent()
-
-watchEffect(() => {
-  if (typeof document === 'undefined') return
-
-  document.title = `${t('footer.companyProfile')} | Tengxuan Travel Group`
-
-  const description =
-    document.querySelector<HTMLMetaElement>('meta[name="description"]') ||
-    document.head.appendChild(document.createElement('meta'))
-  description.name = 'description'
-  description.content = t('company.metaDescription')
-})
 </script>
 
 <template>
