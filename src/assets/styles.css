@@ -1630,8 +1630,8 @@ button:disabled {
   margin: 0 auto;
   padding: 54px 0;
   display: grid;
-  grid-template-columns: minmax(220px, 1.2fr) minmax(140px, 0.62fr) minmax(140px, 0.58fr) minmax(150px, 0.58fr) minmax(280px, 1.1fr);
-  gap: 26px;
+  grid-template-columns: minmax(190px, 0.95fr) minmax(104px, 0.4fr) minmax(104px, 0.38fr) minmax(112px, 0.4fr) minmax(430px, 1.9fr);
+  gap: 22px;
 }
 
 .footer-brand .brand-logo-cn,
@@ -1666,12 +1666,13 @@ button:disabled {
 .newsletter div {
   display: flex;
   gap: 8px;
+  width: 100%;
 }
 
 .newsletter input {
   min-width: 0;
   min-height: 44px;
-  flex: 1;
+  flex: 1 1 300px;
   padding: 0 12px;
   border: 1px solid rgba(255, 255, 255, 0.26);
   border-radius: var(--radius);
@@ -1684,7 +1685,8 @@ button:disabled {
 }
 
 .newsletter div button {
-  min-width: 148px;
+  min-width: 136px;
+  flex: 0 0 auto;
   padding: 0 20px;
   border: 1px solid white;
   background: white;
@@ -3255,6 +3257,10 @@ button:disabled {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .newsletter {
+    grid-column: 1 / -1;
+  }
+
   .info-content,
   .contact-content {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -3692,6 +3698,12 @@ button:disabled {
 
   .newsletter div {
     flex-direction: column;
+  }
+
+  .newsletter input,
+  .newsletter div button {
+    width: 100%;
+    flex: 0 0 auto;
   }
 
   .subscription-page {

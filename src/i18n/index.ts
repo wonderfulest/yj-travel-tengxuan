@@ -1511,7 +1511,24 @@ const cityTranslations: Partial<Record<Locale, Record<string, Partial<City>>>> =
     suzhou: { name: '苏州', region: '华东', summary: '古典园林、运河、丝绸文化和精致一日游。', duration: '1-2天' },
     guangzhou: { name: '广州', region: '华南', summary: '粤菜、商贸文化、珠江夜景和大湾区连接。', duration: '1-3天' },
     shenzhen: { name: '深圳', region: '华南', summary: '现代设计、科技城区、主题乐园和香港连接。', duration: '1-3天' },
-    chongqing: { name: '重庆', region: '西南', summary: '山城街巷、火锅、长江游轮和立体夜景。', duration: '2-3天' },
+    chongqing: {
+      name: '重庆',
+      region: '西南',
+      summary: '山城街巷、火锅、长江游轮和立体夜景。',
+      duration: '2-3天',
+      alt: '江对岸视角下的重庆夜景天际线',
+      signature: '重庆是一座层次丰富的山城，轨道交通、夜景、火锅、过江体验和长江游轮出发本身就构成旅行亮点。',
+      bestFor: ['夜景', '火锅', '长江线路'],
+      highlights: ['洪崖洞片区', '李子坝轻轨', '磁器口古镇', '长江游轮码头'],
+      itinerary: [
+        '第1天：山城观景点、江边夜景和火锅。',
+        '第2天：古镇漫步、城市交通景观，以及博物馆或洞穴延伸。',
+        '第3天：开启长江游轮，或继续前往成都/张家界。'
+      ],
+      travelNote: '地图上的距离看起来很近，实际常有坡道和高差；需要仔细安排接驳并预留缓冲时间。',
+      season: '春秋季最舒适；夏季可能非常炎热。',
+      connections: '高铁紧密连接重庆与成都，也可继续飞往张家界和华东城市。'
+    },
     zhangjiajie: { name: '张家界', region: '华中', summary: '砂岩峰林、玻璃桥、索道和高冲击自然景观。', duration: '2-3天' },
     'hong-kong': { name: '香港', region: '大湾区', summary: '海港天际线、高效交通、海岛徒步、点心和国际航班。', duration: '2-4天' }
   },
@@ -1525,7 +1542,24 @@ const cityTranslations: Partial<Record<Locale, Record<string, Partial<City>>>> =
     suzhou: { name: 'Suzhou', region: 'Ostchina', summary: 'Klassische Gaerten, Kanaele, Seidenkultur und feine Tagesausfluege ab Shanghai.', duration: '1-2 Tage' },
     guangzhou: { name: 'Guangzhou', region: 'Suedchina', summary: 'Kantonesische Kueche, Handelsgeschichte, Flussabende und Bay-Area-Verbindungen.', duration: '1-3 Tage' },
     shenzhen: { name: 'Shenzhen', region: 'Suedchina', summary: 'Modernes Design, Technologieviertel, Themenparks und Hongkong-Anbindung.', duration: '1-3 Tage' },
-    chongqing: { name: 'Chongqing', region: 'Suedwestchina', summary: 'Bergstadt-Strassen, Hotpot, Jangtse-Kreuzfahrten und dramatische Nachtblicke.', duration: '2-3 Tage' },
+    chongqing: {
+      name: 'Chongqing',
+      region: 'Suedwestchina',
+      summary: 'Bergstadt-Strassen, Hotpot, Jangtse-Kreuzfahrten und dramatische Nachtblicke.',
+      duration: '2-3 Tage',
+      alt: 'Chongqing-Skyline bei Nacht ueber dem Fluss',
+      signature: 'Chongqing ist eine vielschichtige Bergstadt, in der Nahverkehr, Nachtblicke, Hotpot, Flussueberquerungen und Jangtse-Kreuzfahrtstarts selbst zu Reiseerlebnissen werden.',
+      bestFor: ['Nachtblicke', 'Hotpot', 'Jangtse-Routen'],
+      highlights: ['Hongya-Cave-Viertel', 'Liziba-Monorail', 'Altstadt Ciqikou', 'Jangtse-Kreuzfahrtpier'],
+      itinerary: [
+        'Tag 1: Aussichtspunkte der Bergstadt, Abend am Fluss und Hotpot.',
+        'Tag 2: Altstadtspaziergang, urbane Verkehrsmotive und Museum oder Hoehlen-Erweiterung.',
+        'Tag 3: Start einer Jangtse-Kreuzfahrt oder Weiterreise nach Chengdu/Zhangjiajie.'
+      ],
+      travelNote: 'Entfernungen wirken auf der Karte kurz, sind aber durch Steigungen oft laenger; Transfers sorgfaeltig planen und Puffer lassen.',
+      season: 'Fruehling und Herbst sind am einfachsten; der Sommer kann sehr heiss sein.',
+      connections: 'Schnellzuege verbinden Chongqing eng mit Chengdu, mit Weiterfluegen nach Zhangjiajie und Ostchina.'
+    },
     zhangjiajie: { name: 'Zhangjiajie', region: 'Zentralchina', summary: 'Sandsteinpfeiler, Glasbruecken, Seilbahnen und intensive Naturtage.', duration: '2-3 Tage' },
     'hong-kong': { name: 'Hongkong', region: 'Greater Bay Area', summary: 'Hafensilhouette, effizienter Nahverkehr, Inselwanderungen, Dim Sum und globale Fluege.', duration: '2-4 Tage' }
   },
@@ -1539,7 +1573,24 @@ const cityTranslations: Partial<Record<Locale, Record<string, Partial<City>>>> =
     suzhou: { name: 'Suzhou', region: 'Chine de l Est', summary: 'Jardins classiques, canaux, soie et excursion raffinee depuis Shanghai.', duration: '1-2 jours' },
     guangzhou: { name: 'Guangzhou', region: 'Chine du Sud', summary: 'Cuisine cantonaise, culture commerciale, soirees sur la riviere et liens Greater Bay.', duration: '1-3 jours' },
     shenzhen: { name: 'Shenzhen', region: 'Chine du Sud', summary: 'Design moderne, quartiers tech, parcs a theme et connexions Hong Kong.', duration: '1-3 jours' },
-    chongqing: { name: 'Chongqing', region: 'Sud-ouest de la Chine', summary: 'Rues de ville montagne, fondue hotpot, croisieres Yangtze et vues nocturnes.', duration: '2-3 jours' },
+    chongqing: {
+      name: 'Chongqing',
+      region: 'Sud-ouest de la Chine',
+      summary: 'Rues de ville montagne, fondue hotpot, croisieres Yangtze et vues nocturnes.',
+      duration: '2-3 jours',
+      alt: 'Skyline de Chongqing de nuit vue depuis la riviere',
+      signature: 'Chongqing est une ville montagne en strates, ou metro aerien, vues de nuit, hotpot, traversees de riviere et departs de croisieres Yangtze deviennent des temps forts.',
+      bestFor: ['Vues nocturnes', 'Hotpot', 'Routes Yangtze'],
+      highlights: ['Quartier Hongya Cave', 'Monorail Liziba', 'Vieille ville Ciqikou', 'Embarcadere des croisieres Yangtze'],
+      itinerary: [
+        'Jour 1: Points de vue de la ville montagne, soiree au bord du fleuve et hotpot.',
+        'Jour 2: Balade vieille ville, scenes de transport urbain et musee ou extension grotte.',
+        'Jour 3: Depart en croisiere Yangtze ou continuation vers Chengdu/Zhangjiajie.'
+      ],
+      travelNote: 'Les distances semblent courtes sur la carte mais les pentes comptent; planifier les transferts avec soin et garder du temps tampon.',
+      season: 'Le printemps et l automne sont les plus faciles; l ete peut etre tres chaud.',
+      connections: 'Le train rapide relie Chongqing a Chengdu, avec des vols vers Zhangjiajie et l est de la Chine.'
+    },
     zhangjiajie: { name: 'Zhangjiajie', region: 'Chine centrale', summary: 'Piliers de gres, ponts de verre, telepheriques et nature spectaculaire.', duration: '2-3 jours' },
     'hong-kong': { name: 'Hong Kong', region: 'Greater Bay Area', summary: 'Skyline portuaire, transport efficace, randonnees, dim sum et vols mondiaux.', duration: '2-4 jours' }
   },
@@ -1553,7 +1604,24 @@ const cityTranslations: Partial<Record<Locale, Record<string, Partial<City>>>> =
     suzhou: { name: 'Suzhou', region: 'Este de China', summary: 'Jardines clasicos, canales, seda y excursion refinada desde Shanghai.', duration: '1-2 dias' },
     guangzhou: { name: 'Guangzhou', region: 'Sur de China', summary: 'Comida cantonesa, cultura comercial, noches junto al rio y conexiones de la Bahia.', duration: '1-3 dias' },
     shenzhen: { name: 'Shenzhen', region: 'Sur de China', summary: 'Diseno moderno, distritos tecnologicos, parques tematicos y conexion con Hong Kong.', duration: '1-3 dias' },
-    chongqing: { name: 'Chongqing', region: 'Suroeste de China', summary: 'Calles de ciudad montana, hotpot, cruceros Yangtze y vistas nocturnas.', duration: '2-3 dias' },
+    chongqing: {
+      name: 'Chongqing',
+      region: 'Suroeste de China',
+      summary: 'Calles de ciudad montana, hotpot, cruceros Yangtze y vistas nocturnas.',
+      duration: '2-3 dias',
+      alt: 'Skyline nocturno de Chongqing visto desde el rio',
+      signature: 'Chongqing es una ciudad montana por capas, donde el transporte, las vistas nocturnas, el hotpot, los cruces de rio y las salidas de cruceros Yangtze son parte central del viaje.',
+      bestFor: ['Vistas nocturnas', 'Hotpot', 'Rutas Yangtze'],
+      highlights: ['Zona de Hongya Cave', 'Monorriel Liziba', 'Casco antiguo Ciqikou', 'Muelle de cruceros Yangtze'],
+      itinerary: [
+        'Dia 1: Miradores de ciudad montana, noche junto al rio y hotpot.',
+        'Dia 2: Paseo por casco antiguo, escenas de transporte urbano y museo o extension de cuevas.',
+        'Dia 3: Iniciar un crucero Yangtze o continuar a Chengdu/Zhangjiajie.'
+      ],
+      travelNote: 'Las distancias parecen cortas en el mapa, pero las pendientes pesan; conviene planificar traslados y dejar margen.',
+      season: 'Primavera y otono son mas faciles; el verano puede ser muy caluroso.',
+      connections: 'El tren rapido une Chongqing con Chengdu, y hay vuelos hacia Zhangjiajie y el este de China.'
+    },
     zhangjiajie: { name: 'Zhangjiajie', region: 'China central', summary: 'Pilares de arenisca, puentes de cristal, telefericos y naturaleza intensa.', duration: '2-3 dias' },
     'hong-kong': { name: 'Hong Kong', region: 'Gran Area de la Bahia', summary: 'Skyline del puerto, transporte eficiente, senderos insulares, dim sum y vuelos globales.', duration: '2-4 dias' }
   }
