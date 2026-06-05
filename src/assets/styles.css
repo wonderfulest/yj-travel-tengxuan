@@ -2798,43 +2798,39 @@ button:disabled {
   background: var(--surface);
 }
 
-.info-hero,
-.contact-hero {
+.info-hero {
   width: min(1380px, calc(100% - 32px));
   margin: 0 auto;
   padding: 58px 0 46px;
 }
 
-.info-hero > div,
-.contact-hero > div {
+.info-hero > div {
   max-width: 900px;
 }
 
 .info-hero h1,
-.contact-hero h1,
 .info-cta h2,
-.contact-grid h2 {
+.contact-card h2 {
   margin: 0;
   letter-spacing: 0;
 }
 
-.info-hero h1,
-.contact-hero h1 {
+.info-hero h1 {
   font-size: clamp(3.1rem, 6.6vw, 7rem);
   line-height: 0.92;
 }
 
 .info-hero > div > p:not(.product-eyebrow),
-.contact-hero > div > p:not(.product-eyebrow),
 .info-panel p,
 .info-panel li,
-.contact-grid p {
+.contact-card li,
+.contact-note p,
+.contact-response-panel p {
   color: var(--muted);
   font-family: "Trebuchet MS", Verdana, sans-serif;
 }
 
-.info-hero > div > p:not(.product-eyebrow),
-.contact-hero > div > p:not(.product-eyebrow) {
+.info-hero > div > p:not(.product-eyebrow) {
   max-width: 720px;
   margin: 24px 0 0;
   font-size: clamp(1.04rem, 1.55vw, 1.24rem);
@@ -2856,22 +2852,19 @@ button:disabled {
 }
 
 .info-content,
-.contact-grid,
 .info-cta {
   width: min(var(--max), calc(100% - 32px));
   margin: 0 auto;
 }
 
-.info-content,
-.contact-grid {
+.info-content {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   padding-bottom: 76px;
 }
 
-.info-panel,
-.contact-grid article {
+.info-panel {
   min-height: 250px;
   padding: 24px;
   border: 1px solid var(--line);
@@ -2887,14 +2880,13 @@ button:disabled {
 }
 
 .info-panel h2,
-.contact-grid h2 {
+.contact-card h2 {
   margin: 0;
   font-size: 1.54rem;
   line-height: 1.14;
 }
 
-.info-panel p,
-.contact-grid p {
+.info-panel p {
   margin: 14px 0 0;
   line-height: 1.56;
 }
@@ -2954,14 +2946,158 @@ button:disabled {
   margin-top: 32px;
 }
 
-.contact-grid span {
+.contact-hero {
+  width: min(1380px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 58px 0 50px;
+  display: grid;
+  grid-template-columns: minmax(320px, 0.84fr) minmax(300px, 0.42fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.contact-hero-copy {
+  align-self: center;
+}
+
+.contact-hero-copy h1 {
+  max-width: 860px;
+  margin: 0;
+  font-size: clamp(3.15rem, 6.6vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+.contact-hero-copy > p:not(.product-eyebrow) {
+  max-width: 690px;
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  font-size: clamp(1.04rem, 1.55vw, 1.24rem);
+  line-height: 1.58;
+}
+
+.contact-response-panel {
+  min-height: 360px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(23, 20, 17, 0.12);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(40, 107, 88, 0.16), transparent 46%),
+    linear-gradient(315deg, rgba(184, 50, 34, 0.12), transparent 40%),
+    var(--soft);
+  box-shadow: 0 18px 54px rgba(23, 20, 17, 0.08);
+}
+
+.contact-response-panel span,
+.contact-note span,
+.contact-card > span {
   display: inline-flex;
-  margin-bottom: 34px;
-  color: var(--jade);
   font-family: "Trebuchet MS", Verdana, sans-serif;
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.contact-response-panel span {
+  color: var(--vermilion);
+}
+
+.contact-response-panel strong {
+  max-width: 360px;
+  margin: 46px 0 22px;
+  font-size: clamp(1.75rem, 3vw, 2.7rem);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+
+.contact-response-panel p {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.contact-content {
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+  padding: 0 0 84px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.contact-card,
+.contact-note {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: white;
+}
+
+.contact-card {
+  grid-column: span 2;
+  min-height: 320px;
+  padding: 28px;
+}
+
+.contact-card--accent {
+  background:
+    linear-gradient(135deg, rgba(40, 107, 88, 0.1), transparent 46%),
+    var(--soft);
+}
+
+.contact-card > span {
+  width: 38px;
+  height: 6px;
+  margin-bottom: 34px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--vermilion), var(--gold), var(--jade));
+}
+
+.contact-card ul {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-card li {
+  position: relative;
+  padding-left: 22px;
+  line-height: 1.55;
+}
+
+.contact-card li + li {
+  margin-top: 12px;
+}
+
+.contact-card li::before {
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--vermilion);
+  content: "";
+}
+
+.contact-note {
+  min-height: 190px;
+  padding: 22px;
+}
+
+.contact-note span {
+  width: 32px;
+  height: 5px;
+  margin-bottom: 32px;
+  border-radius: 999px;
+  background: var(--jade);
+}
+
+.contact-note p {
+  margin: 0;
+  line-height: 1.56;
 }
 
 :focus-visible {
@@ -3120,8 +3256,16 @@ button:disabled {
   }
 
   .info-content,
-  .contact-grid {
+  .contact-content {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-response-panel {
+    min-height: 260px;
   }
 
   .info-panel:first-child {
@@ -3283,7 +3427,7 @@ button:disabled {
   .culture-grid,
   .footer-grid,
   .info-content,
-  .contact-grid {
+  .contact-content {
     grid-template-columns: 1fr;
   }
 
@@ -3523,6 +3667,29 @@ button:disabled {
     padding: 28px;
   }
 
+  .contact-hero,
+  .contact-content {
+    width: min(100% - 24px, var(--max));
+  }
+
+  .contact-hero {
+    padding: 42px 0 34px;
+  }
+
+  .contact-hero-copy h1 {
+    font-size: clamp(2.85rem, 15vw, 4.5rem);
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    padding-bottom: 56px;
+  }
+
+  .contact-card,
+  .contact-note {
+    grid-column: auto;
+  }
+
   .newsletter div {
     flex-direction: column;
   }
@@ -3558,6 +3725,10 @@ button:disabled {
   }
 
   .product-actions {
+    flex-direction: column;
+  }
+
+  .contact-actions {
     flex-direction: column;
   }
 

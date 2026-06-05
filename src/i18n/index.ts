@@ -270,12 +270,23 @@ const messages = {
         eyebrow: 'Contact',
         summary:
           'Send arrival city, travel dates, group size, hotel level, guide language, and any must-see cities. The team can return a route plan and quotation based on current availability.',
+        email: 'support@tengxuan.com',
+        ctaLabel: 'Draft enquiry email',
+        copyLabel: 'The email draft includes a structured quote request so your team can fill only the missing details.',
+        responseLabel: 'Planning desk',
+        responseText: 'Route, hotel, vehicle, guide, and ticket coordination for private China travel.',
+        servicesTitle: 'What we can quote',
+        checklistTitle: 'Best details to include',
+        templateSubject: 'China travel quotation request',
+        templateBody:
+          'Hello Tengxuan Travel team,\n\nI would like to request a China travel quotation.\n\nTravel dates:\nArrival city:\nDeparture city:\nNumber of travelers:\nRooming needs:\nPreferred hotel level:\nGuide language:\nCities or attractions to include:\nBudget range:\nNationality / visa notes:\nDietary or mobility needs:\nAgency or company name:\n\nPlease share a suggested route, service scope, and quotation.\n\nThank you.',
         items: [
-          'Email: support@tengxuan.com',
           "Product quotes: Beijing, Xi'an, Shanghai, Chengdu, Guilin, Zhangjiajie, and custom routes.",
           'Business requests: meetings, interpreters, vehicles, hotels, and invoice support.',
           'Recommended details: dates, travelers, rooming, budget, nationality, and dietary needs.'
-        ]
+        ],
+        services: ['Private city routes and multi-city China itineraries.', 'Hotels, vehicles, guides, tickets, interpreters, and meeting support.', 'Agency group quotes and customized product packaging.'],
+        checklist: ['Travel window, arrival and departure cities, and must-see places.', 'Traveler count, rooming list, hotel level, guide language, and pace.', 'Budget range, nationality, dietary needs, mobility needs, and invoice requirements.']
       },
       faq: {
         title: 'Common planning questions',
@@ -1191,12 +1202,23 @@ const extraPageMessages = {
       eyebrow: 'Kontakt',
       summary:
         'Senden Sie Ankunftsstadt, Reisedaten, Gruppengroesse, Hotelniveau, Guide-Sprache und Wunschstaedte. Das Team erstellt Route und Angebot nach aktueller Verfuegbarkeit.',
+      email: 'support@tengxuan.com',
+      ctaLabel: 'E-Mail-Entwurf starten',
+      copyLabel: 'Der Entwurf enthaelt eine strukturierte Angebotsanfrage, damit nur fehlende Details ergaenzt werden muessen.',
+      responseLabel: 'Planungsteam',
+      responseText: 'Koordination von Route, Hotel, Fahrzeug, Guide und Tickets fuer private China-Reisen.',
+      servicesTitle: 'Was wir anbieten koennen',
+      checklistTitle: 'Hilfreiche Angaben',
+      templateSubject: 'Anfrage fuer China-Reiseangebot',
+      templateBody:
+        'Hallo Tengxuan Travel Team,\n\nich moechte ein Angebot fuer eine China-Reise anfragen.\n\nReisedaten:\nAnkunftsstadt:\nAbreisestadt:\nAnzahl Reisende:\nZimmerbedarf:\nGewuenschtes Hotelniveau:\nGuide-Sprache:\nStaedte oder Sehenswuerdigkeiten:\nBudgetrahmen:\nNationalitaet / Visa-Hinweise:\nErnaehrungs- oder Mobilitaetsbedarf:\nAgentur oder Firma:\n\nBitte senden Sie eine Routenskizze, Leistungsumfang und Angebot.\n\nVielen Dank.',
       items: [
-        'E-Mail: support@tengxuan.com',
         "Produktangebote: Peking, Xi'an, Shanghai, Chengdu, Guilin, Zhangjiajie und individuelle Routen.",
         'Geschaeftsanfragen: Meetings, Dolmetscher, Fahrzeuge, Hotels und Rechnungsunterstuetzung.',
         'Empfohlene Angaben: Daten, Reisende, Zimmer, Budget, Nationalitaet und Ernaehrungswuensche.'
-      ]
+      ],
+      services: ['Private Stadtrouten und mehrtaegige China-Reisen.', 'Hotels, Fahrzeuge, Guides, Tickets, Dolmetscher und Meeting-Support.', 'Gruppenangebote fuer Agenturen und individuelle Produktpakete.'],
+      checklist: ['Reisezeitraum, Ankunft, Abreise und wichtige Orte.', 'Reisende, Zimmer, Hotelniveau, Guide-Sprache und Reisetempo.', 'Budget, Nationalitaet, Ernaehrung, Mobilitaet und Rechnungsbedarf.']
     },
     faq: {
       title: 'Haeufige Planungsfragen',
@@ -1258,12 +1280,23 @@ const extraPageMessages = {
       eyebrow: 'Contact',
       summary:
         'Envoyez ville d arrivee, dates, taille du groupe, niveau hotelier, langue du guide et villes prioritaires. L equipe prepare itineraire et devis selon disponibilite.',
+      email: 'support@tengxuan.com',
+      ctaLabel: 'Preparer un email',
+      copyLabel: 'Le brouillon contient une demande de devis structuree afin de completer seulement les informations manquantes.',
+      responseLabel: 'Equipe de preparation',
+      responseText: 'Coordination itineraire, hotel, vehicule, guide et billets pour voyages prives en Chine.',
+      servicesTitle: 'Ce que nous pouvons deviser',
+      checklistTitle: 'Details utiles',
+      templateSubject: 'Demande de devis voyage Chine',
+      templateBody:
+        'Bonjour equipe Tengxuan Travel,\n\nJe souhaite demander un devis pour un voyage en Chine.\n\nDates de voyage:\nVille d arrivee:\nVille de depart:\nNombre de voyageurs:\nBesoins chambres:\nNiveau hotelier souhaite:\nLangue du guide:\nVilles ou sites a inclure:\nBudget indicatif:\nNationalite / notes visa:\nBesoins alimentaires ou mobilite:\nAgence ou societe:\n\nMerci de partager une proposition d itineraire, le perimetre des services et le devis.\n\nCordialement.',
       items: [
-        'Email: support@tengxuan.com',
         "Devis produits: Pekin, Xi'an, Shanghai, Chengdu, Guilin, Zhangjiajie et routes sur mesure.",
         'Demandes business: reunions, interpretes, vehicules, hotels et facturation.',
         'Details recommandes: dates, voyageurs, chambres, budget, nationalite et besoins alimentaires.'
-      ]
+      ],
+      services: ['Itineraires prives par ville et circuits Chine multi-villes.', 'Hotels, vehicules, guides, billets, interpretes et support reunions.', 'Devis groupes agences et packaging produit sur mesure.'],
+      checklist: ['Periode, arrivee, depart et sites prioritaires.', 'Nombre de voyageurs, chambres, hotel, langue du guide et rythme.', 'Budget, nationalite, repas, mobilite et besoins de facturation.']
     },
     faq: {
       title: 'Questions frequentes de preparation',
@@ -1325,12 +1358,23 @@ const extraPageMessages = {
       eyebrow: 'Contacto',
       summary:
         'Envie ciudad de llegada, fechas, tamano del grupo, nivel de hotel, idioma del guia y ciudades obligatorias. El equipo prepara ruta y cotizacion segun disponibilidad.',
+      email: 'support@tengxuan.com',
+      ctaLabel: 'Preparar email',
+      copyLabel: 'El borrador incluye una solicitud de cotizacion estructurada para completar solo los datos faltantes.',
+      responseLabel: 'Equipo de planificacion',
+      responseText: 'Coordinacion de ruta, hotel, vehiculo, guia y entradas para viajes privados en China.',
+      servicesTitle: 'Que podemos cotizar',
+      checklistTitle: 'Datos recomendados',
+      templateSubject: 'Solicitud de cotizacion de viaje a China',
+      templateBody:
+        'Hola equipo de Tengxuan Travel,\n\nQuisiera solicitar una cotizacion para un viaje a China.\n\nFechas de viaje:\nCiudad de llegada:\nCiudad de salida:\nNumero de viajeros:\nNecesidades de habitaciones:\nNivel de hotel preferido:\nIdioma del guia:\nCiudades o atracciones a incluir:\nRango de presupuesto:\nNacionalidad / notas de visa:\nNecesidades alimentarias o movilidad:\nAgencia o empresa:\n\nPor favor compartan una ruta sugerida, alcance del servicio y cotizacion.\n\nGracias.',
       items: [
-        'Email: support@tengxuan.com',
         "Cotizaciones: Pekin, Xi'an, Shanghai, Chengdu, Guilin, Zhangjiajie y rutas a medida.",
         'Solicitudes de negocio: reuniones, interpretes, vehiculos, hoteles y soporte de factura.',
         'Datos recomendados: fechas, viajeros, habitaciones, presupuesto, nacionalidad y dieta.'
-      ]
+      ],
+      services: ['Rutas privadas por ciudad e itinerarios multi-ciudad en China.', 'Hoteles, vehiculos, guias, entradas, interpretes y soporte para reuniones.', 'Cotizaciones de grupos para agencias y productos personalizados.'],
+      checklist: ['Ventana de viaje, llegada, salida y lugares imprescindibles.', 'Viajeros, habitaciones, hotel, idioma del guia y ritmo.', 'Presupuesto, nacionalidad, dieta, movilidad y factura.']
     },
     faq: {
       title: 'Preguntas comunes de planificacion',
@@ -1391,7 +1435,19 @@ const extraPageMessages = {
       title: '联系中国旅行顾问',
       eyebrow: '联系我们',
       summary: '请发送抵达城市、旅行日期、团队人数、酒店等级、导游语言和必去城市。团队会基于当前资源返回线路方案和报价。',
-      items: ['邮箱：support@tengxuan.com', '产品报价：北京、西安、上海、成都、桂林、张家界及定制线路。', '商务需求：会议、翻译、车辆、酒店和发票支持。', '建议提供：日期、人数、分房、预算、国籍和饮食需求。']
+      email: 'support@tengxuan.com',
+      ctaLabel: '起草询价邮件',
+      copyLabel: '点击后会打开你的邮件客户端，并预填一份结构化询价模板。',
+      responseLabel: '规划团队',
+      responseText: '可协调中国私家线路的行程、酒店、车辆、导游、门票和商务支持。',
+      servicesTitle: '可支持的需求',
+      checklistTitle: '建议写进邮件',
+      templateSubject: '中国旅行线路与报价咨询',
+      templateBody:
+        '腾轩旅行团队您好：\n\n我想咨询一份中国旅行线路与报价。\n\n出行日期：\n抵达城市：\n离境城市：\n出行人数：\n分房需求：\n酒店等级：\n导游语言：\n希望包含的城市或景点：\n预算范围：\n国籍 / 签证说明：\n饮食或行动便利需求：\n旅行社或公司名称：\n\n请协助提供建议线路、服务范围和报价。\n\n谢谢。',
+      items: ['产品报价：北京、西安、上海、成都、桂林、张家界及定制线路。', '商务需求：会议、翻译、车辆、酒店和发票支持。', '建议提供：日期、人数、分房、预算、国籍和饮食需求。'],
+      services: ['中国城市私家线路与多城市连线行程。', '酒店、车辆、导游、门票、翻译、会议和发票支持。', '面向旅行社的团队报价和定制产品包装。'],
+      checklist: ['出行窗口、抵达/离境城市、必去城市或景点。', '人数、分房、酒店等级、导游语言和旅行节奏。', '预算、国籍、饮食、行动便利和商务开票需求。']
     },
     faq: {
       title: '常见规划问题',
