@@ -1587,7 +1587,8 @@ button:disabled {
 }
 
 .trip-card.featured img {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 2.35 / 1;
+  height: auto;
   object-fit: cover;
 }
 
@@ -3469,6 +3470,10 @@ button:disabled {
 
   .text-link {
     margin-top: 18px;
+  }
+
+  .trip-card.featured img {
+    aspect-ratio: 16 / 9;
   }
 
   .city-grid,
