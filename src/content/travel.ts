@@ -812,8 +812,8 @@ export const cities: City[] = [
     region: 'East China',
     summary: 'Art deco streets, skyline views, design hotels, and fast onward rail links.',
     duration: '2-4 days',
-    image: images.shanghaiBundNight,
-    alt: 'Shanghai Bund skyline at night along the Huangpu River',
+    image: images.shanghai,
+    alt: 'Shanghai city skyline',
     signature:
       'Shanghai works as China’s most convenient urban gateway: polished hotels, English-friendly services, riverfront architecture, and quick day trips by train.',
     story: [
@@ -1952,74 +1952,42 @@ export const attractionBySlug = Object.fromEntries(
 
 export const trips: Trip[] = [
   {
-    name: 'Beijing-Xi’an-Shanghai',
-    summary:
-      '8-day heritage route with Beijing, high-speed rail to Xi’an, Shanghai city touring, English-speaking guides, and 4-star hotels.',
-    meta: '8 days · From USD 892',
-    productSlug: 'beijing-xian-shanghai',
-    image: images.greatWall,
-    alt: 'Great Wall landscape for the Beijing Xi’an Shanghai route',
-    facts: [
-      { label: 'Length', value: '8 days' },
-      { label: 'Route', value: 'BJS-XIY-SHA' },
-      { label: 'From', value: 'USD 892' }
-    ]
-  },
-  {
-    name: 'Classic First-Time China Tour',
-    summary: "Beijing, Xi'an, Guilin, and Shanghai with private guides and rail or flight planning.",
-    meta: '10 days · From USD 2,380',
+    name: '4 Days Beijing Tour with Mutianyu Great Wall',
+    summary: 'Beijing arrival, palace highlights, Mutianyu Great Wall, Temple of Heaven, hutongs, and departure transfer.',
+    meta: '4 days · TXBJ0402',
     featured: true,
-    productSlug: 'classic-first-time-china',
+    productSlug: 'tx-beijing-mutianyu-4-day',
     image: images.greatWall,
-    alt: 'Great Wall landscape for a classic China route',
+    alt: 'Great Wall landscape near Beijing',
     facts: [
-      { label: 'Length', value: '10 days' },
-      { label: 'Style', value: 'Private' },
-      { label: 'From', value: 'USD 2,380' }
+      { label: 'Length', value: '4 days' },
+      { label: 'Route', value: 'Beijing' },
+      { label: 'Code', value: 'TXBJ0402' }
     ]
   },
   {
-    name: "Beijing + Xi'an Heritage Tour",
-    summary: 'Great Wall, Forbidden City, hutongs, high-speed rail, and Terracotta Army.',
-    meta: '6 days · From USD 1,420',
-    productSlug: 'beijing-xian-heritage'
+    name: '1 Day Jinshanling Great Wall Hiking Tour',
+    summary: 'A focused Beijing day tour for the Jinshanling Great Wall hiking route with private guide and land transfer.',
+    meta: '1 day · TXBJ0102',
+    productSlug: 'tx-jinshanling-hiking-1-day'
   },
   {
-    name: 'Shanghai City Break',
-    summary: 'Architecture walks, food tours, museums, Suzhou or Hangzhou side trips.',
-    meta: '5 days · From CNY 3,299',
-    productSlug: 'shanghai-discovery'
+    name: '72 Hours Visa-Free Beijing Highlights Tour',
+    summary: 'A short Beijing stopover route built around arrival transfer, imperial sights, Great Wall touring, and onward departure.',
+    meta: '3 days · TXBJ0301',
+    productSlug: 'tx-beijing-visa-free-3-day'
   },
   {
-    name: 'Chengdu Panda & Food Tour',
-    summary: 'Panda base, teahouse culture, hotpot, Leshan Buddha, and relaxed pacing.',
-    meta: '10 days · From CNY 4,780',
-    productSlug: 'chengdu-chongqing-zhangjiajie'
+    name: '4 Days Beijing Tour with Juyongguan Great Wall',
+    summary: 'A compact Beijing city package with Tiananmen, Forbidden City, Summer Palace, Temple of Heaven, Juyongguan, and hutongs.',
+    meta: '4 days · TXBJ0401',
+    productSlug: 'tx-beijing-juyongguan-4-day'
   },
   {
-    name: 'Guilin Landscape Escape',
-    summary: 'Li River cruise, Yangshuo countryside, easy cycling, and boutique stays.',
-    meta: '5 days · From USD 1,280',
-    productSlug: 'guilin-yangshuo-landscape'
-  },
-  {
-    name: 'Zhangjiajie Nature Adventure',
-    summary: 'National forest park, glass bridge, cableways, and scenic transfer planning.',
-    meta: '9 days · From USD 2,370',
-    productSlug: 'beijing-zhangjiajie-shanghai'
-  },
-  {
-    name: 'Business + Leisure Custom Trip',
-    summary: 'Meetings, interpreters, city transfers, short cultural add-ons, and invoices.',
-    meta: 'Flexible · Custom quote',
-    productSlug: 'business-leisure-custom'
-  },
-  {
-    name: 'Private Family Tour',
-    summary: 'Kid-friendly guides, sensible hotel locations, slower days, and food support.',
-    meta: '8-12 days · Custom quote',
-    productSlug: 'private-family-china'
+    name: '11 Days Best of China Tour',
+    summary: "Beijing, Xi'an, Guilin/Yangshuo, and Shanghai in a classic China headline route.",
+    meta: '11 days · TXGBC11',
+    productSlug: 'tx-best-of-china-11-day'
   }
 ]
 
@@ -2277,1361 +2245,535 @@ const productGallery = {
   ]
 }
 
-type CityProductSeed = {
-  slug: string
-  name: string
-  eyebrow: string
-  duration: string
-  route: string
-  city: string
-  heroImage: string
-  heroAlt: string
-  summary: string
-  galleryTitle: string
-  quoteSubject: string
-  sourceNote: string
-  highlights: string[]
-  bestFor: string
-  transport: string
-  price: string
-  dayTitles: string[]
-  daySummaries?: string[]
-  daySights: string[][]
-  dayNotes?: string[]
-  dayMeals?: string[]
+const bestOfChina11DayProduct: TourProduct = {
+  slug: 'best-of-china-11-day',
+  name: '11-Day Best of China',
+  eyebrow: '11-day headline China route',
+  duration: '11 days / 10 nights',
+  route: 'Beijing · Xi’an · Guilin · Shanghai',
+  destinations: ['Beijing', 'Xi’an', 'Guilin', 'Yangshuo', 'Shanghai'],
+  heroImage: guilinRiverPanoramaImage,
+  heroAlt: 'Li River bend and karst peaks near Guilin at sunrise',
+  summary:
+    'A longer classic route for travelers who want the most recognizable China highlights: Beijing, Xi’an, Guilin and Yangshuo scenery, and Shanghai.',
+  galleryTitle: 'Great Wall, Terracotta Warriors, Li River landscapes, and Shanghai skyline.',
+  quoteSubject: '11-Day Best of China quote',
+  sourceNote:
+    'Benchmarked against the referenced ChinaTour 11-day Best of China public route concept; final operation, pricing, and service scope are controlled by Tengxuan quotation.',
+  highlights: [
+    'Give Beijing three nights so the Great Wall, Forbidden City, hutongs, and Temple of Heaven do not feel rushed.',
+    'Use Xi’an for the Terracotta Warriors, city wall, and Tang or Muslim Quarter evening texture.',
+    'Add Guilin and Yangshuo as the landscape break before the Shanghai finish.',
+    'Suitable for first-time leisure travelers, family groups, and agency products needing a recognizable multi-city China route.'
+  ],
+  facts: [
+    { label: 'Starts', value: 'Beijing' },
+    { label: 'Ends', value: 'Shanghai' },
+    { label: 'Hotels', value: '4-star or 5-star options' },
+    { label: 'Guide', value: 'Private local guides' },
+    { label: 'Transport', value: 'Rail + domestic flight' },
+    { label: 'Best for', value: 'First-time classic China groups' }
+  ],
+  gallery: [
+    productGallery.classic[0],
+    productGallery.classic[1],
+    productGallery.classic[2],
+    productGallery.classic[3],
+    {
+      title: 'Li River Cruise',
+      city: 'Guilin',
+      image: guilinRiverCruiseImage,
+      alt: 'Li River cruising scene with karst mountains and small boats'
+    }
+  ],
+  days: [
+    {
+      day: 'Day 1',
+      city: 'Beijing',
+      meals: '- / - / -',
+      title: 'Arrival in Beijing',
+      summary: 'Meet the guide, transfer to the hotel, and keep the evening open for rest or a light neighborhood walk.',
+      sights: ['Airport pickup', 'Hotel check-in']
+    },
+    {
+      day: 'Day 2',
+      city: 'Beijing',
+      meals: 'B / L / -',
+      title: 'Forbidden City and hutongs',
+      summary: 'Visit Tiananmen Square, the Forbidden City, Jingshan, and hutongs to frame Beijing’s imperial and neighborhood layers.',
+      sights: ['Tiananmen Square', 'Forbidden City', 'Jingshan Park', 'Hutong walk']
+    },
+    {
+      day: 'Day 3',
+      city: 'Beijing',
+      meals: 'B / L / -',
+      title: 'Great Wall and imperial garden',
+      summary: 'Tour the Great Wall, then use the afternoon for Summer Palace, Temple of Heaven, or a seasonal Beijing garden plan.',
+      sights: ['Great Wall', 'Summer Palace option', 'Temple of Heaven option']
+    },
+    {
+      day: 'Day 4',
+      city: 'Beijing to Xi’an',
+      meals: 'B / - / -',
+      title: 'Train to Xi’an and city wall',
+      summary: 'Take high-speed rail to Xi’an and begin with the Ancient City Wall, Bell and Drum Tower area, or Muslim Quarter.',
+      sights: ['High-speed rail', 'Ancient City Wall', 'Muslim Quarter']
+    },
+    {
+      day: 'Day 5',
+      city: 'Xi’an',
+      meals: 'B / L / -',
+      title: 'Terracotta Warriors and Tang city',
+      summary: 'Visit the Terracotta Warriors with enough interpretation time, then add Big Wild Goose Pagoda or Great Tang All Day Mall.',
+      sights: ['Terracotta Warriors', 'Big Wild Goose Pagoda', 'Great Tang All Day Mall option']
+    },
+    {
+      day: 'Day 6',
+      city: 'Xi’an to Guilin',
+      meals: 'B / - / -',
+      title: 'Fly to Guilin',
+      summary: 'Fly to Guilin and keep the arrival chapter light with a riverside walk, cave visit, or simple dinner arrangement.',
+      sights: ['Domestic flight', 'Riverside walk', 'Reed Flute Cave option']
+    },
+    {
+      day: 'Day 7',
+      city: 'Guilin to Yangshuo',
+      meals: 'B / L / -',
+      title: 'Li River cruise',
+      summary: 'Cruise the Li River to Yangshuo and use the afternoon for countryside scenery, village roads, or a relaxed old-town evening.',
+      sights: ['Li River cruise', 'Yangshuo countryside', 'Old-town walk']
+    },
+    {
+      day: 'Day 8',
+      city: 'Yangshuo or Guilin',
+      meals: 'B / L / -',
+      title: 'Countryside or rice-terrace extension',
+      summary: 'Add light cycling, buggy touring, cooking class, or Longji rice terraces according to season and mobility.',
+      sights: ['Yangshuo countryside', 'Cooking class option', 'Longji option']
+    },
+    {
+      day: 'Day 9',
+      city: 'Guilin to Shanghai',
+      meals: 'B / - / -',
+      title: 'Fly to Shanghai',
+      summary: 'Transfer to Shanghai and reserve the evening for the Bund, Nanjing Road, or a Huangpu River option.',
+      sights: ['Domestic flight', 'The Bund', 'Nanjing Road']
+    },
+    {
+      day: 'Day 10',
+      city: 'Shanghai',
+      meals: 'B / L / -',
+      title: 'Old and new Shanghai',
+      summary: 'Visit Yu Garden, the old quarter, Shanghai Museum or French Concession, then finish with skyline views.',
+      sights: ['Yu Garden', 'Old quarter', 'Shanghai Museum option', 'Pudong skyline']
+    },
+    {
+      day: 'Day 11',
+      city: 'Shanghai',
+      meals: 'B / - / -',
+      title: 'Departure',
+      summary: 'Private transfer to the airport for international departure.',
+      sights: ['Airport transfer']
+    }
+  ],
+  hotels: [
+    { city: 'Beijing', hotel: 'Central Beijing 4-star or 5-star option' },
+    { city: 'Xi’an', hotel: 'Xi’an city-center or rail-access hotel by quote' },
+    { city: 'Guilin/Yangshuo', hotel: 'Guilin 4-star and Yangshuo boutique option by quote' },
+    { city: 'Shanghai', hotel: 'Central Shanghai 4-star or 5-star option' }
+  ],
+  prices: [
+    { group: 'Private 2 pax', price: 'Custom quote', basis: 'Depends on hotel level, domestic flights, guide language, and season' },
+    { group: 'Private 4-6 pax', price: 'On request', basis: 'Per person, double/twin share after final transport plan' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from group size, rooming, market, and inclusion scope' }
+  ],
+  inclusions: [
+    '10 nights’ accommodation with daily breakfast by selected hotel tier',
+    'Private local guides and vehicles on listed touring days',
+    'First gate entrance fees for listed core sights by final quote',
+    'Second-class rail Beijing-Xi’an and economy domestic flights by final plan',
+    'Li River cruise and airport or station transfers by final quotation'
+  ],
+  exclusions: [
+    'International flights',
+    'China visa fee if applicable',
+    'Meals, shows, cruises, cableways, and workshops not confirmed in final quote',
+    'Travel insurance',
+    'Guide and driver gratuities'
+  ]
 }
 
-function buildCityProduct(seed: CityProductSeed): TourProduct {
-  const days = seed.dayTitles.map((title, index) => ({
-    day: `Day ${index + 1}`,
-    city: seed.city,
-    meals: seed.dayMeals?.[index] || (index === 0 || index === seed.dayTitles.length - 1 ? 'B / - / -' : 'B / L / -'),
-    title,
-    summary:
-      seed.daySummaries?.[index] ||
-      `${title} with private guide pacing, reserved transfer time, and room to adjust around weather, tickets, and group energy.`,
-    sights: seed.daySights[index] || [seed.city],
-    note: seed.dayNotes?.[index]
-  }))
-
-  return {
-    slug: seed.slug,
-    name: seed.name,
-    eyebrow: seed.eyebrow,
-    duration: seed.duration,
-    route: seed.route,
-    destinations: [seed.city],
-    heroImage: seed.heroImage,
-    heroAlt: seed.heroAlt,
-    summary: seed.summary,
-    galleryTitle: seed.galleryTitle,
-    quoteSubject: seed.quoteSubject,
-    sourceNote: seed.sourceNote,
-    highlights: seed.highlights,
-    facts: [
-      { label: 'Starts', value: seed.city },
-      { label: 'Ends', value: seed.city },
-      { label: 'Hotels', value: '4-star or boutique options' },
-      { label: 'Guide', value: 'Private local guide' },
-      { label: 'Transport', value: seed.transport },
-      { label: 'Best for', value: seed.bestFor }
-    ],
-    gallery: [
-      {
-        title: seed.city,
-        city: seed.city,
-        image: seed.heroImage,
-        alt: seed.heroAlt,
-        featured: true
-      },
-      ...productGallery.beijingXianShanghai
-        .filter((image) => image.city === seed.city)
-        .slice(0, 3)
-    ],
-    days,
-    hotels: [
-      { city: seed.city, hotel: 'Central 4-star hotel, boutique upgrade, or family-room option by quote' }
-    ],
-    prices: [
-      { group: 'Private 2 pax', price: seed.price, basis: 'Per person guide price, double/twin share' },
-      { group: 'Private 4-6 pax', price: 'On request', basis: 'Varies by season, hotel, vehicle, and guide language' },
-      { group: 'Agency group', price: 'Custom quote', basis: 'Built from target market, group size, and inclusion scope' }
-    ],
-    inclusions: [
-      `${seed.duration.split('/')[0].trim()} route planning and reservation coordination`,
-      'Private local guide and vehicle on listed touring days',
-      'First gate tickets for listed sights by final quote',
-      'Hotel breakfast and airport or rail-station transfer by final quote'
-    ],
-    exclusions: [
-      'International and domestic flights unless quoted',
-      'Meals not listed',
-      'Optional shows, workshops, or theme-park tickets unless selected',
-      'Travel insurance',
-      'Guide and driver gratuities'
-    ]
-  }
+const txBeijingMutianyu4DayProduct: TourProduct = {
+  slug: 'tx-beijing-mutianyu-4-day',
+  name: '4 Days Beijing Tour with Mutianyu Great Wall',
+  eyebrow: 'TXBJ0402 · 4-day Beijing city package',
+  duration: '4 days / 3 nights',
+  route: 'Beijing',
+  destinations: ['Beijing'],
+  heroImage: images.greatWall,
+  heroAlt: 'Great Wall landscape near Beijing',
+  summary:
+    'A Beijing short-stay product aligned to the ChinaTour Mutianyu-style city package: arrival transfer, imperial Beijing, Mutianyu Great Wall, Temple of Heaven, old Beijing lanes, and departure transfer.',
+  galleryTitle: 'Mutianyu Great Wall, palace Beijing, temple ritual space, and old-neighborhood texture.',
+  quoteSubject: 'TXBJ0402 Beijing Mutianyu 4-day tour quote',
+  sourceNote:
+    'Reference structure follows ChinaTour INBJ0402 at product level; wording, code, final inclusions, and quote terms are Tengxuan-owned.',
+  highlights: [
+    'Keep the four-day Beijing rhythm close to the reference package: arrive, tour the imperial core, visit Mutianyu, then close with hutongs and transfer.',
+    'Use Mutianyu Great Wall as the wall section for guests who want restored scenery and a more photogenic Beijing wall day.',
+    'Combine Tiananmen Square, Forbidden City, Summer Palace, Temple of Heaven, and hutongs into a compact first-time Beijing route.',
+    'Price and service scope can mirror the land-only package format while final hotel, meals, and tickets remain quote-controlled.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXBJ0402' },
+    { label: 'Starts', value: 'Beijing' },
+    { label: 'Ends', value: 'Beijing' },
+    { label: 'Hotels', value: 'Beijing 4-star or similar' },
+    { label: 'Guide', value: 'English-speaking local guide' },
+    { label: 'Transport', value: 'Private vehicle' },
+    { label: 'Best for', value: 'First-time Beijing visitors' }
+  ],
+  gallery: [
+    { title: 'Mutianyu Great Wall', city: 'Beijing', image: images.greatWall, alt: 'Great Wall towers along a mountain ridge', featured: true },
+    { title: 'Forbidden City', city: 'Beijing', image: forbiddenCityImage, alt: 'Forbidden City palace roofs and entrance courtyard' },
+    { title: 'Summer Palace', city: 'Beijing', image: summerPalaceImage, alt: 'Summer Palace lakeside pavilions in Beijing' },
+    { title: 'Temple of Heaven', city: 'Beijing', image: images.templeOfHeaven, alt: 'Temple of Heaven at sunset in Beijing' }
+  ],
+  days: [
+    {
+      day: 'Day 1',
+      city: 'Beijing',
+      meals: '- / - / -',
+      title: 'Arrive in Beijing',
+      summary: 'Meet on arrival at the airport or railway station and transfer to the Beijing hotel. Keep the rest of the day open for rest or a light self-guided walk.',
+      sights: ['Arrival transfer', 'Hotel check-in', 'Free time']
+    },
+    {
+      day: 'Day 2',
+      city: 'Beijing',
+      meals: 'B / L / D',
+      title: 'Tiananmen Square, Forbidden City and Summer Palace',
+      summary: 'Start with Tiananmen Square and the Forbidden City, then continue to Summer Palace for lakeside imperial-garden scenery. Add a Peking duck dinner when included in the quote.',
+      sights: ['Tiananmen Square', 'Forbidden City', 'Summer Palace', 'Peking duck dinner option'],
+      note: 'Passport information is required for Tiananmen and Forbidden City reservations.'
+    },
+    {
+      day: 'Day 3',
+      city: 'Beijing',
+      meals: 'B / L / -',
+      title: 'Mutianyu Great Wall and Temple of Heaven',
+      summary: 'Visit Temple of Heaven, then drive out for the Mutianyu Great Wall. Cable car, chairlift, or toboggan can be handled as optional items according to the final quote.',
+      sights: ['Temple of Heaven', 'Mutianyu Great Wall', 'Great Wall cable car option']
+    },
+    {
+      day: 'Day 4',
+      city: 'Beijing',
+      meals: 'B / - / -',
+      title: 'Hutong route and departure',
+      summary: 'Explore Beijing hutongs by rickshaw or guided walk before transfer to the airport or railway station for onward travel.',
+      sights: ['Hutong rickshaw or walk', 'Old Beijing neighborhood', 'Departure transfer']
+    }
+  ],
+  hotels: [
+    { city: 'Beijing', hotel: 'Beijing 4-star hotel or similar by final quote' }
+  ],
+  prices: [
+    { group: 'Land only benchmark', price: 'From USD 790', basis: 'Reference package level; final Tengxuan quote may differ by date and hotel' },
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Per person after hotel, meals, tickets, and vehicle are confirmed' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from rooming list, meal scope, guide language, and transfer plan' }
+  ],
+  inclusions: [
+    'Beijing accommodation with breakfast by selected hotel tier',
+    'Airport or railway station transfers in Beijing',
+    'English-speaking local guide on listed touring days',
+    'Private vehicle for listed sightseeing and transfers',
+    'Entrance tickets and meals as confirmed in the final quote'
+  ],
+  exclusions: [
+    'International and domestic flights',
+    'China visa fees if applicable',
+    'Meals, shows, cable cars, or activities not listed in the final quote',
+    'Travel insurance',
+    'Guide and driver gratuities'
+  ]
 }
 
-const beijingCityProducts = [
-  buildCityProduct({
-    slug: 'beijing-central-axis-5-day',
-    name: 'Beijing Essential 4-Day Tour',
-    eyebrow: '4-day compact Beijing heritage product',
-    duration: '4 days / 3 nights',
-    route: 'Beijing',
-    city: 'Beijing',
-    heroImage: forbiddenCityImage,
-    heroAlt: 'Forbidden City palace roofs and entrance courtyard',
-    summary:
-      'A tight Beijing-only product for first-time visitors, combining arrival service, hutongs, Wangfujing, Mutianyu Great Wall, Summer Palace, Olympic Park, Tiananmen Square, Forbidden City, Jingshan, Temple of Heaven, and market time in four full days.',
-    galleryTitle: 'Imperial Beijing, the Great Wall, hutong life, and classic departure-day sightseeing.',
-    quoteSubject: 'Beijing Essential 4-day tour quote',
-    sourceNote:
-      'Benchmarked against ChinaTour multi-city Beijing opening days and the supplied Golden Triangle Beijing program, then rewritten as a compact private Beijing product.',
-    highlights: [
-      'Keep Beijing dense enough for a short stay while still separating palace, Great Wall, hutong, and temple experiences.',
-      'Use private transfers to connect large sites efficiently: Mutianyu, Summer Palace, Olympic Park, Tiananmen, Forbidden City, Jingshan, and Temple of Heaven.',
-      'Add evening or street-life moments such as Wangfujing, hutong family visit, Golden Mask Show option, Qianmen, or Hongqiao Market.',
-      'Place ticket-sensitive sights with clear reminders for passports, Forbidden City closure rules, and weather backup planning.'
-    ],
-    bestFor: 'First-time Beijing visitors',
-    transport: 'Private vehicle + guided walks',
-    price: 'From CNY 3,980',
-    dayTitles: [
-      'Arrival, hutong rickshaw and Wangfujing',
-      'Mutianyu Great Wall, Summer Palace and Olympic Park',
-      'Tiananmen Square, Forbidden City, Jingshan and evening show',
-      'Temple of Heaven, market time and departure transfer'
-    ],
-    daySummaries: [
-      'Meet the local English-speaking guide on arrival and start with a soft city introduction instead of wasting the first day. Ride through old hutong lanes, visit a local family courtyard when available, then continue to Wangfujing for an easy evening food-and-shopping walk before hotel check-in or rest.',
-      'Spend the morning at Mutianyu Great Wall, a scenic section suited to private groups that want strong views without the most crowded central access points. Return to Beijing for Summer Palace gardens, Kunming Lake, Longevity Hill, and Seventeen-Arch Bridge, then stop outside the Bird Nest and Water Cube for Olympic Park photos.',
-      'Use the most important imperial day for Tiananmen Square, the Forbidden City, and Jingshan Park. The route moves from the political and ceremonial center into palace courtyards, then climbs Jingshan for the classic north-south view over the Forbidden City. Add Golden Mask Show or another evening performance by quote.',
-      'Close the route with Temple of Heaven, where Ming and Qing emperors prayed for harvests, then add Hongqiao Market, Qianmen, or a light shopping stop according to flight or rail timing. Transfer to the airport or railway station with enough buffer for departure formalities.'
-    ],
-    daySights: [
-      ['Airport or railway pickup', 'Hutong rickshaw route', 'Local family visit option', 'Wangfujing Street', 'Central Beijing hotel'],
-      ['Mutianyu Great Wall', 'Summer Palace', 'Kunming Lake', 'Olympic Park', 'Bird Nest and Water Cube exterior'],
-      ['Tiananmen Square', 'Forbidden City', 'Jingshan Park', 'Golden Mask Show option'],
-      ['Temple of Heaven', 'Hongqiao Market or Qianmen', 'Airport or rail-station transfer']
-    ],
-    dayNotes: [
-      'Arrival-day touring can be shortened if the flight lands late.',
-      'Cable car, chairlift, or toboggan choices at Mutianyu can be priced separately by quote.',
-      'Passport details are required for Tiananmen and Forbidden City reservations; Forbidden City is normally closed on Mondays except selected holidays.',
-      'Departure flights or trains should be timed late enough if full Temple of Heaven touring is required.'
-    ],
-    dayMeals: [
-      '- / - / -',
-      'B / L / -',
-      'B / L / -',
-      'B / - / -'
-    ]
-  }),
-  buildCityProduct({
-    slug: 'beijing-family-museums-7-day',
-    name: 'Beijing Family Museums and Universal',
-    eyebrow: '7-day family-friendly Beijing product',
-    duration: '7 days / 6 nights',
-    route: 'Beijing',
-    city: 'Beijing',
-    heroImage: images.templeOfHeaven,
-    heroAlt: 'Temple of Heaven at sunset in Beijing',
-    summary:
-      'A family route with Forbidden City, national museums, science learning, campus atmosphere, Great Wall, Olympic Park, and an optional Universal Beijing day.',
-    galleryTitle: 'Museums, hands-on learning, Great Wall time, and one lighter theme-park day.',
-    quoteSubject: 'Beijing family museums 7-day tour quote',
-    sourceNote:
-      'Inspired by sixrenyou Beijing family products with National Museum, military/science museums, university visits, Great Wall, Olympic Park, and Universal Beijing.',
-    highlights: [
-      'Reduce fatigue by mixing museums with outdoor landmarks and free evenings.',
-      'Use private transfers to keep family logistics predictable.',
-      'Add child-friendly guide storytelling around palace, wall, and museum themes.',
-      'Keep Universal Beijing optional so pricing stays flexible.'
-    ],
-    bestFor: 'Families and school groups',
-    transport: 'Private vehicle',
-    price: 'From CNY 6,900',
-    dayTitles: ['Arrival in Beijing', 'Forbidden City and National Museum', 'Science or military museum day', 'Summer Palace and campus view', 'Great Wall and Olympic Park', 'Universal Beijing option', 'Departure'],
-    daySights: [
-      ['Airport pickup', 'Hotel check-in'],
-      ['Tiananmen Square', 'Forbidden City', 'National Museum'],
-      ['Military Museum option', 'Science Museum option'],
-      ['Summer Palace', 'Tsinghua area', 'Peking University area'],
-      ['Badaling or Mutianyu Great Wall', 'Bird’s Nest', 'Water Cube'],
-      ['Universal Beijing Resort option'],
-      ['Departure transfer']
-    ]
-  }),
-  buildCityProduct({
-    slug: 'beijing-jingwei-6-day',
-    name: 'Beijing Local Flavor Heritage',
-    eyebrow: '6-day imperial city and hutong life route',
-    duration: '6 days / 5 nights',
-    route: 'Beijing',
-    city: 'Beijing',
-    heroImage: palaceRoofDetailImage,
-    heroAlt: 'Colorful traditional palace roof detail in Beijing',
-    summary:
-      'A balanced Beijing product for guests who want the Forbidden City and Great Wall plus hutongs, teahouse atmosphere, old commercial streets, and local food texture.',
-    galleryTitle: 'Grand imperial landmarks with neighborhood-scale old Beijing.',
-    quoteSubject: 'Beijing local flavor heritage 6-day tour quote',
-    sourceNote:
-      'Inspired by sixrenyou Beijing products that combine Forbidden City, Great Wall, hutongs, Lao She Teahouse, Shichahai, Nanluoguxiang, and Dashilan.',
-    highlights: [
-      'Keep one clear Beijing identity: imperial city plus everyday neighborhood life.',
-      'Add evening atmosphere without overloading daytime sightseeing.',
-      'Use hutong and teahouse time for guests who prefer culture over checklist touring.',
-      'Works well for couples, small groups, and repeat China travelers.'
-    ],
-    bestFor: 'Couples and culture seekers',
-    transport: 'Private vehicle + walking',
-    price: 'From CNY 5,600',
-    dayTitles: ['Arrival', 'Forbidden City and teahouse evening', 'Summer Palace, Yuanmingyuan and Temple of Heaven', 'Prince Gong Mansion and hutongs', 'Mutianyu Great Wall and Olympic Park', 'Departure'],
-    daySights: [
-      ['Airport pickup'],
-      ['Tiananmen Square', 'Forbidden City', 'Lao She Teahouse option'],
-      ['Summer Palace', 'Yuanmingyuan', 'Temple of Heaven'],
-      ['Prince Gong Mansion', 'Shichahai', 'Nanluoguxiang', 'Dashilan'],
-      ['Mutianyu Great Wall', 'Olympic Park'],
-      ['Departure transfer']
-    ]
-  }),
-  buildCityProduct({
-    slug: 'beijing-great-wall-autumn-5-day',
-    name: 'Beijing Great Wall and Autumn Parks',
-    eyebrow: '5-day seasonal Beijing short break',
-    duration: '5 days / 4 nights',
-    route: 'Beijing',
-    city: 'Beijing',
-    heroImage: images.greatWall,
-    heroAlt: 'Great Wall landscape near Beijing',
-    summary:
-      'A short seasonal route pairing Forbidden City, Summer Palace, Great Wall, Xiangshan autumn color, and hutong time for guests with limited days.',
-    galleryTitle: 'Palace scale, Wall scenery, and autumn park color.',
-    quoteSubject: 'Beijing Great Wall autumn 5-day tour quote',
-    sourceNote:
-      'Inspired by sixrenyou Beijing short products featuring Forbidden City, Summer Palace, Great Wall, Xiangshan Park, and hutong rickshaw-style touring.',
-    highlights: [
-      'Use a compact five-day shape for stopover and holiday clients.',
-      'Put the Great Wall and seasonal parks at the center of the selling point.',
-      'Keep the route easy to customize for spring blossom or autumn foliage.',
-      'Build in one lighter hutong day to protect comfort.'
-    ],
-    bestFor: 'Seasonal short breaks',
-    transport: 'Private vehicle',
-    price: 'From CNY 4,500',
-    dayTitles: ['Temple of Heaven arrival day', 'Forbidden City and teahouse', 'Summer Palace and Xiangshan', 'Mutianyu Great Wall', 'Prince Gong Mansion and departure'],
-    daySights: [
-      ['Temple of Heaven'],
-      ['Tiananmen Square', 'Forbidden City', 'Teahouse option'],
-      ['Summer Palace', 'Xiangshan Park'],
-      ['Mutianyu Great Wall', 'Bird’s Nest', 'Water Cube'],
-      ['Prince Gong Mansion', 'Shichahai']
-    ]
-  }),
-  buildCityProduct({
-    slug: 'beijing-gubei-water-town-6-day',
-    name: 'Beijing and Gubei Water Town',
-    eyebrow: '6-day Beijing plus Simatai night-wall route',
-    duration: '6 days / 5 nights',
-    route: 'Beijing · Gubei Water Town',
-    city: 'Beijing',
-    heroImage: summerPalaceImage,
-    heroAlt: 'Summer Palace lakeside pavilions in Beijing',
-    summary:
-      'A Beijing route that adds Gubei Water Town and Simatai Great Wall for a slower private small-group product with one scenic overnight option.',
-    galleryTitle: 'Classic Beijing with a water-town and night-wall extension.',
-    quoteSubject: 'Beijing Gubei Water Town 6-day tour quote',
-    sourceNote:
-      'Inspired by sixrenyou Beijing private small-group products featuring Beihai, Gubei Water Town, and Simatai Great Wall.',
-    highlights: [
-      'Add a differentiated overnight outside the central city.',
-      'Give guests a quieter Great Wall experience than standard day-trip routes.',
-      'Combine palace, gardens, hutongs, and waterside scenery in one product.',
-      'Strong fit for private small groups that value atmosphere and pacing.'
-    ],
-    bestFor: 'Private small groups',
-    transport: 'Private vehicle',
-    price: 'From CNY 6,200',
-    dayTitles: ['Arrival', 'Forbidden City and Dashilan', 'Summer Palace and Temple of Heaven', 'Prince Gong Mansion, Beihai and hutongs', 'Gubei Water Town and Simatai Great Wall', 'Departure'],
-    daySights: [
-      ['Airport pickup'],
-      ['Tiananmen Square', 'Forbidden City', 'Dashilan'],
-      ['Summer Palace', 'Peking University area', 'Temple of Heaven'],
-      ['Prince Gong Mansion', 'Beihai Park', 'Nanluoguxiang'],
-      ['Gubei Water Town', 'Simatai Great Wall'],
-      ['Departure transfer']
-    ]
-  })
-]
+const txJinshanlingHiking1DayProduct: TourProduct = {
+  slug: 'tx-jinshanling-hiking-1-day',
+  name: '1 Day Jinshanling Great Wall Hiking Tour',
+  eyebrow: 'TXBJ0102 · 1-day Great Wall hiking product',
+  duration: '8-10 hours',
+  route: 'Beijing · Jinshanling Great Wall · Beijing',
+  destinations: ['Beijing'],
+  heroImage: images.greatWall,
+  heroAlt: 'Great Wall towers crossing a mountain ridge',
+  summary:
+    'A focused Great Wall hiking day based on the ChinaTour Jinshanling format: hotel pickup, private land transfer, guided wall hike, simple lunch planning, and hotel return.',
+  galleryTitle: 'A harder Great Wall hiking day for photographers and active travelers.',
+  quoteSubject: 'TXBJ0102 Jinshanling Great Wall hiking tour quote',
+  sourceNote:
+    'Reference structure follows ChinaTour INBJ0102: one-day Beijing-to-Beijing Jinshanling hiking product with changed product code and rewritten copy.',
+  highlights: [
+    'Keep the reference day-tour shape: Beijing hotel pickup, about 2.5 hours each way by road, guided Jinshanling hiking, then return.',
+    'Position Jinshanling as the more demanding and photogenic Great Wall option rather than a general city tour.',
+    'Make lunch simple and practical for a wall hike; guests should bring snacks or packed food when required.',
+    'Suitable for active travelers; quote should confirm fitness expectations, weather backup, and transfer timing.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXBJ0102' },
+    { label: 'Starts', value: 'Beijing' },
+    { label: 'Ends', value: 'Beijing' },
+    { label: 'Hotels', value: 'Not included' },
+    { label: 'Guide', value: 'Private local guide' },
+    { label: 'Transport', value: 'Private vehicle' },
+    { label: 'Best for', value: 'Active Great Wall hikers' }
+  ],
+  gallery: [
+    { title: 'Jinshanling Great Wall', city: 'Beijing', image: images.greatWall, alt: 'Great Wall running over mountain ridges', featured: true },
+    { title: 'Great Wall Towers', city: 'Beijing', image: palaceRoofDetailImage, alt: 'Traditional roof detail used as a Beijing route texture image' },
+    { title: 'Beijing Transfer Base', city: 'Beijing', image: images.beijingHutong, alt: 'Traditional Beijing hutong lane' }
+  ],
+  days: [
+    {
+      day: 'Day Tour',
+      city: 'Beijing',
+      meals: '- / - / -',
+      title: 'Jinshanling Great Wall hiking day',
+      summary:
+        'Meet the guide at the Beijing hotel lobby and drive to Jinshanling. Hike with the guide on the wall route, using a pace suited to the group, then return by private vehicle to the hotel.',
+      sights: ['Hotel pickup', 'Jinshanling Great Wall', 'Guided wall hike', 'Hotel return'],
+      note: 'The reference hike is physically demanding. Confirm weather, footwear, water, packed lunch, and guest fitness before final booking.'
+    }
+  ],
+  hotels: [
+    { city: 'Beijing', hotel: 'Accommodation not included in the day-tour price' }
+  ],
+  prices: [
+    { group: 'Land only benchmark', price: 'From USD 299', basis: 'Reference package level; final Tengxuan quote may differ by date and party size' },
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Per person after vehicle, guide, entrance, and pickup hotel are confirmed' }
+  ],
+  inclusions: [
+    'Private Beijing hotel pickup and return transfer',
+    'English-speaking hiking guide',
+    'Great Wall admission by final quote',
+    'Operational planning and day-tour communication'
+  ],
+  exclusions: [
+    'Accommodation',
+    'Meals unless confirmed in the final quote',
+    'Personal expenses and travel insurance',
+    'Guide and driver gratuities',
+    'Services outside Beijing pickup and return plan'
+  ]
+}
 
-const xianCityProducts = [
-  buildCityProduct({
-    slug: 'xian-terracotta-entry-5-day',
-    name: 'Xi’an Entry Heritage',
-    eyebrow: '5-day inbound Xi’an heritage route',
-    duration: '5 days / 4 nights',
-    route: 'Xi’an · Lintong',
-    city: 'Xi’an',
-    heroImage: terracottaWarriorsImage,
-    heroAlt: 'Terracotta Warriors archaeological pit in Xi’an',
-    summary:
-      'A clean Xi’an entry product with Terracotta Warriors, city wall, Muslim Quarter, Big Wild Goose Pagoda, and Tang-style evening atmosphere.',
-    galleryTitle: 'Terracotta Warriors, Ming city wall, and Tang-era city lights.',
-    quoteSubject: 'Xian entry heritage 5-day tour quote',
-    sourceNote:
-      'Inspired by sixrenyou Xi’an destination products with Terracotta Warriors, Ming City Wall, Hanfu or Tang-style evening touring, and Muslim Quarter.',
-    highlights: [
-      'Make Xi’an sellable as a standalone inbound product.',
-      'Keep archaeology, city wall, food street, and evening atmosphere in a compact route.',
-      'Use Lintong as a focused Terracotta Warriors day rather than a rushed add-on.',
-      'Easy to connect with Beijing, Shanghai, Chengdu, or Dunhuang.'
-    ],
-    bestFor: 'First-time heritage travelers',
-    transport: 'Private vehicle',
-    price: 'From CNY 4,600',
-    dayTitles: ['Arrival in Xi’an', 'Terracotta Warriors and Yongxingfang', 'Gao Family Courtyard, Muslim Quarter and city wall', 'Big Wild Goose Pagoda and Tang city night', 'Departure'],
-    daySights: [
-      ['Airport or rail pickup'],
-      ['Terracotta Warriors', 'Yongxingfang'],
-      ['Gao Family Courtyard', 'Muslim Quarter', 'Bell Tower', 'Drum Tower', 'Ancient City Wall'],
-      ['Big Wild Goose Pagoda', 'Great Tang All Day Mall', 'Tang costume option'],
-      ['Departure transfer']
-    ]
-  }),
-  buildCityProduct({
-    slug: 'xian-huashan-hukou-6-day',
-    name: 'Xi’an, Huashan and Hukou',
-    eyebrow: '6-day Shaanxi mountain and Yellow River route',
-    duration: '6 days / 5 nights',
-    route: 'Xi’an · Lintong · Huashan · Hancheng · Yichuan',
-    city: 'Xi’an',
-    heroImage: images.xian,
-    heroAlt: 'Xi’an ancient architecture and city atmosphere',
-    summary:
-      'A higher-impact Shaanxi product adding Huashan, Hukou Waterfall, Huaqing Palace, folk culture, noodle learning, and Terracotta Warriors.',
-    galleryTitle: 'Ancient capital base with Huashan and Yellow River drama.',
-    quoteSubject: 'Xian Huashan Hukou 6-day tour quote',
-    sourceNote:
-      'Inspired by sixrenyou Xi’an products featuring Huashan, Hukou Waterfall, Huaqing Palace, Terracotta Warriors, Guanzhong folk culture, and biangbiang noodle activities.',
-    highlights: [
-      'Expand Xi’an from city touring into a regional Shaanxi route.',
-      'Use Huashan and Hukou as strong landscape hooks.',
-      'Add craft, food, and folk-culture activities for richer group days.',
-      'Best quoted with careful vehicle, hotel, and driving-hour planning.'
-    ],
-    bestFor: 'Active heritage travelers',
-    transport: 'Private vehicle',
-    price: 'From CNY 6,800',
-    dayTitles: ['Xi’an arrival', 'Folk museum, Big Wild Goose Pagoda and night city', 'Hukou Waterfall via Hancheng', 'Huashan day', 'Terracotta Warriors and Huaqing Palace', 'Return to Xi’an and depart'],
-    daySights: [
-      ['Airport or rail pickup'],
-      ['Guanzhong Folk Art Museum', 'Muslim Quarter', 'Big Wild Goose Pagoda', 'Great Tang All Day Mall'],
-      ['Hukou Waterfall', 'Hancheng'],
-      ['Huashan'],
-      ['Terracotta Warriors', 'Huaqing Palace'],
-      ['Departure transfer']
-    ]
-  }),
-  buildCityProduct({
-    slug: 'xian-family-intangible-5-day',
-    name: 'Xi’an Family Intangible Culture',
-    eyebrow: '5-day family archaeology and folk-art product',
-    duration: '5 days / 4 nights',
-    route: 'Xi’an · Lintong',
-    city: 'Xi’an',
-    heroImage: images.xian,
-    heroAlt: 'Xi’an ancient architecture and city atmosphere',
-    summary:
-      'A family-friendly Xi’an plan combining Terracotta Warriors, Daming Palace, Big Wild Goose Pagoda, city wall, Tang streets, shadow puppetry, and old local performance culture.',
-    galleryTitle: 'Archaeology and folk craft presented for families.',
-    quoteSubject: 'Xian family intangible culture 5-day tour quote',
-    sourceNote:
-      'Inspired by sixrenyou Xi’an family products with Terracotta Warriors, Daming Palace, Big Wild Goose Pagoda, City Wall, Bell and Drum Towers, shadow puppetry, and local performance culture.',
-    highlights: [
-      'Use hands-on folk culture to make heritage easier for children.',
-      'Keep daily sightseeing compact and predictable.',
-      'Add evening Tang-style streets only when the group still has energy.',
-      'Good for family groups, school groups, and educational travel.'
-    ],
-    bestFor: 'Families and education groups',
-    transport: 'Private vehicle',
-    price: 'From CNY 5,200',
-    dayTitles: ['Arrival', 'Terracotta Warriors', 'Bailuyuan, Big Wild Goose Pagoda and Tang night', 'Daming Palace, Muslim Quarter and city wall', 'Departure'],
-    daySights: [
-      ['Airport or rail pickup'],
-      ['Terracotta Warriors', 'Lintong'],
-      ['Bailuyuan Film City option', 'Big Wild Goose Pagoda', 'Great Tang All Day Mall'],
-      ['Daming Palace', 'Muslim Quarter', 'Gao Family Courtyard', 'Bell Tower', 'Drum Tower', 'Ancient City Wall'],
-      ['Departure transfer']
-    ]
-  }),
-  buildCityProduct({
-    slug: 'xian-tang-night-4-day',
-    name: 'Xi’an Tang Night City Break',
-    eyebrow: '4-day short-stay Xi’an city product',
-    duration: '4 days / 3 nights',
-    route: 'Xi’an',
-    city: 'Xi’an',
-    heroImage: images.xian,
-    heroAlt: 'Xi’an ancient architecture and city atmosphere',
-    summary:
-      'A short Xi’an product for weekend or add-on clients, pairing city wall, Muslim Quarter, Tang cultural streets, Big Wild Goose Pagoda, and one focused Terracotta Warriors day.',
-    galleryTitle: 'A compact city break with strong evening atmosphere.',
-    quoteSubject: 'Xian Tang night city break 4-day tour quote',
-    sourceNote:
-      'Built from common Xi’an destination-card patterns: Terracotta Warriors, city wall, Bell and Drum Towers, Muslim Quarter, Big Wild Goose Pagoda, and Tang-style night touring.',
-    highlights: [
-      'Fits guests who only have three nights in Xi’an.',
-      'Keeps one full day for archaeology and one full day for city culture.',
-      'Positions the evening scene as a selling point instead of an afterthought.',
-      'Easy to combine with Beijing-Xi’an high-speed rail products.'
-    ],
-    bestFor: 'Short city breaks',
-    transport: 'Private vehicle + guided walks',
-    price: 'From CNY 3,800',
-    dayTitles: ['Arrival and Muslim Quarter', 'Terracotta Warriors', 'City wall, Bell Tower and Tang night', 'Departure'],
-    daySights: [
-      ['Airport or rail pickup', 'Muslim Quarter'],
-      ['Terracotta Warriors', 'Huaqing Palace option'],
-      ['Ancient City Wall', 'Bell Tower', 'Drum Tower', 'Big Wild Goose Pagoda', 'Great Tang All Day Mall'],
-      ['Departure transfer']
-    ]
-  }),
-  buildCityProduct({
-    slug: 'xian-yanan-huashan-6-day',
-    name: 'Xi’an, Yan’an and Huashan Impression',
-    eyebrow: '6-day Shaanxi history extension',
-    duration: '6 days / 5 nights',
-    route: 'Xi’an · Yan’an · Huashan · Lintong',
-    city: 'Xi’an',
-    heroImage: terracottaWarriorsImage,
-    heroAlt: 'Terracotta Warriors archaeological pit in Xi’an',
-    summary:
-      'A regional Shaanxi route combining Xi’an heritage, Yan’an history, Huashan scenery, Hukou or Lintong options, and classic local food planning.',
-    galleryTitle: 'Shaanxi history from ancient capital to mountain and revolutionary routes.',
-    quoteSubject: 'Xian Yanan Huashan 6-day tour quote',
-    sourceNote:
-      'Inspired by sixrenyou mobile Xi’an routes featuring ancient-capital positioning, Terracotta Warriors, Huashan, Hukou, Yan’an, and local food reminders.',
-    highlights: [
-      'Give repeat travelers a deeper Shaanxi story beyond the Terracotta Warriors.',
-      'Use Yan’an or Huashan as the differentiating chapter by market interest.',
-      'Plan food, weather, and driving-hour reminders into the product from the start.',
-      'Works for cultural study groups and mature travelers.'
-    ],
-    bestFor: 'Deep Shaanxi cultural groups',
-    transport: 'Private vehicle / rail by quote',
-    price: 'From CNY 6,500',
-    dayTitles: ['Xi’an to Yan’an', 'Yan’an history route', 'Return toward Xi’an', 'Huashan or Hukou extension', 'Terracotta Warriors and city wall', 'Departure'],
-    daySights: [
-      ['Xi’an arrival', 'Yan’an transfer'],
-      ['Yan’an Revolution Memorial option', 'Local historical sites'],
-      ['Shaanxi countryside transfer', 'Local food planning'],
-      ['Huashan option', 'Hukou Waterfall option'],
-      ['Terracotta Warriors', 'Ancient City Wall'],
-      ['Departure transfer']
-    ]
-  })
-]
+const txBeijingVisaFree3DayProduct: TourProduct = {
+  slug: 'tx-beijing-visa-free-3-day',
+  name: '72 Hours Visa-Free Beijing Highlights Tour',
+  eyebrow: 'TXBJ0301 · 72-hour Beijing stopover product',
+  duration: '3 days / 2 nights',
+  route: 'Beijing',
+  destinations: ['Beijing'],
+  heroImage: forbiddenCityImage,
+  heroAlt: 'Forbidden City palace roofs and entrance courtyard',
+  summary:
+    'A Beijing stopover product for eligible transit travelers, shaped around arrival transfer, the Forbidden City and Summer Palace, a Great Wall day, and onward departure within a short visa-free window.',
+  galleryTitle: 'A short Beijing transit window focused on the highest-recognition sights.',
+  quoteSubject: 'TXBJ0301 72-hour visa-free Beijing highlights quote',
+  sourceNote:
+    'Reference structure follows the supplied ChinaTour 72-hour Beijing highlights product; copy, code, and quote terms are rewritten for Tengxuan.',
+  highlights: [
+    'Designed for travelers using a short Beijing transit stay, with airport timing treated as part of the route design.',
+    'Prioritize the imperial center, Summer Palace, Temple of Heaven, and one Great Wall section inside three days.',
+    'Keep hotel, transfer, and ticket reservations tightly coordinated so the stopover does not waste time.',
+    'Final eligibility depends on current transit policy, passport, route, and ticketed onward destination.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXBJ0301' },
+    { label: 'Starts', value: 'Beijing' },
+    { label: 'Ends', value: 'Beijing' },
+    { label: 'Hotels', value: 'Beijing 4-star or similar' },
+    { label: 'Guide', value: 'English-speaking local guide' },
+    { label: 'Transport', value: 'Private vehicle' },
+    { label: 'Best for', value: 'Short visa-free stopovers' }
+  ],
+  gallery: [
+    { title: 'Forbidden City', city: 'Beijing', image: forbiddenCityImage, alt: 'Forbidden City palace roofs and entrance courtyard', featured: true },
+    { title: 'Great Wall', city: 'Beijing', image: images.greatWall, alt: 'Great Wall landscape near Beijing' },
+    { title: 'Summer Palace', city: 'Beijing', image: summerPalaceImage, alt: 'Summer Palace lakeside pavilions in Beijing' },
+    { title: 'Temple of Heaven', city: 'Beijing', image: images.templeOfHeaven, alt: 'Temple of Heaven at sunset in Beijing' }
+  ],
+  days: [
+    {
+      day: 'Day 1',
+      city: 'Beijing',
+      meals: '- / - / -',
+      title: 'Arrival transfer and light Beijing orientation',
+      summary: 'Meet at the airport or railway station, transfer to the hotel, and add a light Wangfujing, Qianmen, or neighborhood walk if arrival time allows.',
+      sights: ['Arrival transfer', 'Hotel check-in', 'Optional Wangfujing or Qianmen walk']
+    },
+    {
+      day: 'Day 2',
+      city: 'Beijing',
+      meals: 'B / L / -',
+      title: 'Tiananmen, Forbidden City, Summer Palace',
+      summary: 'Use the main sightseeing day for Tiananmen Square, the Forbidden City, and Summer Palace, with private transfers and guide interpretation.',
+      sights: ['Tiananmen Square', 'Forbidden City', 'Summer Palace'],
+      note: 'Transit documents, passport details, and current entry rules must be checked before quotation.'
+    },
+    {
+      day: 'Day 3',
+      city: 'Beijing',
+      meals: 'B / L / -',
+      title: 'Great Wall, Temple of Heaven and departure',
+      summary: 'Visit a Great Wall section and Temple of Heaven before transferring back to the airport or railway station for onward travel.',
+      sights: ['Great Wall', 'Temple of Heaven', 'Departure transfer'],
+      note: 'Departure should be late enough to protect the Great Wall day and airport formalities.'
+    }
+  ],
+  hotels: [
+    { city: 'Beijing', hotel: 'Beijing 4-star hotel or similar by final quote' }
+  ],
+  prices: [
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Depends on arrival time, hotel, wall section, and departure timing' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from transit policy, rooming list, and service scope' }
+  ],
+  inclusions: [
+    'Beijing hotel accommodation with breakfast by final quote',
+    'Airport or railway station transfers',
+    'English-speaking local guide on listed touring days',
+    'Private vehicle and first gate entrance tickets by final quote',
+    'Transit-timing planning support'
+  ],
+  exclusions: [
+    'International flights and onward tickets',
+    'Visa or transit-document costs if applicable',
+    'Meals and optional activities not listed in final quote',
+    'Travel insurance',
+    'Guide and driver gratuities'
+  ]
+}
+
+const txBeijingJuyongguan4DayProduct: TourProduct = {
+  slug: 'tx-beijing-juyongguan-4-day',
+  name: '4 Days Beijing Tour with Juyongguan Great Wall',
+  eyebrow: 'TXBJ0401 · 4-day Beijing city package',
+  duration: '4 days / 3 nights',
+  route: 'Beijing',
+  destinations: ['Beijing'],
+  heroImage: summerPalaceImage,
+  heroAlt: 'Summer Palace lakeside pavilions in Beijing',
+  summary:
+    'A compact Beijing city package aligned to the ChinaTour Juyongguan reference: arrival, Tiananmen and Forbidden City, Summer Palace, Temple of Heaven, Juyongguan Great Wall, hutongs, and departure.',
+  galleryTitle: 'Juyongguan Great Wall, imperial Beijing, Summer Palace, and hutong life.',
+  quoteSubject: 'TXBJ0401 Beijing Juyongguan 4-day tour quote',
+  sourceNote:
+    'Reference structure follows ChinaTour INBJ0401 at itinerary level; product code, wording, and final quote terms are Tengxuan-owned.',
+  highlights: [
+    'Match the reference four-day rhythm closely: arrival, imperial Beijing, Juyongguan and Temple of Heaven, hutongs and departure.',
+    'Use Juyongguan as the Great Wall section for a classic mountain-pass wall experience close to Beijing.',
+    'Include a Peking duck dinner or similar special meal only when the final quote confirms it.',
+    'Keep the product suitable for land-only city-package sales and small agency groups.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXBJ0401' },
+    { label: 'Starts', value: 'Beijing' },
+    { label: 'Ends', value: 'Beijing' },
+    { label: 'Hotels', value: 'Beijing 4-star or similar' },
+    { label: 'Guide', value: 'English-speaking local guide' },
+    { label: 'Transport', value: 'Private vehicle' },
+    { label: 'Best for', value: 'Short heritage trips' }
+  ],
+  gallery: [
+    { title: 'Summer Palace', city: 'Beijing', image: summerPalaceImage, alt: 'Summer Palace lakeside pavilions in Beijing', featured: true },
+    { title: 'Great Wall', city: 'Beijing', image: images.greatWall, alt: 'Great Wall landscape near Beijing' },
+    { title: 'Forbidden City', city: 'Beijing', image: forbiddenCityImage, alt: 'Forbidden City palace roofs and entrance courtyard' },
+    { title: 'Hutong Walk', city: 'Beijing', image: images.beijingHutong, alt: 'Traditional Beijing hutong lane' }
+  ],
+  days: [
+    {
+      day: 'Day 1',
+      city: 'Beijing',
+      meals: '- / - / -',
+      title: 'Arrive in Beijing',
+      summary: 'Meet on arrival and transfer to the hotel. Keep the first day simple for check-in and recovery.',
+      sights: ['Arrival transfer', 'Hotel check-in']
+    },
+    {
+      day: 'Day 2',
+      city: 'Beijing',
+      meals: 'B / L / D',
+      title: 'Tiananmen Square, Forbidden City and Summer Palace',
+      summary: 'Tour Tiananmen Square, the Forbidden City, and Summer Palace. Add a Peking duck banquet or special dinner when included in the final quote.',
+      sights: ['Tiananmen Square', 'Forbidden City', 'Summer Palace', 'Peking duck dinner option'],
+      note: 'Passport details are required for Tiananmen and Forbidden City reservation checks.'
+    },
+    {
+      day: 'Day 3',
+      city: 'Beijing',
+      meals: 'B / L / -',
+      title: 'Temple of Heaven and Juyongguan Great Wall',
+      summary: 'Visit Temple of Heaven, then continue to Juyongguan Great Wall. A jade-culture or shopping stop should only be included if the final commercial scope requires it.',
+      sights: ['Temple of Heaven', 'Juyongguan Great Wall', 'Jade culture stop option']
+    },
+    {
+      day: 'Day 4',
+      city: 'Beijing',
+      meals: 'B / - / -',
+      title: 'Hutongs and departure',
+      summary: 'Explore Beijing hutongs by rickshaw or guided walk, then transfer to the airport or railway station for onward travel.',
+      sights: ['Hutong rickshaw or walk', 'Old Beijing lanes', 'Departure transfer']
+    }
+  ],
+  hotels: [
+    { city: 'Beijing', hotel: 'Beijing Four Points by Sheraton level or similar by final quote' }
+  ],
+  prices: [
+    { group: 'Land only benchmark', price: 'From USD 790', basis: 'Reference package level; final Tengxuan quote may differ by date and hotel' },
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Per person after hotel, meals, tickets, and vehicle are confirmed' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from rooming list, meal scope, guide language, and transfer plan' }
+  ],
+  inclusions: [
+    'Beijing accommodation with breakfast by selected hotel tier',
+    'Airport or railway station transfers in Beijing',
+    'English-speaking local guide on listed touring days',
+    'Private vehicle for listed sightseeing and transfers',
+    'Entrance tickets and meals as confirmed in the final quote'
+  ],
+  exclusions: [
+    'International and domestic flights',
+    'China visa fees if applicable',
+    'Meals, shows, shopping stops, or activities not listed in the final quote',
+    'Travel insurance',
+    'Guide and driver gratuities'
+  ]
+}
+
+const txBestOfChina11DayProduct: TourProduct = {
+  ...bestOfChina11DayProduct,
+  slug: 'tx-best-of-china-11-day',
+  name: '11 Days Best of China Tour',
+  eyebrow: 'TXGBC11 · 11-day classic China route',
+  quoteSubject: 'TXGBC11 11 Days Best of China quote',
+  sourceNote:
+    'Reference structure follows ChinaTour GBC11 at route level: Beijing, Xi’an, Guilin/Yangshuo, and Shanghai. Product code, wording, and final quote terms are Tengxuan-owned.',
+  facts: [
+    { label: 'Code', value: 'TXGBC11' },
+    ...bestOfChina11DayProduct.facts
+  ],
+  prices: [
+    { group: 'Land only benchmark', price: 'From USD 3,690', basis: 'Public reference level; final Tengxuan quote may differ by dates, flights, and hotels' },
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Depends on hotel level, domestic flights, guide language, and season' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from group size, rooming, market, and inclusion scope' }
+  ]
+}
 
 export const tourProducts: TourProduct[] = [
-  ...beijingCityProducts,
-  ...xianCityProducts,
-  beijingXianShanghaiProduct,
-  {
-    slug: 'classic-first-time-china',
-    name: 'Classic First-Time China Tour',
-    eyebrow: '10-day private China introduction',
-    duration: '10 days / 9 nights',
-    route: 'Beijing · Xi’an · Guilin · Shanghai',
-    heroImage: images.greatWall,
-    heroAlt: 'Great Wall landscape for a classic China route',
-    summary:
-      'A private first-visit route built for overseas leisure clients who want headline heritage, one landscape chapter, and a polished Shanghai finish without forced shopping stops.',
-    galleryTitle: 'World heritage, karst scenery, and a soft Shanghai finish.',
-    quoteSubject: 'Classic First-Time China tour quote',
-    sourceNote:
-      'Benchmarked against ChinaTour.com classic multi-city products and China triangle pricing tiers; final pricing depends on hotel class and transport season.',
-    highlights: [
-      'Use Beijing for imperial landmarks and a Great Wall day before continuing by high-speed rail.',
-      'Add Xi’an for the Terracotta Warriors, city wall, and Silk Road food culture.',
-      'Break up city touring with Guilin and Yangshuo landscape time before Shanghai.',
-      'Keep a private guide and private vehicle on listed touring days for family and small-group comfort.'
-    ],
-    facts: [
-      { label: 'Starts', value: 'Beijing' },
-      { label: 'Ends', value: 'Shanghai' },
-      { label: 'Hotels', value: '4-star or 5-star options' },
-      { label: 'Guide', value: 'Private local guides' },
-      { label: 'Transport', value: 'Rail + domestic flight' },
-      { label: 'Best for', value: 'First-time private travelers' }
-    ],
-    gallery: productGallery.classic,
-    days: [
-      {
-        day: 'Day 1',
-        city: 'Beijing',
-        meals: '- / - / -',
-        title: 'Arrival and hotel transfer',
-        summary: 'Meet the guide at the airport, transfer to the hotel, and keep the evening light for jet-lag recovery.',
-        sights: ['Airport pickup', 'Hotel check-in', 'Optional Wangfujing walk']
-      },
-      {
-        day: 'Day 2',
-        city: 'Beijing',
-        meals: 'B / L / -',
-        title: 'Forbidden City and hutongs',
-        summary: 'Visit Tiananmen Square, the Forbidden City, Jingshan viewpoint, and a hutong neighborhood with local context.',
-        sights: ['Tiananmen Square', 'Forbidden City', 'Jingshan Park', 'Hutong walk'],
-        note: 'Passport information is required for advance palace ticketing.'
-      },
-      {
-        day: 'Day 3',
-        city: 'Beijing',
-        meals: 'B / L / -',
-        title: 'Great Wall and Temple of Heaven',
-        summary: 'Tour a Great Wall section with a comfortable walking pace, then return for Temple of Heaven or Summer Palace.',
-        sights: ['Great Wall', 'Temple of Heaven', 'Private transfer']
-      },
-      {
-        day: 'Day 4',
-        city: 'Beijing to Xi’an',
-        meals: 'B / - / -',
-        title: 'High-speed rail to Xi’an',
-        summary: 'Take high-speed rail to Xi’an, then explore the Ancient City Wall and Muslim Quarter.',
-        sights: ['High-speed rail', 'Ancient City Wall', 'Muslim Quarter']
-      },
-      {
-        day: 'Day 5',
-        city: 'Xi’an',
-        meals: 'B / L / -',
-        title: 'Terracotta Warriors',
-        summary: 'Spend the day with a guide at the Terracotta Warriors and add Big Wild Goose Pagoda or Shaanxi History Museum.',
-        sights: ['Terracotta Warriors', 'Big Wild Goose Pagoda', 'Optional museum']
-      },
-      {
-        day: 'Day 6',
-        city: 'Xi’an to Guilin',
-        meals: 'B / - / -',
-        title: 'Fly to Guilin',
-        summary: 'Fly to Guilin and use the afternoon for an easy riverside walk or cave visit.',
-        sights: ['Domestic flight', 'Reed Flute Cave', 'Riverside walk']
-      },
-      {
-        day: 'Day 7',
-        city: 'Guilin and Yangshuo',
-        meals: 'B / L / -',
-        title: 'Li River cruise',
-        summary: 'Cruise the Li River to Yangshuo, then explore countryside scenery with a gentle cycling or buggy option.',
-        sights: ['Li River cruise', 'Yangshuo countryside', 'Karst viewpoints']
-      },
-      {
-        day: 'Day 8',
-        city: 'Guilin to Shanghai',
-        meals: 'B / - / -',
-        title: 'Fly to Shanghai',
-        summary: 'Transfer to Shanghai and leave room for a Bund evening walk after arrival.',
-        sights: ['Domestic flight', 'The Bund', 'Nanjing Road']
-      },
-      {
-        day: 'Day 9',
-        city: 'Shanghai',
-        meals: 'B / L / -',
-        title: 'Old and new Shanghai',
-        summary: 'Visit Yu Garden, the old quarter, Shanghai Museum or French Concession, then finish with skyline views.',
-        sights: ['Yu Garden', 'Old quarter', 'Former French Concession', 'Pudong skyline']
-      },
-      {
-        day: 'Day 10',
-        city: 'Shanghai',
-        meals: 'B / - / -',
-        title: 'Departure',
-        summary: 'Private transfer to the airport for international departure.',
-        sights: ['Airport transfer']
-      }
-    ],
-    hotels: [
-      { city: 'Beijing', hotel: 'Mercure / Novotel / similar 4-star option' },
-      { city: 'Xi’an', hotel: 'Grand Dynasty Culture / Metropark / similar' },
-      { city: 'Guilin/Yangshuo', hotel: 'Lijiang Waterfall / Yangshuo resort option' },
-      { city: 'Shanghai', hotel: 'Central 4-star hotel near metro or Bund access' }
-    ],
-    prices: [
-      { group: 'Private 2 pax', price: 'From USD 2,680', basis: 'Per person, double/twin share, low-season guide price' },
-      { group: 'Private 4 pax', price: 'From USD 2,380', basis: 'Per person, double/twin share' },
-      { group: 'Private 8 pax', price: 'From USD 1,980', basis: 'Per person, double/twin share' },
-      { group: 'Single supplement', price: 'On request', basis: 'Varies by hotel level and season' }
-    ],
-    inclusions: [
-      '9 nights’ accommodation with daily breakfast',
-      'Private local guides and private vehicles on listed touring days',
-      'First gate entrance fees for listed attractions',
-      'Second-class high-speed rail ticket Beijing-Xi’an',
-      'Economy domestic flights Xi’an-Guilin and Guilin-Shanghai'
-    ],
-    exclusions: [
-      'International flights',
-      'China visa fee if applicable',
-      'Travel insurance',
-      'Guide and driver gratuities',
-      'Meals and activities not listed as included'
-    ]
-  },
-  {
-    slug: 'beijing-xian-heritage',
-    name: "Beijing + Xi'an Heritage Tour",
-    eyebrow: '6-day ancient capitals route',
-    duration: '6 days / 5 nights',
-    route: 'Beijing · Xi’an',
-    heroImage: terracottaWarriorsImage,
-    heroAlt: 'Terracotta Warriors archaeological pit in Xi’an',
-    summary:
-      'A compact ancient-capitals product for travelers who want the Great Wall, Forbidden City, and Terracotta Warriors with rail logistics handled end to end.',
-    galleryTitle: 'Two ancient capitals with a fast rail connection.',
-    quoteSubject: "Beijing Xi'an Heritage tour quote",
-    sourceNote:
-      'Benchmarked against ChinaTour.com ancient-capital and Terracotta Army products; priced as a private route with no shopping stops.',
-    highlights: [
-      'Cover the most recognizable Beijing and Xi’an heritage sites in under one week.',
-      'Use high-speed rail instead of a domestic flight for a clear, sellable logistics story.',
-      'Keep arrival and departure cities flexible for overseas flight planning.',
-      'Offer a lower-entry China product for partners that do not need Shanghai or Guilin.'
-    ],
-    facts: [
-      { label: 'Starts', value: 'Beijing' },
-      { label: 'Ends', value: 'Xi’an' },
-      { label: 'Hotels', value: '4-star or similar' },
-      { label: 'Guide', value: 'Private local guides' },
-      { label: 'Transport', value: 'Private vehicle + rail' },
-      { label: 'Best for', value: 'Short heritage trips' }
-    ],
-    gallery: [
-      productGallery.classic[0],
-      beijingXianShanghaiProduct.gallery[2],
-      beijingXianShanghaiProduct.gallery[4],
-      beijingXianShanghaiProduct.gallery[5]
-    ],
-    days: [
-      {
-        day: 'Day 1',
-        city: 'Beijing',
-        meals: '- / - / -',
-        title: 'Arrival in Beijing',
-        summary: 'Airport pickup and hotel transfer with optional evening neighborhood walk.',
-        sights: ['Airport pickup', 'Hotel check-in']
-      },
-      {
-        day: 'Day 2',
-        city: 'Beijing',
-        meals: 'B / L / -',
-        title: 'Forbidden City and hutongs',
-        summary: 'Visit Tiananmen Square, Forbidden City, Jingshan, and a hutong area.',
-        sights: ['Tiananmen Square', 'Forbidden City', 'Jingshan Park', 'Hutong walk']
-      },
-      {
-        day: 'Day 3',
-        city: 'Beijing',
-        meals: 'B / L / -',
-        title: 'Great Wall and Temple of Heaven',
-        summary: 'Tour the Great Wall and return to Beijing for Temple of Heaven or Summer Palace.',
-        sights: ['Great Wall', 'Temple of Heaven', 'Summer Palace option']
-      },
-      {
-        day: 'Day 4',
-        city: 'Beijing to Xi’an',
-        meals: 'B / - / -',
-        title: 'High-speed rail and city wall',
-        summary: 'Take high-speed rail to Xi’an and visit the Ancient City Wall and Muslim Quarter.',
-        sights: ['High-speed rail', 'Ancient City Wall', 'Muslim Quarter']
-      },
-      {
-        day: 'Day 5',
-        city: 'Xi’an',
-        meals: 'B / L / -',
-        title: 'Terracotta Warriors',
-        summary: 'Visit the Terracotta Warriors with a guide and add Big Wild Goose Pagoda or museum time.',
-        sights: ['Terracotta Warriors', 'Big Wild Goose Pagoda']
-      },
-      {
-        day: 'Day 6',
-        city: 'Xi’an',
-        meals: 'B / - / -',
-        title: 'Departure',
-        summary: 'Airport or rail-station transfer for onward travel.',
-        sights: ['Departure transfer']
-      }
-    ],
-    hotels: [
-      { city: 'Beijing', hotel: '4-star central Beijing hotel or similar' },
-      { city: 'Xi’an', hotel: '4-star city-center or rail-access hotel or similar' }
-    ],
-    prices: [
-      { group: 'Private 2 pax', price: 'From USD 1,680', basis: 'Per person, double/twin share' },
-      { group: 'Private 4 pax', price: 'From USD 1,420', basis: 'Per person, double/twin share' },
-      { group: 'Private 8 pax', price: 'From USD 1,180', basis: 'Per person, double/twin share' }
-    ],
-    inclusions: [
-      '5 nights’ accommodation with daily breakfast',
-      'Private guide and private vehicle on listed touring days',
-      'First gate entrance fees for listed attractions',
-      'Second-class high-speed rail ticket Beijing-Xi’an'
-    ],
-    exclusions: [
-      'International flights',
-      'Meals not listed',
-      'Travel insurance',
-      'Guide and driver gratuities',
-      'Personal expenses'
-    ]
-  },
-  {
-    slug: 'shanghai-discovery',
-    name: '5-Day Shanghai Discovery',
-    eyebrow: '5-day city and water-town break',
-    duration: '5 days / 4 nights',
-    route: 'Shanghai · Suzhou or water town',
-    heroImage: shanghaiSkylineImage,
-    heroAlt: 'Shanghai skyline at night along the Huangpu River',
-    summary:
-      'A lower-friction Shanghai product for travelers who want Bund views, old-city texture, a Jiangnan garden or water-town day, and enough free time for food and shopping.',
-    galleryTitle: 'Urban Shanghai with a Jiangnan side trip.',
-    quoteSubject: 'Shanghai Discovery tour quote',
-    sourceNote:
-      'Benchmarked against HiChinaTravel Shanghai products showing 5-day Shanghai routes from CNY 3,199-3,299 and 3-day Shanghai routes from CNY 2,298.',
-    highlights: [
-      'Use Shanghai as the easy arrival gateway for first-time visitors.',
-      'Add Suzhou, Zhujiajiao, or Hangzhou depending on available time and guest profile.',
-      'Keep evenings open for skyline, dining, and shopping rather than over-scheduling.',
-      'Create a price-accessible product for regional travelers and short-stay clients.'
-    ],
-    facts: [
-      { label: 'Starts', value: 'Shanghai' },
-      { label: 'Ends', value: 'Shanghai' },
-      { label: 'Hotels', value: '3-star to 4-star options' },
-      { label: 'Guide', value: 'Local guide on tour days' },
-      { label: 'Transport', value: 'Private vehicle / train' },
-      { label: 'Best for', value: 'Short city breaks' }
-    ],
-    gallery: productGallery.eastChina,
-    days: [
-      {
-        day: 'Day 1',
-        city: 'Shanghai',
-        meals: '- / - / -',
-        title: 'Arrival and Bund evening',
-        summary: 'Airport pickup, hotel check-in, and an optional Bund and Nanjing Road evening walk.',
-        sights: ['Airport pickup', 'The Bund', 'Nanjing Road']
-      },
-      {
-        day: 'Day 2',
-        city: 'Shanghai',
-        meals: 'B / L / -',
-        title: 'Old Shanghai and riverfront skyline',
-        summary: 'Visit Yu Garden, the old quarter, Shanghai Museum or French Concession, and Pudong skyline viewpoints.',
-        sights: ['Yu Garden', 'Old quarter', 'Shanghai Museum', 'Pudong skyline']
-      },
-      {
-        day: 'Day 3',
-        city: 'Suzhou or water town',
-        meals: 'B / L / -',
-        title: 'Jiangnan garden day trip',
-        summary: 'Choose a Suzhou classical garden, museum, and canal walk, or a slower water-town route.',
-        sights: ['Suzhou Garden', 'Pingjiang Road', 'Water-town option']
-      },
-      {
-        day: 'Day 4',
-        city: 'Shanghai',
-        meals: 'B / - / -',
-        title: 'Flexible city day',
-        summary: 'Reserve the day for Disneyland, food tour, shopping, museums, or a Hangzhou upgrade.',
-        sights: ['Flexible touring', 'Optional Disneyland', 'Optional Hangzhou']
-      },
-      {
-        day: 'Day 5',
-        city: 'Shanghai',
-        meals: 'B / - / -',
-        title: 'Departure',
-        summary: 'Private transfer to airport or rail station.',
-        sights: ['Departure transfer']
-      }
-    ],
-    hotels: [
-      { city: 'Shanghai', hotel: 'Central 3-star or 4-star hotel by selected price tier' }
-    ],
-    prices: [
-      { group: 'Value tier', price: 'From CNY 3,299', basis: 'Per person, double/twin share, based on HiChinaTravel-style short-route benchmark' },
-      { group: '3-day express option', price: 'From CNY 2,298', basis: 'Per person guide price for shorter Shanghai-only version' },
-      { group: 'Private upgrade', price: 'On request', basis: 'Varies by hotel, guide language, and side-trip choice' }
-    ],
-    inclusions: [
-      '4 nights’ accommodation with breakfast',
-      'Local guide and vehicle on listed touring days',
-      'First gate entrance fees for listed attractions',
-      'Airport or rail-station transfers'
-    ],
-    exclusions: [
-      'International or domestic flights',
-      'Theme park tickets unless selected',
-      'Meals not listed',
-      'Guide and driver gratuities',
-      'Personal expenses'
-    ]
-  },
-  {
-    slug: 'chengdu-chongqing-zhangjiajie',
-    name: 'Chengdu, Chongqing & Zhangjiajie Journey',
-    eyebrow: '10-day pandas, mountain city, and Avatar landscapes',
-    duration: '10 days / 9 nights',
-    route: 'Chengdu · Chongqing · Zhangjiajie',
-    heroImage: images.zhangjiajie,
-    heroAlt: 'Sandstone pillars in Zhangjiajie Wulingyuan',
-    summary:
-      'A high-impact western and central China route combining pandas, Sichuan food, Chongqing night views, and Zhangjiajie mountain scenery.',
-    galleryTitle: 'Pandas, hotpot, river lights, and sandstone peaks.',
-    quoteSubject: 'Chengdu Chongqing Zhangjiajie tour quote',
-    sourceNote:
-      'Benchmarked against HiChinaTravel recommended 10-day Chengdu, Chongqing and Zhangjiajie products listed from CNY 4,780-5,080.',
-    highlights: [
-      'Start with Chengdu pandas and a relaxed Sichuan culture day.',
-      'Use Chongqing for hotpot, mountain-city streets, and Yangtze riverfront night views.',
-      'Give Zhangjiajie two scenic days to reduce weather risk.',
-      'Works as a differentiated product beyond the Beijing-Xi’an-Shanghai classic route.'
-    ],
-    facts: [
-      { label: 'Starts', value: 'Chengdu' },
-      { label: 'Ends', value: 'Zhangjiajie' },
-      { label: 'Hotels', value: '3-star to 4-star options' },
-      { label: 'Guide', value: 'Local guides' },
-      { label: 'Transport', value: 'Rail / flight / private vehicle' },
-      { label: 'Best for', value: 'Nature and food travelers' }
-    ],
-    gallery: productGallery.southwestNature,
-    days: [
-      {
-        day: 'Day 1',
-        city: 'Chengdu',
-        meals: '- / - / -',
-        title: 'Arrival in Chengdu',
-        summary: 'Airport pickup and hotel check-in with optional evening hotpot arrangement.',
-        sights: ['Airport pickup', 'Optional hotpot']
-      },
-      {
-        day: 'Day 2',
-        city: 'Chengdu',
-        meals: 'B / L / -',
-        title: 'Panda Base and teahouse culture',
-        summary: 'Visit the Panda Base early, then continue to People’s Park teahouse and old-lane neighborhoods.',
-        sights: ['Panda Base', 'People’s Park', 'Kuanzhai Alley']
-      },
-      {
-        day: 'Day 3',
-        city: 'Chengdu',
-        meals: 'B / L / -',
-        title: 'Leshan or Dujiangyan extension',
-        summary: 'Choose Leshan Giant Buddha, Dujiangyan, or Qingcheng Mountain according to pace and season.',
-        sights: ['Leshan Giant Buddha option', 'Dujiangyan option', 'Qingcheng Mountain option']
-      },
-      {
-        day: 'Day 4',
-        city: 'Chengdu to Chongqing',
-        meals: 'B / - / -',
-        title: 'High-speed rail to Chongqing',
-        summary: 'Transfer by high-speed rail to Chongqing, then explore riverfront viewpoints and night scenery.',
-        sights: ['High-speed rail', 'Hongya Cave area', 'Riverfront night views']
-      },
-      {
-        day: 'Day 5',
-        city: 'Chongqing',
-        meals: 'B / L / -',
-        title: 'Mountain city touring',
-        summary: 'Visit Ciqikou, Liziba monorail viewpoint, and local food streets with careful transfer timing.',
-        sights: ['Ciqikou', 'Liziba monorail', 'Hotpot dinner option']
-      },
-      {
-        day: 'Day 6',
-        city: 'Chongqing to Zhangjiajie',
-        meals: 'B / - / -',
-        title: 'Transfer to Zhangjiajie',
-        summary: 'Travel to Zhangjiajie by flight or rail plan, then check in near the scenic area.',
-        sights: ['Flight or rail transfer', 'Scenic-area hotel check-in']
-      },
-      {
-        day: 'Day 7',
-        city: 'Zhangjiajie',
-        meals: 'B / L / -',
-        title: 'Wulingyuan scenic area',
-        summary: 'Tour the sandstone pillar viewpoints, Bailong Elevator area, and forest park highlights.',
-        sights: ['Wulingyuan', 'Bailong Elevator', 'Sandstone pillar viewpoints']
-      },
-      {
-        day: 'Day 8',
-        city: 'Zhangjiajie',
-        meals: 'B / L / -',
-        title: 'Tianmen Mountain',
-        summary: 'Use the cableway and cliff-walk route for Tianmen Mountain, adjusting for weather and operations.',
-        sights: ['Tianmen Mountain', 'Cableway', 'Cliff walk']
-      },
-      {
-        day: 'Day 9',
-        city: 'Zhangjiajie',
-        meals: 'B / - / -',
-        title: 'Weather buffer or glass bridge',
-        summary: 'Reserve a flexible day for the glass bridge, Grand Canyon, or a weather-recovery mountain route.',
-        sights: ['Grand Canyon option', 'Glass bridge option', 'Flexible scenic buffer']
-      },
-      {
-        day: 'Day 10',
-        city: 'Zhangjiajie',
-        meals: 'B / - / -',
-        title: 'Departure',
-        summary: 'Transfer to airport or rail station for onward travel.',
-        sights: ['Departure transfer']
-      }
-    ],
-    hotels: [
-      { city: 'Chengdu', hotel: 'Central Chengdu 3-star or 4-star option' },
-      { city: 'Chongqing', hotel: 'Yuzhong / Jiefangbei area hotel or similar' },
-      { city: 'Zhangjiajie', hotel: 'Wulingyuan scenic-area hotel or city hotel by route plan' }
-    ],
-    prices: [
-      { group: 'Group value tier', price: 'From CNY 4,780', basis: 'Per person benchmark from comparable 10-day HiChinaTravel product' },
-      { group: 'Premium value tier', price: 'From CNY 5,080', basis: 'Per person benchmark for upgraded version' },
-      { group: 'Private upgrade', price: 'On request', basis: 'Depends on flight/rail plan, hotel class, and guide language' }
-    ],
-    inclusions: [
-      '9 nights’ accommodation with breakfast',
-      'Local guide service on listed touring days',
-      'Transfers between hotel, station, airport, and listed sights',
-      'First gate entrance fees for listed attractions',
-      'Domestic transport quoted by final route plan'
-    ],
-    exclusions: [
-      'International flights',
-      'Meals not listed',
-      'Cableway or elevator upgrades unless specified in final quote',
-      'Travel insurance',
-      'Guide and driver gratuities'
-    ]
-  },
-  {
-    slug: 'beijing-zhangjiajie-shanghai',
-    name: 'China + Nature: Beijing, Zhangjiajie & Shanghai',
-    eyebrow: '9-day classic city and nature route',
-    duration: '9 days / 8 nights',
-    route: 'Beijing · Zhangjiajie · Shanghai',
-    heroImage: images.zhangjiajie,
-    heroAlt: 'Sandstone pillars in Zhangjiajie Wulingyuan',
-    summary:
-      'A first-time China alternative that swaps Xi’an for Zhangjiajie, pairing imperial Beijing and modern Shanghai with a dramatic mountain chapter.',
-    galleryTitle: 'Classic gateways with a high-drama nature centerpiece.',
-    quoteSubject: 'Beijing Zhangjiajie Shanghai tour quote',
-    sourceNote:
-      'Benchmarked against ChinaTour.travel public listing for Beijing-Zhangjiajie-Shanghai 9-day route from USD 2,370 per person and ChinaTour.com nature positioning.',
-    highlights: [
-      'Keep Beijing and Shanghai as recognizable international gateways.',
-      'Use Zhangjiajie as the nature hook for travelers who have seen standard heritage routes.',
-      'Reserve two mountain days to protect the experience from weather.',
-      'Position as a higher-value private route for photography and active travelers.'
-    ],
-    facts: [
-      { label: 'Starts', value: 'Beijing' },
-      { label: 'Ends', value: 'Shanghai' },
-      { label: 'Hotels', value: '4-star or similar' },
-      { label: 'Guide', value: 'Private local guides' },
-      { label: 'Transport', value: 'Flights + private vehicle' },
-      { label: 'Best for', value: 'Nature-focused first-timers' }
-    ],
-    gallery: [
-      productGallery.classic[0],
-      productGallery.southwestNature[2],
-      productGallery.eastChina[0],
-      beijingXianShanghaiProduct.gallery[2]
-    ],
-    days: [
-      {
-        day: 'Day 1',
-        city: 'Beijing',
-        meals: '- / - / -',
-        title: 'Arrival in Beijing',
-        summary: 'Airport pickup and hotel transfer.',
-        sights: ['Airport pickup', 'Hotel check-in']
-      },
-      {
-        day: 'Day 2',
-        city: 'Beijing',
-        meals: 'B / L / -',
-        title: 'Forbidden City and old Beijing',
-        summary: 'Visit Tiananmen Square, Forbidden City, and a hutong neighborhood.',
-        sights: ['Tiananmen Square', 'Forbidden City', 'Hutong walk']
-      },
-      {
-        day: 'Day 3',
-        city: 'Beijing',
-        meals: 'B / L / -',
-        title: 'Great Wall day',
-        summary: 'Tour the Great Wall and Temple of Heaven or Summer Palace.',
-        sights: ['Great Wall', 'Temple of Heaven', 'Summer Palace option']
-      },
-      {
-        day: 'Day 4',
-        city: 'Beijing to Zhangjiajie',
-        meals: 'B / - / -',
-        title: 'Fly to Zhangjiajie',
-        summary: 'Transfer to airport, fly to Zhangjiajie, and check in near the scenic area.',
-        sights: ['Domestic flight', 'Scenic-area hotel']
-      },
-      {
-        day: 'Day 5',
-        city: 'Zhangjiajie',
-        meals: 'B / L / -',
-        title: 'Wulingyuan scenic area',
-        summary: 'Explore forest park routes, sandstone pillar viewpoints, and major scenic lifts or shuttles.',
-        sights: ['Wulingyuan', 'Yuanjiajie', 'Bailong Elevator option']
-      },
-      {
-        day: 'Day 6',
-        city: 'Zhangjiajie',
-        meals: 'B / L / -',
-        title: 'Tianmen Mountain',
-        summary: 'Use Tianmen Mountain cableway and cliff routes, adjusting timing around weather and queues.',
-        sights: ['Tianmen Mountain', 'Cableway', 'Cliff walk']
-      },
-      {
-        day: 'Day 7',
-        city: 'Zhangjiajie to Shanghai',
-        meals: 'B / - / -',
-        title: 'Fly to Shanghai',
-        summary: 'Fly to Shanghai and leave the evening open for a Bund walk.',
-        sights: ['Domestic flight', 'The Bund']
-      },
-      {
-        day: 'Day 8',
-        city: 'Shanghai',
-        meals: 'B / L / -',
-        title: 'Shanghai city tour',
-        summary: 'Visit Yu Garden, the old quarter, Former French Concession, and Pudong skyline areas.',
-        sights: ['Yu Garden', 'Old quarter', 'Former French Concession', 'Pudong skyline']
-      },
-      {
-        day: 'Day 9',
-        city: 'Shanghai',
-        meals: 'B / - / -',
-        title: 'Departure',
-        summary: 'Private airport transfer and departure.',
-        sights: ['Airport transfer']
-      }
-    ],
-    hotels: [
-      { city: 'Beijing', hotel: '4-star central Beijing hotel or similar' },
-      { city: 'Zhangjiajie', hotel: 'Wulingyuan scenic-area 4-star option or similar' },
-      { city: 'Shanghai', hotel: '4-star central Shanghai hotel or similar' }
-    ],
-    prices: [
-      { group: 'Private 2 pax', price: 'From USD 2,670', basis: 'Per person, double/twin share' },
-      { group: 'Private 4 pax', price: 'From USD 2,370', basis: 'Per person, double/twin share benchmark' },
-      { group: 'Private 8 pax', price: 'From USD 2,080', basis: 'Per person, double/twin share' }
-    ],
-    inclusions: [
-      '8 nights’ accommodation with breakfast',
-      'Private guides and vehicles on listed touring days',
-      'First gate entrance fees for listed attractions',
-      'Economy domestic flights quoted by route plan',
-      'Airport and station transfers'
-    ],
-    exclusions: [
-      'International flights',
-      'Meals not listed',
-      'Optional scenic elevators or cableways unless specified',
-      'Travel insurance',
-      'Guide and driver gratuities'
-    ]
-  },
-  {
-    slug: 'guilin-yangshuo-landscape',
-    name: 'Guilin Landscape Escape',
-    eyebrow: '5-day Li River and Yangshuo countryside',
-    duration: '5 days / 4 nights',
-    route: 'Guilin · Yangshuo · Longji option',
-    heroImage: guilinRiverPanoramaImage,
-    heroAlt: 'Li River bend and karst peaks near Guilin at sunrise',
-    summary:
-      'A scenery-first southern China add-on with Li River cruising, Yangshuo countryside, and an optional rice-terrace day for travelers who want a softer pace.',
-    galleryTitle: 'Karst peaks, river cruising, and countryside pacing.',
-    quoteSubject: 'Guilin Yangshuo Landscape tour quote',
-    sourceNote:
-      'Benchmarked as a Tengxuan add-on product aligned with common ChinaTour.com Guilin/Yangshuo city-package logic.',
-    highlights: [
-      'Best used as an extension after Beijing-Xi’an or before Shanghai.',
-      'Give Yangshuo at least one night instead of treating it as only a transfer point.',
-      'Offer low-impact cycling, buggy, cooking, or family-friendly village options.',
-      'Add Longji rice terraces when weather, season, and guest mobility fit.'
-    ],
-    facts: [
-      { label: 'Starts', value: 'Guilin' },
-      { label: 'Ends', value: 'Guilin' },
-      { label: 'Hotels', value: 'Boutique or 4-star' },
-      { label: 'Guide', value: 'Private local guide' },
-      { label: 'Transport', value: 'Private vehicle + cruise' },
-      { label: 'Best for', value: 'Scenery and family trips' }
-    ],
-    gallery: [
-      {
-        title: 'Li River Panorama',
-        city: 'Guilin',
-        image: guilinRiverPanoramaImage,
-        alt: 'Li River bend and karst peaks near Guilin at sunrise',
-        featured: true
-      },
-      {
-        title: 'Li River Cruise',
-        city: 'Guilin',
-        image: guilinRiverCruiseImage,
-        alt: 'Li River cruising scene with karst mountains and small boats'
-      },
-      {
-        title: 'Guilin Sunset River',
-        city: 'Guilin',
-        image: guilinRiverSunsetImage,
-        alt: 'Sunset reflection over the Li River near Guilin'
-      }
-    ],
-    days: [
-      {
-        day: 'Day 1',
-        city: 'Guilin',
-        meals: '- / - / -',
-        title: 'Arrival in Guilin',
-        summary: 'Transfer to hotel and take a light riverside walk after arrival.',
-        sights: ['Airport pickup', 'Riverside walk']
-      },
-      {
-        day: 'Day 2',
-        city: 'Guilin to Yangshuo',
-        meals: 'B / L / -',
-        title: 'Li River cruise',
-        summary: 'Cruise the Li River to Yangshuo and enjoy a relaxed countryside evening.',
-        sights: ['Li River cruise', 'Yangshuo old town']
-      },
-      {
-        day: 'Day 3',
-        city: 'Yangshuo',
-        meals: 'B / L / -',
-        title: 'Countryside touring',
-        summary: 'Choose cycling, buggy touring, cooking class, bamboo rafting, or village visits.',
-        sights: ['Countryside route', 'Cooking class option', 'Bamboo rafting option']
-      },
-      {
-        day: 'Day 4',
-        city: 'Longji or Guilin',
-        meals: 'B / L / -',
-        title: 'Rice terraces or Guilin city',
-        summary: 'Add Longji rice terraces if season and mobility fit, or return for Guilin cave and viewpoint touring.',
-        sights: ['Longji option', 'Reed Flute Cave', 'City viewpoints']
-      },
-      {
-        day: 'Day 5',
-        city: 'Guilin',
-        meals: 'B / - / -',
-        title: 'Departure',
-        summary: 'Transfer to airport or rail station.',
-        sights: ['Departure transfer']
-      }
-    ],
-    hotels: [
-      { city: 'Guilin', hotel: 'Guilin 4-star riverside hotel or similar' },
-      { city: 'Yangshuo', hotel: 'Yangshuo boutique countryside hotel or similar' }
-    ],
-    prices: [
-      { group: 'Private 2 pax', price: 'From USD 1,480', basis: 'Per person, double/twin share' },
-      { group: 'Private 4 pax', price: 'From USD 1,280', basis: 'Per person, double/twin share' },
-      { group: 'Private 8 pax', price: 'From USD 1,080', basis: 'Per person, double/twin share' }
-    ],
-    inclusions: [
-      '4 nights’ accommodation with breakfast',
-      'Private guide and vehicle on listed touring days',
-      'Li River cruise ticket',
-      'First gate entrance fees for listed attractions'
-    ],
-    exclusions: [
-      'Flights or rail tickets to and from Guilin',
-      'Meals not listed',
-      'Optional activities not selected in final quote',
-      'Travel insurance',
-      'Guide and driver gratuities'
-    ]
-  },
-  {
-    slug: 'business-leisure-custom',
-    name: 'Business + Leisure Custom Trip',
-    eyebrow: 'Flexible MICE and business-travel add-on',
-    duration: 'Flexible / custom',
-    route: 'Beijing · Shanghai · Chengdu · custom cities',
-    heroImage: images.shanghai,
-    heroAlt: 'Shanghai city skyline along the Huangpu River',
-    summary:
-      'A custom product for business delegations, meetings, interpreters, supplier visits, and short cultural add-ons around core commercial travel.',
-    galleryTitle: 'Business logistics with optional cultural time.',
-    quoteSubject: 'Business leisure custom trip quote',
-    sourceNote:
-      'Benchmarked against ChinaTour.com corporate travel positioning and Tengxuan group enterprise travel capabilities.',
-    highlights: [
-      'Plan hotels, transfers, interpreters, invoices, and meeting logistics around the business agenda.',
-      'Add half-day or one-day cultural modules without disrupting meetings.',
-      'Support Beijing, Shanghai, Chengdu, and other commercial hubs.',
-      'Build quotation around group size, vehicle standard, interpreter level, and documentation needs.'
-    ],
-    facts: [
-      { label: 'Starts', value: 'Custom' },
-      { label: 'Ends', value: 'Custom' },
-      { label: 'Hotels', value: 'Corporate contract options' },
-      { label: 'Guide', value: 'Guide / interpreter' },
-      { label: 'Transport', value: 'Private vehicle' },
-      { label: 'Best for', value: 'Delegations and MICE' }
-    ],
-    gallery: productGallery.eastChina,
-    days: [
-      {
-        day: 'Module 1',
-        city: 'Arrival city',
-        meals: '- / - / -',
-        title: 'Arrival, transfer, and briefing',
-        summary: 'Airport pickup, hotel check-in, and route briefing for business or delegation leaders.',
-        sights: ['Airport pickup', 'Hotel check-in', 'Briefing']
-      },
-      {
-        day: 'Module 2',
-        city: 'Business hub',
-        meals: 'B / - / -',
-        title: 'Meetings and interpreter support',
-        summary: 'Arrange vehicle standby, interpreter service, meeting transfers, and meal reservations.',
-        sights: ['Meeting transfer', 'Interpreter service', 'Meal reservation']
-      },
-      {
-        day: 'Module 3',
-        city: 'Business hub',
-        meals: 'B / L / -',
-        title: 'Cultural add-on',
-        summary: 'Add a short city tour, museum, food walk, or river cruise around the meeting schedule.',
-        sights: ['City tour option', 'Museum option', 'Food walk option']
-      }
-    ],
-    hotels: [
-      { city: 'Custom', hotel: 'Corporate hotel tier selected by budget, city, and invoice requirements' }
-    ],
-    prices: [
-      { group: 'Half-day guide module', price: 'Custom quote', basis: 'Guide language, city, and hours confirmed before quote' },
-      { group: 'Vehicle and interpreter day', price: 'Custom quote', basis: 'Vehicle class, working hours, and interpreter level' },
-      { group: 'Delegation package', price: 'Custom quote', basis: 'Hotel, meals, meeting support, and sightseeing combined' }
-    ],
-    inclusions: [
-      'Route planning and supplier coordination',
-      'Private transfers and vehicle standby by final quote',
-      'Guide or interpreter service by selected language tier',
-      'Hotel and meal arrangement support'
-    ],
-    exclusions: [
-      'Air tickets unless requested',
-      'Venue rental and third-party meeting costs',
-      'Personal expenses',
-      'Unlisted overtime charges',
-      'Travel insurance'
-    ]
-  },
-  {
-    slug: 'private-family-china',
-    name: 'Private Family China Tour',
-    eyebrow: '8-12 day family-friendly private itinerary',
-    duration: '8-12 days / custom',
-    route: 'Beijing · Xi’an · Shanghai · Chengdu or Guilin option',
-    heroImage: images.chengdu,
-    heroAlt: 'Giant panda eating bamboo in Chengdu',
-    summary:
-      'A private family route with slower pacing, sensible hotel locations, child-friendly guide style, food support, and optional panda or landscape modules.',
-    galleryTitle: 'Classic China adjusted for family pace.',
-    quoteSubject: 'Private Family China tour quote',
-    sourceNote:
-      'Benchmarked against private/custom China tour positioning on ChinaTour.com and HiChinaTravel tailor-made trip messaging.',
-    highlights: [
-      'Limit daily checklists so children and older family members do not burn out.',
-      'Use central hotels and private vehicles to reduce transfer friction.',
-      'Add pandas, cooking, calligraphy, cycling, or theme-park modules where appropriate.',
-      'Keep meal planning flexible for allergies, spice tolerance, and picky eaters.'
-    ],
-    facts: [
-      { label: 'Starts', value: 'Custom' },
-      { label: 'Ends', value: 'Custom' },
-      { label: 'Hotels', value: 'Family-room options' },
-      { label: 'Guide', value: 'Family-friendly guides' },
-      { label: 'Transport', value: 'Private vehicle + rail/flight' },
-      { label: 'Best for', value: 'Families and multi-gen groups' }
-    ],
-    gallery: productGallery.classic,
-    days: [
-      {
-        day: 'Day 1',
-        city: 'Arrival city',
-        meals: '- / - / -',
-        title: 'Arrival and recovery',
-        summary: 'Airport pickup, hotel check-in, and no heavy sightseeing on arrival day.',
-        sights: ['Airport pickup', 'Hotel check-in']
-      },
-      {
-        day: 'Days 2-3',
-        city: 'Beijing',
-        meals: 'B / L / -',
-        title: 'Beijing highlights at family pace',
-        summary: 'Tour Forbidden City, hutongs, Great Wall, and one hands-on cultural module.',
-        sights: ['Forbidden City', 'Great Wall', 'Hutong walk', 'Cultural activity']
-      },
-      {
-        day: 'Days 4-5',
-        city: 'Xi’an or Chengdu',
-        meals: 'B / L / -',
-        title: 'Ancient capital or panda module',
-        summary: 'Choose Xi’an for Terracotta Warriors or Chengdu for pandas, food, and relaxed culture.',
-        sights: ['Terracotta Warriors option', 'Panda Base option', 'Food experience']
-      },
-      {
-        day: 'Days 6-8',
-        city: 'Shanghai or Guilin',
-        meals: 'B / L / -',
-        title: 'Easy finish',
-        summary: 'Finish with Shanghai city comfort, Disneyland option, or Guilin/Yangshuo landscape time.',
-        sights: ['Shanghai option', 'Disneyland option', 'Guilin option']
-      },
-      {
-        day: 'Final day',
-        city: 'Departure city',
-        meals: 'B / - / -',
-        title: 'Departure',
-        summary: 'Private transfer to airport or rail station.',
-        sights: ['Departure transfer']
-      }
-    ],
-    hotels: [
-      { city: 'Custom', hotel: 'Central family-friendly hotel or family-room option by city' }
-    ],
-    prices: [
-      { group: 'Family of 3-4', price: 'Custom quote', basis: 'Built around child age, bedding needs, and route length' },
-      { group: 'Multi-generation 6-8', price: 'Custom quote', basis: 'Private vehicle, hotel tier, and activity selection' },
-      { group: 'Family-room supplement', price: 'On request', basis: 'Varies significantly by city and season' }
-    ],
-    inclusions: [
-      'Private route planning and day-by-day pacing design',
-      'Family-friendly local guides and private transfers',
-      'Hotel selection support for bedding and location',
-      'Listed attraction tickets by final quote'
-    ],
-    exclusions: [
-      'International flights',
-      'Unlisted meals and activities',
-      'Theme park tickets unless selected',
-      'Travel insurance',
-      'Guide and driver gratuities'
-    ]
-  }
+  txBeijingMutianyu4DayProduct,
+  txJinshanlingHiking1DayProduct,
+  txBeijingVisaFree3DayProduct,
+  txBeijingJuyongguan4DayProduct,
+  txBestOfChina11DayProduct
 ]
 
 export const productBySlug = Object.fromEntries(tourProducts.map((product) => [product.slug, product])) as Record<

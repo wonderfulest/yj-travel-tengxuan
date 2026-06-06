@@ -20,25 +20,33 @@ const compactCities = computed(() => cities.value.filter((city) => !city.image))
     </div>
 
     <div class="city-grid">
-      <article v-for="city in featuredCities" :key="city.name" class="city-card">
+      <RouterLink
+        v-for="city in featuredCities"
+        :key="city.name"
+        class="city-card"
+        :to="{ name: 'city-detail', params: { slug: city.slug } }"
+        :aria-label="`${city.name}: ${t('sections.cities.read')}`"
+      >
         <img :src="city.image" :alt="city.alt" width="900" height="600" loading="lazy" />
         <div>
           <span>{{ city.region }} · {{ city.duration }}</span>
           <h3>{{ city.name }}</h3>
           <p>{{ city.summary }}</p>
-          <RouterLink class="city-card-link" :to="{ name: 'city-detail', params: { slug: city.slug } }">
-            {{ t('sections.cities.read') }}
-          </RouterLink>
+          <span class="city-card-link">{{ t('sections.cities.read') }}</span>
         </div>
-      </article>
-      <article v-for="city in compactCities" :key="city.name" class="city-card compact">
+      </RouterLink>
+      <RouterLink
+        v-for="city in compactCities"
+        :key="city.name"
+        class="city-card compact"
+        :to="{ name: 'city-detail', params: { slug: city.slug } }"
+        :aria-label="`${city.name}: ${t('sections.cities.read')}`"
+      >
         <span>{{ city.region }} · {{ city.duration }}</span>
         <h3>{{ city.name }}</h3>
         <p>{{ city.summary }}</p>
-        <RouterLink class="city-card-link" :to="{ name: 'city-detail', params: { slug: city.slug } }">
-          {{ t('sections.cities.read') }}
-        </RouterLink>
-      </article>
+        <span class="city-card-link">{{ t('sections.cities.read') }}</span>
+      </RouterLink>
     </div>
   </section>
 </template>

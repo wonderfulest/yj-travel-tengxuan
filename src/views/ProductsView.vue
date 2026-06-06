@@ -13,7 +13,11 @@ type Review = {
 const { locale, t } = useI18n()
 const { tourProducts } = useTravelContent()
 const selectedDestination = ref('all')
-const destinationFilters = ['Beijing', 'Xi’an']
+const knownDestinationOrder = ['Beijing', 'Chengde', 'Xi’an', 'Shanghai', 'Suzhou', 'Hangzhou', 'Guilin', 'Yangshuo', 'Chengdu', 'Chongqing', 'Zhangjiajie']
+const destinationFilters = computed(() => {
+  const destinations = tourProducts.value.flatMap((product) => productDestinations(product))
+  return Array.from(new Set(destinations)).sort((a, b) => destinationSortWeight(a) - destinationSortWeight(b) || a.localeCompare(b))
+})
 
 const filteredProducts = computed(() => {
   if (selectedDestination.value === 'all') return tourProducts.value
@@ -29,13 +33,22 @@ function productDestinations(product: TourProduct) {
   if (product.destinations?.length) return product.destinations
 
   const route = normalize(product.route)
-  return destinationFilters.filter((destination) => route.includes(normalize(destination)))
+  return knownDestinationOrder.filter((destination) => route.includes(normalize(destination)))
 }
 
 function destinationLabel(destination: string) {
   const labels: Record<string, Record<string, string>> = {
     Beijing: { zh: '北京' },
-    'Xi’an': { zh: '西安' }
+    Chengde: { zh: '承德' },
+    'Xi’an': { zh: '西安' },
+    Shanghai: { zh: '上海' },
+    Suzhou: { zh: '苏州' },
+    Hangzhou: { zh: '杭州' },
+    Guilin: { zh: '桂林' },
+    Yangshuo: { zh: '阳朔' },
+    Chengdu: { zh: '成都' },
+    Chongqing: { zh: '重庆' },
+    Zhangjiajie: { zh: '张家界' }
   }
 
   return labels[destination]?.[locale.value] || destination
@@ -47,6 +60,11 @@ function dayPreview(product: TourProduct) {
 
 function normalize(value: string) {
   return value.toLowerCase().replace(/[’']/g, '').replace(/\s+/g, '')
+}
+
+function destinationSortWeight(destination: string) {
+  const index = knownDestinationOrder.indexOf(destination)
+  return index === -1 ? knownDestinationOrder.length : index
 }
 </script>
 

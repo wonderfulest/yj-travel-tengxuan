@@ -225,10 +225,10 @@ const messages = {
     },
     productList: {
       title: 'Classic Products',
-      eyebrow: 'Destination-based products',
+      eyebrow: 'Filter products by city',
       summary:
-        'Browse recommended China travel products by destination, then open the itinerary that matches the group pace, hotel level, guide language, and quote scope.',
-      filtersAria: 'Product destination filters',
+        'Choose a city to see every product that includes it, then open the itinerary that matches the group pace, hotel level, guide language, and quote scope.',
+      filtersAria: 'Product city filters',
       all: 'All products',
       recommendedCount: '{count} recommended products',
       dayPlan: 'Day plan',
@@ -734,9 +734,9 @@ const messages = {
     },
     productList: {
       title: '经典产品',
-      eyebrow: '按目的地筛选产品',
-      summary: '按目的地浏览中国旅行推荐玩法，再打开适合团型、酒店等级、导游语言和报价范围的具体行程。',
-      filtersAria: '产品目的地筛选',
+      eyebrow: '按城市筛选产品',
+      summary: '选择城市后，下方会展示所有包含该城市的产品；继续打开详情，可查看团型、酒店等级、导游语言和报价范围。',
+      filtersAria: '产品城市筛选',
       all: '全部产品',
       recommendedCount: '共有 {count} 个推荐玩法',
       dayPlan: '行程摘要',
@@ -2373,8 +2373,16 @@ const cityTranslations: Partial<Record<Locale, Record<string, Partial<City>>>> =
 
 const tripTranslations: Partial<Record<Locale, Record<string, Partial<Trip>>>> = {
   zh: {
+    'tx-beijing-mutianyu-4-day': { name: '北京慕田峪长城4日游', summary: '抵达北京、皇城核心、慕田峪长城、天坛、胡同和离京送站。', meta: '4天 · TXBJ0402' },
+    'tx-jinshanling-hiking-1-day': { name: '金山岭长城徒步1日游', summary: '北京酒店接送、金山岭长城导游徒步和陆路往返的一日产品。', meta: '1天 · TXBJ0102' },
+    'tx-beijing-visa-free-3-day': { name: '72小时免签北京精华游', summary: '围绕过境停留安排北京抵达、皇城核心、长城和离京衔接。', meta: '3天 · TXBJ0301' },
+    'tx-beijing-juyongguan-4-day': { name: '北京居庸关长城4日游', summary: '天安门、故宫、颐和园、天坛、居庸关长城、胡同和离京。', meta: '4天 · TXBJ0401' },
+    'tx-best-of-china-11-day': { name: '11天中国精华游', summary: '北京、西安、桂林/阳朔和上海的经典中国高识别度线路。', meta: '11天 · TXGBC11' },
     'beijing-xian-shanghai': { name: '北京-西安-上海', summary: '8天经典遗产线路，覆盖北京、西安高铁和上海城市游览。', meta: '8天 · USD 892起' },
     'classic-first-time-china': { name: '首次访华经典线路', summary: '北京、西安、桂林和上海，配私家导游和交通规划。', meta: '10天 · USD 2,380起' },
+    'splendid-china-9-day': { name: '9天锦绣中国', summary: '北京、西安、苏州、杭州和上海的紧凑经典多城市线路。', meta: '9天 · 定制报价' },
+    'best-of-china-11-day': { name: '11天中国精华', summary: '北京、西安、桂林/阳朔和上海，兼顾遗产与山水节奏。', meta: '11天 · 定制报价' },
+    'beijing-chengde-imperial': { name: '北京+承德皇家遗产7日', summary: '北京故宫、长城、胡同和承德避暑山庄、外八庙。', meta: '7天 · USD 1,090参考起' },
     'beijing-xian-heritage': { name: '北京+西安遗产之旅', summary: '长城、故宫、胡同、高铁和兵马俑。', meta: '6天 · USD 1,420起' },
     'shanghai-discovery': { name: '上海城市短线', summary: '建筑漫步、美食游、博物馆和苏杭周边延伸。', meta: '5天 · CNY 3,299起' },
     'chengdu-chongqing-zhangjiajie': { name: '成都熊猫与美食之旅', summary: '熊猫基地、茶馆文化、火锅、乐山大佛和轻松节奏。', meta: '10天 · CNY 4,780起' },
@@ -2386,6 +2394,9 @@ const tripTranslations: Partial<Record<Locale, Record<string, Partial<Trip>>>> =
   de: {
     'beijing-xian-shanghai': { name: "Peking-Xi'an-Shanghai", summary: "8-taegige Kulturerberoute mit Peking, Bahn nach Xi'an und Shanghai-Stadtbesuchen.", meta: '8 Tage · ab USD 892' },
     'classic-first-time-china': { name: 'Klassische erste China-Reise', summary: "Peking, Xi'an, Guilin und Shanghai mit privaten Guides und Bahn- oder Flugplanung.", meta: '10 Tage · ab USD 2.380' },
+    'splendid-china-9-day': { name: '9 Tage Splendid China', summary: "Peking, Xi'an, Suzhou, Hangzhou und Shanghai als kompakte klassische Route.", meta: '9 Tage · individuelles Angebot' },
+    'best-of-china-11-day': { name: '11 Tage Best of China', summary: "Peking, Xi'an, Guilin/Yangshuo und Shanghai mit ausgewogenem Kultur- und Landschaftstempo.", meta: '11 Tage · individuelles Angebot' },
+    'beijing-chengde-imperial': { name: 'Peking + Chengde kaiserliches Erbe', summary: 'Verbotene Stadt, Grosse Mauer, Hutongs, Chengde Mountain Resort und Aeussere Tempel.', meta: '7 Tage · ab USD 1.090 Referenz' },
     'beijing-xian-heritage': { name: "Peking + Xi'an Kulturerbe", summary: 'Grosse Mauer, Verbotene Stadt, Hutongs, Schnellzug und Terrakotta-Armee.', meta: '6 Tage · ab USD 1.420' },
     'shanghai-discovery': { name: 'Shanghai City Break', summary: 'Architekturspaziergaenge, Food-Touren, Museen sowie Suzhou- oder Hangzhou-Ausfluege.', meta: '5 Tage · ab CNY 3.299' },
     'chengdu-chongqing-zhangjiajie': { name: 'Chengdu Panda & Food Tour', summary: 'Panda-Basis, Teehauskultur, Hotpot, Leshan-Buddha und entspanntes Tempo.', meta: '10 Tage · ab CNY 4.780' },
@@ -2397,6 +2408,9 @@ const tripTranslations: Partial<Record<Locale, Record<string, Partial<Trip>>>> =
   fr: {
     'beijing-xian-shanghai': { name: "Pekin-Xi'an-Shanghai", summary: "Route patrimoine de 8 jours avec Pekin, train rapide vers Xi'an et visites de Shanghai.", meta: '8 jours · des USD 892' },
     'classic-first-time-china': { name: 'Circuit Chine classique premiere fois', summary: "Pekin, Xi'an, Guilin et Shanghai avec guides prives et organisation train/vol.", meta: '10 jours · des USD 2 380' },
+    'splendid-china-9-day': { name: '9 jours Splendid China', summary: "Pekin, Xi'an, Suzhou, Hangzhou et Shanghai en route classique compacte.", meta: '9 jours · devis sur mesure' },
+    'best-of-china-11-day': { name: '11 jours Best of China', summary: "Pekin, Xi'an, Guilin/Yangshuo et Shanghai avec rythme patrimoine et paysages.", meta: '11 jours · devis sur mesure' },
+    'beijing-chengde-imperial': { name: 'Pekin + Chengde patrimoine imperial', summary: 'Cite interdite, Grande Muraille, hutongs, Mountain Resort de Chengde et temples exterieurs.', meta: '7 jours · des USD 1 090 reference' },
     'beijing-xian-heritage': { name: "Patrimoine Pekin + Xi'an", summary: 'Grande Muraille, Cite interdite, hutongs, train rapide et armee de terre cuite.', meta: '6 jours · des USD 1 420' },
     'shanghai-discovery': { name: 'Echappee urbaine Shanghai', summary: 'Balades architecture, food tours, musees et extensions Suzhou ou Hangzhou.', meta: '5 jours · des CNY 3 299' },
     'chengdu-chongqing-zhangjiajie': { name: 'Chengdu pandas et cuisine', summary: 'Base des pandas, maisons de the, hotpot, Bouddha de Leshan et rythme detendu.', meta: '10 jours · des CNY 4 780' },
@@ -2408,6 +2422,9 @@ const tripTranslations: Partial<Record<Locale, Record<string, Partial<Trip>>>> =
   es: {
     'beijing-xian-shanghai': { name: "Pekin-Xi'an-Shanghai", summary: "Ruta patrimonial de 8 dias con Pekin, tren rapido a Xi'an y visitas de Shanghai.", meta: '8 dias · desde USD 892' },
     'classic-first-time-china': { name: 'Tour clasico primera vez en China', summary: "Pekin, Xi'an, Guilin y Shanghai con guias privados y plan de tren o vuelo.", meta: '10 dias · desde USD 2,380' },
+    'splendid-china-9-day': { name: '9 dias Splendid China', summary: "Pekin, Xi'an, Suzhou, Hangzhou y Shanghai en una ruta clasica compacta.", meta: '9 dias · cotizacion a medida' },
+    'best-of-china-11-day': { name: '11 dias Best of China', summary: "Pekin, Xi'an, Guilin/Yangshuo y Shanghai con ritmo equilibrado de patrimonio y paisaje.", meta: '11 dias · cotizacion a medida' },
+    'beijing-chengde-imperial': { name: 'Pekin + Chengde patrimonio imperial', summary: 'Ciudad Prohibida, Gran Muralla, hutongs, Mountain Resort de Chengde y templos exteriores.', meta: '7 dias · desde USD 1,090 referencia' },
     'beijing-xian-heritage': { name: "Patrimonio Pekin + Xi'an", summary: 'Gran Muralla, Ciudad Prohibida, hutongs, tren rapido y Guerreros de Terracota.', meta: '6 dias · desde USD 1,420' },
     'shanghai-discovery': { name: 'Escapada urbana Shanghai', summary: 'Paseos de arquitectura, tours gastronomicos, museos y excursiones a Suzhou o Hangzhou.', meta: '5 dias · desde CNY 3,299' },
     'chengdu-chongqing-zhangjiajie': { name: 'Chengdu pandas y comida', summary: 'Base de pandas, cultura de te, hotpot, Buda de Leshan y ritmo relajado.', meta: '10 dias · desde CNY 4,780' },
@@ -2420,6 +2437,101 @@ const tripTranslations: Partial<Record<Locale, Record<string, Partial<Trip>>>> =
 
 const productTranslations: Partial<Record<Locale, Record<string, Partial<TourProduct>>>> = {
   zh: {
+    'tx-beijing-mutianyu-4-day': {
+      name: '北京慕田峪长城4日游',
+      eyebrow: 'TXBJ0402 · 4天北京城市包价产品',
+      duration: '4天 / 3晚',
+      route: '北京',
+      summary: '对标 ChinaTour 慕田峪北京4日城市包价结构，包含抵达接送、皇城核心、慕田峪长城、天坛、胡同和离京送站。',
+      galleryTitle: '慕田峪长城、皇城北京、天坛礼制空间和老城胡同。',
+      sourceNote: '线路结构参考 ChinaTour INBJ0402；产品编号、文案、最终报价和服务条款为腾轩自有版本。',
+      highlights: [
+        '按4天北京经典节奏组织：抵达、皇城核心、慕田峪长城、胡同和送站。',
+        '长城段选用慕田峪，适合希望景观更完整、拍照效果更好的北京短停客人。',
+        '把天安门、故宫、颐和园、天坛和胡同压缩进首次到访北京路线。',
+        '可按 land-only 城市包价方式报价，最终酒店、餐食和门票以确认单为准。'
+      ],
+      days: [
+        { day: '第 1 天', city: '北京', meals: '- / - / -', title: '抵达北京', summary: '机场或火车站接客，送往北京酒店。当天保留休息或轻松自由活动时间。', sights: ['抵达接送', '酒店入住', '自由活动'] },
+        { day: '第 2 天', city: '北京', meals: 'B / L / D', title: '天安门、故宫与颐和园', summary: '游览天安门广场和故宫，下午前往颐和园。若报价包含，可安排北京烤鸭或同等级特色晚餐。', sights: ['天安门广场', '故宫', '颐和园', '北京烤鸭晚餐选项'], note: '天安门和故宫预约需提前提供护照信息。' },
+        { day: '第 3 天', city: '北京', meals: 'B / L / -', title: '慕田峪长城与天坛', summary: '游览天坛后前往慕田峪长城。缆车、索道或滑道按最终报价作为可选项目确认。', sights: ['天坛', '慕田峪长城', '长城缆车选项'] },
+        { day: '第 4 天', city: '北京', meals: 'B / - / -', title: '胡同与离京', summary: '以三轮车或步行方式游览北京胡同，随后送往机场或火车站。', sights: ['胡同三轮车或步行', '老北京街巷', '离京送站'] }
+      ]
+    },
+    'tx-jinshanling-hiking-1-day': {
+      name: '金山岭长城徒步1日游',
+      eyebrow: 'TXBJ0102 · 1天长城徒步产品',
+      duration: '8-10小时',
+      route: '北京 · 金山岭长城 · 北京',
+      summary: '对标 ChinaTour 金山岭长城一日徒步结构，包含酒店接送、陆路往返、导游陪同徒步和基础行程协调。',
+      galleryTitle: '面向摄影和户外客人的高强度长城徒步日。',
+      sourceNote: '线路结构参考 ChinaTour INBJ0102；产品编号已更换，文案为重写版本。',
+      highlights: [
+        '保留北京酒店接送、约2.5小时单程车程、金山岭徒步和返回酒店的一日结构。',
+        '将金山岭定位为更具徒步强度和摄影价值的长城选择。',
+        '午餐按徒步日处理，需根据报价确认简餐、路餐或客人自备食品。',
+        '下单前需确认天气、鞋服、水、体力要求和接送酒店位置。'
+      ],
+      days: [
+        { day: '一日游', city: '北京', meals: '- / - / -', title: '金山岭长城徒步', summary: '导游在北京酒店大堂接客，乘车前往金山岭长城。按团队体力进行长城徒步，结束后专车返回酒店。', sights: ['酒店接客', '金山岭长城', '导游陪同徒步', '返回酒店'], note: '该线路体力要求较高，需提前确认天气、鞋服、饮水、路餐和客人体能。' }
+      ]
+    },
+    'tx-beijing-visa-free-3-day': {
+      name: '72小时免签北京精华游',
+      eyebrow: 'TXBJ0301 · 72小时北京过境停留产品',
+      duration: '3天 / 2晚',
+      route: '北京',
+      summary: '面向符合条件的过境客人，围绕抵达接送、故宫和颐和园、长城一日和离京衔接设计短停北京产品。',
+      galleryTitle: '在短暂停留窗口里优先覆盖北京最高识别度景点。',
+      sourceNote: '线路结构参考 ChinaTour 72小时北京精华产品；文案、编号和报价条款为腾轩重写版本。',
+      highlights: [
+        '适合短暂停留北京的过境客人，机场时间和离境时间纳入行程设计。',
+        '三天内优先安排皇城核心、颐和园、天坛和一个长城段。',
+        '酒店、接送和门票预约需要紧密衔接，避免过境时间浪费。',
+        '是否适用免签过境需按护照、航线、联程机票和最新政策确认。'
+      ],
+      days: [
+        { day: '第 1 天', city: '北京', meals: '- / - / -', title: '抵达接送与轻量城市初识', summary: '机场或火车站接客，送往酒店。若抵达时间允许，可安排王府井、前门或酒店周边轻松步行。', sights: ['抵达接送', '酒店入住', '王府井或前门可选'] },
+        { day: '第 2 天', city: '北京', meals: 'B / L / -', title: '天安门、故宫、颐和园', summary: '主要游览日安排天安门广场、故宫和颐和园，使用专车和导游提高短停效率。', sights: ['天安门广场', '故宫', '颐和园'], note: '报价前需核验过境材料、护照信息和当前入境规则。' },
+        { day: '第 3 天', city: '北京', meals: 'B / L / -', title: '长城、天坛与离京', summary: '游览一个长城段和天坛，随后送往机场或火车站继续下一段行程。', sights: ['长城', '天坛', '离京送站'], note: '建议安排较晚离境航班或车次，以保证长城日和离境手续时间。' }
+      ]
+    },
+    'tx-beijing-juyongguan-4-day': {
+      name: '北京居庸关长城4日游',
+      eyebrow: 'TXBJ0401 · 4天北京城市包价产品',
+      duration: '4天 / 3晚',
+      route: '北京',
+      summary: '对标 ChinaTour 居庸关北京4日产品，包含抵达、天安门和故宫、颐和园、天坛、居庸关长城、胡同和离京。',
+      galleryTitle: '居庸关长城、皇城北京、颐和园和胡同生活。',
+      sourceNote: '线路结构参考 ChinaTour INBJ0401；产品编号、文案和最终报价条款为腾轩自有版本。',
+      highlights: [
+        '尽量贴合参考4日节奏：抵达、皇城北京、居庸关和天坛、胡同和离京。',
+        '长城段选用居庸关，突出北京近郊经典关城长城体验。',
+        '北京烤鸭或同等级特色晚餐仅在最终报价确认后包含。',
+        '适合作为 land-only 城市包价或旅行社小团队产品。'
+      ],
+      days: [
+        { day: '第 1 天', city: '北京', meals: '- / - / -', title: '抵达北京', summary: '抵达后接机或接站，送往酒店办理入住，当天以休息为主。', sights: ['抵达接送', '酒店入住'] },
+        { day: '第 2 天', city: '北京', meals: 'B / L / D', title: '天安门、故宫与颐和园', summary: '游览天安门广场、故宫和颐和园。若最终报价包含，可安排北京烤鸭或特色晚餐。', sights: ['天安门广场', '故宫', '颐和园', '北京烤鸭晚餐选项'], note: '天安门和故宫预约需护照信息。' },
+        { day: '第 3 天', city: '北京', meals: 'B / L / -', title: '天坛与居庸关长城', summary: '上午游览天坛，随后前往居庸关长城。玉石文化或购物停留仅在商业范围确认后加入。', sights: ['天坛', '居庸关长城', '玉石文化停留选项'] },
+        { day: '第 4 天', city: '北京', meals: 'B / - / -', title: '胡同与离京', summary: '以三轮车或步行方式游览胡同，之后送往机场或火车站。', sights: ['胡同三轮车或步行', '老北京街巷', '离京送站'] }
+      ]
+    },
+    'tx-best-of-china-11-day': {
+      name: '11天中国精华游',
+      eyebrow: 'TXGBC11 · 11天中国经典线路',
+      duration: '11天 / 10晚',
+      route: '北京 · 西安 · 桂林 · 上海',
+      summary: '对标 ChinaTour GBC11 的中国经典高识别度线路，串联北京、西安、桂林/阳朔和上海。',
+      galleryTitle: '长城、兵马俑、漓江山水与上海天际线。',
+      sourceNote: '线路结构参考 ChinaTour GBC11：北京、西安、桂林/阳朔和上海；产品编号、文案和报价条款为腾轩自有版本。',
+      highlights: [
+        '北京保留三晚，让长城、故宫、胡同和天坛不被压缩。',
+        '西安承担兵马俑、城墙、唐风夜游或回民街的古都章节。',
+        '桂林与阳朔作为山水缓冲，再进入上海城市收尾。',
+        '适合首次访华休闲客人、家庭团和需要高识别度线路的旅行社产品。'
+      ]
+    },
     'beijing-central-axis-5-day': {
       name: '北京经典精华4日',
       eyebrow: '4天紧凑北京经典线路',
@@ -2481,6 +2593,20 @@ const productTranslations: Partial<Record<Locale, Record<string, Partial<TourPro
     'xian-family-intangible-5-day': { name: '西安亲子非遗5日', eyebrow: '5天亲子考古与非遗体验产品', duration: '5天 / 4晚', route: '西安 · 临潼', summary: '亲子友好西安线路，结合兵马俑、大明宫、大雁塔、城墙、唐风街区和非遗体验。', galleryTitle: '用家庭节奏打开考古和民俗文化。' },
     'xian-tang-night-4-day': { name: '西安唐风夜游4日', eyebrow: '4天西安短停城市产品', duration: '4天 / 3晚', route: '西安', summary: '适合周末或延伸停留的西安短线，组合城墙、回民街、大雁塔、大唐不夜城和兵马俑一日。', galleryTitle: '紧凑短线里的西安夜色和古都核心。' },
     'xian-yanan-huashan-6-day': { name: '西安延安华山印象6日', eyebrow: '6天陕西深度历史延伸', duration: '6天 / 5晚', route: '西安 · 延安 · 华山 · 临潼', summary: '区域型陕西线路，结合西安遗产、延安历史、华山或壶口延伸和本地餐食规划。', galleryTitle: '从古都到山河与红色历史的陕西深度线。' },
+    'beijing-chengde-imperial': {
+      name: '北京+承德皇家遗产7日',
+      eyebrow: '7天清代皇家遗产线路',
+      duration: '7天 / 6晚',
+      route: '北京 · 承德 · 北京',
+      summary: '以北京为核心的皇家遗产产品，加入清代皇帝夏季行宫承德，覆盖故宫、长城、胡同、颐和园、避暑山庄和外八庙。',
+      galleryTitle: '皇家北京与承德避暑山庄延伸。',
+      highlights: [
+        '北京作为抵离门户，承德承担更深入的清代皇家历史章节。',
+        '覆盖天安门、故宫、颐和园、长城、胡同、避暑山庄、普宁寺和普陀宗乘之庙。',
+        '用承德区别于普通北京单城短线，提高产品辨识度。',
+        '适合旅行社团队、长者客人和偏皇家历史主题的首次访华客人。'
+      ]
+    },
     'beijing-xian-shanghai': {
       name: '北京-西安-上海',
       eyebrow: '8天中国经典遗产陪同游',
@@ -2489,6 +2615,34 @@ const productTranslations: Partial<Record<Locale, Record<string, Partial<TourPro
       summary:
         '面向国际团队的紧凑首次访华线路，覆盖北京皇家文化、西安兵马俑和上海经典城市景观，包含导游、专车、高铁和四星酒店选项。',
       galleryTitle: '皇家北京、古都西安与浦江上海。'
+    },
+    'splendid-china-9-day': {
+      name: '9天锦绣中国',
+      eyebrow: '9天经典华东与遗产线路',
+      duration: '9天 / 8晚',
+      route: '北京 · 西安 · 苏州 · 杭州 · 上海',
+      summary: '紧凑经典中国产品，串联北京皇家地标、西安兵马俑、苏州园林、杭州西湖和上海收尾，适合首次访华入境客人。',
+      galleryTitle: '皇家遗产、古都、江南园林、西湖与上海天际线。',
+      highlights: [
+        '用北京和西安承担最容易识别的遗产章节，再切换到江南风景。',
+        '加入苏州和杭州，让线路不只是北京、西安、上海三角线。',
+        '上海作为国际门户收尾，安排外滩、老城和可弹性调整的自由时间。',
+        '可作为固定经典产品，也可按旅行社团队的酒店、餐食和导游语言调整。'
+      ]
+    },
+    'best-of-china-11-day': {
+      name: '11天中国精华',
+      eyebrow: '11天中国高识别度经典线路',
+      duration: '11天 / 10晚',
+      route: '北京 · 西安 · 桂林 · 上海',
+      summary: '面向希望一次看完中国代表性亮点的客人，覆盖北京、西安、桂林与阳朔山水，以及上海城市收尾。',
+      galleryTitle: '长城、兵马俑、漓江山水与上海天际线。',
+      highlights: [
+        '北京保留三晚，让长城、故宫、胡同和天坛不被压缩。',
+        '西安承担兵马俑、城墙、唐风夜游或回民街的古都章节。',
+        '桂林与阳朔作为山水缓冲，再进入上海城市收尾。',
+        '适合首次访华休闲客人、家庭团和需要高识别度线路的旅行社产品。'
+      ]
     },
     'classic-first-time-china': { name: '首次访华经典线路', eyebrow: '10天私家中国入门线路', duration: '10天 / 9晚', route: '北京 · 西安 · 桂林 · 上海', summary: '面向海外休闲客人的首次访华私家线路，串联核心遗产、山水章节和上海收尾。', galleryTitle: '世界遗产、喀斯特山水和上海城市收尾。' },
     'beijing-xian-heritage': { name: '北京+西安遗产之旅', eyebrow: '6天古都线路', duration: '6天 / 5晚', route: '北京 · 西安', summary: '适合希望在一周内游览长城、故宫和兵马俑的紧凑古都产品。', galleryTitle: '两座古都，以高铁连接。' },
@@ -2511,6 +2665,7 @@ const productTranslations: Partial<Record<Locale, Record<string, Partial<TourPro
     },
     'classic-first-time-china': { name: 'Klassische erste China-Reise', eyebrow: '10-taegige private China-Einfuehrung', duration: '10 Tage / 9 Naechte', route: "Peking · Xi'an · Guilin · Shanghai", summary: 'Private Einsteigerroute mit Kulturerbe, Landschaftskapitel und Shanghai-Finale.', galleryTitle: 'Welterbe, Karstlandschaft und sanftes Shanghai-Finale.' },
     'beijing-xian-heritage': { name: "Peking + Xi'an Kulturerbe", eyebrow: '6-taegige Route alter Hauptstaedte', duration: '6 Tage / 5 Naechte', route: "Peking · Xi'an", summary: 'Kompakte Route fur Grosse Mauer, Verbotene Stadt und Terrakotta-Armee.', galleryTitle: 'Zwei alte Hauptstaedte mit schneller Bahnverbindung.' },
+    'beijing-chengde-imperial': { name: 'Peking + Chengde kaiserliches Erbe', eyebrow: '7-taegige Qing-Kaiserroute', duration: '7 Tage / 6 Naechte', route: 'Peking · Chengde · Peking', summary: 'Peking-zentrierte Kaiserroute mit Chengde als Sommerresidenz der Qing-Kaiser, inklusive Verbotene Stadt, Grosse Mauer, Hutongs, Sommerpalast, Mountain Resort und Aeussere Tempel.', galleryTitle: 'Kaiserliches Peking mit Chengde-Erweiterung.' },
     'shanghai-discovery': { name: '5 Tage Shanghai Discovery', eyebrow: '5 Tage Stadt- und Wasserstadtpause', duration: '5 Tage / 4 Naechte', route: 'Shanghai · Suzhou oder Wasserstadt', summary: 'Niedrigschwellige Shanghai-Route mit Bund, Altstadt und Jiangnan-Ausflug.', galleryTitle: 'Urbanes Shanghai mit Jiangnan-Seitenreise.' },
     'chengdu-chongqing-zhangjiajie': { name: 'Chengdu, Chongqing & Zhangjiajie', eyebrow: '10 Tage Pandas, Bergstadt und Avatar-Landschaften', duration: '10 Tage / 9 Naechte', route: 'Chengdu · Chongqing · Zhangjiajie', summary: 'Intensive Route mit Pandas, Sichuan-Kueche, Chongqing-Nachtblicken und Zhangjiajie.', galleryTitle: 'Pandas, Hotpot, Flusslichter und Sandsteinspitzen.' },
     'beijing-zhangjiajie-shanghai': { name: 'China + Natur: Peking, Zhangjiajie & Shanghai', eyebrow: '9 Tage klassische Stadt- und Naturroute', duration: '9 Tage / 8 Naechte', route: 'Peking · Zhangjiajie · Shanghai', summary: 'Alternative Erstbesucherroute mit Peking, Shanghai und dramatischem Naturkapitel.', galleryTitle: 'Klassische Gateways mit Naturmittelpunkt.' },
@@ -2530,6 +2685,7 @@ const productTranslations: Partial<Record<Locale, Record<string, Partial<TourPro
     },
     'classic-first-time-china': { name: 'Circuit Chine classique premiere fois', eyebrow: 'Introduction privee Chine de 10 jours', duration: '10 jours / 9 nuits', route: "Pekin · Xi'an · Guilin · Shanghai", summary: 'Route privee pour premier voyage avec patrimoine, paysages et final a Shanghai.', galleryTitle: 'Patrimoine mondial, karst et final doux a Shanghai.' },
     'beijing-xian-heritage': { name: "Patrimoine Pekin + Xi'an", eyebrow: 'Route anciennes capitales de 6 jours', duration: '6 jours / 5 nuits', route: "Pekin · Xi'an", summary: 'Produit compact pour Grande Muraille, Cite interdite et guerriers de terre cuite.', galleryTitle: 'Deux anciennes capitales reliees par train rapide.' },
+    'beijing-chengde-imperial': { name: 'Pekin + Chengde patrimoine imperial', eyebrow: 'Route imperiale Qing de 7 jours', duration: '7 jours / 6 nuits', route: 'Pekin · Chengde · Pekin', summary: 'Route imperiale centree sur Pekin avec Chengde, residence d ete des empereurs Qing, Cite interdite, Grande Muraille, hutongs, Palais d ete, Mountain Resort et temples exterieurs.', galleryTitle: 'Pekin imperial avec extension Chengde.' },
     'shanghai-discovery': { name: '5 jours Shanghai Discovery', eyebrow: 'Pause ville et water-town de 5 jours', duration: '5 jours / 4 nuits', route: 'Shanghai · Suzhou ou water town', summary: 'Route Shanghai facile avec Bund, vieille ville et excursion Jiangnan.', galleryTitle: 'Shanghai urbain avec extension Jiangnan.' },
     'chengdu-chongqing-zhangjiajie': { name: 'Chengdu, Chongqing & Zhangjiajie', eyebrow: '10 jours pandas, ville montagne et paysages Avatar', duration: '10 jours / 9 nuits', route: 'Chengdu · Chongqing · Zhangjiajie', summary: 'Route forte avec pandas, cuisine du Sichuan, vues de Chongqing et montagnes de Zhangjiajie.', galleryTitle: 'Pandas, hotpot, lumieres de fleuve et pics de gres.' },
     'beijing-zhangjiajie-shanghai': { name: 'Chine + nature: Pekin, Zhangjiajie & Shanghai', eyebrow: '9 jours ville classique et nature', duration: '9 jours / 8 nuits', route: 'Pekin · Zhangjiajie · Shanghai', summary: 'Alternative premier voyage avec Pekin, Shanghai et chapitre nature spectaculaire.', galleryTitle: 'Portes classiques avec centre nature intense.' },
@@ -2549,6 +2705,7 @@ const productTranslations: Partial<Record<Locale, Record<string, Partial<TourPro
     },
     'classic-first-time-china': { name: 'Tour clasico primera vez en China', eyebrow: 'Introduccion privada a China de 10 dias', duration: '10 dias / 9 noches', route: "Pekin · Xi'an · Guilin · Shanghai", summary: 'Ruta privada para primer viaje con patrimonio, paisaje y final pulido en Shanghai.', galleryTitle: 'Patrimonio mundial, karst y final suave en Shanghai.' },
     'beijing-xian-heritage': { name: "Patrimonio Pekin + Xi'an", eyebrow: 'Ruta de antiguas capitales de 6 dias', duration: '6 dias / 5 noches', route: "Pekin · Xi'an", summary: 'Producto compacto para Gran Muralla, Ciudad Prohibida y Guerreros de Terracota.', galleryTitle: 'Dos antiguas capitales con conexion de tren rapido.' },
+    'beijing-chengde-imperial': { name: 'Pekin + Chengde patrimonio imperial', eyebrow: 'Ruta imperial Qing de 7 dias', duration: '7 dias / 6 noches', route: 'Pekin · Chengde · Pekin', summary: 'Ruta imperial centrada en Pekin con Chengde, retiro de verano de los emperadores Qing, Ciudad Prohibida, Gran Muralla, hutongs, Palacio de Verano, Mountain Resort y templos exteriores.', galleryTitle: 'Pekin imperial con extension Chengde.' },
     'shanghai-discovery': { name: '5 dias Shanghai Discovery', eyebrow: 'Escapada ciudad y water-town de 5 dias', duration: '5 dias / 4 noches', route: 'Shanghai · Suzhou o water town', summary: 'Ruta facil de Shanghai con Bund, ciudad antigua y excursion Jiangnan.', galleryTitle: 'Shanghai urbano con excursion Jiangnan.' },
     'chengdu-chongqing-zhangjiajie': { name: 'Chengdu, Chongqing y Zhangjiajie', eyebrow: '10 dias pandas, ciudad montana y paisajes Avatar', duration: '10 dias / 9 noches', route: 'Chengdu · Chongqing · Zhangjiajie', summary: 'Ruta intensa con pandas, comida Sichuan, vistas de Chongqing y montanas de Zhangjiajie.', galleryTitle: 'Pandas, hotpot, luces de rio y picos de arenisca.' },
     'beijing-zhangjiajie-shanghai': { name: 'China + naturaleza: Pekin, Zhangjiajie y Shanghai', eyebrow: '9 dias de ciudades clasicas y naturaleza', duration: '9 dias / 8 noches', route: 'Pekin · Zhangjiajie · Shanghai', summary: 'Alternativa para primer viaje con Pekin, Shanghai y un capitulo natural dramatico.', galleryTitle: 'Puertas clasicas con centro natural intenso.' },
@@ -3268,11 +3425,14 @@ const productGenericCopy: Record<Exclude<Locale, 'en'>, {
   onRequest: string
 }> = {
   zh: {
-    factLabels: { Starts: '起点', Ends: '终点', Hotels: '酒店', Guide: '导游', Transport: '交通', 'Best for': '适合' },
+    factLabels: { Code: '编号', Starts: '起点', Ends: '终点', Hotels: '酒店', Guide: '导游', Transport: '交通', 'Best for': '适合' },
     factValues: {
       Custom: '定制',
       Beijing: '北京',
       Shanghai: '上海',
+      Suzhou: '苏州',
+      Hangzhou: '杭州',
+      Yangshuo: '阳朔',
       Chengdu: '成都',
       Zhangjiajie: '张家界',
       Guilin: '桂林',
@@ -3281,12 +3441,19 @@ const productGenericCopy: Record<Exclude<Locale, 'en'>, {
       'Private local guide': '私家当地导游',
       'Private vehicle': '私家车',
       'Private vehicle + rail/flight': '私家车 + 高铁/航班',
+      'English-speaking local guide': '英文当地导游',
       'Family-friendly guides': '亲子友好导游',
       'Families and multi-gen groups': '家庭和多代同游',
       'Inbound leisure groups': '入境休闲团队',
+      'First-time Beijing visitors': '首次到访北京客人',
+      'Active Great Wall hikers': '长城徒步客人',
+      'Short visa-free stopovers': '短暂停留免签过境客人',
       'Short heritage trips': '短线遗产游',
       'First-time private travelers': '首次访华私家游客'
       ,
+      'First-time classic China groups': '首次访华经典团队',
+      'Rail / flight / private vehicle': '高铁/航班/私家车',
+      'Rail + domestic flight': '高铁 + 国内航班',
       'Family-room options': '家庭房选项',
       'Arrival city': '抵达城市',
       'Departure city': '离境城市',
@@ -3308,6 +3475,9 @@ const productGenericCopy: Record<Exclude<Locale, 'en'>, {
       'Departure transfer': '离境送机/送站',
       'Terracotta Warriors': '兵马俑',
       'Li River': '漓江',
+      'Li River Cruise': '漓江游船',
+      'Suzhou Gardens': '苏州园林',
+      'West Lake': '西湖',
       'Shanghai Skyline': '上海天际线',
       'Family of 3-4': '3-4 人家庭',
       'Multi-generation 6-8': '6-8 人多代家庭',

@@ -710,6 +710,8 @@ button:disabled {
 .city-card {
   display: flex;
   flex-direction: column;
+  color: inherit;
+  text-decoration: none;
 }
 
 .city-card img {
@@ -772,7 +774,8 @@ button:disabled {
 }
 
 .city-card-link:hover,
-.city-card-link:focus-visible {
+.city-card:focus-visible .city-card-link,
+.city-card:hover .city-card-link {
   color: var(--vermilion-dark);
 }
 

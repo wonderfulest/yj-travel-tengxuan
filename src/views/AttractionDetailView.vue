@@ -65,10 +65,6 @@ function normalizeRouteText(value: string) {
       </div>
       <figure class="attraction-detail-media">
         <img :src="attraction.image" :alt="attraction.alt" width="1100" height="733" loading="eager" fetchpriority="high" />
-        <figcaption>
-          <span>{{ t('attraction.imageCredit') }}</span>
-          {{ attraction.imageCredit }}
-        </figcaption>
       </figure>
     </section>
 
@@ -135,19 +131,6 @@ function normalizeRouteText(value: string) {
         {{ t('attraction.planRoute') }}
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
       </RouterLink>
-    </section>
-
-    <section class="attraction-detail-section" aria-labelledby="attraction-sources-title">
-      <div class="attraction-detail-heading">
-        <p class="product-eyebrow">{{ t('attraction.sources') }}</p>
-        <h2 id="attraction-sources-title">{{ t('common.pageDetails') }}</h2>
-      </div>
-      <div class="attraction-source-list">
-        <a v-for="source in attraction.sources" :key="source.url" :href="source.url" target="_blank" rel="noreferrer">
-          {{ source.label }}
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7m0 0H9m8 0v8" /></svg>
-        </a>
-      </div>
     </section>
 
     <section v-if="attractionCity || relatedProducts.length" class="attraction-detail-section" aria-labelledby="attraction-link-title">
