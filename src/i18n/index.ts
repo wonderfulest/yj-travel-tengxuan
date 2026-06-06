@@ -70,6 +70,11 @@ const messages = {
     },
     footer: {
       intro: 'Private travel experiences, thoughtfully planned for international visitors.',
+      companyContactAria: 'Tengxuan Travel company address and contact details',
+      addressLabel: 'Address',
+      address: '5F 50520, Tower D, Galaxy SOHO, Chaoyangmen, Dongcheng District, Beijing',
+      phoneLabel: 'Phone',
+      emailLabel: 'Email',
       explore: 'Explore',
       companyProfile: 'Company Profile',
       destinations: 'Destinations',
@@ -102,7 +107,7 @@ const messages = {
       company: {
         link: 'View company profile',
         proofAria: 'Tengxuan Travel Group highlights',
-        proofText: 'Founded in 2001, listed on NEEQ, with 600+ airline partners and 20,000+ quality customers.'
+        proofText: 'Founded in 2001, with 2000+ quality supplier partners and 20,000+ quality customers.'
       },
       cities: {
         title: 'Major City Guides',
@@ -269,9 +274,13 @@ const messages = {
       faq: 'FAQ',
       faqTitle: 'Product questions before quotation',
       faqGroupType: 'What group type is this product suitable for?',
+      faqGroupAnswer:
+        '{group}. The route can be adjusted by hotel level, guide language, rooming, flight or rail timing, and daily pace.',
       faqIncluded: 'What is included?',
       faqExcluded: 'What is not included?',
       faqQuote: 'What information is needed for a quote?',
+      faqQuoteAnswer:
+        'Send travel dates, arrival and departure cities, group size, hotel level, guide language, rooming list, and must-see places for a confirmed quotation.',
       internalLinks: 'Related planning',
       linkTitle: 'Cities, attractions, and preparation',
       relatedCity: 'City guide',
@@ -291,8 +300,12 @@ const messages = {
       overviewTitle: 'Built around travel resources, enterprise service, and platform supply.',
       momentsEyebrow: 'Company moments',
       momentsTitle: 'Office environment, employee culture, and activity scenes.',
+      activityEyebrow: 'Activity albums',
+      activityTitle: 'More company activity photos by category.',
+      backToCompany: 'Back to company profile',
+      activityNotFound: 'Company activity album not found',
       distributionEyebrow: 'Group distribution',
-      distributionTitle: 'A 9-location branch network anchored by Beijing headquarters.',
+      distributionTitle: 'A 7-location branch network anchored by Beijing headquarters.',
       branchAria: 'Branch locations',
       inboundEyebrow: 'Inbound tourism',
       brandEyebrow: 'Brand system',
@@ -632,6 +645,11 @@ const messages = {
     },
     footer: {
       intro: 'Private Reiseerlebnisse, sorgfaeltig fur internationale Besucher geplant.',
+      companyContactAria: 'Adresse und Kontakt der Tengxuan Travel Group',
+      addressLabel: 'Adresse',
+      address: '5F 50520, Tower D, Galaxy SOHO, Chaoyangmen, Dongcheng District, Beijing',
+      phoneLabel: 'Telefon',
+      emailLabel: 'E-Mail',
       explore: 'Entdecken',
       companyProfile: 'Unternehmensprofil',
       destinations: 'Ziele',
@@ -664,7 +682,7 @@ const messages = {
       company: {
         link: 'Unternehmensprofil ansehen',
         proofAria: 'Highlights der Tengxuan Travel Group',
-        proofText: 'Gegruendet 2001, NEEQ-gelistet, mit 600+ Airline-Partnern und 20.000+ Qualitaetskunden.'
+        proofText: 'Gegruendet 2001, mit 2000+ hochwertigen Lieferantenpartnern und 20.000+ Qualitaetskunden.'
       },
       cities: {
         title: 'Wichtige Stadtguides',
@@ -733,23 +751,25 @@ const messages = {
       titleSuffix: 'Stadtguide'
     },
     productList: {
-      title: '经典产品',
-      eyebrow: '按城市筛选产品',
-      summary: '选择城市后，下方会展示所有包含该城市的产品；继续打开详情，可查看团型、酒店等级、导游语言和报价范围。',
-      filtersAria: '产品城市筛选',
-      all: '全部产品',
-      recommendedCount: '共有 {count} 个推荐玩法',
-      dayPlan: '行程摘要',
-      destinations: '目的地',
-      consultation: '咨询顾问',
-      viewDetail: '查看详情',
-      feedbackEyebrow: '旅行归来用户体验',
-      feedbackTitle: '游客最常提到的体验点',
-      feedbackSummary: '反馈样例围绕私家团常见关注点：节奏、导游、接送、票务和餐食舒适度。',
+      title: 'Klassische Produkte',
+      eyebrow: 'Produkte nach Stadt filtern',
+      summary:
+        'Waehlen Sie eine Stadt, um alle passenden Produkte zu sehen. Danach oeffnen Sie die Route fuer Tempo, Hotelniveau, Guidesprache und Angebotsumfang.',
+      filtersAria: 'Stadtfilter fuer Produkte',
+      all: 'Alle Produkte',
+      recommendedCount: '{count} empfohlene Produkte',
+      dayPlan: 'Tagesplan',
+      destinations: 'Ziele',
+      consultation: 'Berater kontaktieren',
+      viewDetail: 'Details ansehen',
+      feedbackEyebrow: 'Reisendenfeedback',
+      feedbackTitle: 'Was Gaeste nach der Reise erwaehnen',
+      feedbackSummary:
+        'Kurze Beispiele zu typischen Prioritaeten privater Gruppen: klares Tempo, Guide-Begleitung, Transfers, Tickets und angenehmes Essen.',
       reviews: [
-        { city: '北京', name: '新加坡亲子家庭', text: '故宫和长城两天安排得很清楚，孩子不会太累，车辆衔接让北京停留很省心。' },
-        { city: '西安', name: '西班牙旅行社团队', text: '兵马俑当天是全团亮点，城墙、回民街和大唐夜游补足了城市层次，而且不用频繁换酒店。' },
-        { city: '北京', name: '德国情侣客人', text: '胡同和茶馆时间没有被压缩，导游讲得细，整体不像打卡线路。' }
+        { city: 'Peking', name: 'Familiengruppe aus Singapur', text: 'Guide und Fahrzeug haben die Tage in Verbotener Stadt und Grosser Mauer klar strukturiert, ohne die Kinder zu ueberfordern.' },
+        { city: 'Xi’an', name: 'Agenturgruppe aus Spanien', text: 'Die Terrakotta-Armee war der Hoehepunkt, und Stadtmauer, Muslim Quarter und Tang-Abendroute brachten genug Abwechslung.' },
+        { city: 'Peking', name: 'Paar aus Deutschland', text: 'Der Hutong-Spaziergang und die Teehauszeit waren nicht gehetzt. Es fuehlte sich persoenlicher an als eine reine Checkliste.' }
       ]
     },
     product: {
@@ -770,7 +790,26 @@ const messages = {
       including: 'Leistungen inklusive',
       excluding: 'Leistungen exklusive',
       ready: 'Bereit fur ein Angebot',
-      cta: 'Nutzen Sie diese Route als Gruppenprodukt oder passen Sie sie fur Ihren Markt an.'
+      cta: 'Nutzen Sie diese Route als Gruppenprodukt oder passen Sie sie fur Ihren Markt an.',
+      suitableGroups: 'Geeignete Gruppen',
+      customGroups: 'Private Gruppen, Familien, MICE-Erweiterungen und Agenturgruppen',
+      faq: 'FAQ',
+      faqTitle: 'Produktfragen vor dem Angebot',
+      faqGroupType: 'Fuer welche Gruppentypen eignet sich dieses Produkt?',
+      faqGroupAnswer:
+        '{group}. Die Route kann nach Hotelniveau, Guidesprache, Zimmerliste, Flug- oder Bahnzeiten und Tagesrhythmus angepasst werden.',
+      faqIncluded: 'Was ist enthalten?',
+      faqExcluded: 'Was ist nicht enthalten?',
+      faqQuote: 'Welche Informationen werden fuer ein Angebot benoetigt?',
+      faqQuoteAnswer:
+        'Bitte senden Sie Reisedaten, Ankunfts- und Abreisestaedte, Gruppengroesse, Hotelniveau, Guidesprache, Zimmerliste und Wunschorte fuer ein bestaetigtes Angebot.',
+      internalLinks: 'Verwandte Planung',
+      linkTitle: 'Staedte, Sehenswuerdigkeiten und Vorbereitung',
+      relatedCity: 'Stadtguide',
+      relatedAttraction: 'Attraktionsguide',
+      planningLink: 'Planungsguide',
+      visaLinkText: 'Visum, Transit, Pass, Hotel und Einladungsschreiben vor der Buchung pruefen.',
+      beforeYouGoLinkText: 'Namen, Zimmerliste, Zuege, Attraktionen, Guidesprache, Zahlung, Mahlzeiten und Wetterpuffer vorbereiten.'
     },
     company: {
       metaDescription:
@@ -784,7 +823,7 @@ const messages = {
       momentsEyebrow: 'Unternehmensmomente',
       momentsTitle: 'Bueroumfeld, Mitarbeiterkultur und Aktivitaetsszenen.',
       distributionEyebrow: 'Gruppenverteilung',
-      distributionTitle: 'Ein Netzwerk mit 9 Standorten, verankert in der Pekinger Zentrale.',
+      distributionTitle: 'Ein Netzwerk mit 7 Standorten, verankert in der Pekinger Zentrale.',
       branchAria: 'Niederlassungen',
       inboundEyebrow: 'Inbound-Tourismus',
       brandEyebrow: 'Markensystem',
@@ -857,6 +896,11 @@ const messages = {
     },
     footer: {
       intro: 'Experiences de voyage privees, pensees pour les visiteurs internationaux.',
+      companyContactAria: 'Adresse et contact de Tengxuan Travel',
+      addressLabel: 'Adresse',
+      address: '5F 50520, Tower D, Galaxy SOHO, Chaoyangmen, Dongcheng District, Beijing',
+      phoneLabel: 'Telephone',
+      emailLabel: 'Email',
       explore: 'Explorer',
       companyProfile: 'Profil de la societe',
       destinations: 'Destinations',
@@ -889,7 +933,7 @@ const messages = {
       company: {
         link: 'Voir le profil de la societe',
         proofAria: 'Points forts de Tengxuan Travel Group',
-        proofText: 'Cree en 2001, cote NEEQ, avec 600+ partenaires aeriens et 20 000+ clients qualite.'
+        proofText: 'Cree en 2001, avec 2000+ partenaires fournisseurs qualite et 20 000+ clients qualite.'
       },
       cities: {
         title: 'Guides des grandes villes',
@@ -957,6 +1001,28 @@ const messages = {
       pairWith: 'Associer {city} avec',
       titleSuffix: 'Guide de ville'
     },
+    productList: {
+      title: 'Produits classiques',
+      eyebrow: 'Filtrer par ville',
+      summary:
+        'Choisissez une ville pour voir tous les produits qui l incluent, puis ouvrez l itineraire adapte au rythme du groupe, au niveau hotelier, a la langue du guide et au devis.',
+      filtersAria: 'Filtres ville des produits',
+      all: 'Tous les produits',
+      recommendedCount: '{count} produits recommandes',
+      dayPlan: 'Programme par jour',
+      destinations: 'Destinations',
+      consultation: 'Consulter un conseiller',
+      viewDetail: 'Voir les details',
+      feedbackEyebrow: 'Retours voyageurs',
+      feedbackTitle: 'Ce que les voyageurs remarquent apres le voyage',
+      feedbackSummary:
+        'Exemples courts autour des priorites courantes des groupes prives: rythme clair, guide, transferts, billets et confort des repas.',
+      reviews: [
+        { city: 'Pekin', name: 'Famille de Singapour', text: 'Le guide a rendu les journees Cite interdite et Grande Muraille faciles pour les enfants, avec des transferts bien cales.' },
+        { city: 'Xi’an', name: 'Groupe agence d Espagne', text: 'La journee des guerriers de terre cuite a ete le point fort, puis les remparts, le quartier musulman et la sortie du soir ont varie le rythme.' },
+        { city: 'Pekin', name: 'Couple d Allemagne', text: 'La balade dans les hutongs et le temps au salon de the n etaient pas presses. Le voyage semblait plus personnel.' }
+      ]
+    },
     product: {
       back: 'Retour aux produits',
       quote: 'Demander un devis',
@@ -975,7 +1041,26 @@ const messages = {
       including: 'Services inclus',
       excluding: 'Services exclus',
       ready: 'Pret pour un devis',
-      cta: 'Utilisez cette route comme produit groupe fixe ou adaptez-la a votre marche.'
+      cta: 'Utilisez cette route comme produit groupe fixe ou adaptez-la a votre marche.',
+      suitableGroups: 'Groupes adaptes',
+      customGroups: 'Groupes prives, familles, extensions MICE et groupes agence',
+      faq: 'FAQ',
+      faqTitle: 'Questions produit avant devis',
+      faqGroupType: 'A quel type de groupe ce produit convient-il ?',
+      faqGroupAnswer:
+        '{group}. La route peut etre ajustee selon le niveau hotelier, la langue du guide, la repartition des chambres, les horaires vol/train et le rythme quotidien.',
+      faqIncluded: 'Qu est-ce qui est inclus ?',
+      faqExcluded: 'Qu est-ce qui n est pas inclus ?',
+      faqQuote: 'Quelles informations sont necessaires pour un devis ?',
+      faqQuoteAnswer:
+        'Envoyez les dates de voyage, villes d arrivee et de depart, taille du groupe, niveau hotelier, langue du guide, liste de chambres et lieux incontournables pour un devis confirme.',
+      internalLinks: 'Planification liee',
+      linkTitle: 'Villes, attractions et preparation',
+      relatedCity: 'Guide de ville',
+      relatedAttraction: 'Guide attraction',
+      planningLink: 'Guide de preparation',
+      visaLinkText: 'Verifier visa, transit, passeport, hotel et lettre d invitation avant la reservation.',
+      beforeYouGoLinkText: 'Preparer noms, chambres, trains, attractions, langue du guide, paiement, repas et marges meteo.'
     },
     company: {
       metaDescription:
@@ -989,7 +1074,7 @@ const messages = {
       momentsEyebrow: 'Moments de societe',
       momentsTitle: 'Bureaux, culture employes et scenes d activite.',
       distributionEyebrow: 'Implantation du groupe',
-      distributionTitle: 'Un reseau de 9 sites ancre par le siege de Pekin.',
+      distributionTitle: 'Un reseau de 7 sites ancre par le siege de Pekin.',
       branchAria: 'Implantations',
       inboundEyebrow: 'Tourisme inbound',
       brandEyebrow: 'Systeme de marques',
@@ -1062,6 +1147,11 @@ const messages = {
     },
     footer: {
       intro: 'Experiencias privadas de viaje, planificadas para visitantes internacionales.',
+      companyContactAria: 'Direccion y contacto de Tengxuan Travel',
+      addressLabel: 'Direccion',
+      address: '5F 50520, Tower D, Galaxy SOHO, Chaoyangmen, Dongcheng District, Beijing',
+      phoneLabel: 'Telefono',
+      emailLabel: 'Email',
       explore: 'Explorar',
       companyProfile: 'Perfil de empresa',
       destinations: 'Destinos',
@@ -1094,7 +1184,7 @@ const messages = {
       company: {
         link: 'Ver perfil de empresa',
         proofAria: 'Aspectos destacados de Tengxuan Travel Group',
-        proofText: 'Fundada en 2001, cotizada en NEEQ, con 600+ aerolineas socias y 20,000+ clientes de calidad.'
+        proofText: 'Fundada en 2001, con 2000+ socios proveedores de calidad y 20,000+ clientes de calidad.'
       },
       cities: {
         title: 'Guias de ciudades principales',
@@ -1162,6 +1252,28 @@ const messages = {
       pairWith: 'Combinar {city} con',
       titleSuffix: 'Guia de ciudad'
     },
+    productList: {
+      title: 'Productos clasicos',
+      eyebrow: 'Filtrar productos por ciudad',
+      summary:
+        'Elija una ciudad para ver todos los productos que la incluyen y abra despues el itinerario segun ritmo del grupo, nivel de hotel, idioma del guia y alcance de cotizacion.',
+      filtersAria: 'Filtros de ciudad para productos',
+      all: 'Todos los productos',
+      recommendedCount: '{count} productos recomendados',
+      dayPlan: 'Plan diario',
+      destinations: 'Destinos',
+      consultation: 'Consultar asesor',
+      viewDetail: 'Ver detalles',
+      feedbackEyebrow: 'Comentarios de viajeros',
+      feedbackTitle: 'Lo que los viajeros destacan despues del viaje',
+      feedbackSummary:
+        'Ejemplos breves sobre prioridades habituales de grupos privados: ritmo claro, guia, traslados, entradas y comodidad en comidas.',
+      reviews: [
+        { city: 'Pekin', name: 'Familia de Singapur', text: 'El guia mantuvo claras las jornadas de Ciudad Prohibida y Gran Muralla para los ninos, con traslados muy bien coordinados.' },
+        { city: 'Xi’an', name: 'Grupo de agencia de Espana', text: 'Los guerreros de terracota fueron el punto fuerte, y la muralla, el barrio musulman y la ruta nocturna dieron variedad.' },
+        { city: 'Pekin', name: 'Pareja de Alemania', text: 'El paseo por hutongs y el tiempo de te no estuvieron apresurados. Se sintio mas personal que una lista de visitas.' }
+      ]
+    },
     product: {
       back: 'Volver a productos',
       quote: 'Pedir cotizacion',
@@ -1180,7 +1292,26 @@ const messages = {
       including: 'Servicios incluidos',
       excluding: 'Servicios no incluidos',
       ready: 'Listo para cotizar',
-      cta: 'Use esta ruta como producto de grupo fijo o personalicela para su mercado.'
+      cta: 'Use esta ruta como producto de grupo fijo o personalicela para su mercado.',
+      suitableGroups: 'Grupos adecuados',
+      customGroups: 'Grupos privados, familias, extensiones MICE y grupos de agencia',
+      faq: 'FAQ',
+      faqTitle: 'Preguntas de producto antes de cotizar',
+      faqGroupType: '¿Para que tipo de grupo es adecuado este producto?',
+      faqGroupAnswer:
+        '{group}. La ruta puede ajustarse por nivel de hotel, idioma del guia, distribucion de habitaciones, horarios de vuelo o tren y ritmo diario.',
+      faqIncluded: '¿Que esta incluido?',
+      faqExcluded: '¿Que no esta incluido?',
+      faqQuote: '¿Que informacion se necesita para cotizar?',
+      faqQuoteAnswer:
+        'Envie fechas de viaje, ciudades de llegada y salida, tamano del grupo, nivel de hotel, idioma del guia, lista de habitaciones y lugares imprescindibles para una cotizacion confirmada.',
+      internalLinks: 'Planificacion relacionada',
+      linkTitle: 'Ciudades, atracciones y preparacion',
+      relatedCity: 'Guia de ciudad',
+      relatedAttraction: 'Guia de atraccion',
+      planningLink: 'Guia de planificacion',
+      visaLinkText: 'Revise visa, transito, pasaporte, hotel y carta de invitacion antes de reservar.',
+      beforeYouGoLinkText: 'Prepare nombres, habitaciones, trenes, atracciones, idioma del guia, pago, comidas y margen por clima.'
     },
     company: {
       metaDescription:
@@ -1194,7 +1325,7 @@ const messages = {
       momentsEyebrow: 'Momentos de empresa',
       momentsTitle: 'Oficina, cultura de empleados y escenas de actividad.',
       distributionEyebrow: 'Distribucion del grupo',
-      distributionTitle: 'Una red de 9 ubicaciones con sede central en Pekin.',
+      distributionTitle: 'Una red de 7 ubicaciones con sede central en Pekin.',
       branchAria: 'Ubicaciones',
       inboundEyebrow: 'Turismo inbound',
       brandEyebrow: 'Sistema de marcas',
@@ -1266,6 +1397,11 @@ const messages = {
     },
     footer: {
       intro: '面向国际游客的私家旅行体验，由专业团队细致规划。',
+      companyContactAria: '腾轩旅行公司地址和联系方式',
+      addressLabel: '地址',
+      address: '北京市东城区朝阳门银河 SOHO D 座 5 层 50520',
+      phoneLabel: '电话',
+      emailLabel: '邮箱',
       explore: '探索',
       companyProfile: '公司简介',
       destinations: '目的地',
@@ -1277,7 +1413,7 @@ const messages = {
       beforeYouGo: '行前准备',
       visaEntry: '签证与入境',
       faq: '常见问题',
-      contact: '联系',
+      contact: '联系我们',
       legal: '法律',
       privacy: '隐私政策',
       terms: '使用条款',
@@ -1298,7 +1434,7 @@ const messages = {
       company: {
         link: '查看公司简介',
         proofAria: '腾轩旅行集团亮点',
-        proofText: '成立于 2001 年，新三板挂牌，拥有 600+ 航司合作伙伴和 20,000+ 优质客户。'
+        proofText: '成立于 2001 年，拥有 2000+ 优质供应商合作伙伴和 20,000+ 优质客户。'
       },
       cities: {
         title: '重点城市指南',
@@ -1415,6 +1551,26 @@ const messages = {
       faqTransport: '如何安排 {attraction} 游览？',
       titleSuffix: '景点指南'
     },
+    productList: {
+      title: '经典产品',
+      eyebrow: '按城市筛选产品',
+      summary: '选择城市后，下方会展示所有包含该城市的产品；继续打开详情，可查看团型、酒店等级、导游语言和报价范围。',
+      filtersAria: '产品城市筛选',
+      all: '全部产品',
+      recommendedCount: '共有 {count} 个推荐玩法',
+      dayPlan: '行程摘要',
+      destinations: '目的地',
+      consultation: '咨询顾问',
+      viewDetail: '查看详情',
+      feedbackEyebrow: '旅行归来用户体验',
+      feedbackTitle: '游客最常提到的体验点',
+      feedbackSummary: '反馈样例围绕私家团常见关注点：节奏、导游、接送、票务和餐食舒适度。',
+      reviews: [
+        { city: '北京', name: '新加坡亲子家庭', text: '故宫和长城两天安排得很清楚，孩子不会太累，车辆衔接让北京停留很省心。' },
+        { city: '西安', name: '西班牙旅行社团队', text: '兵马俑当天是全团亮点，城墙、回民街和大唐夜游补足了城市层次，而且不用频繁换酒店。' },
+        { city: '北京', name: '德国情侣客人', text: '胡同和茶馆时间没有被压缩，导游讲得细，整体不像打卡线路。' }
+      ]
+    },
     product: {
       back: '返回旅行产品',
       quote: '咨询报价',
@@ -1439,9 +1595,11 @@ const messages = {
       faq: 'FAQ',
       faqTitle: '报价前常见问题',
       faqGroupType: '该产品适合什么团型？',
+      faqGroupAnswer: '{group}。线路可按酒店等级、导游语言、房型、航班或铁路时间和每日节奏调整。',
       faqIncluded: '包含什么？',
       faqExcluded: '不包含什么？',
       faqQuote: '询价需要提供哪些信息？',
+      faqQuoteAnswer: '请提供旅行日期、抵离城市、团队人数、酒店等级、导游语言、房型名单和必看地点，以便确认报价。',
       internalLinks: '相关规划',
       linkTitle: '城市、景点与行前准备',
       relatedCity: '城市指南',
@@ -1460,8 +1618,12 @@ const messages = {
       overviewTitle: '围绕旅行资源、企业服务和平台供给能力建设。',
       momentsEyebrow: '公司影像',
       momentsTitle: '办公环境、员工文化和活动场景。',
+      activityEyebrow: '活动相册',
+      activityTitle: '按分类查看更多公司活动照片。',
+      backToCompany: '返回公司介绍',
+      activityNotFound: '未找到该公司活动相册',
       distributionEyebrow: '集团布局',
-      distributionTitle: '以北京总部为核心的 9 地分支网络。',
+      distributionTitle: '以北京总部为核心的 7 地分支网络。',
       branchAria: '分支地点',
       inboundEyebrow: '入境旅游',
       brandEyebrow: '品牌体系',
@@ -2375,9 +2537,11 @@ const tripTranslations: Partial<Record<Locale, Record<string, Partial<Trip>>>> =
   zh: {
     'tx-beijing-mutianyu-4-day': { name: '北京慕田峪长城4日游', summary: '抵达北京、皇城核心、慕田峪长城、天坛、胡同和离京送站。', meta: '4天 · TXBJ0402' },
     'tx-jinshanling-hiking-1-day': { name: '金山岭长城徒步1日游', summary: '北京酒店接送、金山岭长城导游徒步和陆路往返的一日产品。', meta: '1天 · TXBJ0102' },
-    'tx-beijing-visa-free-3-day': { name: '72小时免签北京精华游', summary: '围绕过境停留安排北京抵达、皇城核心、长城和离京衔接。', meta: '3天 · TXBJ0301' },
+    'tx-beijing-visa-free-3-day': { name: '72小时北京精华游', summary: '围绕过境停留安排北京抵达、皇城核心、长城和离京衔接。', meta: '3天 · TXBJ0301' },
     'tx-beijing-juyongguan-4-day': { name: '北京居庸关长城4日游', summary: '天安门、故宫、颐和园、天坛、居庸关长城、胡同和离京。', meta: '4天 · TXBJ0401' },
     'tx-best-of-china-11-day': { name: '11天中国精华游', summary: '北京、西安、桂林/阳朔和上海的经典中国高识别度线路。', meta: '11天 · TXGBC11' },
+    'tx-guilin-yangshuo-highlights-3-day': { name: '3天桂林阳朔精华游', summary: '桂林抵达、漓江山水、阳朔乡村和轻量城市收尾。', meta: '3天 · TXKW0301' },
+    'tx-guilin-yangshuo-longji-4-day': { name: '4天桂林阳朔龙脊梯田游', summary: '在桂林漓江与阳朔乡村之外，加入龙脊梯田山地景观。', meta: '4天 · TXKW0401' },
     'beijing-xian-shanghai': { name: '北京-西安-上海', summary: '8天经典遗产线路，覆盖北京、西安高铁和上海城市游览。', meta: '8天 · USD 892起' },
     'classic-first-time-china': { name: '首次访华经典线路', summary: '北京、西安、桂林和上海，配私家导游和交通规划。', meta: '10天 · USD 2,380起' },
     'splendid-china-9-day': { name: '9天锦绣中国', summary: '北京、西安、苏州、杭州和上海的紧凑经典多城市线路。', meta: '9天 · 定制报价' },
@@ -2477,7 +2641,7 @@ const productTranslations: Partial<Record<Locale, Record<string, Partial<TourPro
       ]
     },
     'tx-beijing-visa-free-3-day': {
-      name: '72小时免签北京精华游',
+      name: '72小时北京精华游',
       eyebrow: 'TXBJ0301 · 72小时北京过境停留产品',
       duration: '3天 / 2晚',
       route: '北京',
@@ -2530,6 +2694,193 @@ const productTranslations: Partial<Record<Locale, Record<string, Partial<TourPro
         '西安承担兵马俑、城墙、唐风夜游或回民街的古都章节。',
         '桂林与阳朔作为山水缓冲，再进入上海城市收尾。',
         '适合首次访华休闲客人、家庭团和需要高识别度线路的旅行社产品。'
+      ]
+    },
+    'tx-guilin-yangshuo-highlights-3-day': {
+      name: '3天桂林阳朔精华游',
+      eyebrow: 'TXKW0301 · 3天桂林阳朔山水线路',
+      duration: '3天 / 2晚',
+      route: '桂林 · 阳朔 · 桂林',
+      summary: '紧凑桂林短线产品，包含桂林抵达、漓江山水、阳朔乡村和轻量城市收尾。',
+      galleryTitle: '漓江喀斯特峰林、阳朔乡村和桂林城市节奏。',
+      facts: [
+        { label: '编号', value: 'TXKW0301' },
+        { label: '起点', value: '桂林' },
+        { label: '终点', value: '桂林' },
+        { label: '酒店', value: '桂林或阳朔按报价确认' },
+        { label: '导游', value: '私家当地导游' },
+        { label: '交通', value: '专车 + 漓江游船按最终方案' },
+        { label: '适合', value: '桂林短线山水延伸' }
+      ],
+      highlights: [
+        '抵达日保持轻量，适合安排芦笛岩、象鼻山或江边散步。',
+        '用漓江和阳朔乡村作为三天线路的视觉核心。',
+        '阳朔可按客人节奏选择骑行、电瓶车、村落步行或西街。',
+        '适合作为北京、西安、上海、成都或香港之后的华南延伸。'
+      ],
+      days: [
+        { day: '第 1 天', city: '桂林', meals: '- / - / -', title: '抵达桂林', summary: '导游接机或接站并送往酒店。若抵达时间允许，可安排芦笛岩、象鼻山或江边轻松步行。', sights: ['抵达接送', '酒店入住', '芦笛岩选项', '江边步行'] },
+        { day: '第 2 天', city: '桂林到阳朔', meals: 'B / L / -', title: '漓江游船与阳朔乡村', summary: '乘漓江游船或按最终方案走桂林至阳朔山水廊道，下午安排阳朔乡村、西街、村落道路或轻量活动。', sights: ['漓江游船', '阳朔乡村', '西街选项', '村落路线选项'] },
+        { day: '第 3 天', city: '阳朔或桂林', meals: 'B / - / -', title: '乡村晨间与离境', summary: '上午可安排短程骑行、电瓶车、集市或村落步行，之后返回桂林送机或送站。', sights: ['骑行选项', '电瓶车路线选项', '返回桂林', '离境送站'] }
+      ]
+    },
+    'tx-guilin-yangshuo-longji-4-day': {
+      name: '4天桂林阳朔龙脊梯田游',
+      eyebrow: 'TXKW0401 · 4天桂林、阳朔与龙脊梯田线路',
+      duration: '4天 / 3晚',
+      route: '桂林 · 阳朔 · 龙脊 · 桂林',
+      summary: '在桂林漓江和阳朔乡村之外加入龙脊梯田，适合需要更强山地乡村景观的广西延伸线路。',
+      galleryTitle: '桂林山水、阳朔乡村和龙脊梯田延伸。',
+      facts: [
+        { label: '编号', value: 'TXKW0401' },
+        { label: '起点', value: '桂林' },
+        { label: '终点', value: '桂林' },
+        { label: '酒店', value: '桂林 + 阳朔按报价确认' },
+        { label: '导游', value: '私家当地导游' },
+        { label: '交通', value: '专车 + 漓江游船按最终方案' },
+        { label: '适合', value: '需要加入龙脊梯田的桂林线路' }
+      ],
+      highlights: [
+        '在漓江之外加入龙脊，让线路有更完整的山地乡村景观。',
+        '阳朔不只作为转场终点，可安排乡村骑行、电瓶车或村落路线。',
+        '龙脊需提前确认车程、步行强度、天气、梯田季节和行李处理。',
+        '适合休闲团、家庭团、摄影客人和旅行社广西延伸产品。'
+      ],
+      days: [
+        { day: '第 1 天', city: '桂林', meals: '- / - / -', title: '抵达桂林', summary: '导游接机或接站并送往酒店。按抵达时间安排江边步行、芦笛岩或象鼻山。', sights: ['抵达接送', '酒店入住', '芦笛岩选项', '象鼻山选项'] },
+        { day: '第 2 天', city: '桂林到阳朔', meals: 'B / L / -', title: '漓江游船到阳朔', summary: '用桂林至阳朔的漓江山水廊道作为核心景观日，下午安排西街、阳朔乡村、骑行或电瓶车路线。', sights: ['漓江游船', '阳朔乡村', '西街选项', '骑行或电瓶车选项'] },
+        { day: '第 3 天', city: '阳朔到龙脊到桂林', meals: 'B / L / -', title: '龙脊梯田', summary: '前往龙脊梯田，游览山地梯田、村寨观景点和轻量步行路线，之后返回桂林或按方案入住梯田区域。', sights: ['龙脊梯田', '村寨观景点', '山地步行路线'], note: '报价前需确认车程、步行强度、天气、梯田季节和行李处理。' },
+        { day: '第 4 天', city: '桂林', meals: 'B / - / -', title: '桂林离境', summary: '送往桂林机场或火车站。若离境时间较晚，可加入城市集市、岩洞或江边轻量模块。', sights: ['离境送站', '城市步行选项', '集市选项'] }
+      ]
+    },
+    'tx-best-of-china-panda-13-day': {
+      name: '13天中国精华与熊猫之旅',
+      eyebrow: 'TXCH1202 · 13天经典中国+熊猫线路',
+      duration: '13天 / 12晚',
+      route: '北京 · 西安 · 桂林 · 阳朔 · 成都 · 上海',
+      summary: '在北京、西安、桂林、阳朔和上海经典线路中加入成都熊猫基地和四川文化章节。',
+      galleryTitle: '皇城古都、喀斯特山水、成都熊猫与上海城市能量。',
+      facts: [
+        { label: '编号', value: 'TXCH1202' },
+        { label: '起点', value: '北京' },
+        { label: '终点', value: '上海' },
+        { label: '酒店', value: '四星或五星可选' },
+        { label: '导游', value: '各地私家导游' },
+        { label: '交通', value: '高铁 + 国内航班' },
+        { label: '适合', value: '希望在经典中国线路中加入熊猫体验的首次访华客人' }
+      ],
+      days: [
+        { day: '第 1 天', city: '北京', meals: '- / - / -', title: '抵达北京', summary: '抵达后接机或接站，送往酒店，晚上保留休息或轻松周边步行。', sights: ['抵达接送', '酒店入住'] },
+        { day: '第 2 天', city: '北京', meals: 'B / L / -', title: '皇城北京', summary: '游览天安门、故宫、景山和胡同，把皇城中轴与老北京生活联系起来。', sights: ['天安门广场', '故宫', '景山公园', '胡同步行'], note: '天安门和故宫预约需提前提供护照信息。' },
+        { day: '第 3 天', city: '北京', meals: 'B / L / -', title: '长城与皇家园林', summary: '前往长城游览，下午按时间、季节和体力安排颐和园或天坛。', sights: ['长城', '颐和园选项', '天坛选项'] },
+        { day: '第 4 天', city: '北京到西安', meals: 'B / - / -', title: '高铁前往西安', summary: '乘高铁抵达西安，安排城墙、钟鼓楼区域或回民街作为古都初识。', sights: ['高铁', '西安城墙', '回民街'] },
+        { day: '第 5 天', city: '西安', meals: 'B / L / -', title: '兵马俑与唐风城市', summary: '深度参观兵马俑，下午可加入大雁塔或大唐不夜城。', sights: ['兵马俑', '大雁塔', '大唐不夜城选项'] },
+        { day: '第 6 天', city: '西安到桂林', meals: 'B / - / -', title: '飞往桂林', summary: '乘国内航班前往桂林，抵达后安排江边散步、岩洞选项或轻松晚餐。', sights: ['国内航班', '桂林江边', '芦笛岩选项'] },
+        { day: '第 7 天', city: '桂林到阳朔', meals: 'B / L / -', title: '漓江游船', summary: '乘漓江游船前往阳朔，下午保留乡村景观、古镇或轻量活动。', sights: ['漓江游船', '阳朔乡村', '西街选项'] },
+        { day: '第 8 天', city: '阳朔或桂林', meals: 'B / L / -', title: '喀斯特乡村日', summary: '按季节安排骑行、电瓶车、烹饪课、村落步行或龙脊梯田选项。', sights: ['阳朔乡村', '烹饪课选项', '龙脊选项'] },
+        { day: '第 9 天', city: '桂林到成都', meals: 'B / - / -', title: '飞往成都', summary: '抵达成都后可安排锦里、宽窄巷子、茶馆或川菜体验。', sights: ['国内航班', '锦里或宽窄巷子', '川菜晚餐选项'] },
+        { day: '第 10 天', city: '成都', meals: 'B / L / -', title: '熊猫基地与成都生活', summary: '上午参观成都熊猫基地，下午可安排文殊院、茶馆、锦里或川剧。', sights: ['成都熊猫基地', '文殊院选项', '茶馆', '川剧选项'] },
+        { day: '第 11 天', city: '成都到上海', meals: 'B / - / -', title: '飞往上海', summary: '飞往上海，晚上可安排外滩、南京路或黄浦江游船选项。', sights: ['国内航班', '外滩', '南京路'] },
+        { day: '第 12 天', city: '上海', meals: 'B / L / -', title: '老上海与新上海', summary: '游览豫园、老城厢、上海博物馆或法租界，最后安排浦东天际线。', sights: ['豫园', '老城厢', '上海博物馆选项', '浦东天际线'] },
+        { day: '第 13 天', city: '上海', meals: 'B / - / -', title: '上海离境', summary: '专车送往机场，结束行程或继续中国其他城市延伸。', sights: ['机场送机'] }
+      ]
+    },
+    'tx-chengdu-jiuzhaigou-huanglong-dujiangyan-7-day': {
+      name: '7天成都、九寨沟、黄龙与都江堰之旅',
+      eyebrow: 'TXSC0601 · 7天四川自然与遗产线路',
+      duration: '7天 / 6晚',
+      route: '成都 · 九寨沟 · 黄龙 · 都江堰 · 成都',
+      summary: '以成都为门户，覆盖熊猫基地、九寨沟、黄龙钙华池和都江堰。',
+      galleryTitle: '熊猫、九寨沟湖泊、黄龙彩池与古代水利工程。',
+      facts: [
+        { label: '编号', value: 'TXSC0601' },
+        { label: '起点', value: '成都' },
+        { label: '终点', value: '成都' },
+        { label: '酒店', value: '成都 + 九寨沟按报价确认' },
+        { label: '导游', value: '英文当地导游' },
+        { label: '交通', value: '专车 + 航班或铁路按季节确认' },
+        { label: '适合', value: '以九寨沟为重点，同时保留成都熊猫体验的客人' }
+      ],
+      days: [
+        { day: '第 1 天', city: '成都', meals: '- / - / -', title: '飞往成都', summary: '抵达成都或开始前往成都的国际航班计划，为四川线路做准备。', sights: ['飞往成都', '行程准备'] },
+        { day: '第 2 天', city: '成都', meals: '- / - / -', title: '抵达成都', summary: '导游机场接客并送往酒店，当天保留休息或轻松城市步行。', sights: ['机场接客', '酒店入住', '自由活动'] },
+        { day: '第 3 天', city: '成都到九寨沟', meals: 'B / L / -', title: '熊猫基地与前往九寨沟', summary: '上午参观成都熊猫基地，随后按季节运营选择航班、铁路加公路或陆路方案前往九寨沟。', sights: ['成都熊猫基地', '九寨沟转场', '酒店入住'] },
+        { day: '第 4 天', city: '九寨沟', meals: 'B / L / -', title: '九寨沟全天游览', summary: '全天进入九寨沟，由导游规划湖泊、瀑布、林道和核心观景点顺序。', sights: ['诺日朗瀑布', '五彩池', '长海', '珍珠滩'] },
+        { day: '第 5 天', city: '九寨沟到黄龙到成都', meals: 'B / L / -', title: '黄龙景区与返回成都', summary: '前往黄龙景区欣赏钙华池和山地景观，随后按确认交通方案返回成都。', sights: ['黄龙景区', '钙华彩池', '返回成都'], note: '最终确认前需核查海拔、天气和道路时间。' },
+        { day: '第 6 天', city: '都江堰', meals: 'B / L / -', title: '都江堰与成都文化', summary: '参观都江堰水利工程，之后回成都安排文殊院、宽窄巷子、锦里或茶馆体验。', sights: ['都江堰水利工程', '文殊院选项', '宽窄巷子或锦里'] },
+        { day: '第 7 天', city: '成都', meals: 'B / - / -', title: '成都离境', summary: '送往成都机场或火车站，结束行程或继续中国延伸线路。', sights: ['离境送站'] }
+      ]
+    },
+    'tx-chengdu-giant-panda-4-day': {
+      name: '4天成都与大熊猫之旅',
+      eyebrow: 'TXCT0401 · 4天成都熊猫城市包价',
+      duration: '4天 / 3晚',
+      route: '成都',
+      summary: '面向希望短暂停留成都的客人，覆盖熊猫基地、茶馆生活、老街和灵活城市文化日。',
+      galleryTitle: '熊猫、成都慢生活、锦里街巷和博物馆或茶馆选项。',
+      facts: [
+        { label: '编号', value: 'TXCT0401' },
+        { label: '起点', value: '成都' },
+        { label: '终点', value: '成都' },
+        { label: '酒店', value: '成都四星或同级' },
+        { label: '导游', value: '英文当地导游' },
+        { label: '交通', value: '专车' },
+        { label: '适合', value: '成都短停和以熊猫为重点的家庭客人' }
+      ],
+      days: [
+        { day: '第 1 天', city: '成都', meals: '- / - / -', title: '抵达成都', summary: '导游接机或接站并送往酒店，剩余时间用于休息或简单美食步行。', sights: ['抵达接送', '酒店入住', '自由活动'] },
+        { day: '第 2 天', city: '成都', meals: 'B / L / -', title: '熊猫基地与老成都', summary: '上午参观成都熊猫基地，下午安排文殊院、人民公园茶馆、锦里或宽窄巷子。', sights: ['成都熊猫基地', '文殊院', '人民公园茶馆', '锦里或宽窄巷子'] },
+        { day: '第 3 天', city: '成都', meals: 'B / L / -', title: '灵活成都文化日', summary: '按客人偏好选择三星堆、都江堰、美食线路、川菜课程或川剧。', sights: ['三星堆选项', '都江堰选项', '川菜选项', '川剧选项'] },
+        { day: '第 4 天', city: '成都', meals: 'B / - / -', title: '成都离境', summary: '送往机场或火车站，继续下一段行程。', sights: ['离境送站'] }
+      ]
+    },
+    'tx-chengdu-jiuzhaigou-mt-emei-8-day': {
+      name: '8天成都、九寨沟与峨眉山之旅',
+      eyebrow: 'TXSC0701 · 8天四川自然与佛教名山线路',
+      duration: '8天 / 7晚',
+      route: '成都 · 九寨沟 · 黄龙 · 乐山 · 峨眉山 · 成都',
+      summary: '组合成都熊猫、九寨沟、黄龙、乐山大佛和峨眉山的四川深度线路。',
+      galleryTitle: '熊猫、九寨沟湖水、黄龙彩池、乐山与峨眉山文化。',
+      facts: [
+        { label: '编号', value: 'TXSC0701' },
+        { label: '起点', value: '成都' },
+        { label: '终点', value: '成都' },
+        { label: '酒店', value: '成都 + 九寨沟 + 峨眉按报价确认' },
+        { label: '导游', value: '英文当地导游' },
+        { label: '交通', value: '专车 + 航班或铁路按季节确认' },
+        { label: '适合', value: '希望同时体验四川山水和佛教名山文化的客人' }
+      ],
+      days: [
+        { day: '第 1 天', city: '成都', meals: '- / - / -', title: '飞往成都', summary: '开始前往成都的航班计划，为四川线路做准备。', sights: ['飞往成都'] },
+        { day: '第 2 天', city: '成都', meals: '- / - / -', title: '抵达成都', summary: '导游机场接客并送往酒店，当天保留休息或轻松城市步行。', sights: ['机场接客', '酒店入住'] },
+        { day: '第 3 天', city: '成都到九寨沟', meals: 'B / L / -', title: '熊猫基地与前往九寨沟', summary: '参观成都熊猫基地，随后按确认的季节性交通方案前往九寨沟。', sights: ['成都熊猫基地', '九寨沟转场', '酒店入住'] },
+        { day: '第 4 天', city: '九寨沟', meals: 'B / L / -', title: '九寨沟', summary: '全天游览九寨沟，按天气和人流安排湖泊、瀑布、林道和观景点。', sights: ['诺日朗瀑布', '五彩池', '长海', '珍珠滩'] },
+        { day: '第 5 天', city: '九寨沟到黄龙到成都', meals: 'B / L / -', title: '黄龙与返回成都', summary: '游览黄龙景区的钙华池和山地景观，然后返回成都。', sights: ['黄龙景区', '钙华池', '返回成都'], note: '最终操作前需确认海拔、道路时间和天气。' },
+        { day: '第 6 天', city: '乐山到峨眉山', meals: 'B / L / -', title: '乐山大佛与峨眉山', summary: '前往乐山参观大佛，随后继续前往峨眉山并入住山脚或山地区域酒店。', sights: ['乐山大佛', '前往峨眉山', '山地区域酒店'] },
+        { day: '第 7 天', city: '峨眉山到成都', meals: 'B / L / -', title: '峨眉山游览', summary: '按天气和体力安排峨眉山、金顶、寺院或低山区线路，之后返回成都。', sights: ['峨眉山', '金顶选项', '缆车选项', '返回成都'] },
+        { day: '第 8 天', city: '成都', meals: 'B / - / -', title: '成都离境', summary: '送往成都机场或火车站离境。', sights: ['离境送站'] }
+      ]
+    },
+    'tx-chengdu-visa-free-3-day': {
+      name: '72小时成都精华游',
+      eyebrow: 'TXCT0301 · 72小时成都过境停留产品',
+      duration: '3天 / 2晚',
+      route: '成都',
+      summary: '面向符合条件的过境客人，围绕机场时间、熊猫、老成都文化和可选美食或茶馆夜晚设计。',
+      galleryTitle: '短暂停留成都，优先安排熊猫与城市文化。',
+      facts: [
+        { label: '编号', value: 'TXCT0301' },
+        { label: '起点', value: '成都' },
+        { label: '终点', value: '成都' },
+        { label: '酒店', value: '成都四星或同级' },
+        { label: '导游', value: '英文当地导游' },
+        { label: '交通', value: '专车' },
+        { label: '适合', value: '成都短时过境停留客人' }
+      ],
+      days: [
+        { day: '第 1 天', city: '成都', meals: '- / - / -', title: '抵达接送与成都初识', summary: '成都机场或火车站接客并送往酒店；若时间允许，可安排锦里或宽窄巷子轻松步行。', sights: ['抵达接送', '酒店入住', '锦里或宽窄巷子选项'] },
+        { day: '第 2 天', city: '成都', meals: 'B / L / -', title: '熊猫基地与成都文化', summary: '上午参观成都熊猫基地，下午安排文殊院、人民公园茶馆、川菜或川剧。', sights: ['成都熊猫基地', '文殊院选项', '人民公园茶馆', '川剧选项'], note: '报价前需核验过境材料、护照信息和当前入境规则。' },
+        { day: '第 3 天', city: '成都', meals: 'B / - / -', title: '离境或短线延伸', summary: '送往机场或火车站。若离境时间较晚，可加三星堆、都江堰或美食线路。', sights: ['离境送站', '三星堆选项', '都江堰选项'] }
       ]
     },
     'beijing-central-axis-5-day': {
@@ -2654,6 +3005,136 @@ const productTranslations: Partial<Record<Locale, Record<string, Partial<TourPro
     'private-family-china': { name: '私家亲子中国游', eyebrow: '8-12天亲子友好私家线路', duration: '8-12天 / 定制', route: '北京 · 西安 · 上海 · 成都或桂林可选', summary: '节奏更慢、酒店位置更合理、导游风格更亲子的私家家庭线路。', galleryTitle: '按家庭节奏调整的经典中国。' }
   },
   de: {
+    'tx-best-of-china-panda-13-day': {
+      name: '13 Tage Best of China und Panda',
+      eyebrow: 'TXCH1202 · 13 Tage klassisches China + Panda',
+      duration: '13 Tage / 12 Naechte',
+      route: "Peking · Xi'an · Guilin · Yangshuo · Chengdu · Shanghai",
+      summary: "Klassische Route mit Peking, Xi'an, Guilin, Yangshuo und Shanghai plus Chengdu fur Panda Base und Sichuan-Kultur.",
+      galleryTitle: 'Kaiserstaedte, Karstlandschaft, Pandas und Shanghai.',
+      facts: [
+        { label: 'Code', value: 'TXCH1202' },
+        { label: 'Start', value: 'Peking' },
+        { label: 'Ende', value: 'Shanghai' },
+        { label: 'Hotels', value: '4- oder 5-Sterne-Optionen' },
+        { label: 'Guide', value: 'Private lokale Guides' },
+        { label: 'Transport', value: 'Bahn + Inlandsfluege' },
+        { label: 'Geeignet fuer', value: 'Erstbesucher, die Pandas zur klassischen China-Route ergaenzen moechten' }
+      ],
+      days: [
+        { day: 'Tag 1', city: 'Peking', meals: '- / - / -', title: 'Ankunft in Peking', summary: 'Begruessung bei Ankunft, Transfer zum Hotel und leichter Abend zur Erholung.', sights: ['Ankunftstransfer', 'Hotel-Check-in'] },
+        { day: 'Tag 2', city: 'Peking', meals: 'B / L / -', title: 'Kaiserliches Peking', summary: 'Besuch von Tiananmen-Platz, Verbotener Stadt, Jingshan und Hutongs.', sights: ['Tiananmen-Platz', 'Verbotene Stadt', 'Jingshan-Park', 'Hutong-Spaziergang'], note: 'Passdaten sind fuer Reservierungen erforderlich.' },
+        { day: 'Tag 3', city: 'Peking', meals: 'B / L / -', title: 'Grosse Mauer und kaiserliche Gaerten', summary: 'Ausflug zur Grossen Mauer, danach Sommerpalast oder Himmelstempel je nach Zeit und Mobilitaet.', sights: ['Grosse Mauer', 'Sommerpalast optional', 'Himmelstempel optional'] },
+        { day: 'Tag 4', city: "Peking nach Xi'an", meals: 'B / - / -', title: "Schnellzug nach Xi'an", summary: "Fahrt nach Xi'an und erster Eindruck mit Stadtmauer, Glocken-/Trommelturmviertel oder Muslimischem Viertel.", sights: ['Schnellzug', 'Stadtmauer von Xi’an', 'Muslimisches Viertel'] },
+        { day: 'Tag 5', city: "Xi'an", meals: 'B / L / -', title: 'Terrakotta-Armee und Tang-Stadt', summary: 'Ausfuehrlicher Besuch der Terrakotta-Armee, danach Big Wild Goose Pagoda oder Tang-Nachtviertel.', sights: ['Terrakotta-Armee', 'Big Wild Goose Pagoda', 'Tang-Nachtviertel optional'] },
+        { day: 'Tag 6', city: "Xi'an nach Guilin", meals: 'B / - / -', title: 'Flug nach Guilin', summary: 'Inlandsflug nach Guilin und leichter Ankunftstag mit Flussspaziergang oder Hoehlenoption.', sights: ['Inlandsflug', 'Flussspaziergang Guilin', 'Reed Flute Cave optional'] },
+        { day: 'Tag 7', city: 'Guilin nach Yangshuo', meals: 'B / L / -', title: 'Li-Fluss-Kreuzfahrt', summary: 'Fahrt auf dem Li-Fluss nach Yangshuo, danach Landlandschaft, Altstadt oder leichte Aktivitaet.', sights: ['Li-Fluss-Kreuzfahrt', 'Yangshuo-Land', 'West Street optional'] },
+        { day: 'Tag 8', city: 'Yangshuo oder Guilin', meals: 'B / L / -', title: 'Karstlandschaft und Doerfer', summary: 'Rad, Buggy, Kochkurs, Dorfspaziergang oder Longji-Reisterrassen je nach Saison.', sights: ['Yangshuo-Land', 'Kochkurs optional', 'Longji optional'] },
+        { day: 'Tag 9', city: 'Guilin nach Chengdu', meals: 'B / - / -', title: 'Flug nach Chengdu', summary: 'Transfer nach Chengdu mit Abendoption Jinli, Kuanzhai Alley, Teehaus oder Sichuan-Kueche.', sights: ['Inlandsflug', 'Jinli oder Kuanzhai Alley', 'Sichuan-Abendessen optional'] },
+        { day: 'Tag 10', city: 'Chengdu', meals: 'B / L / -', title: 'Panda Base und Chengdu-Leben', summary: 'Morgens Panda Base, nachmittags Wenshu-Tempel, Teehaus, Jinli oder Sichuan-Oper.', sights: ['Chengdu Panda Base', 'Wenshu-Tempel optional', 'Teehaus', 'Sichuan-Oper optional'] },
+        { day: 'Tag 11', city: 'Chengdu nach Shanghai', meals: 'B / - / -', title: 'Flug nach Shanghai', summary: 'Flug nach Shanghai; Abend am Bund, Nanjing Road oder Huangpu-Kreuzfahrt optional.', sights: ['Inlandsflug', 'The Bund', 'Nanjing Road'] },
+        { day: 'Tag 12', city: 'Shanghai', meals: 'B / L / -', title: 'Altes und neues Shanghai', summary: 'Yu Garden, Altstadt, Shanghai Museum oder French Concession, danach Skyline.', sights: ['Yu Garden', 'Altstadt', 'Shanghai Museum optional', 'Pudong-Skyline'] },
+        { day: 'Tag 13', city: 'Shanghai', meals: 'B / - / -', title: 'Abreise aus Shanghai', summary: 'Privater Transfer zum Flughafen fuer Abreise oder weitere China-Reise.', sights: ['Flughafentransfer'] }
+      ]
+    },
+    'tx-chengdu-jiuzhaigou-huanglong-dujiangyan-7-day': {
+      name: '7 Tage Chengdu, Jiuzhaigou, Huanglong und Dujiangyan',
+      eyebrow: 'TXSC0601 · 7 Tage Sichuan Natur + Kulturerbe',
+      duration: '7 Tage / 6 Naechte',
+      route: 'Chengdu · Jiuzhaigou · Huanglong · Dujiangyan · Chengdu',
+      summary: 'Sichuan-Route mit Pandas, Jiuzhaigou, Huanglong-Travertinbecken und Dujiangyan.',
+      galleryTitle: 'Pandas, blaue Seen, Huanglong-Becken und alte Wasserbaukunst.',
+      facts: [
+        { label: 'Code', value: 'TXSC0601' },
+        { label: 'Start', value: 'Chengdu' },
+        { label: 'Ende', value: 'Chengdu' },
+        { label: 'Hotels', value: 'Chengdu + Jiuzhaigou nach Angebot' },
+        { label: 'Guide', value: 'Englischsprachiger lokaler Guide' },
+        { label: 'Transport', value: 'Privatfahrzeug + Flug oder Bahn saisonal' },
+        { label: 'Geeignet fuer', value: 'Gaeste mit Schwerpunkt Jiuzhaigou und Panda-Erlebnis' }
+      ],
+      days: [
+        { day: 'Tag 1', city: 'Chengdu', meals: '- / - / -', title: 'Flug nach Chengdu', summary: 'Anreise nach Chengdu, dem Tor zur Sichuan-Route.', sights: ['Flug nach Chengdu', 'Routenstart'] },
+        { day: 'Tag 2', city: 'Chengdu', meals: '- / - / -', title: 'Ankunft in Chengdu', summary: 'Begruessung am Flughafen und Transfer zum Hotel; Rest des Tages frei.', sights: ['Flughafenabholung', 'Hotel-Check-in', 'Freizeit'] },
+        { day: 'Tag 3', city: 'Chengdu nach Jiuzhaigou', meals: 'B / L / -', title: 'Panda Base und Transfer nach Jiuzhaigou', summary: 'Morgens Panda Base, danach saisonaler Transfer per Flug, Bahn+Strasse oder Landroute.', sights: ['Chengdu Panda Base', 'Transfer nach Jiuzhaigou', 'Hotel-Check-in'] },
+        { day: 'Tag 4', city: 'Jiuzhaigou', meals: 'B / L / -', title: 'Ganztag Jiuzhaigou', summary: 'Gefuehrter Tag im Tal mit Seen, Wasserfaellen, Waldwegen und Aussichtspunkten.', sights: ['Nuorilang-Wasserfall', 'Fuenffarbiger See', 'Langer See', 'Pearl Shoal'] },
+        { day: 'Tag 5', city: 'Jiuzhaigou nach Huanglong nach Chengdu', meals: 'B / L / -', title: 'Huanglong und Rueckkehr nach Chengdu', summary: 'Besuch von Huanglong mit Travertinbecken und Bergblick, danach Rueckkehr nach Chengdu.', sights: ['Huanglong Scenic Area', 'Travertinbecken', 'Rueckkehr nach Chengdu'], note: 'Hoehe, Wetter und Strassenzeit vor Bestaetigung pruefen.' },
+        { day: 'Tag 6', city: 'Dujiangyan', meals: 'B / L / -', title: 'Dujiangyan und Chengdu-Kultur', summary: 'Dujiangyan Irrigation System, danach Wenshu-Tempel, Kuanzhai Alley, Jinli oder Teehaus.', sights: ['Dujiangyan Irrigation System', 'Wenshu-Tempel optional', 'Kuanzhai Alley oder Jinli'] },
+        { day: 'Tag 7', city: 'Chengdu', meals: 'B / - / -', title: 'Abreise aus Chengdu', summary: 'Transfer zum Flughafen oder Bahnhof fuer Abreise oder Verlaengerung.', sights: ['Abreisetransfer'] }
+      ]
+    },
+    'tx-chengdu-giant-panda-4-day': {
+      name: '4 Tage Chengdu und Riesenpandas',
+      eyebrow: 'TXCT0401 · 4 Tage Chengdu Panda-City-Paket',
+      duration: '4 Tage / 3 Naechte',
+      route: 'Chengdu',
+      summary: 'Kurzes Chengdu-Programm mit Panda Base, Teehausleben, alten Gassen und flexiblem Kulturtag.',
+      galleryTitle: 'Pandas, Chengdu Slow Life, Jinli und Museum- oder Teehausoptionen.',
+      facts: [
+        { label: 'Code', value: 'TXCT0401' },
+        { label: 'Start', value: 'Chengdu' },
+        { label: 'Ende', value: 'Chengdu' },
+        { label: 'Hotels', value: 'Chengdu 4-Sterne oder aehnlich' },
+        { label: 'Guide', value: 'Englischsprachiger lokaler Guide' },
+        { label: 'Transport', value: 'Privatfahrzeug' },
+        { label: 'Geeignet fuer', value: 'Kurze Chengdu-Aufenthalte und Familien mit Panda-Fokus' }
+      ],
+      days: [
+        { day: 'Tag 1', city: 'Chengdu', meals: '- / - / -', title: 'Ankunft in Chengdu', summary: 'Transfer zum Hotel; Rest des Tages zur Erholung oder fuer einen einfachen Food Walk.', sights: ['Ankunftstransfer', 'Hotel-Check-in', 'Freizeit'] },
+        { day: 'Tag 2', city: 'Chengdu', meals: 'B / L / -', title: 'Panda Base und altes Chengdu', summary: 'Morgens Panda Base, danach Wenshu-Tempel, People’s Park Teehaus, Jinli oder Kuanzhai Alley.', sights: ['Chengdu Panda Base', 'Wenshu-Tempel', 'People’s Park Teehaus', 'Jinli oder Kuanzhai Alley'] },
+        { day: 'Tag 3', city: 'Chengdu', meals: 'B / L / -', title: 'Flexibler Chengdu-Kulturtag', summary: 'Sanxingdui, Dujiangyan, Food Route, Sichuan-Kochkurs oder Sichuan-Oper je nach Gastprofil.', sights: ['Sanxingdui optional', 'Dujiangyan optional', 'Sichuan-Kueche optional', 'Sichuan-Oper optional'] },
+        { day: 'Tag 4', city: 'Chengdu', meals: 'B / - / -', title: 'Abreise aus Chengdu', summary: 'Transfer zum Flughafen oder Bahnhof fuer die Weiterreise.', sights: ['Abreisetransfer'] }
+      ]
+    },
+    'tx-chengdu-jiuzhaigou-mt-emei-8-day': {
+      name: '8 Tage Chengdu, Jiuzhaigou und Mt. Emei',
+      eyebrow: 'TXSC0701 · 8 Tage Sichuan Natur + heiliger Berg',
+      duration: '8 Tage / 7 Naechte',
+      route: 'Chengdu · Jiuzhaigou · Huanglong · Leshan · Mt. Emei · Chengdu',
+      summary: 'Acht Tage Sichuan mit Chengdu-Pandas, Jiuzhaigou, Huanglong, Leshan-Buddha und Mt. Emei.',
+      galleryTitle: 'Pandas, Jiuzhaigou-Wasser, Huanglong-Becken, Leshan und Emei-Kultur.',
+      facts: [
+        { label: 'Code', value: 'TXSC0701' },
+        { label: 'Start', value: 'Chengdu' },
+        { label: 'Ende', value: 'Chengdu' },
+        { label: 'Hotels', value: 'Chengdu + Jiuzhaigou + Emei nach Angebot' },
+        { label: 'Guide', value: 'Englischsprachiger lokaler Guide' },
+        { label: 'Transport', value: 'Privatfahrzeug + Flug oder Bahn saisonal' },
+        { label: 'Geeignet fuer', value: 'Gaeste, die Sichuan-Landschaft und buddhistische Bergkultur verbinden moechten' }
+      ],
+      days: [
+        { day: 'Tag 1', city: 'Chengdu', meals: '- / - / -', title: 'Flug nach Chengdu', summary: 'Beginn der Anreise nach Chengdu.', sights: ['Flug nach Chengdu'] },
+        { day: 'Tag 2', city: 'Chengdu', meals: '- / - / -', title: 'Ankunft in Chengdu', summary: 'Flughafenabholung, Hoteltransfer und leichter Ankunftstag.', sights: ['Flughafenabholung', 'Hotel-Check-in'] },
+        { day: 'Tag 3', city: 'Chengdu nach Jiuzhaigou', meals: 'B / L / -', title: 'Panda Base und Transfer nach Jiuzhaigou', summary: 'Besuch der Panda Base und anschliessender saisonaler Transfer nach Jiuzhaigou.', sights: ['Chengdu Panda Base', 'Transfer nach Jiuzhaigou', 'Hotel-Check-in'] },
+        { day: 'Tag 4', city: 'Jiuzhaigou', meals: 'B / L / -', title: 'Jiuzhaigou Valley', summary: 'Ganztag mit Seen, Wasserfaellen, Waldwegen und Aussichtspunkten nach Wetter und Besucherfluss.', sights: ['Nuorilang-Wasserfall', 'Fuenffarbiger See', 'Langer See', 'Pearl Shoal'] },
+        { day: 'Tag 5', city: 'Jiuzhaigou nach Huanglong nach Chengdu', meals: 'B / L / -', title: 'Huanglong und Rueckkehr nach Chengdu', summary: 'Huanglong Scenic Area mit Travertinbecken und Berglandschaft, danach Rueckkehr nach Chengdu.', sights: ['Huanglong Scenic Area', 'Travertinbecken', 'Rueckkehr nach Chengdu'], note: 'Hoehe, Strassenzeit und Wetter vor Betrieb pruefen.' },
+        { day: 'Tag 6', city: 'Leshan nach Mt. Emei', meals: 'B / L / -', title: 'Leshan Giant Buddha und Mt. Emei', summary: 'Fahrt nach Leshan zum Grossen Buddha, danach weiter zum Mt. Emei und Check-in.', sights: ['Leshan Giant Buddha', 'Transfer zum Mt. Emei', 'Berghotel'] },
+        { day: 'Tag 7', city: 'Mt. Emei nach Chengdu', meals: 'B / L / -', title: 'Mt. Emei Besichtigung', summary: 'Mt. Emei mit Golden Summit, Kloster oder niedriger Bergroute je nach Wetter und Fitness, danach Rueckkehr.', sights: ['Mt. Emei', 'Golden Summit optional', 'Seilbahn optional', 'Rueckkehr nach Chengdu'] },
+        { day: 'Tag 8', city: 'Chengdu', meals: 'B / - / -', title: 'Abreise aus Chengdu', summary: 'Transfer zum Flughafen oder Bahnhof.', sights: ['Abreisetransfer'] }
+      ]
+    },
+    'tx-chengdu-visa-free-3-day': {
+      name: '72 Stunden Chengdu Highlights',
+      eyebrow: 'TXCT0301 · 72-Stunden Chengdu Stopover',
+      duration: '3 Tage / 2 Naechte',
+      route: 'Chengdu',
+      summary: 'Kompakte Chengdu-Stopover-Route mit Flughafentiming, Pandas, altem Chengdu und Food- oder Teehausabend.',
+      galleryTitle: 'Kurzes Chengdu-Fenster mit Pandas und Stadtkultur.',
+      facts: [
+        { label: 'Code', value: 'TXCT0301' },
+        { label: 'Start', value: 'Chengdu' },
+        { label: 'Ende', value: 'Chengdu' },
+        { label: 'Hotels', value: 'Chengdu 4-Sterne oder aehnlich' },
+        { label: 'Guide', value: 'Englischsprachiger lokaler Guide' },
+        { label: 'Transport', value: 'Privatfahrzeug' },
+        { label: 'Geeignet fuer', value: 'Kurze visumfreie Chengdu-Stopover' }
+      ],
+      days: [
+        { day: 'Tag 1', city: 'Chengdu', meals: '- / - / -', title: 'Ankunftstransfer und Chengdu-Orientierung', summary: 'Abholung am Flughafen oder Bahnhof, Hoteltransfer und optional Jinli oder Kuanzhai Alley.', sights: ['Ankunftstransfer', 'Hotel-Check-in', 'Jinli oder Kuanzhai Alley optional'] },
+        { day: 'Tag 2', city: 'Chengdu', meals: 'B / L / -', title: 'Panda Base und Chengdu-Kultur', summary: 'Morgens Panda Base, danach Wenshu-Tempel, People’s Park Teehaus, Sichuan-Kueche oder Oper.', sights: ['Chengdu Panda Base', 'Wenshu-Tempel optional', 'People’s Park Teehaus', 'Sichuan-Oper optional'], note: 'Transitdokumente, Passdaten und aktuelle Einreiseregeln vor Angebot pruefen.' },
+        { day: 'Tag 3', city: 'Chengdu', meals: 'B / - / -', title: 'Abreise oder kurze Erweiterung', summary: 'Transfer zum Flughafen oder Bahnhof; bei spaeter Abreise Sanxingdui, Dujiangyan oder Food Route optional.', sights: ['Abreisetransfer', 'Sanxingdui optional', 'Dujiangyan optional'] }
+      ]
+    },
     'beijing-xian-shanghai': {
       name: "Peking-Xi'an-Shanghai",
       eyebrow: '8-taegige begleitete China-Kulturerbereise',
@@ -2674,6 +3155,136 @@ const productTranslations: Partial<Record<Locale, Record<string, Partial<TourPro
     'private-family-china': { name: 'Private Familienreise China', eyebrow: '8-12 Tage familienfreundliche Privatreise', duration: '8-12 Tage / individuell', route: "Peking · Xi'an · Shanghai · Chengdu oder Guilin", summary: 'Private Familienroute mit langsamerem Tempo, passenden Hotels und kinderfreundlichen Guides.', galleryTitle: 'Klassisches China im Familientempo.' }
   },
   fr: {
+    'tx-best-of-china-panda-13-day': {
+      name: '13 jours Best of China et pandas',
+      eyebrow: 'TXCH1202 · Chine classique + pandas en 13 jours',
+      duration: '13 jours / 12 nuits',
+      route: "Pekin · Xi'an · Guilin · Yangshuo · Chengdu · Shanghai",
+      summary: "Route classique Pekin, Xi'an, Guilin, Yangshuo et Shanghai avec Chengdu pour les pandas et la culture du Sichuan.",
+      galleryTitle: 'Capitales imperiales, karst, pandas et Shanghai.',
+      facts: [
+        { label: 'Code', value: 'TXCH1202' },
+        { label: 'Depart', value: 'Pekin' },
+        { label: 'Fin', value: 'Shanghai' },
+        { label: 'Hotels', value: 'Options 4 ou 5 etoiles' },
+        { label: 'Guide', value: 'Guides locaux prives' },
+        { label: 'Transport', value: 'Train + vols interieurs' },
+        { label: 'Ideal pour', value: 'Premier voyage en Chine avec ajout pandas' }
+      ],
+      days: [
+        { day: 'Jour 1', city: 'Pekin', meals: '- / - / -', title: 'Arrivee a Pekin', summary: 'Accueil a l arrivee, transfert hotel et soiree legere pour recuperer.', sights: ['Transfert arrivee', 'Installation hotel'] },
+        { day: 'Jour 2', city: 'Pekin', meals: 'B / L / -', title: 'Pekin imperial', summary: 'Tiananmen, Cite interdite, Jingshan et hutongs pour relier axe imperial et vie locale.', sights: ['Place Tiananmen', 'Cite interdite', 'Parc Jingshan', 'Balade hutong'], note: 'Les donnees de passeport sont requises pour les reservations.' },
+        { day: 'Jour 3', city: 'Pekin', meals: 'B / L / -', title: 'Grande Muraille et jardins imperiaux', summary: 'Excursion a la Grande Muraille, puis Palais d ete ou Temple du Ciel selon le temps.', sights: ['Grande Muraille', 'Palais d ete option', 'Temple du Ciel option'] },
+        { day: 'Jour 4', city: "Pekin vers Xi'an", meals: 'B / - / -', title: "Train rapide vers Xi'an", summary: "Train rapide vers Xi'an, puis muraille de la ville, quartier des tours ou quartier musulman.", sights: ['Train rapide', "Muraille de Xi'an", 'Quartier musulman'] },
+        { day: 'Jour 5', city: "Xi'an", meals: 'B / L / -', title: 'Guerriers de terre cuite et ville Tang', summary: 'Visite approfondie des guerriers de terre cuite, puis Grande Pagode de l Oie Sauvage ou quartier Tang.', sights: ['Guerriers de terre cuite', 'Grande Pagode de l Oie Sauvage', 'Quartier Tang option'] },
+        { day: 'Jour 6', city: "Xi'an vers Guilin", meals: 'B / - / -', title: 'Vol vers Guilin', summary: 'Vol interieur vers Guilin avec arrivee douce, balade au bord de l eau ou grotte optionnelle.', sights: ['Vol interieur', 'Balade au bord de la riviere', 'Grotte de la Flute de Roseau option'] },
+        { day: 'Jour 7', city: 'Guilin vers Yangshuo', meals: 'B / L / -', title: 'Croisiere sur la riviere Li', summary: 'Croisiere vers Yangshuo, puis campagne, vieille ville ou activite legere.', sights: ['Croisiere riviere Li', 'Campagne de Yangshuo', 'West Street option'] },
+        { day: 'Jour 8', city: 'Yangshuo ou Guilin', meals: 'B / L / -', title: 'Campagne karstique', summary: 'Velo, buggy, cours de cuisine, village ou rizieres de Longji selon la saison.', sights: ['Campagne de Yangshuo', 'Cours de cuisine option', 'Longji option'] },
+        { day: 'Jour 9', city: 'Guilin vers Chengdu', meals: 'B / - / -', title: 'Vol vers Chengdu', summary: 'Arrivee a Chengdu avec Jinli, Kuanzhai Alley, maison de the ou cuisine Sichuan en option.', sights: ['Vol interieur', 'Jinli ou Kuanzhai Alley', 'Diner Sichuan option'] },
+        { day: 'Jour 10', city: 'Chengdu', meals: 'B / L / -', title: 'Base des pandas et vie de Chengdu', summary: 'Base des pandas le matin, puis temple Wenshu, maison de the, Jinli ou opera Sichuan.', sights: ['Base des pandas de Chengdu', 'Temple Wenshu option', 'Maison de the', 'Opera Sichuan option'] },
+        { day: 'Jour 11', city: 'Chengdu vers Shanghai', meals: 'B / - / -', title: 'Vol vers Shanghai', summary: 'Vol vers Shanghai; Bund, Nanjing Road ou croisiere Huangpu en option.', sights: ['Vol interieur', 'Le Bund', 'Nanjing Road'] },
+        { day: 'Jour 12', city: 'Shanghai', meals: 'B / L / -', title: 'Ancien et nouveau Shanghai', summary: 'Yu Garden, vieille ville, musee de Shanghai ou Concession francaise, puis skyline.', sights: ['Yu Garden', 'Vieille ville', 'Musee de Shanghai option', 'Skyline Pudong'] },
+        { day: 'Jour 13', city: 'Shanghai', meals: 'B / - / -', title: 'Depart de Shanghai', summary: 'Transfert prive vers l aeroport pour le depart ou une extension.', sights: ['Transfert aeroport'] }
+      ]
+    },
+    'tx-chengdu-jiuzhaigou-huanglong-dujiangyan-7-day': {
+      name: '7 jours Chengdu, Jiuzhaigou, Huanglong et Dujiangyan',
+      eyebrow: 'TXSC0601 · Nature et patrimoine du Sichuan',
+      duration: '7 jours / 6 nuits',
+      route: 'Chengdu · Jiuzhaigou · Huanglong · Dujiangyan · Chengdu',
+      summary: 'Route Sichuan avec pandas, vallee de Jiuzhaigou, bassins de Huanglong et Dujiangyan.',
+      galleryTitle: 'Pandas, lacs bleus, bassins de Huanglong et ancien systeme hydraulique.',
+      facts: [
+        { label: 'Code', value: 'TXSC0601' },
+        { label: 'Depart', value: 'Chengdu' },
+        { label: 'Fin', value: 'Chengdu' },
+        { label: 'Hotels', value: 'Chengdu + Jiuzhaigou selon devis' },
+        { label: 'Guide', value: 'Guide local anglophone' },
+        { label: 'Transport', value: 'Vehicule prive + vol ou train selon saison' },
+        { label: 'Ideal pour', value: 'Voyageurs visant Jiuzhaigou avec une base pandas a Chengdu' }
+      ],
+      days: [
+        { day: 'Jour 1', city: 'Chengdu', meals: '- / - / -', title: 'Vol vers Chengdu', summary: 'Arrivee ou depart du plan de vol vers Chengdu, porte du Sichuan.', sights: ['Vol vers Chengdu', 'Preparation route'] },
+        { day: 'Jour 2', city: 'Chengdu', meals: '- / - / -', title: 'Arrivee a Chengdu', summary: 'Accueil aeroport, transfert hotel et temps libre.', sights: ['Accueil aeroport', 'Installation hotel', 'Temps libre'] },
+        { day: 'Jour 3', city: 'Chengdu vers Jiuzhaigou', meals: 'B / L / -', title: 'Base des pandas et transfert vers Jiuzhaigou', summary: 'Base des pandas le matin, puis transfert saisonnier vers Jiuzhaigou.', sights: ['Base des pandas de Chengdu', 'Transfert Jiuzhaigou', 'Installation hotel'] },
+        { day: 'Jour 4', city: 'Jiuzhaigou', meals: 'B / L / -', title: 'Journee complete a Jiuzhaigou', summary: 'Route guidee dans la vallee avec lacs, cascades, forets et points de vue.', sights: ['Cascade Nuorilang', 'Lac aux Cinq Couleurs', 'Long Lake', 'Pearl Shoal'] },
+        { day: 'Jour 5', city: 'Jiuzhaigou vers Huanglong vers Chengdu', meals: 'B / L / -', title: 'Huanglong et retour Chengdu', summary: 'Visite de Huanglong, bassins calcaires et paysages de montagne, puis retour a Chengdu.', sights: ['Huanglong Scenic Area', 'Bassins calcaires', 'Retour Chengdu'], note: 'Verifier altitude, meteo et temps de route avant confirmation.' },
+        { day: 'Jour 6', city: 'Dujiangyan', meals: 'B / L / -', title: 'Dujiangyan et culture de Chengdu', summary: 'Dujiangyan Irrigation System, puis temple Wenshu, Kuanzhai Alley, Jinli ou maison de the.', sights: ['Dujiangyan Irrigation System', 'Temple Wenshu option', 'Kuanzhai Alley ou Jinli'] },
+        { day: 'Jour 7', city: 'Chengdu', meals: 'B / - / -', title: 'Depart de Chengdu', summary: 'Transfert aeroport ou gare pour le depart ou extension.', sights: ['Transfert depart'] }
+      ]
+    },
+    'tx-chengdu-giant-panda-4-day': {
+      name: '4 jours Chengdu et pandas geants',
+      eyebrow: 'TXCT0401 · City package pandas a Chengdu',
+      duration: '4 jours / 3 nuits',
+      route: 'Chengdu',
+      summary: 'Court sejour a Chengdu avec base des pandas, maisons de the, vieilles rues et journee culture flexible.',
+      galleryTitle: 'Pandas, rythme lent de Chengdu, Jinli et options musee ou the.',
+      facts: [
+        { label: 'Code', value: 'TXCT0401' },
+        { label: 'Depart', value: 'Chengdu' },
+        { label: 'Fin', value: 'Chengdu' },
+        { label: 'Hotels', value: 'Chengdu 4 etoiles ou similaire' },
+        { label: 'Guide', value: 'Guide local anglophone' },
+        { label: 'Transport', value: 'Vehicule prive' },
+        { label: 'Ideal pour', value: 'Courts sejours Chengdu et familles axees pandas' }
+      ],
+      days: [
+        { day: 'Jour 1', city: 'Chengdu', meals: '- / - / -', title: 'Arrivee a Chengdu', summary: 'Accueil et transfert hotel, temps libre ou petite balade gourmande.', sights: ['Transfert arrivee', 'Installation hotel', 'Temps libre'] },
+        { day: 'Jour 2', city: 'Chengdu', meals: 'B / L / -', title: 'Base des pandas et vieux Chengdu', summary: 'Base des pandas le matin, puis temple Wenshu, People’s Park, Jinli ou Kuanzhai Alley.', sights: ['Base des pandas de Chengdu', 'Temple Wenshu', 'Maison de the People’s Park', 'Jinli ou Kuanzhai Alley'] },
+        { day: 'Jour 3', city: 'Chengdu', meals: 'B / L / -', title: 'Journee culture flexible', summary: 'Sanxingdui, Dujiangyan, route gourmande, cours de cuisine Sichuan ou opera Sichuan.', sights: ['Sanxingdui option', 'Dujiangyan option', 'Cuisine Sichuan option', 'Opera Sichuan option'] },
+        { day: 'Jour 4', city: 'Chengdu', meals: 'B / - / -', title: 'Depart de Chengdu', summary: 'Transfert aeroport ou gare pour la suite du voyage.', sights: ['Transfert depart'] }
+      ]
+    },
+    'tx-chengdu-jiuzhaigou-mt-emei-8-day': {
+      name: '8 jours Chengdu, Jiuzhaigou et Mt. Emei',
+      eyebrow: 'TXSC0701 · Nature Sichuan et montagne sacree',
+      duration: '8 jours / 7 nuits',
+      route: 'Chengdu · Jiuzhaigou · Huanglong · Leshan · Mt. Emei · Chengdu',
+      summary: 'Route Sichuan avec pandas de Chengdu, Jiuzhaigou, Huanglong, Grand Bouddha de Leshan et Mt. Emei.',
+      galleryTitle: 'Pandas, eaux de Jiuzhaigou, Huanglong, Leshan et culture Emei.',
+      facts: [
+        { label: 'Code', value: 'TXSC0701' },
+        { label: 'Depart', value: 'Chengdu' },
+        { label: 'Fin', value: 'Chengdu' },
+        { label: 'Hotels', value: 'Chengdu + Jiuzhaigou + Emei selon devis' },
+        { label: 'Guide', value: 'Guide local anglophone' },
+        { label: 'Transport', value: 'Vehicule prive + vol ou train selon saison' },
+        { label: 'Ideal pour', value: 'Voyageurs combinant paysages du Sichuan et montagne bouddhiste' }
+      ],
+      days: [
+        { day: 'Jour 1', city: 'Chengdu', meals: '- / - / -', title: 'Vol vers Chengdu', summary: 'Debut du plan de vol vers Chengdu.', sights: ['Vol vers Chengdu'] },
+        { day: 'Jour 2', city: 'Chengdu', meals: '- / - / -', title: 'Arrivee a Chengdu', summary: 'Accueil aeroport, transfert hotel et journee legere.', sights: ['Accueil aeroport', 'Installation hotel'] },
+        { day: 'Jour 3', city: 'Chengdu vers Jiuzhaigou', meals: 'B / L / -', title: 'Base des pandas et transfert Jiuzhaigou', summary: 'Visite de la base des pandas puis transfert saisonnier vers Jiuzhaigou.', sights: ['Base des pandas de Chengdu', 'Transfert Jiuzhaigou', 'Installation hotel'] },
+        { day: 'Jour 4', city: 'Jiuzhaigou', meals: 'B / L / -', title: 'Vallee de Jiuzhaigou', summary: 'Journee complete avec lacs, cascades, routes forestieres et points de vue.', sights: ['Cascade Nuorilang', 'Lac aux Cinq Couleurs', 'Long Lake', 'Pearl Shoal'] },
+        { day: 'Jour 5', city: 'Jiuzhaigou vers Huanglong vers Chengdu', meals: 'B / L / -', title: 'Huanglong et retour Chengdu', summary: 'Huanglong Scenic Area, bassins calcaires et montagne, puis retour Chengdu.', sights: ['Huanglong Scenic Area', 'Bassins calcaires', 'Retour Chengdu'], note: 'Verifier altitude, route et meteo avant operation.' },
+        { day: 'Jour 6', city: 'Leshan vers Mt. Emei', meals: 'B / L / -', title: 'Grand Bouddha de Leshan et Mt. Emei', summary: 'Route vers Leshan pour le Grand Bouddha, puis Mt. Emei et hotel de montagne.', sights: ['Grand Bouddha de Leshan', 'Transfert Mt. Emei', 'Hotel de montagne'] },
+        { day: 'Jour 7', city: 'Mt. Emei vers Chengdu', meals: 'B / L / -', title: 'Visite du Mt. Emei', summary: 'Mt. Emei, Golden Summit, monastere ou route basse selon meteo et forme physique, puis retour.', sights: ['Mt. Emei', 'Golden Summit option', 'Telepherique option', 'Retour Chengdu'] },
+        { day: 'Jour 8', city: 'Chengdu', meals: 'B / - / -', title: 'Depart de Chengdu', summary: 'Transfert aeroport ou gare.', sights: ['Transfert depart'] }
+      ]
+    },
+    'tx-chengdu-visa-free-3-day': {
+      name: '72 heures Chengdu highlights',
+      eyebrow: 'TXCT0301 · Stopover Chengdu 72 heures',
+      duration: '3 jours / 2 nuits',
+      route: 'Chengdu',
+      summary: 'Route compacte Chengdu pour transit eligible, avec timing aeroport, pandas, vieux Chengdu et soiree food ou the.',
+      galleryTitle: 'Fenetre courte a Chengdu autour des pandas et de la culture locale.',
+      facts: [
+        { label: 'Code', value: 'TXCT0301' },
+        { label: 'Depart', value: 'Chengdu' },
+        { label: 'Fin', value: 'Chengdu' },
+        { label: 'Hotels', value: 'Chengdu 4 etoiles ou similaire' },
+        { label: 'Guide', value: 'Guide local anglophone' },
+        { label: 'Transport', value: 'Vehicule prive' },
+        { label: 'Ideal pour', value: 'Courts stopovers Chengdu sans visa' }
+      ],
+      days: [
+        { day: 'Jour 1', city: 'Chengdu', meals: '- / - / -', title: 'Transfert arrivee et orientation Chengdu', summary: 'Accueil aeroport ou gare, transfert hotel, puis Jinli ou Kuanzhai Alley si le temps le permet.', sights: ['Transfert arrivee', 'Installation hotel', 'Jinli ou Kuanzhai Alley option'] },
+        { day: 'Jour 2', city: 'Chengdu', meals: 'B / L / -', title: 'Base des pandas et culture Chengdu', summary: 'Base des pandas le matin, puis temple Wenshu, maison de the, cuisine Sichuan ou opera.', sights: ['Base des pandas de Chengdu', 'Temple Wenshu option', 'Maison de the People’s Park', 'Opera Sichuan option'], note: 'Verifier documents de transit, passeport et regles d entree avant devis.' },
+        { day: 'Jour 3', city: 'Chengdu', meals: 'B / - / -', title: 'Depart ou courte extension', summary: 'Transfert aeroport ou gare; Sanxingdui, Dujiangyan ou route gourmande possible si depart tardif.', sights: ['Transfert depart', 'Sanxingdui option', 'Dujiangyan option'] }
+      ]
+    },
     'beijing-xian-shanghai': {
       name: "Pekin-Xi'an-Shanghai",
       eyebrow: 'Circuit patrimoine Chine accompagne de 8 jours',
@@ -2694,6 +3305,136 @@ const productTranslations: Partial<Record<Locale, Record<string, Partial<TourPro
     'private-family-china': { name: 'Voyage prive famille en Chine', eyebrow: 'Itineraire prive famille de 8-12 jours', duration: '8-12 jours / sur mesure', route: "Pekin · Xi'an · Shanghai · Chengdu ou Guilin", summary: 'Route famille au rythme plus doux avec hotels pratiques et guides adaptes aux enfants.', galleryTitle: 'Chine classique ajustee au rythme famille.' }
   },
   es: {
+    'tx-best-of-china-panda-13-day': {
+      name: '13 dias Lo mejor de China y pandas',
+      eyebrow: 'TXCH1202 · China clasica + pandas en 13 dias',
+      duration: '13 dias / 12 noches',
+      route: "Pekin · Xi'an · Guilin · Yangshuo · Chengdu · Shanghai",
+      summary: "Ruta clasica Pekin, Xi'an, Guilin, Yangshuo y Shanghai con Chengdu para la Base de Pandas y cultura Sichuan.",
+      galleryTitle: 'Capitales imperiales, paisaje karstico, pandas y Shanghai.',
+      facts: [
+        { label: 'Codigo', value: 'TXCH1202' },
+        { label: 'Inicio', value: 'Pekin' },
+        { label: 'Fin', value: 'Shanghai' },
+        { label: 'Hoteles', value: 'Opciones 4 o 5 estrellas' },
+        { label: 'Guia', value: 'Guias locales privados' },
+        { label: 'Transporte', value: 'Tren + vuelos domesticos' },
+        { label: 'Ideal para', value: 'Primer viaje a China con experiencia de pandas' }
+      ],
+      days: [
+        { day: 'Dia 1', city: 'Pekin', meals: '- / - / -', title: 'Llegada a Pekin', summary: 'Recepcion a la llegada, traslado al hotel y noche ligera para descansar.', sights: ['Traslado de llegada', 'Check-in hotel'] },
+        { day: 'Dia 2', city: 'Pekin', meals: 'B / L / -', title: 'Pekin imperial', summary: 'Tiananmen, Ciudad Prohibida, Jingshan y hutongs para conectar eje imperial y vida local.', sights: ['Plaza Tiananmen', 'Ciudad Prohibida', 'Parque Jingshan', 'Paseo por hutong'], note: 'Se requieren datos de pasaporte para las reservas.' },
+        { day: 'Dia 3', city: 'Pekin', meals: 'B / L / -', title: 'Gran Muralla y jardines imperiales', summary: 'Excursion a la Gran Muralla, luego Palacio de Verano o Templo del Cielo segun tiempo.', sights: ['Gran Muralla', 'Palacio de Verano opcional', 'Templo del Cielo opcional'] },
+        { day: 'Dia 4', city: "Pekin a Xi'an", meals: 'B / - / -', title: "Tren rapido a Xi'an", summary: "Tren rapido a Xi'an y primera visita con muralla, zona de torres o Barrio Musulman.", sights: ['Tren rapido', "Muralla de Xi'an", 'Barrio Musulman'] },
+        { day: 'Dia 5', city: "Xi'an", meals: 'B / L / -', title: 'Guerreros de Terracota y ciudad Tang', summary: 'Visita profunda a los Guerreros de Terracota, luego Gran Pagoda del Ganso Salvaje o zona Tang.', sights: ['Guerreros de Terracota', 'Gran Pagoda del Ganso Salvaje', 'Zona Tang opcional'] },
+        { day: 'Dia 6', city: "Xi'an a Guilin", meals: 'B / - / -', title: 'Vuelo a Guilin', summary: 'Vuelo domestico a Guilin con llegada suave, paseo junto al rio o cueva opcional.', sights: ['Vuelo domestico', 'Paseo junto al rio en Guilin', 'Cueva Reed Flute opcional'] },
+        { day: 'Dia 7', city: 'Guilin a Yangshuo', meals: 'B / L / -', title: 'Crucero por el rio Li', summary: 'Crucero hacia Yangshuo, despues campo, casco antiguo o actividad ligera.', sights: ['Crucero rio Li', 'Campo de Yangshuo', 'West Street opcional'] },
+        { day: 'Dia 8', city: 'Yangshuo o Guilin', meals: 'B / L / -', title: 'Campo karstico', summary: 'Bici, buggy, clase de cocina, aldea o terrazas Longji segun temporada.', sights: ['Campo de Yangshuo', 'Clase de cocina opcional', 'Longji opcional'] },
+        { day: 'Dia 9', city: 'Guilin a Chengdu', meals: 'B / - / -', title: 'Vuelo a Chengdu', summary: 'Llegada a Chengdu con opcion Jinli, Kuanzhai Alley, casa de te o cena Sichuan.', sights: ['Vuelo domestico', 'Jinli o Kuanzhai Alley', 'Cena Sichuan opcional'] },
+        { day: 'Dia 10', city: 'Chengdu', meals: 'B / L / -', title: 'Base de pandas y vida de Chengdu', summary: 'Base de pandas por la manana; templo Wenshu, casa de te, Jinli u opera Sichuan por la tarde.', sights: ['Base de Pandas de Chengdu', 'Templo Wenshu opcional', 'Casa de te', 'Opera Sichuan opcional'] },
+        { day: 'Dia 11', city: 'Chengdu a Shanghai', meals: 'B / - / -', title: 'Vuelo a Shanghai', summary: 'Vuelo a Shanghai; noche en el Bund, Nanjing Road o crucero Huangpu opcional.', sights: ['Vuelo domestico', 'El Bund', 'Nanjing Road'] },
+        { day: 'Dia 12', city: 'Shanghai', meals: 'B / L / -', title: 'Shanghai antiguo y moderno', summary: 'Yu Garden, casco antiguo, Museo de Shanghai o Concesion Francesa, luego skyline.', sights: ['Yu Garden', 'Casco antiguo', 'Museo de Shanghai opcional', 'Skyline de Pudong'] },
+        { day: 'Dia 13', city: 'Shanghai', meals: 'B / - / -', title: 'Salida de Shanghai', summary: 'Traslado privado al aeropuerto para salida o extension.', sights: ['Traslado al aeropuerto'] }
+      ]
+    },
+    'tx-chengdu-jiuzhaigou-huanglong-dujiangyan-7-day': {
+      name: '7 dias Chengdu, Jiuzhaigou, Huanglong y Dujiangyan',
+      eyebrow: 'TXSC0601 · Naturaleza y patrimonio de Sichuan',
+      duration: '7 dias / 6 noches',
+      route: 'Chengdu · Jiuzhaigou · Huanglong · Dujiangyan · Chengdu',
+      summary: 'Ruta Sichuan con pandas, valle de Jiuzhaigou, piscinas de Huanglong y Dujiangyan.',
+      galleryTitle: 'Pandas, lagos azules, piscinas de Huanglong y antigua ingenieria hidraulica.',
+      facts: [
+        { label: 'Codigo', value: 'TXSC0601' },
+        { label: 'Inicio', value: 'Chengdu' },
+        { label: 'Fin', value: 'Chengdu' },
+        { label: 'Hoteles', value: 'Chengdu + Jiuzhaigou segun cotizacion' },
+        { label: 'Guia', value: 'Guia local en ingles' },
+        { label: 'Transporte', value: 'Vehiculo privado + vuelo o tren segun temporada' },
+        { label: 'Ideal para', value: 'Viajeros enfocados en Jiuzhaigou con base panda en Chengdu' }
+      ],
+      days: [
+        { day: 'Dia 1', city: 'Chengdu', meals: '- / - / -', title: 'Vuelo a Chengdu', summary: 'Llegada o inicio del plan de vuelo hacia Chengdu, puerta de Sichuan.', sights: ['Vuelo a Chengdu', 'Preparacion de ruta'] },
+        { day: 'Dia 2', city: 'Chengdu', meals: '- / - / -', title: 'Llegada a Chengdu', summary: 'Recepcion en aeropuerto, traslado al hotel y tiempo libre.', sights: ['Recepcion en aeropuerto', 'Check-in hotel', 'Tiempo libre'] },
+        { day: 'Dia 3', city: 'Chengdu a Jiuzhaigou', meals: 'B / L / -', title: 'Base de pandas y traslado a Jiuzhaigou', summary: 'Base de pandas por la manana y traslado estacional hacia Jiuzhaigou.', sights: ['Base de Pandas de Chengdu', 'Traslado a Jiuzhaigou', 'Check-in hotel'] },
+        { day: 'Dia 4', city: 'Jiuzhaigou', meals: 'B / L / -', title: 'Dia completo en Jiuzhaigou', summary: 'Ruta guiada por el valle con lagos, cascadas, bosque y miradores.', sights: ['Cascada Nuorilang', 'Lago de Cinco Colores', 'Long Lake', 'Pearl Shoal'] },
+        { day: 'Dia 5', city: 'Jiuzhaigou a Huanglong a Chengdu', meals: 'B / L / -', title: 'Huanglong y regreso a Chengdu', summary: 'Visita a Huanglong, piscinas calcareas y montanas, luego regreso a Chengdu.', sights: ['Huanglong Scenic Area', 'Piscinas calcareas', 'Regreso a Chengdu'], note: 'Revisar altitud, clima y tiempos de carretera antes de confirmar.' },
+        { day: 'Dia 6', city: 'Dujiangyan', meals: 'B / L / -', title: 'Dujiangyan y cultura de Chengdu', summary: 'Dujiangyan Irrigation System, luego templo Wenshu, Kuanzhai Alley, Jinli o casa de te.', sights: ['Dujiangyan Irrigation System', 'Templo Wenshu opcional', 'Kuanzhai Alley o Jinli'] },
+        { day: 'Dia 7', city: 'Chengdu', meals: 'B / - / -', title: 'Salida de Chengdu', summary: 'Traslado al aeropuerto o estacion para salida o extension.', sights: ['Traslado de salida'] }
+      ]
+    },
+    'tx-chengdu-giant-panda-4-day': {
+      name: '4 dias Chengdu y pandas gigantes',
+      eyebrow: 'TXCT0401 · Paquete ciudad panda Chengdu',
+      duration: '4 dias / 3 noches',
+      route: 'Chengdu',
+      summary: 'Estancia corta en Chengdu con base de pandas, casas de te, calles antiguas y dia cultural flexible.',
+      galleryTitle: 'Pandas, ritmo lento de Chengdu, Jinli y opciones de museo o te.',
+      facts: [
+        { label: 'Codigo', value: 'TXCT0401' },
+        { label: 'Inicio', value: 'Chengdu' },
+        { label: 'Fin', value: 'Chengdu' },
+        { label: 'Hoteles', value: 'Chengdu 4 estrellas o similar' },
+        { label: 'Guia', value: 'Guia local en ingles' },
+        { label: 'Transporte', value: 'Vehiculo privado' },
+        { label: 'Ideal para', value: 'Estancias cortas en Chengdu y familias enfocadas en pandas' }
+      ],
+      days: [
+        { day: 'Dia 1', city: 'Chengdu', meals: '- / - / -', title: 'Llegada a Chengdu', summary: 'Recepcion y traslado al hotel, tiempo libre o paseo gastronomico sencillo.', sights: ['Traslado de llegada', 'Check-in hotel', 'Tiempo libre'] },
+        { day: 'Dia 2', city: 'Chengdu', meals: 'B / L / -', title: 'Base de pandas y viejo Chengdu', summary: 'Base de pandas por la manana, luego templo Wenshu, casa de te en People’s Park, Jinli o Kuanzhai Alley.', sights: ['Base de Pandas de Chengdu', 'Templo Wenshu', 'Casa de te People’s Park', 'Jinli o Kuanzhai Alley'] },
+        { day: 'Dia 3', city: 'Chengdu', meals: 'B / L / -', title: 'Dia cultural flexible en Chengdu', summary: 'Sanxingdui, Dujiangyan, ruta gastronomica, clase de cocina Sichuan u opera Sichuan.', sights: ['Sanxingdui opcional', 'Dujiangyan opcional', 'Cocina Sichuan opcional', 'Opera Sichuan opcional'] },
+        { day: 'Dia 4', city: 'Chengdu', meals: 'B / - / -', title: 'Salida de Chengdu', summary: 'Traslado al aeropuerto o estacion para continuar el viaje.', sights: ['Traslado de salida'] }
+      ]
+    },
+    'tx-chengdu-jiuzhaigou-mt-emei-8-day': {
+      name: '8 dias Chengdu, Jiuzhaigou y Mt. Emei',
+      eyebrow: 'TXSC0701 · Naturaleza Sichuan y montana sagrada',
+      duration: '8 dias / 7 noches',
+      route: 'Chengdu · Jiuzhaigou · Huanglong · Leshan · Mt. Emei · Chengdu',
+      summary: 'Ruta Sichuan con pandas de Chengdu, Jiuzhaigou, Huanglong, Gran Buda de Leshan y Mt. Emei.',
+      galleryTitle: 'Pandas, aguas de Jiuzhaigou, Huanglong, Leshan y cultura Emei.',
+      facts: [
+        { label: 'Codigo', value: 'TXSC0701' },
+        { label: 'Inicio', value: 'Chengdu' },
+        { label: 'Fin', value: 'Chengdu' },
+        { label: 'Hoteles', value: 'Chengdu + Jiuzhaigou + Emei segun cotizacion' },
+        { label: 'Guia', value: 'Guia local en ingles' },
+        { label: 'Transporte', value: 'Vehiculo privado + vuelo o tren segun temporada' },
+        { label: 'Ideal para', value: 'Viajeros que combinan paisaje de Sichuan y cultura budista de montana' }
+      ],
+      days: [
+        { day: 'Dia 1', city: 'Chengdu', meals: '- / - / -', title: 'Vuelo a Chengdu', summary: 'Inicio del plan de vuelo hacia Chengdu.', sights: ['Vuelo a Chengdu'] },
+        { day: 'Dia 2', city: 'Chengdu', meals: '- / - / -', title: 'Llegada a Chengdu', summary: 'Recepcion en aeropuerto, traslado al hotel y dia ligero.', sights: ['Recepcion en aeropuerto', 'Check-in hotel'] },
+        { day: 'Dia 3', city: 'Chengdu a Jiuzhaigou', meals: 'B / L / -', title: 'Base de pandas y traslado a Jiuzhaigou', summary: 'Visita a la base de pandas y traslado estacional hacia Jiuzhaigou.', sights: ['Base de Pandas de Chengdu', 'Traslado a Jiuzhaigou', 'Check-in hotel'] },
+        { day: 'Dia 4', city: 'Jiuzhaigou', meals: 'B / L / -', title: 'Valle de Jiuzhaigou', summary: 'Dia completo con lagos, cascadas, senderos de bosque y miradores.', sights: ['Cascada Nuorilang', 'Lago de Cinco Colores', 'Long Lake', 'Pearl Shoal'] },
+        { day: 'Dia 5', city: 'Jiuzhaigou a Huanglong a Chengdu', meals: 'B / L / -', title: 'Huanglong y regreso a Chengdu', summary: 'Huanglong Scenic Area, piscinas calcareas y montana, luego regreso a Chengdu.', sights: ['Huanglong Scenic Area', 'Piscinas calcareas', 'Regreso a Chengdu'], note: 'Revisar altitud, carretera y clima antes de operar.' },
+        { day: 'Dia 6', city: 'Leshan a Mt. Emei', meals: 'B / L / -', title: 'Gran Buda de Leshan y Mt. Emei', summary: 'Ruta a Leshan para el Gran Buda, luego Mt. Emei y hotel de montana.', sights: ['Gran Buda de Leshan', 'Traslado a Mt. Emei', 'Hotel de montana'] },
+        { day: 'Dia 7', city: 'Mt. Emei a Chengdu', meals: 'B / L / -', title: 'Visita de Mt. Emei', summary: 'Mt. Emei, Golden Summit, monasterio o ruta baja segun clima y condicion fisica, luego regreso.', sights: ['Mt. Emei', 'Golden Summit opcional', 'Teleferico opcional', 'Regreso a Chengdu'] },
+        { day: 'Dia 8', city: 'Chengdu', meals: 'B / - / -', title: 'Salida de Chengdu', summary: 'Traslado al aeropuerto o estacion.', sights: ['Traslado de salida'] }
+      ]
+    },
+    'tx-chengdu-visa-free-3-day': {
+      name: '72 horas Chengdu highlights',
+      eyebrow: 'TXCT0301 · Stopover Chengdu 72 horas',
+      duration: '3 dias / 2 noches',
+      route: 'Chengdu',
+      summary: 'Ruta compacta para transito elegible en Chengdu, con timing de aeropuerto, pandas, viejo Chengdu y noche de comida o te.',
+      galleryTitle: 'Ventana corta en Chengdu alrededor de pandas y cultura local.',
+      facts: [
+        { label: 'Codigo', value: 'TXCT0301' },
+        { label: 'Inicio', value: 'Chengdu' },
+        { label: 'Fin', value: 'Chengdu' },
+        { label: 'Hoteles', value: 'Chengdu 4 estrellas o similar' },
+        { label: 'Guia', value: 'Guia local en ingles' },
+        { label: 'Transporte', value: 'Vehiculo privado' },
+        { label: 'Ideal para', value: 'Stopovers cortos sin visa en Chengdu' }
+      ],
+      days: [
+        { day: 'Dia 1', city: 'Chengdu', meals: '- / - / -', title: 'Traslado de llegada y orientacion Chengdu', summary: 'Recepcion en aeropuerto o estacion, traslado al hotel y Jinli o Kuanzhai Alley si el tiempo permite.', sights: ['Traslado de llegada', 'Check-in hotel', 'Jinli o Kuanzhai Alley opcional'] },
+        { day: 'Dia 2', city: 'Chengdu', meals: 'B / L / -', title: 'Base de pandas y cultura Chengdu', summary: 'Base de pandas por la manana, luego templo Wenshu, casa de te, cocina Sichuan u opera.', sights: ['Base de Pandas de Chengdu', 'Templo Wenshu opcional', 'Casa de te People’s Park', 'Opera Sichuan opcional'], note: 'Verificar documentos de transito, pasaporte y reglas de entrada antes de cotizar.' },
+        { day: 'Dia 3', city: 'Chengdu', meals: 'B / - / -', title: 'Salida o extension corta', summary: 'Traslado al aeropuerto o estacion; Sanxingdui, Dujiangyan o ruta gastronomica si la salida es tarde.', sights: ['Traslado de salida', 'Sanxingdui opcional', 'Dujiangyan opcional'] }
+      ]
+    },
     'beijing-xian-shanghai': {
       name: "Pekin-Xi'an-Shanghai",
       eyebrow: 'Tour patrimonial acompanado de 8 dias',
@@ -3113,20 +3854,19 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
     heroSummary: '总部位于北京的旅行集团，以长期供应链和服务能力连接企业客户、旅行社、航司资源与入境中国旅行需求。',
     stats: [
       { value: '2001', label: '成立时间' },
-      { value: '833741', label: '新三板代码' },
-      { value: '600+', label: '航司合作伙伴' },
+      { value: '2000+', label: '优质供应商合作伙伴' },
       { value: '20,000+', label: '优质客户' },
-      { value: '9', label: '分支城市' },
+      { value: '7', label: '分支网络' },
       { value: '700', label: '团队成员' }
     ],
     photoSlots: baseCompanyDetail.photoSlots.map((slot, index) => ({
       ...slot,
-      label: ['公司办公区', '团队合影', '服务场景', '分支网络'][index],
-      caption: ['北京办公区与集团品牌接待空间。', '集团团队文化和员工活动瞬间。', '团队协作与旅行服务文化。', '公司活动和分支团队展示。'][index]
+      label: ['年会现场', '办公到访', '航司伙伴', '分支网络'][index],
+      caption: ['集团年会中的员工与伙伴合影。', '公司办公空间里的团队到访与职场文化。', '团队面向航司伙伴的服务协作瞬间。', '户外活动中的分支团队展示。'][index]
     })),
     overview: [
       { title: '稳定运营基础', text: '腾轩旅游集团有限公司成立于 2001 年，总部位于北京，注册资本 11,053 万元。' },
-      { title: '资本市场背景', text: '集团于 2015 年 10 月在全国中小企业股份转让系统挂牌，证券代码 833741。' },
+      { title: '供应商合作网络', text: '集团连接 2000+ 优质供应商合作伙伴，覆盖交通、酒店、目的地服务、票务和旅行资源配置。' },
       { title: '广泛业务覆盖', text: '业务覆盖大交通、自由行票务、差旅管理、在线预订、航空货运和旅行资源配置。' }
     ],
     brands: [
@@ -3143,14 +3883,20 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
       { year: '2023', event: '建设面向企业旅行资源配置的平台生态。' }
     ],
     branches: [
-      { city: '北京', role: '总部' },
-      { city: '西安', role: '分公司' },
-      { city: '上海', role: '分公司' },
-      { city: '成都', role: '分公司' },
-      { city: '合肥', role: '分公司' },
-      { city: '香港', role: '分公司' },
-      { city: '美国', role: '海外分支' },
-      { city: '彬州', role: '分公司' }
+      {
+        ...baseCompanyDetail.branches[0],
+        city: '北京',
+        role: '总部',
+        phone: '+86 010-65210601',
+        address: '北京市东城区朝阳门银河 SOHO D 座 5 层 50520',
+        imageAlt: '腾轩旅行集团北京总部办公区'
+      },
+      { city: '西安', role: '分公司', phone: '+86 029-88489999', address: '陕西省西安市高新区唐延路 1 号旺座国际城 C 座 26 层 2603 室' },
+      { city: '成都', role: '分公司', phone: '+86 028-68170115', address: '四川省成都市高新区天府新谷 9 号楼 2 单元 2102 室' },
+      { city: '合肥', role: '分公司', phone: '+86 0551-65238888', address: '安徽省合肥市蜀山区蜀山电子产业园四期 D 座 19 楼北侧' },
+      { city: '上海', role: '分公司', phone: '+86 021-53085001', address: '上海市长宁区金钟路 968 号凌空 SOHO 天会商务广场 2 号楼 202 室' },
+      { city: '香港', role: '分公司', address: 'RM19, UNIT 1003, 10/F, THE RAINBOW 22 WANG YIP STREET, SOUTH YUEN LONG, NT' },
+      { city: '美国', role: '海外分支', phone: '+1 626-723-3197', address: '680 Brea Canyon Road, Suite 288, Diamond Bar, CA 91789' }
     ],
     inbound: {
       title: '入境中国旅行服务能力',
@@ -3173,13 +3919,115 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
     ],
     mediaGallery: baseCompanyDetail.mediaGallery.map((image, index) => ({
       ...image,
-      label: ['办公', '团队', '活动', '活动'][index],
-      title: ['集团品牌接待区', '户外团队活动', '分支活动团队', '旅行文化活动'][index]
+      label: ['团队', '团队', '伙伴', '行业', '运动', '荣誉'][index],
+      title: ['年会团队合影', '户外分支活动', '航司伙伴活动', '行业论坛亮相', '团队运动活动', '奖项现场'][index]
     })),
+    activityCategories: baseCompanyDetail.activityCategories.map((category, index) => {
+      const categoryCopy = [
+        {
+          eyebrow: '伙伴与团队瞬间',
+          title: '伙伴活动、奖项与团队场景',
+          summary: '来自航司伙伴活动、集团年会、团队活动、客户答谢和员工文化场景的公司照片。',
+          coverAlt: '腾轩旅行集团年会团队合影',
+          labels: ['会议', '办公', '伙伴', '航司', '分支', '行业', '办公', '团建', '运动', '奖项', '伙伴', '会议', '荣誉', '航司', '服务'],
+          titles: [
+            '年会团队合影',
+            '办公室团队到访',
+            '伙伴会议认可',
+            '卡塔尔航空团队瞬间',
+            '户外分支团队',
+            '行业论坛签名墙',
+            '办公室节日团队',
+            '草原团建活动',
+            '篮球团队',
+            '美联航奖项现场',
+            '美联航伙伴晚宴',
+            '会议场地合影',
+            '龙腾奖颁奖典礼',
+            '芬航客户答谢',
+            '宫廷服饰服务团队'
+          ],
+          captions: [
+            '集团年会和伙伴交流活动中的大型合影。',
+            '展示公司办公空间和职场文化的团队到访场景。',
+            '与旅行资源合作相关的伙伴会议和认可瞬间。',
+            '面向航司伙伴的团队服务与产品协作场景。',
+            '展示本地团队存在感和集团文化的分支团队活动。',
+            '与供应链金融和旅游行业交流相关的论坛场景。',
+            '带有集团品牌氛围的办公室节日场景。',
+            '展示办公室之外员工文化的户外团建路线。',
+            '员工运动活动和内部团队活力。',
+            '来自航司客户答谢活动的伙伴奖项现场。',
+            '航司和旅游行业伙伴共同参与的晚宴场景。',
+            '大型公司会议活动中的场地合影。',
+            '展示旅游行业活动认可的奖项现场。',
+            '航司客户答谢活动中的伙伴认可。',
+            '适合入境中国旅行叙事的文化主题服务场景。'
+          ]
+        },
+        {
+          eyebrow: '品牌活动',
+          title: '展会与品牌活动',
+          summary: '腾轩旅行和在路上商旅的展会展台、年会、周年庆和对外品牌展示。',
+          coverAlt: '在路上商旅展会展台展示',
+          labels: ['展会', '展会', '年会', '庆典'],
+          titles: ['展会展台', '行业展会亮相', '年会现场', '周年庆蛋糕'],
+          captions: [
+            '在路上商旅展台，用于合作伙伴和客户沟通。',
+            '团队参加行业活动，展示集团品牌和旅行服务能力。',
+            '年会现场，用于内部沟通和品牌表达。',
+            '腾轩团队共同庆祝集团发展节点。'
+          ]
+        },
+        {
+          eyebrow: '办公场景',
+          title: '办公开业与职场文化',
+          summary: '剪彩、品牌墙参观、开业仪式和办公庆祝场景，展示集团职场和分支文化。',
+          coverAlt: '腾轩办公室团队庆祝合影',
+          labels: ['开业', '开业', '办公', '开业', '团队', '办公'],
+          titles: ['办公室剪彩', '开业仪式', '品牌历程墙', '舞狮开业', '办公室团队庆祝', '节日办公到访'],
+          captions: [
+            '办公室开业剪彩和本地团队合影。',
+            '分支开业现场，布置鲜花和剪彩仪式。',
+            '面向访客和员工展示的品牌墙与公司发展历程。',
+            '以舞狮和仪式感呈现的开业庆祝。',
+            '办公室节日布置中的团队庆祝合影。',
+            '员工到访和节日办公场景。'
+          ]
+        },
+        {
+          eyebrow: '团队文化',
+          title: '团建与员工活动',
+          summary: '户外路线、办公室团队照、运动参与和团建场景，展示腾轩员工文化。',
+          coverAlt: '腾轩户外团建合影',
+          labels: ['团建', '团队', '运动'],
+          titles: ['户外团队路线', '办公室团队夜间合影', '四川马拉松完赛'],
+          captions: [
+            '腾轩团队户外团建活动。',
+            '一次内部活动后的办公室团队合影。',
+            '员工参与马拉松活动，体现团队活力。'
+          ]
+        }
+      ][index]
+
+      return {
+        ...category,
+        eyebrow: categoryCopy.eyebrow,
+        title: categoryCopy.title,
+        summary: categoryCopy.summary,
+        coverAlt: categoryCopy.coverAlt,
+        images: category.images.map((image, imageIndex) => ({
+          ...image,
+          label: categoryCopy.labels[imageIndex],
+          title: categoryCopy.titles[imageIndex],
+          caption: categoryCopy.captions[imageIndex]
+        }))
+      }
+    }),
     honorImages: baseCompanyDetail.honorImages.map((image, index) => ({
       ...image,
-      label: ['证书', '证书', '资质', '奖项'][index],
-      title: ['高新技术企业证书', '专精特新中小企业证书', 'IATA 与 ARC 资质', '合作伙伴奖杯'][index]
+      label: ['证书', '证书', '资质', '奖项', '证书', '荣誉'][index],
+      title: ['高新技术企业证书', '专精特新中小企业证书', 'IATA 与 ARC 资质', '合作伙伴奖杯', '奖项证书展示柜', '荣誉展示墙'][index]
     })),
     culture: {
       vision: '引领全球旅行资源共享，成为全球企业信赖的一流服务商。',
@@ -3193,10 +4041,9 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
     heroSummary: 'Eine in Peking ansaessige Reisegruppe, die Firmenkunden, Agenturen, Airlines und China-Inbound-Nachfrage verbindet.',
     stats: [
       { value: '2001', label: 'Gruendung' },
-      { value: '833741', label: 'NEEQ-Code' },
-      { value: '600+', label: 'Airline-Partner' },
+      { value: '2000+', label: 'Qualitaets-Lieferantenpartner' },
       { value: '20,000+', label: 'Qualitaetskunden' },
-      { value: '9', label: 'Standorte' },
+      { value: '7', label: 'Standorte' },
       { value: '700', label: 'Teammitglieder' }
     ],
     photoSlots: baseCompanyDetail.photoSlots.map((slot, index) => ({
@@ -3206,7 +4053,7 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
     })),
     overview: [
       { title: 'Etablierte Betriebsbasis', text: 'Tengxuan Tourism Group Co., Ltd. wurde 2001 gegruendet und hat seinen Hauptsitz in Peking.' },
-      { title: 'Kapitalmarktprofil', text: 'Die Gruppe wurde 2015 im National Equities Exchange and Quotations unter Code 833741 gelistet.' },
+      { title: 'Lieferantenpartner-Netzwerk', text: 'Die Gruppe arbeitet mit 2000+ hochwertigen Lieferantenpartnern fuer Transport, Hotels, Zielgebietsservices, Ticketing und Reiseressourcen.' },
       { title: 'Breite Geschaeftsabdeckung', text: 'Das Geschaeft umfasst Grossverkehr, Ticketing, Travel Management, Online-Buchung, Luftfracht und Reiseressourcen.' }
     ],
     brands: [
@@ -3223,6 +4070,7 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
       { year: '2023', event: 'Aufbau eines Plattformoekosystems fur Enterprise-Reiseressourcen.' }
     ],
     branches: baseCompanyDetail.branches.map((branch) => ({
+      ...branch,
       city: branch.city === 'Beijing' ? 'Peking' : branch.city === 'United States' ? 'USA' : branch.city,
       role: branch.role === 'Headquarters' ? 'Zentrale' : branch.role === 'Overseas branch' ? 'Auslandsstandort' : 'Niederlassung'
     })),
@@ -3252,8 +4100,8 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
     })),
     honorImages: baseCompanyDetail.honorImages.map((image, index) => ({
       ...image,
-      label: ['Zertifikat', 'Zertifikat', 'Qualifikation', 'Auszeichnung'][index],
-      title: ['High-Tech-Enterprise-Zertifikat', 'Specialized-New-SME-Zertifikat', 'IATA- und ARC-Qualifikationen', 'Partnerauszeichnung'][index]
+      label: ['Zertifikat', 'Zertifikat', 'Qualifikation', 'Auszeichnung', 'Zertifikate', 'Ehrungen'][index],
+      title: ['High-Tech-Enterprise-Zertifikat', 'Specialized-New-SME-Zertifikat', 'IATA- und ARC-Qualifikationen', 'Partnerauszeichnung', 'Auszeichnungsschrank', 'Ehrenwand'][index]
     })),
     culture: {
       vision: 'Globale Reiseressourcen teilen und ein vertrauenswuerdiger Top-Servicepartner fuer Unternehmen werden.',
@@ -3267,10 +4115,9 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
     heroSummary: 'Groupe base a Pekin reliant clients entreprises, agences, compagnies aeriennes et demande inbound Chine.',
     stats: [
       { value: '2001', label: 'Creation' },
-      { value: '833741', label: 'Code NEEQ' },
-      { value: '600+', label: 'Partenaires aeriens' },
+      { value: '2000+', label: 'Partenaires fournisseurs qualite' },
       { value: '20,000+', label: 'Clients qualite' },
-      { value: '9', label: 'Villes branches' },
+      { value: '7', label: 'Sites' },
       { value: '700', label: 'Membres equipe' }
     ],
     photoSlots: baseCompanyDetail.photoSlots.map((slot, index) => ({
@@ -3280,7 +4127,7 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
     })),
     overview: [
       { title: 'Base operationnelle etablie', text: 'Tengxuan Tourism Group Co., Ltd. a ete cree en 2001 et son siege est a Pekin.' },
-      { title: 'Profil marche public', text: 'Le groupe a ete cote au National Equities Exchange and Quotations en 2015 sous le code 833741.' },
+      { title: 'Reseau de fournisseurs partenaires', text: 'Le groupe travaille avec 2000+ partenaires fournisseurs qualite pour transport, hotels, services destination, billetterie et ressources voyage.' },
       { title: 'Couverture business large', text: 'Activites: transport majeur, billetterie, travel management, reservation en ligne, cargo aerien et ressources voyage.' }
     ],
     brands: [
@@ -3297,6 +4144,7 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
       { year: '2023', event: 'Construction d un ecosysteme plateforme pour ressources voyage entreprise.' }
     ],
     branches: baseCompanyDetail.branches.map((branch) => ({
+      ...branch,
       city: branch.city === 'Beijing' ? 'Pekin' : branch.city === 'United States' ? 'Etats-Unis' : branch.city,
       role: branch.role === 'Headquarters' ? 'Siege' : branch.role === 'Overseas branch' ? 'Branche internationale' : 'Branche'
     })),
@@ -3326,8 +4174,8 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
     })),
     honorImages: baseCompanyDetail.honorImages.map((image, index) => ({
       ...image,
-      label: ['Certificat', 'Certificat', 'Qualification', 'Prix'][index],
-      title: ['Certificat High-Tech Enterprise', 'Certificat Specialized New SME', 'Qualifications IATA et ARC', 'Trophee partenaire'][index]
+      label: ['Certificat', 'Certificat', 'Qualification', 'Prix', 'Certificats', 'Distinctions'][index],
+      title: ['Certificat High-Tech Enterprise', 'Certificat Specialized New SME', 'Qualifications IATA et ARC', 'Trophee partenaire', 'Vitrine des certificats', 'Mur des distinctions'][index]
     })),
     culture: {
       vision: 'Partager les ressources voyage mondiales et devenir un service de confiance pour les entreprises.',
@@ -3341,10 +4189,9 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
     heroSummary: 'Grupo con sede en Pekin que conecta empresas, agencias, aerolineas y demanda inbound hacia China.',
     stats: [
       { value: '2001', label: 'Fundacion' },
-      { value: '833741', label: 'Codigo NEEQ' },
-      { value: '600+', label: 'Aerolineas socias' },
+      { value: '2000+', label: 'Socios proveedores de calidad' },
       { value: '20,000+', label: 'Clientes de calidad' },
-      { value: '9', label: 'Ciudades sede' },
+      { value: '7', label: 'Sedes' },
       { value: '700', label: 'Equipo' }
     ],
     photoSlots: baseCompanyDetail.photoSlots.map((slot, index) => ({
@@ -3354,7 +4201,7 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
     })),
     overview: [
       { title: 'Base operativa establecida', text: 'Tengxuan Tourism Group Co., Ltd. fue fundada en 2001 y tiene sede en Pekin.' },
-      { title: 'Perfil de mercado publico', text: 'El grupo cotiza en National Equities Exchange and Quotations desde 2015 con codigo 833741.' },
+      { title: 'Red de proveedores socios', text: 'El grupo trabaja con 2000+ socios proveedores de calidad en transporte, hoteles, servicios de destino, ticketing y recursos de viaje.' },
       { title: 'Amplia cobertura de negocio', text: 'Cubre transporte principal, billetes, travel management, reserva online, carga aerea y recursos de viaje.' }
     ],
     brands: [
@@ -3371,6 +4218,7 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
       { year: '2023', event: 'Construccion de ecosistema de plataforma para recursos de viaje empresariales.' }
     ],
     branches: baseCompanyDetail.branches.map((branch) => ({
+      ...branch,
       city: branch.city === 'Beijing' ? 'Pekin' : branch.city === 'United States' ? 'Estados Unidos' : branch.city,
       role: branch.role === 'Headquarters' ? 'Sede central' : branch.role === 'Overseas branch' ? 'Sede internacional' : 'Sucursal'
     })),
@@ -3400,8 +4248,8 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
     })),
     honorImages: baseCompanyDetail.honorImages.map((image, index) => ({
       ...image,
-      label: ['Certificado', 'Certificado', 'Calificacion', 'Premio'][index],
-      title: ['Certificado High-Tech Enterprise', 'Certificado Specialized New SME', 'Calificaciones IATA y ARC', 'Trofeo de socio'][index]
+      label: ['Certificado', 'Certificado', 'Calificacion', 'Premio', 'Certificados', 'Honores'][index],
+      title: ['Certificado High-Tech Enterprise', 'Certificado Specialized New SME', 'Calificaciones IATA y ARC', 'Trofeo de socio', 'Vitrina de certificados', 'Muro de honores'][index]
     })),
     culture: {
       vision: 'Liderar el intercambio global de recursos de viaje y ser un servicio confiable para empresas.',
@@ -3436,6 +4284,7 @@ const productGenericCopy: Record<Exclude<Locale, 'en'>, {
       Chengdu: '成都',
       Zhangjiajie: '张家界',
       Guilin: '桂林',
+      Longji: '龙脊',
       "Xi'an": '西安',
       'Private local guides': '私家当地导游',
       'Private local guide': '私家当地导游',
@@ -3813,7 +4662,7 @@ function localizeProduct(base: TourProduct, localized?: Partial<TourProduct>): T
       product.summary,
       ...copy.highlights
     ],
-    facts: base.facts.map((fact) => ({
+    facts: localized?.facts || base.facts.map((fact) => ({
       label: copy.factLabels[fact.label] || fact.label,
       value: copy.factValues[fact.value] || translateCompoundValue(fact.value, copy.factValues)
     })),
@@ -3835,17 +4684,17 @@ function localizeProduct(base: TourProduct, localized?: Partial<TourProduct>): T
       city: translateCompoundValue(image.city, copy.factValues),
       title: translateCompoundValue(image.title, copy.factValues)
     })),
-    hotels: base.hotels.map((hotel) => ({
+    hotels: localized?.hotels || base.hotels.map((hotel) => ({
       city: translateCompoundValue(hotel.city, copy.factValues),
       hotel: copy.priceBasis
     })),
-    prices: base.prices.map((price) => ({
+    prices: localized?.prices || base.prices.map((price) => ({
       group: translatePriceGroup(price.group, copy),
       price: price.price === 'Custom quote' ? copy.customQuote : price.price === 'On request' ? copy.onRequest : price.price,
       basis: copy.priceBasis
     })),
-    inclusions: copy.inclusions,
-    exclusions: copy.exclusions
+    inclusions: localized?.inclusions || copy.inclusions,
+    exclusions: localized?.exclusions || copy.exclusions
   }
 }
 

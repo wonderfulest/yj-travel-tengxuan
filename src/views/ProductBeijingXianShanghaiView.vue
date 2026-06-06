@@ -17,11 +17,14 @@ const productCities = computed(() =>
 const productAttractions = computed(() =>
   attractionDetails.value.filter((attraction) => routeMentionsCity(product.value.route, attraction.city)).slice(0, 4)
 )
-const bestForFact = computed(() => product.value.facts.find((fact) => fact.label === 'Best for')?.value || t('product.customGroups'))
+const bestForFact = computed(() => {
+  const bestForLabels = new Set(['Best for', '适合', 'Geeignet fuer', 'Ideal pour', 'Ideal para'])
+  return product.value.facts.find((fact) => bestForLabels.has(fact.label))?.value || t('product.customGroups')
+})
 const productFaq = computed(() => [
   {
     question: t('product.faqGroupType'),
-    answer: `${bestForFact.value}. The route can be adjusted by hotel level, guide language, rooming, flight or rail timing, and daily pace.`
+    answer: t('product.faqGroupAnswer', { group: bestForFact.value })
   },
   {
     question: t('product.faqIncluded'),
@@ -33,7 +36,7 @@ const productFaq = computed(() => [
   },
   {
     question: t('product.faqQuote'),
-    answer: 'Send travel dates, arrival and departure cities, group size, hotel level, guide language, rooming list, and must-see places for a confirmed quotation.'
+    answer: t('product.faqQuoteAnswer')
   }
 ])
 

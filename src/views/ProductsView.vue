@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { tm, useI18n, useTravelContent } from '@/i18n'
-import type { TourProduct } from '@/content/travel'
+import { cities as baseCities, type TourProduct } from '@/content/travel'
 
 type Review = {
   city: string
@@ -10,48 +10,42 @@ type Review = {
   text: string
 }
 
-const { locale, t } = useI18n()
-const { tourProducts } = useTravelContent()
+const { t } = useI18n()
+const { cities, tourProducts } = useTravelContent()
 const selectedDestination = ref('all')
-const knownDestinationOrder = ['Beijing', 'Chengde', 'Xi’an', 'Shanghai', 'Suzhou', 'Hangzhou', 'Guilin', 'Yangshuo', 'Chengdu', 'Chongqing', 'Zhangjiajie']
+const productFilterDestinations = baseCities.map((city) => city.name)
+const productFilterDestinationSet = new Set(productFilterDestinations)
+const productFilterDestinationByNormalizedName = new Map(productFilterDestinations.map((destination) => [normalize(destination), destination]))
 const destinationFilters = computed(() => {
   const destinations = tourProducts.value.flatMap((product) => productDestinations(product))
-  return Array.from(new Set(destinations)).sort((a, b) => destinationSortWeight(a) - destinationSortWeight(b) || a.localeCompare(b))
+  return Array.from(new Set(destinations))
+    .filter((destination) => productFilterDestinationSet.has(destination))
+    .sort((a, b) => destinationSortWeight(a) - destinationSortWeight(b) || a.localeCompare(b))
 })
 
 const filteredProducts = computed(() => {
   if (selectedDestination.value === 'all') return tourProducts.value
-  return tourProducts.value.filter((product) => product.destinations?.includes(selectedDestination.value))
+  return tourProducts.value.filter((product) => productDestinations(product).includes(selectedDestination.value))
 })
 
 const featuredProduct = computed(() => filteredProducts.value[0])
 const standardProducts = computed(() => filteredProducts.value.slice(1))
 const reviews = computed(() => tm<Review[]>('productList.reviews') || [])
 const recommendedCount = computed(() => t('productList.recommendedCount', { count: String(filteredProducts.value.length) }))
+const cityLabelsByDestination = computed(() => {
+  const localizedBySlug = new Map(cities.value.map((city) => [city.slug, city.name]))
+  return Object.fromEntries(baseCities.map((city) => [city.name, localizedBySlug.get(city.slug) || city.name]))
+})
 
 function productDestinations(product: TourProduct) {
-  if (product.destinations?.length) return product.destinations
+  if (product.destinations?.length) return product.destinations.map(toProductFilterDestination).filter(isDestination)
 
   const route = normalize(product.route)
-  return knownDestinationOrder.filter((destination) => route.includes(normalize(destination)))
+  return productFilterDestinations.filter((destination) => route.includes(normalize(destination)))
 }
 
 function destinationLabel(destination: string) {
-  const labels: Record<string, Record<string, string>> = {
-    Beijing: { zh: '北京' },
-    Chengde: { zh: '承德' },
-    'Xi’an': { zh: '西安' },
-    Shanghai: { zh: '上海' },
-    Suzhou: { zh: '苏州' },
-    Hangzhou: { zh: '杭州' },
-    Guilin: { zh: '桂林' },
-    Yangshuo: { zh: '阳朔' },
-    Chengdu: { zh: '成都' },
-    Chongqing: { zh: '重庆' },
-    Zhangjiajie: { zh: '张家界' }
-  }
-
-  return labels[destination]?.[locale.value] || destination
+  return cityLabelsByDestination.value[destination] || destination
 }
 
 function dayPreview(product: TourProduct) {
@@ -62,9 +56,17 @@ function normalize(value: string) {
   return value.toLowerCase().replace(/[’']/g, '').replace(/\s+/g, '')
 }
 
+function toProductFilterDestination(destination: string) {
+  return productFilterDestinationByNormalizedName.get(normalize(destination))
+}
+
+function isDestination(value: string | undefined): value is string {
+  return Boolean(value)
+}
+
 function destinationSortWeight(destination: string) {
-  const index = knownDestinationOrder.indexOf(destination)
-  return index === -1 ? knownDestinationOrder.length : index
+  const index = productFilterDestinations.indexOf(destination)
+  return index === -1 ? productFilterDestinations.length : index
 }
 </script>
 

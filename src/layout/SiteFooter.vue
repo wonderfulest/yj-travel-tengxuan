@@ -54,7 +54,20 @@ async function updateNewsletterSubscription(action: 'subscribe' | 'unsubscribe')
         <RouterLink class="brand footer-brand" :to="{ name: 'home', hash: '#top' }" :aria-label="t('nav.homeAria')">
           <BrandLogo />
         </RouterLink>
-        <p>{{ t('footer.intro') }}</p>
+        <dl class="footer-contact-list" :aria-label="t('footer.companyContactAria')">
+          <div>
+            <dt>{{ t('footer.addressLabel') }}</dt>
+            <dd>{{ t('footer.address') }}</dd>
+          </div>
+          <div>
+            <dt>{{ t('footer.phoneLabel') }}</dt>
+            <dd><a href="tel:+861065210601">+86 010-65210601</a></dd>
+          </div>
+          <div>
+            <dt>{{ t('footer.emailLabel') }}</dt>
+            <dd><a href="mailto:support@tengxuan.com">support@tengxuan.com</a></dd>
+          </div>
+        </dl>
       </div>
       <div>
         <h2>{{ t('footer.explore') }}</h2>
@@ -63,7 +76,6 @@ async function updateNewsletterSubscription(action: 'subscribe' | 'unsubscribe')
         <RouterLink :to="{ name: 'cities' }">{{ t('footer.cityGuides') }}</RouterLink>
         <RouterLink :to="{ name: 'attractions' }">{{ t('footer.attractions') }}</RouterLink>
         <RouterLink :to="{ name: 'products' }">{{ t('footer.travelProducts') }}</RouterLink>
-        <RouterLink :to="{ name: 'product-detail', params: { slug: 'beijing-xian-shanghai' } }">{{ t('footer.productName') }}</RouterLink>
       </div>
       <div>
         <h2>{{ t('footer.plan') }}</h2>

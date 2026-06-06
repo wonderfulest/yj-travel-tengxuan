@@ -24,6 +24,24 @@ import jiuzhaigouImage from '@/assets/products/chengdu/jiuzhaigou.jpeg'
 import sanxingduiImage from '@/assets/products/chengdu/sanxingdui.webp'
 import chongqingLocalOneImage from '@/assets/products/chongqing/chongqing.jpeg'
 import chongqingLocalTwoImage from '@/assets/products/chongqing/chongqing2.webp'
+import beijingHeadquartersImage from '@/assets/company/beijing-headquarters.jpg'
+import awardCabinetImage from '@/assets/company/certificates/award-cabinet.webp'
+import awardWallImage from '@/assets/company/certificates/award-wall.webp'
+import annualConferenceGroupImage from '@/assets/company/local-moments/annual-conference-group.webp'
+import basketballTeamImage from '@/assets/company/local-moments/basketball-team.webp'
+import conferenceVenueGroupImage from '@/assets/company/local-moments/conference-venue-group.webp'
+import finnairCustomerAppreciationImage from '@/assets/company/local-moments/finnair-customer-appreciation.webp'
+import grasslandTeamBuildingImage from '@/assets/company/local-moments/grassland-team-building.webp'
+import imperialCostumeServiceTeamImage from '@/assets/company/local-moments/imperial-costume-service-team.webp'
+import industryForumSigningWallImage from '@/assets/company/local-moments/industry-forum-signing-wall.webp'
+import longtengAwardCeremonyImage from '@/assets/company/local-moments/longteng-award-ceremony.webp'
+import officeFestivalTeamImage from '@/assets/company/local-moments/office-festival-team.webp'
+import officeTeamVisitImage from '@/assets/company/local-moments/office-team-visit.webp'
+import outdoorBranchTeamImage from '@/assets/company/local-moments/outdoor-branch-team.webp'
+import partnerMeetingAwardImage from '@/assets/company/local-moments/partner-meeting-award.webp'
+import qatarAirwaysTeamImage from '@/assets/company/local-moments/qatar-airways-team.webp'
+import unitedAirlinesAwardStageImage from '@/assets/company/local-moments/united-airlines-award-stage.webp'
+import unitedAirlinesDinnerImage from '@/assets/company/local-moments/united-airlines-dinner.webp'
 
 export type City = {
   slug: string
@@ -192,6 +210,10 @@ export type CompanyDetailSection = {
 export type CompanyBranch = {
   city: string
   role: string
+  phone?: string
+  address: string
+  image?: string
+  imageAlt?: string
 }
 
 export type CompanyHonor = {
@@ -205,6 +227,20 @@ export type CompanyMediaItem = {
   image: string
   alt: string
   featured?: boolean
+}
+
+export type CompanyActivityImage = CompanyMediaItem & {
+  caption: string
+}
+
+export type CompanyActivityCategory = {
+  slug: string
+  eyebrow: string
+  title: string
+  summary: string
+  cover: string
+  coverAlt: string
+  images: CompanyActivityImage[]
 }
 
 export type CompanyDetail = CompanyIntro & {
@@ -221,6 +257,7 @@ export type CompanyDetail = CompanyIntro & {
   resources: CompanyDetailSection[]
   honors: CompanyHonor[]
   mediaGallery: CompanyMediaItem[]
+  activityCategories: CompanyActivityCategory[]
   honorImages: CompanyMediaItem[]
   culture: {
     vision: string
@@ -551,10 +588,9 @@ export const companyIntro: CompanyIntro = {
     'The group covers major transportation, free independent travel ticketing, travel management, online booking, and air cargo. Its customer base spans government organizations, central and state-owned enterprises, large and medium private companies, travel agencies, exhibitions, study-tour institutions, tourism platforms, and broader business travel scenarios.',
   stats: [
     { value: '2001', label: 'Founded' },
-    { value: '833741', label: 'NEEQ code' },
-    { value: '600+', label: 'Airline partners' },
+    { value: '2000+', label: 'Quality supplier partners' },
     { value: '20,000+', label: 'Quality customers' },
-    { value: '9', label: 'Branch cities' },
+    { value: '7', label: 'Branch locations' },
     { value: '700', label: 'Team members' }
   ],
   pillars: [
@@ -603,6 +639,7 @@ export const companyIntro: CompanyIntro = {
 }
 
 const companyImageBase = 'https://yj-travel.s3.amazonaws.com/company'
+const companyActivityImageBase = `${companyImageBase}/activities`
 
 export const companyDetail: CompanyDetail = {
   ...companyIntro,
@@ -611,28 +648,28 @@ export const companyDetail: CompanyDetail = {
     'A Beijing-headquartered travel group connecting enterprise clients, travel agencies, airlines, and inbound China travel demand through long-running supply-chain and service capabilities.',
   photoSlots: [
     {
-      label: 'Company office',
-      caption: 'Beijing office and group brand reception space.',
-      image: `${companyImageBase}/office-hall.webp`,
-      alt: 'Tengxuan Travel Group office reception hallway with company logo'
+      label: 'Annual conference',
+      caption: 'Group annual conference scene with employees and partners.',
+      image: annualConferenceGroupImage,
+      alt: 'Tengxuan Travel Group annual conference group photo'
     },
     {
-      label: 'Team photo',
-      caption: 'Group team culture and employee activity moments.',
-      image: `${companyImageBase}/team-wide.webp`,
-      alt: 'Large Tengxuan Travel Group employee team photo'
+      label: 'Office visit',
+      caption: 'Team visit and workplace culture inside the company office.',
+      image: officeTeamVisitImage,
+      alt: 'Tengxuan Travel team group photo inside an office'
     },
     {
-      label: 'Service scene',
-      caption: 'Team collaboration and travel service culture.',
-      image: `${companyImageBase}/activity-hands.webp`,
-      alt: 'Tengxuan team members forming a star shape with their hands'
+      label: 'Airline partners',
+      caption: 'Travel team and airline partner-facing service moments.',
+      image: qatarAirwaysTeamImage,
+      alt: 'Tengxuan Travel team posing with Qatar Airways themed props'
     },
     {
       label: 'Branch network',
-      caption: 'Company activity and branch-team presence.',
-      image: `${companyImageBase}/activity-banner.webp`,
-      alt: 'Tengxuan employee activity group photo with banner'
+      caption: 'Branch-team presence through outdoor activity and local events.',
+      image: outdoorBranchTeamImage,
+      alt: 'Tengxuan Travel branch team outdoor activity group photo'
     }
   ],
   overview: [
@@ -642,9 +679,9 @@ export const companyDetail: CompanyDetail = {
         'Tengxuan Tourism Group Co., Ltd. was established in 2001 and is headquartered in Beijing with registered capital of 110.53 million yuan.'
     },
     {
-      title: 'Public-market profile',
+      title: 'Supplier partner network',
       text:
-        'The group was listed on the National Equities Exchange and Quotations in October 2015 under securities code 833741.'
+        'The group works with 2000+ quality supplier partners across transportation, hotels, destination services, ticketing, and travel-resource allocation.'
     },
     {
       title: 'Broad business coverage',
@@ -653,14 +690,49 @@ export const companyDetail: CompanyDetail = {
     }
   ],
   branches: [
-    { city: 'Beijing', role: 'Headquarters' },
-    { city: "Xi'an", role: 'Branch office' },
-    { city: 'Shanghai', role: 'Branch office' },
-    { city: 'Chengdu', role: 'Branch office' },
-    { city: 'Hefei', role: 'Branch office' },
-    { city: 'Hong Kong', role: 'Branch office' },
-    { city: 'United States', role: 'Overseas branch' },
-    { city: 'Binzhou', role: 'Branch office' }
+    {
+      city: 'Beijing',
+      role: 'Headquarters',
+      phone: '+86 010-65210601',
+      address: '5F 50520, Tower D, Galaxy SOHO, Chaoyangmen, Dongcheng District, Beijing',
+      image: beijingHeadquartersImage,
+      imageAlt: 'Tengxuan Travel Group Beijing headquarters office'
+    },
+    {
+      city: "Xi'an",
+      role: 'Branch office',
+      phone: '+86 029-88489999',
+      address: 'Room 2603, 26F, Block C, Wangzuo International City, No. 1 Tangyan Road, Xi’an High-Tech Zone, Shaanxi'
+    },
+    {
+      city: 'Chengdu',
+      role: 'Branch office',
+      phone: '+86 028-68170115',
+      address: 'Room 2102, Unit 2, Building 9, Tianfu New Valley, Chengdu High-Tech Zone, Sichuan'
+    },
+    {
+      city: 'Hefei',
+      role: 'Branch office',
+      phone: '+86 0551-65238888',
+      address: 'North side, 19F, Block D, Phase IV, Shushan Electronic Industrial Park, Shushan District, Hefei, Anhui'
+    },
+    {
+      city: 'Shanghai',
+      role: 'Branch office',
+      phone: '+86 021-53085001',
+      address: 'Room 202, Building 2, Linkong SOHO Tianhui Business Plaza, No. 968 Jinzhong Road, Changning District, Shanghai'
+    },
+    {
+      city: 'Hong Kong',
+      role: 'Branch office',
+      address: 'RM19, Unit 1003, 10/F, The Rainbow, 22 Wang Yip Street, South Yuen Long, NT'
+    },
+    {
+      city: 'United States',
+      role: 'Overseas branch',
+      phone: '+1 626-723-3197',
+      address: '680 Brea Canyon Road, Suite 288, Diamond Bar, CA 91789'
+    }
   ],
   inbound: {
     title: 'Inbound China travel capability',
@@ -720,29 +792,287 @@ export const companyDetail: CompanyDetail = {
   ],
   mediaGallery: [
     {
-      title: 'Group brand reception area',
-      label: 'Office',
-      image: `${companyImageBase}/office-wall.webp`,
-      alt: 'Tengxuan Travel Group logo wall in the office',
+      title: 'Annual conference gathering',
+      label: 'Team',
+      image: annualConferenceGroupImage,
+      alt: 'Tengxuan Travel Group annual conference group photo',
       featured: true
     },
     {
-      title: 'Outdoor team activity',
+      title: 'Outdoor branch activity',
       label: 'Team',
-      image: `${companyImageBase}/team-red-outdoor.webp`,
-      alt: 'Tengxuan team members in red shirts at an outdoor company activity'
+      image: outdoorBranchTeamImage,
+      alt: 'Tengxuan Travel branch team holding an outdoor activity banner'
     },
     {
-      title: 'Branch activity team',
-      label: 'Activity',
-      image: `${companyImageBase}/activity-group.webp`,
-      alt: 'Tengxuan employees posing with a company activity banner'
+      title: 'Airline partner event',
+      label: 'Partner',
+      image: finnairCustomerAppreciationImage,
+      alt: 'Tengxuan Travel team receiving recognition at a Finnair customer appreciation event'
     },
     {
-      title: 'Travel culture activity',
-      label: 'Activity',
-      image: `${companyImageBase}/activity-tower-team.webp`,
-      alt: 'Tengxuan team members standing in front of a traditional tower'
+      title: 'Industry forum presence',
+      label: 'Industry',
+      image: industryForumSigningWallImage,
+      alt: 'Tengxuan Travel team members standing at an industry forum signing wall'
+    },
+    {
+      title: 'Team sports activity',
+      label: 'Sports',
+      image: basketballTeamImage,
+      alt: 'Tengxuan Travel employee basketball team on a court'
+    },
+    {
+      title: 'Award ceremony',
+      label: 'Honor',
+      image: longtengAwardCeremonyImage,
+      alt: 'Tengxuan Travel representatives at a Longteng award ceremony'
+    }
+  ],
+  activityCategories: [
+    {
+      slug: 'partner-moments',
+      eyebrow: 'Partner moments',
+      title: 'Partner events, awards, and team scenes',
+      summary:
+        'Company photos from airline partner events, annual conferences, team activities, client appreciation scenes, and employee culture moments.',
+      cover: annualConferenceGroupImage,
+      coverAlt: 'Tengxuan Travel Group annual conference group photo',
+      images: [
+        {
+          title: 'Annual conference group photo',
+          label: 'Conference',
+          image: annualConferenceGroupImage,
+          alt: 'Tengxuan Travel Group annual conference group photo',
+          caption: 'Large group photo from a company annual conference and partner-facing gathering.',
+          featured: true
+        },
+        {
+          title: 'Office team visit',
+          label: 'Office',
+          image: officeTeamVisitImage,
+          alt: 'Tengxuan Travel team group photo inside an office',
+          caption: 'Team visit scene showing the company office and workplace culture.'
+        },
+        {
+          title: 'Partner meeting recognition',
+          label: 'Partner',
+          image: partnerMeetingAwardImage,
+          alt: 'Tengxuan Travel team members in a partner meeting recognition photo',
+          caption: 'Partner meeting and recognition moment connected to travel-resource cooperation.'
+        },
+        {
+          title: 'Qatar Airways team moment',
+          label: 'Airline',
+          image: qatarAirwaysTeamImage,
+          alt: 'Tengxuan Travel team posing with Qatar Airways themed props',
+          caption: 'Airline partner-facing team moment with travel service and product collaboration context.'
+        },
+        {
+          title: 'Outdoor branch team',
+          label: 'Branch',
+          image: outdoorBranchTeamImage,
+          alt: 'Tengxuan Travel branch team holding an outdoor activity banner',
+          caption: 'Branch team activity showing local team presence and group culture.'
+        },
+        {
+          title: 'Industry forum signing wall',
+          label: 'Industry',
+          image: industryForumSigningWallImage,
+          alt: 'Tengxuan Travel team members standing at an industry forum signing wall',
+          caption: 'Industry forum scene tied to supply-chain finance and travel industry exchange.'
+        },
+        {
+          title: 'Office festival team',
+          label: 'Office',
+          image: officeFestivalTeamImage,
+          alt: 'Tengxuan Travel employees at a festive office photo area',
+          caption: 'Festive office scene with employees and group branding.'
+        },
+        {
+          title: 'Grassland team building',
+          label: 'Team building',
+          image: grasslandTeamBuildingImage,
+          alt: 'Tengxuan Travel team building activity on grassland',
+          caption: 'Outdoor team-building route that shows employee culture beyond the office.'
+        },
+        {
+          title: 'Basketball team',
+          label: 'Sports',
+          image: basketballTeamImage,
+          alt: 'Tengxuan Travel employee basketball team on a court',
+          caption: 'Employee sports activity and internal team energy.'
+        },
+        {
+          title: 'United Airlines award stage',
+          label: 'Award',
+          image: unitedAirlinesAwardStageImage,
+          alt: 'Tengxuan Travel representatives on a United Airlines award stage',
+          caption: 'Airline partner award scene from a customer appreciation event.'
+        },
+        {
+          title: 'United Airlines dinner',
+          label: 'Partner',
+          image: unitedAirlinesDinnerImage,
+          alt: 'Tengxuan Travel team at a United Airlines partner dinner',
+          caption: 'Partner dinner scene with airline and travel-industry guests.'
+        },
+        {
+          title: 'Conference venue group',
+          label: 'Conference',
+          image: conferenceVenueGroupImage,
+          alt: 'Tengxuan Travel conference venue group photo',
+          caption: 'Conference venue group photo showing a large-scale company gathering.'
+        },
+        {
+          title: 'Longteng award ceremony',
+          label: 'Honor',
+          image: longtengAwardCeremonyImage,
+          alt: 'Tengxuan Travel representatives at a Longteng award ceremony',
+          caption: 'Award ceremony scene highlighting recognition from travel-industry activities.'
+        },
+        {
+          title: 'Finnair customer appreciation',
+          label: 'Airline',
+          image: finnairCustomerAppreciationImage,
+          alt: 'Tengxuan Travel team receiving recognition at a Finnair customer appreciation event',
+          caption: 'Airline customer appreciation event showing partner recognition.'
+        },
+        {
+          title: 'Imperial costume service team',
+          label: 'Service',
+          image: imperialCostumeServiceTeamImage,
+          alt: 'Travel service team in imperial costumes at a Chinese heritage site',
+          caption: 'Culture-themed service scene suitable for inbound China travel storytelling.'
+        }
+      ]
+    },
+    {
+      slug: 'brand-events',
+      eyebrow: 'Brand events',
+      title: 'Exhibitions and brand moments',
+      summary:
+        'Trade-show booths, annual meetings, milestone celebrations, and partner-facing brand displays from Tengxuan and On The Way Business Travel.',
+      cover: `${companyActivityImageBase}/exhibition-booth-display.webp`,
+      coverAlt: 'On The Way Business Travel exhibition booth display',
+      images: [
+        {
+          title: 'Trade-show booth',
+          label: 'Exhibition',
+          image: `${companyActivityImageBase}/exhibition-booth-display.webp`,
+          alt: 'On The Way Business Travel exhibition booth with red brand display',
+          caption: 'On The Way Business Travel booth prepared for partner and customer conversations.',
+          featured: true
+        },
+        {
+          title: 'Industry exhibition presence',
+          label: 'Exhibition',
+          image: `${companyActivityImageBase}/office-opening-ribbon-01.webp`,
+          alt: 'Tengxuan team members standing at a travel industry exhibition booth',
+          caption: 'Team presence at an industry event, showing group brands and travel service capabilities.'
+        },
+        {
+          title: 'Annual meeting stage',
+          label: 'Annual meeting',
+          image: `${companyActivityImageBase}/annual-meeting-stage.webp`,
+          alt: 'Tengxuan annual meeting stage with seated audience',
+          caption: 'Annual meeting scene used for internal alignment and brand communication.'
+        },
+        {
+          title: 'Anniversary cake',
+          label: 'Celebration',
+          image: `${companyActivityImageBase}/anniversary-cake.webp`,
+          alt: 'Tengxuan Travel anniversary cake with company branding',
+          caption: 'Anniversary celebration marking a group milestone with the Tengxuan team.'
+        }
+      ]
+    },
+    {
+      slug: 'office-scenes',
+      eyebrow: 'Office scenes',
+      title: 'Office openings and workplace culture',
+      summary:
+        'Ribbon-cutting, brand-wall visits, opening ceremonies, and office celebration scenes that show the group’s workplace and branch culture.',
+      cover: `${companyActivityImageBase}/office-celebration-team.webp`,
+      coverAlt: 'Tengxuan office team celebration group photo',
+      images: [
+        {
+          title: 'Office opening ribbon',
+          label: 'Opening',
+          image: `${companyActivityImageBase}/office-opening-ribbon-02.webp`,
+          alt: 'Tengxuan office opening ribbon cutting group photo',
+          caption: 'Office opening and ribbon-cutting scene with the local team.',
+          featured: true
+        },
+        {
+          title: 'Opening ceremony',
+          label: 'Opening',
+          image: `${companyActivityImageBase}/office-opening-ribbon-03.webp`,
+          alt: 'Tengxuan office opening ceremony group photo',
+          caption: 'Branch opening moment with flowers and ribbon-cutting setup.'
+        },
+        {
+          title: 'Brand history wall',
+          label: 'Office',
+          image: `${companyActivityImageBase}/brand-history-wall-tour.webp`,
+          alt: 'Tengxuan brand history wall inside the office',
+          caption: 'Office brand wall and company development display for visitors and employees.'
+        },
+        {
+          title: 'Lion dance opening',
+          label: 'Opening',
+          image: `${companyActivityImageBase}/lion-dance-opening.webp`,
+          alt: 'Lion dance performance at a Tengxuan office opening event',
+          caption: 'Opening celebration with lion dance and workplace ceremony.'
+        },
+        {
+          title: 'Office celebration team',
+          label: 'Team',
+          image: `${companyActivityImageBase}/office-celebration-team.webp`,
+          alt: 'Tengxuan team group photo inside the office',
+          caption: 'Team celebration photo inside the office with festive decorations.'
+        },
+        {
+          title: 'Festive office visit',
+          label: 'Office',
+          image: `${companyActivityImageBase}/office-festive-visit.webp`,
+          alt: 'Two team members visiting Tengxuan office during a festive season',
+          caption: 'Employee visit and festive office setup around the group brand wall.'
+        }
+      ]
+    },
+    {
+      slug: 'team-culture',
+      eyebrow: 'Team culture',
+      title: 'Team building and employee activities',
+      summary:
+        'Outdoor routes, office team photos, sports participation, and group-building scenes that show Tengxuan’s employee culture.',
+      cover: `${companyActivityImageBase}/outdoor-team-photo.webp`,
+      coverAlt: 'Tengxuan outdoor team building group photo',
+      images: [
+        {
+          title: 'Outdoor team route',
+          label: 'Team building',
+          image: `${companyActivityImageBase}/outdoor-team-photo.webp`,
+          alt: 'Tengxuan employees in an outdoor team building group photo',
+          caption: 'Outdoor group-building activity with the Tengxuan team.',
+          featured: true
+        },
+        {
+          title: 'Office team night',
+          label: 'Team',
+          image: `${companyActivityImageBase}/office-team-night.webp`,
+          alt: 'Tengxuan employees posing together in an office at night',
+          caption: 'Office team photo after a shared internal activity.'
+        },
+        {
+          title: 'Sichuan marathon finish',
+          label: 'Sports',
+          image: `${companyActivityImageBase}/sichuan-marathon-finish.webp`,
+          alt: 'Two team members finishing a Sichuan marathon event',
+          caption: 'Employee sports participation and team spirit during a marathon event.'
+        }
+      ]
     }
   ],
   honorImages: [
@@ -769,6 +1099,18 @@ export const companyDetail: CompanyDetail = {
       label: 'Award',
       image: `${companyImageBase}/award-trophy.webp`,
       alt: 'Tengxuan partner award trophy and certificate'
+    },
+    {
+      title: 'Award certificate cabinet',
+      label: 'Certificates',
+      image: awardCabinetImage,
+      alt: 'Tengxuan award certificates and trophies displayed in glass cabinets'
+    },
+    {
+      title: 'Honor display wall',
+      label: 'Honors',
+      image: awardWallImage,
+      alt: 'Tengxuan honor wall with certificates, plaques, trophies, and partner awards'
     }
   ],
   culture: {
@@ -2768,12 +3110,931 @@ const txBestOfChina11DayProduct: TourProduct = {
   ]
 }
 
+const txGuilinYangshuoHighlights3DayProduct: TourProduct = {
+  slug: 'tx-guilin-yangshuo-highlights-3-day',
+  name: '3 Days Guilin and Yangshuo Highlights Tour',
+  eyebrow: 'TXKW0301 · 3-day Guilin and Yangshuo landscape route',
+  duration: '3 days / 2 nights',
+  route: 'Guilin · Yangshuo · Guilin',
+  destinations: ['Guilin', 'Yangshuo'],
+  heroImage: guilinRiverPanoramaImage,
+  heroAlt: 'Li River bend and karst peaks near Guilin at sunrise',
+  summary:
+    'A compact Guilin short-stay product based on the supplied ChinaTour INKW0301 reference: Guilin arrival, Li River scenery, Yangshuo countryside, and a light city finish.',
+  galleryTitle: 'Li River karst peaks, Yangshuo countryside, and easy Guilin city pacing.',
+  quoteSubject: 'TXKW0301 Guilin Yangshuo 3-day quote',
+  sourceNote:
+    'Reference structure follows ChinaTour INKW0301 at product concept level; copy, product code, pricing, and final service terms are Tengxuan-owned.',
+  highlights: [
+    'Use Guilin arrival day for a light city introduction instead of overloading the first evening.',
+    'Make the Li River and Yangshuo countryside the visual center of the three-day route.',
+    'Keep Yangshuo flexible for cycling, buggy routes, village walks, West Street, or a softer countryside pace.',
+    'Suitable as a South China extension after Beijing, Xi’an, Shanghai, Chengdu, or Hong Kong.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXKW0301' },
+    { label: 'Starts', value: 'Guilin' },
+    { label: 'Ends', value: 'Guilin' },
+    { label: 'Hotels', value: 'Guilin or Yangshuo by quote' },
+    { label: 'Guide', value: 'Private local guide' },
+    { label: 'Transport', value: 'Private vehicle + Li River cruise by final plan' },
+    { label: 'Best for', value: 'Short Guilin landscape extensions' }
+  ],
+  gallery: [
+    { title: 'Li River Panorama', city: 'Guilin', image: guilinRiverPanoramaImage, alt: 'Li River bend and karst peaks near Guilin at sunrise', featured: true },
+    { title: 'Li River Cruise', city: 'Guilin to Yangshuo', image: guilinRiverCruiseImage, alt: 'Li River cruising scene with karst mountains and small boats' },
+    { title: 'Guilin Sunset', city: 'Guilin', image: guilinRiverSunsetImage, alt: 'Sunset reflection over the Li River near Guilin' }
+  ],
+  days: [
+    { day: 'Day 1', city: 'Guilin', meals: '- / - / -', title: 'Arrive in Guilin', summary: 'Meet the guide on arrival and transfer to the hotel. If timing allows, add a light Reed Flute Cave, Elephant Trunk Hill, or riverside walk.', sights: ['Arrival transfer', 'Hotel check-in', 'Reed Flute Cave option', 'Riverside walk'] },
+    { day: 'Day 2', city: 'Guilin to Yangshuo', meals: 'B / L / -', title: 'Li River cruise and Yangshuo countryside', summary: 'Cruise or drive the Guilin-to-Yangshuo landscape corridor, then use the afternoon for countryside scenery, village roads, West Street, or a relaxed local activity.', sights: ['Li River cruise', 'Yangshuo countryside', 'West Street option', 'Village route option'] },
+    { day: 'Day 3', city: 'Yangshuo or Guilin', meals: 'B / - / -', title: 'Countryside morning and departure', summary: 'Keep the final morning flexible for a short cycling route, buggy tour, market walk, or transfer back to Guilin for onward flight or rail.', sights: ['Cycling option', 'Buggy route option', 'Guilin transfer', 'Departure transfer'] }
+  ],
+  hotels: [
+    { city: 'Guilin / Yangshuo', hotel: 'Guilin city hotel or Yangshuo boutique stay by final quote' }
+  ],
+  prices: [
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Depends on hotel, Li River cruise class, guide, vehicle, and arrival or departure timing' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from rooming list, meal scope, and river-route inventory' }
+  ],
+  inclusions: [
+    'Accommodation with breakfast by selected hotel tier',
+    'Arrival, departure, and listed city transfers',
+    'English-speaking local guide on listed touring days',
+    'Private vehicle for land sightseeing and transfers',
+    'Li River cruise or landscape corridor arrangement by final quote',
+    'First gate entrance tickets and meals as confirmed in the final quote'
+  ],
+  exclusions: [
+    'International or domestic flights and China visa fees if applicable',
+    'Meals, shows, cableways, battery cars, and optional activities not listed in the final quote',
+    'Optional Yangshuo activities unless confirmed in the final quote',
+    'Personal expenses and travel insurance',
+    'Guide and driver gratuities'
+  ]
+}
+
+const txGuilinYangshuoLongji4DayProduct: TourProduct = {
+  slug: 'tx-guilin-yangshuo-longji-4-day',
+  name: '4 Days Guilin, Yangshuo and Longji Terraces Tour',
+  eyebrow: 'TXKW0401 · 4-day Guilin, Yangshuo and Longji terraces route',
+  duration: '4 days / 3 nights',
+  route: 'Guilin · Yangshuo · Longji · Guilin',
+  destinations: ['Guilin', 'Yangshuo', 'Longji'],
+  heroImage: guilinRiverSunsetImage,
+  heroAlt: 'Sunset reflection over the Li River near Guilin',
+  summary:
+    'A four-day Guilin landscape product based on the supplied ChinaTour INKW0401 reference, adding Longji rice terraces to the Li River and Yangshuo countryside chapter.',
+  galleryTitle: 'Guilin karst scenery, Yangshuo countryside, and Longji rice-terrace extension.',
+  quoteSubject: 'TXKW0401 Guilin Yangshuo Longji 4-day quote',
+  sourceNote:
+    'Reference structure follows ChinaTour INKW0401 at product concept level; copy, product code, pricing, and final service terms are Tengxuan-owned.',
+  highlights: [
+    'Add Longji when the group wants a stronger rural and mountain landscape chapter beyond the Li River.',
+    'Keep Yangshuo for countryside rhythm, not only as the endpoint of a transfer day.',
+    'Plan Longji with road time, walking difficulty, weather, terrace season, and luggage handling in mind.',
+    'Works as a compact Guangxi extension for leisure groups, families, photographers, and agency itineraries.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXKW0401' },
+    { label: 'Starts', value: 'Guilin' },
+    { label: 'Ends', value: 'Guilin' },
+    { label: 'Hotels', value: 'Guilin + Yangshuo by quote' },
+    { label: 'Guide', value: 'Private local guide' },
+    { label: 'Transport', value: 'Private vehicle + Li River cruise by final plan' },
+    { label: 'Best for', value: 'Guilin routes needing Longji terraces' }
+  ],
+  gallery: [
+    { title: 'Guilin Sunset', city: 'Guilin', image: guilinRiverSunsetImage, alt: 'Sunset reflection over the Li River near Guilin', featured: true },
+    { title: 'Li River Cruise', city: 'Guilin to Yangshuo', image: guilinRiverCruiseImage, alt: 'Li River cruising scene with karst mountains and small boats' },
+    { title: 'Li River Panorama', city: 'Guilin', image: guilinRiverPanoramaImage, alt: 'Li River bend and karst peaks near Guilin at sunrise' }
+  ],
+  days: [
+    { day: 'Day 1', city: 'Guilin', meals: '- / - / -', title: 'Arrive in Guilin', summary: 'Meet on arrival, transfer to the hotel, and keep the day light with a riverside walk, Reed Flute Cave, or Elephant Trunk Hill according to timing.', sights: ['Arrival transfer', 'Hotel check-in', 'Reed Flute Cave option', 'Elephant Trunk Hill option'] },
+    { day: 'Day 2', city: 'Guilin to Yangshuo', meals: 'B / L / -', title: 'Li River cruise to Yangshuo', summary: 'Use the classic Guilin-to-Yangshuo river corridor for the main karst scenery day, then add West Street, village roads, cycling, or a buggy route.', sights: ['Li River cruise', 'Yangshuo countryside', 'West Street option', 'Cycling or buggy option'] },
+    { day: 'Day 3', city: 'Yangshuo to Longji to Guilin', meals: 'B / L / -', title: 'Longji rice terraces', summary: 'Drive to Longji rice terraces for layered mountain scenery and village viewpoints, then return to Guilin or stay near the terraces when the final plan allows.', sights: ['Longji rice terraces', 'Village viewpoints', 'Mountain walking route'], note: 'Road time, walking level, weather, terrace season, and luggage handling should be confirmed before quotation.' },
+    { day: 'Day 4', city: 'Guilin', meals: 'B / - / -', title: 'Guilin departure', summary: 'Transfer to Guilin airport or railway station. If departure is late, add a light city market, cave, or riverside module.', sights: ['Departure transfer', 'City walk option', 'Market option'] }
+  ],
+  hotels: [
+    { city: 'Guilin', hotel: 'Guilin city hotel by quote' },
+    { city: 'Yangshuo / Longji', hotel: 'Yangshuo boutique stay or Longji guesthouse option by final plan' }
+  ],
+  prices: [
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Depends on hotel, Li River cruise class, Longji vehicle time, guide, and season' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from rooming list, meal scope, and terrace-route operating plan' }
+  ],
+  inclusions: [
+    'Accommodation with breakfast by selected hotel tier',
+    'Arrival, departure, and listed city transfers',
+    'English-speaking local guide on listed touring days',
+    'Private vehicle for land sightseeing and Longji transfers',
+    'Li River cruise and Longji transfer arrangement by final quote',
+    'First gate entrance tickets and meals as confirmed in the final quote'
+  ],
+  exclusions: [
+    'International or domestic flights and China visa fees if applicable',
+    'Meals, shows, cableways, battery cars, and optional activities not listed in the final quote',
+    'Cableways, battery cars, village shuttles, or optional activities unless confirmed',
+    'Personal expenses and travel insurance',
+    'Guide and driver gratuities'
+  ]
+}
+
+const sichuanPackageInclusions = [
+  'Accommodation with breakfast by selected hotel tier',
+  'Airport or railway station transfers in the listed cities',
+  'English-speaking local guide on listed touring days',
+  'Private vehicle for city sightseeing and land transfers',
+  'First gate entrance tickets and meals as confirmed in the final quote'
+]
+
+const sichuanPackageExclusions = [
+  'International flights and China visa fees if applicable',
+  'Meals, shows, cableways, battery cars, and optional activities not listed in the final quote',
+  'Personal expenses and travel insurance',
+  'Guide and driver gratuities',
+  'Services outside the confirmed itinerary scope'
+]
+
+const txBestOfChinaPanda13DayProduct: TourProduct = {
+  slug: 'tx-best-of-china-panda-13-day',
+  name: '13 Days Best of China and Panda Tour',
+  eyebrow: 'TXCH1202 · 13-day classic China + panda route',
+  duration: '13 days / 12 nights',
+  route: 'Beijing · Xi’an · Guilin · Yangshuo · Chengdu · Shanghai',
+  destinations: ['Beijing', 'Xi’an', 'Guilin', 'Yangshuo', 'Chengdu', 'Shanghai'],
+  heroImage: guilinRiverCruiseImage,
+  heroAlt: 'Li River cruising scene with karst mountains and small boats',
+  summary:
+    'A broad first-time China route that keeps the classic Beijing, Xi’an, Guilin, Yangshuo, and Shanghai arc, then adds Chengdu for the Giant Panda Base and Sichuan culture.',
+  galleryTitle: 'Imperial capitals, karst river scenery, pandas, and Shanghai city energy.',
+  quoteSubject: 'TXCH1202 13 Days Best of China and Panda quote',
+  sourceNote:
+    'Reference structure follows the supplied ChinaTour INCH1202 route and Chengdu category listing; copy, product code, pricing, and final service terms are Tengxuan-owned.',
+  highlights: [
+    'Use Beijing and Xi’an for the highest-recognition heritage layer: Great Wall, Forbidden City, hutongs, Terracotta Warriors, and Tang city texture.',
+    'Keep Guilin and Yangshuo as the landscape chapter with Li River, karst scenery, and slower countryside routing.',
+    'Add Chengdu for the Giant Panda Base, relaxed teahouse culture, Jinli or Kuanzhai lanes, and optional Sichuan opera.',
+    'Finish in Shanghai so the route closes with museum time, Yu Garden, the Bund, and Pudong skyline views.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXCH1202' },
+    { label: 'Starts', value: 'Beijing' },
+    { label: 'Ends', value: 'Shanghai' },
+    { label: 'Hotels', value: '4-star or 5-star options' },
+    { label: 'Guide', value: 'Private local guides' },
+    { label: 'Transport', value: 'Rail + domestic flights' },
+    { label: 'Best for', value: 'First-time China travelers who want pandas added to the classic route' }
+  ],
+  gallery: [
+    { title: 'Li River Cruise', city: 'Guilin', image: guilinRiverCruiseImage, alt: 'Li River cruising scene with karst mountains and small boats', featured: true },
+    productGallery.classic[0],
+    productGallery.classic[1],
+    { title: 'Panda Base', city: 'Chengdu', image: images.chengdu, alt: 'Giant panda eating bamboo in Chengdu' },
+    productGallery.classic[3]
+  ],
+  days: [
+    { day: 'Day 1', city: 'Beijing', meals: '- / - / -', title: 'Arrival in Beijing', summary: 'Meet the guide on arrival and transfer to the hotel. Keep the evening light for rest or a short neighborhood walk.', sights: ['Arrival transfer', 'Hotel check-in'] },
+    { day: 'Day 2', city: 'Beijing', meals: 'B / L / -', title: 'Imperial Beijing', summary: 'Visit Tiananmen Square, the Forbidden City, Jingshan, and a hutong route to connect the imperial axis with old neighborhood life.', sights: ['Tiananmen Square', 'Forbidden City', 'Jingshan Park', 'Hutong walk'], note: 'Passport details are required for Tiananmen and Forbidden City reservations.' },
+    { day: 'Day 3', city: 'Beijing', meals: 'B / L / -', title: 'Great Wall and royal gardens', summary: 'Drive to the Great Wall, then return for Summer Palace or Temple of Heaven according to timing, season, and guest mobility.', sights: ['Great Wall', 'Summer Palace option', 'Temple of Heaven option'] },
+    { day: 'Day 4', city: 'Beijing to Xi’an', meals: 'B / - / -', title: 'High-speed train to Xi’an', summary: 'Take high-speed rail to Xi’an and begin with the Ancient City Wall, Bell and Drum Tower area, or Muslim Quarter.', sights: ['High-speed rail', 'Ancient City Wall', 'Muslim Quarter'] },
+    { day: 'Day 5', city: 'Xi’an', meals: 'B / L / -', title: 'Terracotta Warriors and Tang city', summary: 'Tour the Terracotta Warriors with enough interpretation time, then add Big Wild Goose Pagoda or Great Tang All Day Mall.', sights: ['Terracotta Warriors', 'Big Wild Goose Pagoda', 'Great Tang All Day Mall option'] },
+    { day: 'Day 6', city: 'Xi’an to Guilin', meals: 'B / - / -', title: 'Fly to Guilin', summary: 'Fly to Guilin and use the arrival day for a riverside walk, cave option, or simple local dinner arrangement.', sights: ['Domestic flight', 'Guilin riverside', 'Reed Flute Cave option'] },
+    { day: 'Day 7', city: 'Guilin to Yangshuo', meals: 'B / L / -', title: 'Li River cruise', summary: 'Cruise the Li River to Yangshuo and keep the afternoon for countryside scenery, old-town time, or a light activity.', sights: ['Li River cruise', 'Yangshuo countryside', 'West Street option'] },
+    { day: 'Day 8', city: 'Yangshuo or Guilin', meals: 'B / L / -', title: 'Karst countryside day', summary: 'Build the day around cycling, buggy touring, cooking class, a village walk, or Longji rice terraces depending on season.', sights: ['Yangshuo countryside', 'Cooking class option', 'Longji option'] },
+    { day: 'Day 9', city: 'Guilin to Chengdu', meals: 'B / - / -', title: 'Fly to Chengdu', summary: 'Transfer to Chengdu and keep the evening open for Jinli, Kuanzhai Alley, teahouse culture, or Sichuan cuisine.', sights: ['Domestic flight', 'Jinli or Kuanzhai Alley', 'Sichuan dinner option'] },
+    { day: 'Day 10', city: 'Chengdu', meals: 'B / L / -', title: 'Panda Base and Chengdu life', summary: 'Visit the Giant Panda Base in the morning, then use the afternoon for Wenshu Temple, a teahouse, Jinli, or Sichuan opera.', sights: ['Chengdu Giant Panda Base', 'Wenshu Temple option', 'Teahouse', 'Sichuan opera option'] },
+    { day: 'Day 11', city: 'Chengdu to Shanghai', meals: 'B / - / -', title: 'Fly to Shanghai', summary: 'Fly to Shanghai and reserve the evening for the Bund, Nanjing Road, or a Huangpu River cruise option.', sights: ['Domestic flight', 'The Bund', 'Nanjing Road'] },
+    { day: 'Day 12', city: 'Shanghai', meals: 'B / L / -', title: 'Old and new Shanghai', summary: 'Visit Yu Garden, the old quarter, Shanghai Museum or French Concession, then finish with skyline views.', sights: ['Yu Garden', 'Old quarter', 'Shanghai Museum option', 'Pudong skyline'] },
+    { day: 'Day 13', city: 'Shanghai', meals: 'B / - / -', title: 'Departure from Shanghai', summary: 'Private transfer to the airport for international departure or onward China travel.', sights: ['Airport transfer'] }
+  ],
+  hotels: [
+    { city: 'Beijing', hotel: 'Central Beijing 4-star or 5-star option' },
+    { city: 'Xi’an', hotel: 'Xi’an city-center or rail-access hotel by quote' },
+    { city: 'Guilin/Yangshuo', hotel: 'Guilin 4-star and Yangshuo boutique option by quote' },
+    { city: 'Chengdu', hotel: 'Central Chengdu 4-star or 5-star option' },
+    { city: 'Shanghai', hotel: 'Central Shanghai 4-star or 5-star option' }
+  ],
+  prices: [
+    { group: 'Land only benchmark', price: 'From USD 2,890', basis: 'Public reference level; final Tengxuan quote may differ by date, flights, and hotel tier' },
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Per person after hotel, domestic flights, rail, and guide language are confirmed' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from rooming list, market, meal scope, and inclusion level' }
+  ],
+  inclusions: [
+    '12 nights’ accommodation with daily breakfast by selected hotel tier',
+    'Private local guides and vehicles on listed touring days',
+    'First gate entrance fees for listed core sights by final quote',
+    'Second-class rail and economy domestic flights by final plan',
+    'Airport or station transfers and Li River cruise by final quotation'
+  ],
+  exclusions: [
+    'International flights',
+    'China visa fee if applicable',
+    'Meals, shows, cruises, cableways, workshops, and optional activities not confirmed in final quote',
+    'Travel insurance',
+    'Guide and driver gratuities'
+  ]
+}
+
+const txChengduJiuzhaigouHuanglongDujiangyan7DayProduct: TourProduct = {
+  slug: 'tx-chengdu-jiuzhaigou-huanglong-dujiangyan-7-day',
+  name: '7 Days Chengdu, Jiuzhaigou, Huanglong and Dujiangyan Tour',
+  eyebrow: 'TXSC0601 · 7-day Sichuan nature + heritage route',
+  duration: '7 days / 6 nights',
+  route: 'Chengdu · Jiuzhaigou · Huanglong · Dujiangyan · Chengdu',
+  destinations: ['Chengdu', 'Jiuzhaigou', 'Huanglong', 'Dujiangyan'],
+  heroImage: images.dujiangyan,
+  heroAlt: 'Dujiangyan Irrigation System near Chengdu',
+  summary:
+    'A Sichuan route focused on pandas, Jiuzhaigou Valley, Huanglong travertine pools, and Dujiangyan, with Chengdu as the air and culture base.',
+  galleryTitle: 'Pandas, blue Jiuzhaigou lakes, Huanglong pools, and ancient waterworks.',
+  quoteSubject: 'TXSC0601 Chengdu Jiuzhaigou Huanglong Dujiangyan quote',
+  sourceNote:
+    'Reference structure follows the supplied ChinaTour INSC0601 product and readable goods-page itinerary; copy, product code, and final quote terms are Tengxuan-owned.',
+  highlights: [
+    'Pair the Giant Panda Base with a flight or protected transfer plan into Jiuzhaigou so guests do not lose the Sichuan wildlife theme.',
+    'Dedicate a full sightseeing day to Jiuzhaigou Valley rather than treating it as a short stop.',
+    'Use Huanglong as the highland landscape counterpoint, with timing and altitude notes confirmed before booking.',
+    'Add Dujiangyan on the Chengdu side to give the route a clear cultural-engineering finish.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXSC0601' },
+    { label: 'Starts', value: 'Chengdu' },
+    { label: 'Ends', value: 'Chengdu' },
+    { label: 'Hotels', value: 'Chengdu + Jiuzhaigou by quote' },
+    { label: 'Guide', value: 'English-speaking local guide' },
+    { label: 'Transport', value: 'Private vehicle + flight or rail by season' },
+    { label: 'Best for', value: 'Travelers prioritizing Jiuzhaigou with a Chengdu panda base' }
+  ],
+  gallery: [
+    { title: 'Dujiangyan', city: 'Dujiangyan', image: images.dujiangyan, alt: 'Dujiangyan Irrigation System near Chengdu', featured: true },
+    { title: 'Jiuzhaigou Valley', city: 'Jiuzhaigou', image: images.jiuzhaigou, alt: 'Blue lake and forest scenery in Jiuzhaigou Valley' },
+    { title: 'Panda Base', city: 'Chengdu', image: images.chengdu, alt: 'Giant panda eating bamboo in Chengdu' },
+    { title: 'Chengdu Culture', city: 'Chengdu', image: images.sanxingdui, alt: 'Sanxingdui Museum exterior near Chengdu' }
+  ],
+  days: [
+    { day: 'Day 1', city: 'Chengdu', meals: '- / - / -', title: 'Fly to Chengdu', summary: 'Arrive in Chengdu or begin the international flight plan toward Chengdu, the gateway city for the Sichuan route.', sights: ['Flight to Chengdu', 'Route preparation'] },
+    { day: 'Day 2', city: 'Chengdu', meals: '- / - / -', title: 'Arrive in Chengdu', summary: 'Meet the guide at the airport and transfer to the hotel. Keep the rest of the day open for rest or a light Chengdu walk.', sights: ['Airport pickup', 'Hotel check-in', 'Free time'] },
+    { day: 'Day 3', city: 'Chengdu to Jiuzhaigou', meals: 'B / L / -', title: 'Panda Base and transfer to Jiuzhaigou', summary: 'Visit Chengdu Giant Panda Base in the morning, then transfer by flight, rail-plus-road, or private land plan to Jiuzhaigou according to seasonal operation.', sights: ['Chengdu Giant Panda Base', 'Jiuzhaigou transfer', 'Hotel check-in'] },
+    { day: 'Day 4', city: 'Jiuzhaigou', meals: 'B / L / -', title: 'Jiuzhaigou Valley full-day visit', summary: 'Spend the day inside Jiuzhaigou Valley with a guide-planned route through lakes, waterfalls, forest roads, and key viewpoints.', sights: ['Nuorilang Waterfall', 'Five-Color Lake', 'Long Lake', 'Pearl Shoal'] },
+    { day: 'Day 5', city: 'Jiuzhaigou to Huanglong to Chengdu', meals: 'B / L / -', title: 'Huanglong Scenic Area and return to Chengdu', summary: 'Drive to Huanglong Scenic Area for travertine pools and mountain views, then return to Chengdu by the confirmed transport plan.', sights: ['Huanglong Scenic Area', 'Travertine pools', 'Return to Chengdu'], note: 'Altitude, weather, and road timing should be checked before final confirmation.' },
+    { day: 'Day 6', city: 'Dujiangyan', meals: 'B / L / -', title: 'Dujiangyan and Chengdu culture', summary: 'Visit Dujiangyan Irrigation System, then return to Chengdu for Wenshu Temple, Kuanzhai Alley, Jinli, or a teahouse experience.', sights: ['Dujiangyan Irrigation System', 'Wenshu Temple option', 'Kuanzhai Alley or Jinli'] },
+    { day: 'Day 7', city: 'Chengdu', meals: 'B / - / -', title: 'Departure from Chengdu', summary: 'Transfer to Chengdu airport or railway station for departure or an onward China extension.', sights: ['Departure transfer'] }
+  ],
+  hotels: [
+    { city: 'Chengdu', hotel: 'Holiday Inn Express Chengdu West Gate level or similar by final quote' },
+    { city: 'Jiuzhaigou', hotel: 'Qian He International Hotel level or similar by final quote' }
+  ],
+  prices: [
+    { group: 'Land only benchmark', price: 'From USD 1,690', basis: 'Public reference level; final Tengxuan quote may differ by date, transport, and hotel tier' },
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Per person after Jiuzhaigou transport, rooms, meals, and tickets are confirmed' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from rooming list, guide language, and seasonal access plan' }
+  ],
+  inclusions: sichuanPackageInclusions,
+  exclusions: sichuanPackageExclusions
+}
+
+const txChengduGiantPanda4DayProduct: TourProduct = {
+  slug: 'tx-chengdu-giant-panda-4-day',
+  name: '4 Days Chengdu and Giant Panda Tour',
+  eyebrow: 'TXCT0401 · 4-day Chengdu panda city package',
+  duration: '4 days / 3 nights',
+  route: 'Chengdu',
+  destinations: ['Chengdu'],
+  heroImage: images.chengdu,
+  heroAlt: 'Giant panda resting in Chengdu',
+  summary:
+    'A short Chengdu product for travelers who want the Giant Panda Base, teahouse life, old streets, and a flexible city-culture day without leaving Sichuan’s capital.',
+  galleryTitle: 'Pandas, Chengdu slow-life culture, Jinli lanes, and museum or teahouse options.',
+  quoteSubject: 'TXCT0401 Chengdu Giant Panda 4-day quote',
+  sourceNote:
+    'Reference structure follows the supplied ChinaTour INCT0401 product title and Chengdu package listing; copy, product code, and final quote terms are Tengxuan-owned.',
+  highlights: [
+    'Keep the trip short and practical for travelers adding Chengdu before or after another China route.',
+    'Schedule the Panda Base in the morning when pandas are generally more active.',
+    'Use the second touring block for Wenshu Temple, People’s Park, Jinli, Kuanzhai Alley, Sichuan cuisine, or Sichuan opera.',
+    'Optional Sanxingdui or Dujiangyan can replace a city-culture block when guests want more history or heritage.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXCT0401' },
+    { label: 'Starts', value: 'Chengdu' },
+    { label: 'Ends', value: 'Chengdu' },
+    { label: 'Hotels', value: 'Chengdu 4-star or similar' },
+    { label: 'Guide', value: 'English-speaking local guide' },
+    { label: 'Transport', value: 'Private vehicle' },
+    { label: 'Best for', value: 'Short Chengdu stopovers and panda-focused families' }
+  ],
+  gallery: [
+    { title: 'Panda Base', city: 'Chengdu', image: images.chengdu, alt: 'Giant panda eating bamboo in Chengdu', featured: true },
+    { title: 'Dujiangyan Option', city: 'Dujiangyan', image: images.dujiangyan, alt: 'Dujiangyan Irrigation System near Chengdu' },
+    { title: 'Sanxingdui Option', city: 'Chengdu', image: images.sanxingdui, alt: 'Sanxingdui Museum exterior near Chengdu' }
+  ],
+  days: [
+    { day: 'Day 1', city: 'Chengdu', meals: '- / - / -', title: 'Arrive in Chengdu', summary: 'Meet the guide on arrival and transfer to the hotel. Keep the rest of the day flexible for rest or a simple food walk.', sights: ['Arrival transfer', 'Hotel check-in', 'Free time'] },
+    { day: 'Day 2', city: 'Chengdu', meals: 'B / L / -', title: 'Giant Panda Base and old Chengdu', summary: 'Visit the Giant Panda Base in the morning, then continue with Wenshu Temple, People’s Park, a teahouse, Jinli, or Kuanzhai Alley.', sights: ['Chengdu Giant Panda Base', 'Wenshu Temple', 'People’s Park teahouse', 'Jinli or Kuanzhai Alley'] },
+    { day: 'Day 3', city: 'Chengdu', meals: 'B / L / -', title: 'Flexible Chengdu culture day', summary: 'Choose Sanxingdui Museum, Dujiangyan, a food route, Sichuan cooking, or Sichuan opera according to the guest profile.', sights: ['Sanxingdui option', 'Dujiangyan option', 'Sichuan cuisine option', 'Sichuan opera option'] },
+    { day: 'Day 4', city: 'Chengdu', meals: 'B / - / -', title: 'Departure from Chengdu', summary: 'Transfer to the airport or railway station for departure or onward travel.', sights: ['Departure transfer'] }
+  ],
+  hotels: [
+    { city: 'Chengdu', hotel: 'Central Chengdu 4-star hotel or similar by final quote' }
+  ],
+  prices: [
+    { group: 'Land only benchmark', price: 'From USD 750', basis: 'Public reference level; final Tengxuan quote may differ by date and hotel tier' },
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Per person after hotel, guide, vehicle, and optional day choice are confirmed' }
+  ],
+  inclusions: sichuanPackageInclusions,
+  exclusions: sichuanPackageExclusions
+}
+
+const txChengduJiuzhaigouEmei8DayProduct: TourProduct = {
+  slug: 'tx-chengdu-jiuzhaigou-mt-emei-8-day',
+  name: '8 Days Chengdu, Jiuzhaigou and Mt. Emei Tour',
+  eyebrow: 'TXSC0701 · 8-day Sichuan nature + sacred mountain route',
+  duration: '8 days / 7 nights',
+  route: 'Chengdu · Jiuzhaigou · Huanglong · Leshan · Mt. Emei · Chengdu',
+  destinations: ['Chengdu', 'Jiuzhaigou', 'Huanglong', 'Leshan', 'Mt. Emei'],
+  heroImage: images.jiuzhaigou,
+  heroAlt: 'Blue lake and forest scenery in Jiuzhaigou Valley',
+  summary:
+    'An eight-day Sichuan route combining Chengdu pandas, Jiuzhaigou Valley, Huanglong, Leshan Giant Buddha, and Mt. Emei.',
+  galleryTitle: 'A fuller Sichuan route: pandas, Jiuzhaigou water, Huanglong pools, Leshan, and Emei mountain culture.',
+  quoteSubject: 'TXSC0701 Chengdu Jiuzhaigou Mt. Emei 8-day quote',
+  sourceNote:
+    'Reference structure follows the supplied ChinaTour INSC0701 product page: Chengdu, Jiuzhaigou, Huanglong, Leshan, and Mt. Emei; copy, product code, and final terms are Tengxuan-owned.',
+  highlights: [
+    'Use Chengdu as the gateway, with the Panda Base before the highland scenic section.',
+    'Give Jiuzhaigou enough time for a full valley day rather than a rushed pass-through.',
+    'Add Huanglong for colorful limestone terraces and mountain scenery, subject to weather and altitude conditions.',
+    'Close with Leshan Giant Buddha and Mt. Emei for Buddhist heritage, cliff-scale sculpture, and mountain viewpoints.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXSC0701' },
+    { label: 'Starts', value: 'Chengdu' },
+    { label: 'Ends', value: 'Chengdu' },
+    { label: 'Hotels', value: 'Chengdu + Jiuzhaigou + Emei by quote' },
+    { label: 'Guide', value: 'English-speaking local guide' },
+    { label: 'Transport', value: 'Private vehicle + flight or rail by season' },
+    { label: 'Best for', value: 'Travelers wanting both Sichuan scenery and Buddhist mountain heritage' }
+  ],
+  gallery: [
+    { title: 'Jiuzhaigou Valley', city: 'Jiuzhaigou', image: images.jiuzhaigou, alt: 'Blue lake and forest scenery in Jiuzhaigou Valley', featured: true },
+    { title: 'Panda Base', city: 'Chengdu', image: images.chengdu, alt: 'Giant panda eating bamboo in Chengdu' },
+    { title: 'Chengdu Heritage', city: 'Chengdu', image: images.dujiangyan, alt: 'Dujiangyan Irrigation System near Chengdu' },
+    { title: 'Sichuan Culture', city: 'Chengdu', image: images.sanxingdui, alt: 'Sanxingdui Museum exterior near Chengdu' }
+  ],
+  days: [
+    { day: 'Day 1', city: 'Chengdu', meals: '- / - / -', title: 'Fly to Chengdu', summary: 'Begin the flight plan toward Chengdu and prepare for the Sichuan route.', sights: ['Flight to Chengdu'] },
+    { day: 'Day 2', city: 'Chengdu', meals: '- / - / -', title: 'Arrive in Chengdu', summary: 'Meet the guide at the airport and transfer to the hotel. Keep the day open for rest or a light city walk.', sights: ['Airport pickup', 'Hotel check-in'] },
+    { day: 'Day 3', city: 'Chengdu to Jiuzhaigou', meals: 'B / L / -', title: 'Panda Base and transfer to Jiuzhaigou', summary: 'Visit Chengdu Giant Panda Base, then transfer to Jiuzhaigou by the confirmed seasonal transport plan.', sights: ['Chengdu Giant Panda Base', 'Jiuzhaigou transfer', 'Hotel check-in'] },
+    { day: 'Day 4', city: 'Jiuzhaigou', meals: 'B / L / -', title: 'Jiuzhaigou Valley', summary: 'Spend a full day inside Jiuzhaigou Valley with lakes, waterfalls, forest roads, and key viewpoints sequenced by weather and crowd flow.', sights: ['Nuorilang Waterfall', 'Five-Color Lake', 'Long Lake', 'Pearl Shoal'] },
+    { day: 'Day 5', city: 'Jiuzhaigou to Huanglong to Chengdu', meals: 'B / L / -', title: 'Huanglong and return to Chengdu', summary: 'Visit Huanglong Scenic Area for travertine pools and mountain scenery, then return to Chengdu.', sights: ['Huanglong Scenic Area', 'Travertine pools', 'Return to Chengdu'], note: 'Confirm altitude, road timing, and weather before final operation.' },
+    { day: 'Day 6', city: 'Leshan to Mt. Emei', meals: 'B / L / -', title: 'Leshan Giant Buddha and Mt. Emei', summary: 'Drive to Leshan for the Giant Buddha, then continue to Mt. Emei and check in near the mountain.', sights: ['Leshan Giant Buddha', 'Mt. Emei transfer', 'Mountain-area hotel'] },
+    { day: 'Day 7', city: 'Mt. Emei to Chengdu', meals: 'B / L / -', title: 'Mt. Emei sightseeing', summary: 'Explore Mt. Emei with cable car, Golden Summit, monastery, or lower-mountain route options according to weather and guest fitness, then return to Chengdu.', sights: ['Mt. Emei', 'Golden Summit option', 'Cable car option', 'Return to Chengdu'] },
+    { day: 'Day 8', city: 'Chengdu', meals: 'B / - / -', title: 'Departure from Chengdu', summary: 'Transfer to Chengdu airport or railway station for departure.', sights: ['Departure transfer'] }
+  ],
+  hotels: [
+    { city: 'Chengdu', hotel: 'Central Chengdu 4-star hotel or similar by final quote' },
+    { city: 'Jiuzhaigou', hotel: 'Jiuzhaigou scenic-area hotel by final quote' },
+    { city: 'Mt. Emei', hotel: 'Mt. Emei base or mountain-area hotel by final quote' }
+  ],
+  prices: [
+    { group: 'Land only benchmark', price: 'From USD 1,790', basis: 'Public reference level; final Tengxuan quote may differ by date, transport, and hotel tier' },
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Per person after highland transport, rooms, meals, tickets, and Emei options are confirmed' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from rooming list, guide language, and seasonal access plan' }
+  ],
+  inclusions: sichuanPackageInclusions,
+  exclusions: sichuanPackageExclusions
+}
+
+const txChengduVisaFree3DayProduct: TourProduct = {
+  slug: 'tx-chengdu-visa-free-3-day',
+  name: '72 Hours Visa-Free Chengdu Highlights Tour',
+  eyebrow: 'TXCT0301 · 72-hour Chengdu stopover product',
+  duration: '3 days / 2 nights',
+  route: 'Chengdu',
+  destinations: ['Chengdu'],
+  heroImage: images.sanxingdui,
+  heroAlt: 'Sanxingdui Museum exterior near Chengdu',
+  summary:
+    'A compact Chengdu stopover route for eligible transit travelers, focused on airport timing, pandas, old Chengdu culture, and an optional food or teahouse evening.',
+  galleryTitle: 'A short Chengdu transit window built around pandas and city culture.',
+  quoteSubject: 'TXCT0301 72-hour Chengdu highlights quote',
+  sourceNote:
+    'Reference structure follows the supplied ChinaTour INCT0301 title and Chengdu package listing; copy, product code, pricing, and final visa-free eligibility checks are Tengxuan-owned.',
+  highlights: [
+    'Designed around a short Chengdu transit stay, with airport timing and onward tickets treated as part of the route plan.',
+    'Prioritize the Giant Panda Base and Chengdu slow-life scenes instead of overloading the stopover.',
+    'Use Wenshu Temple, People’s Park, Jinli, Kuanzhai Alley, Sichuan cuisine, or Sichuan opera as flexible city-culture modules.',
+    'Final eligibility depends on current transit policy, passport, route, and ticketed onward destination.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXCT0301' },
+    { label: 'Starts', value: 'Chengdu' },
+    { label: 'Ends', value: 'Chengdu' },
+    { label: 'Hotels', value: 'Chengdu 4-star or similar' },
+    { label: 'Guide', value: 'English-speaking local guide' },
+    { label: 'Transport', value: 'Private vehicle' },
+    { label: 'Best for', value: 'Short Chengdu visa-free stopovers' }
+  ],
+  gallery: [
+    { title: 'Sanxingdui Option', city: 'Chengdu', image: images.sanxingdui, alt: 'Sanxingdui Museum exterior near Chengdu', featured: true },
+    { title: 'Dujiangyan Option', city: 'Dujiangyan', image: images.dujiangyan, alt: 'Dujiangyan Irrigation System near Chengdu' },
+    { title: 'Panda Base', city: 'Chengdu', image: images.chengdu, alt: 'Giant panda eating bamboo in Chengdu' }
+  ],
+  days: [
+    { day: 'Day 1', city: 'Chengdu', meals: '- / - / -', title: 'Arrival transfer and light Chengdu orientation', summary: 'Meet at Chengdu airport or railway station, transfer to the hotel, and add a light Jinli or Kuanzhai Alley walk if arrival time allows.', sights: ['Arrival transfer', 'Hotel check-in', 'Jinli or Kuanzhai Alley option'] },
+    { day: 'Day 2', city: 'Chengdu', meals: 'B / L / -', title: 'Panda Base and Chengdu culture', summary: 'Visit Chengdu Giant Panda Base in the morning, then continue with Wenshu Temple, People’s Park teahouse, Sichuan cuisine, or Sichuan opera.', sights: ['Chengdu Giant Panda Base', 'Wenshu Temple option', 'People’s Park teahouse', 'Sichuan opera option'], note: 'Transit documents, passport details, and current entry rules must be checked before quotation.' },
+    { day: 'Day 3', city: 'Chengdu', meals: 'B / - / -', title: 'Departure or short city extension', summary: 'Transfer to the airport or railway station. If departure is late enough, add Sanxingdui, Dujiangyan, or a food route as an optional extension.', sights: ['Departure transfer', 'Sanxingdui option', 'Dujiangyan option'] }
+  ],
+  hotels: [
+    { city: 'Chengdu', hotel: 'Central Chengdu 4-star hotel or similar by final quote' }
+  ],
+  prices: [
+    { group: 'Land only benchmark', price: 'From USD 449', basis: 'Public reference level; final Tengxuan quote may differ by date and hotel tier' },
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Depends on arrival time, hotel, guide, and departure timing' }
+  ],
+  inclusions: [
+    'Chengdu hotel accommodation with breakfast by final quote',
+    'Airport or railway station transfers',
+    'English-speaking local guide on listed touring days',
+    'Private vehicle and first gate entrance tickets by final quote',
+    'Transit-timing planning support'
+  ],
+  exclusions: [
+    'International flights and onward tickets',
+    'Visa or transit-document costs if applicable',
+    'Meals and optional activities not listed in final quote',
+    'Travel insurance',
+    'Guide and driver gratuities'
+  ]
+}
+
+const chinaTourRemoteImages = {
+  splendidChina:
+    'https://chinatour.com/wp-content/uploads/2025/12/SplendidChinaFolkVillageTicketinGuangdongChina-Klook.jpg',
+  grandChinaYangtze:
+    'https://chinatour.com/wp-content/uploads/2025/12/beijing-yangtze-tour.jpg',
+  yangtzeCruise:
+    'https://chinatour.com/wp-content/uploads/2025/12/century-paragon-cruise_3.jpg',
+  lhasaEssence:
+    'https://chinatour.com/wp-content/uploads/2025/12/4-days-lhasa-city-tour.jpg',
+  tibetTrain:
+    'https://chinatour.com/wp-content/uploads/2025/12/7-Days-Tibet-Pilgrim-Tour-by-Train-from-Xining.jpg',
+  xining:
+    'https://chinatour.com/wp-content/uploads/2025/12/Xining_-_53725921152-1.jpg',
+  xianTerracotta:
+    'https://chinatour.com/wp-content/uploads/2025/12/Terracotta1200.jpg',
+  xianLuoyang:
+    'https://chinatour.com/wp-content/uploads/2025/12/4-Days-Xian-Luoyang-Highlights-Tour-.jpg',
+  xianHighlights:
+    'https://chinatour.com/wp-content/uploads/2025/12/b4.jpg'
+}
+
+const standardChinaProductInclusions = [
+  'Accommodation with daily breakfast by selected hotel tier',
+  'Airport or railway station transfers in listed cities',
+  'English-speaking local guides on listed touring days',
+  'Private vehicle for listed sightseeing and transfers',
+  'First gate entrance tickets and meals as confirmed in the final quote'
+]
+
+const standardChinaProductExclusions = [
+  'International flights and China visa fees if applicable',
+  'Domestic flights, trains, cableways, shows, and optional activities not confirmed in the final quote',
+  'Meals not listed in the final quote',
+  'Personal expenses and travel insurance',
+  'Guide and driver gratuities'
+]
+
+const txSplendidChina9DayProduct: TourProduct = {
+  slug: 'tx-splendid-china-9-day',
+  name: '9 Days Splendid China',
+  eyebrow: 'TXASC09 · 9-day compact classic China route',
+  duration: '9 days / 8 nights',
+  route: 'Beijing · Xi’an · Shanghai',
+  destinations: ['Beijing', 'Xi’an', 'Shanghai'],
+  heroImage: chinaTourRemoteImages.splendidChina,
+  heroAlt: 'China cultural village and landmark scenery',
+  summary:
+    'A compact first-time China route based on the supplied ASC09 structure: imperial Beijing, Great Wall, Xi’an Terracotta Warriors, and Shanghai city highlights.',
+  galleryTitle: 'Imperial Beijing, Terracotta Warriors, and Shanghai skyline in nine days.',
+  quoteSubject: 'TXASC09 9 Days Splendid China quote',
+  sourceNote:
+    'Reference structure follows the supplied ChinaTour ASC09 schedule at route level; product code, wording, images, and final quote terms are Tengxuan-owned or source-referenced.',
+  highlights: [
+    'Use Beijing for the Forbidden City, Tiananmen, Great Wall, and Temple of Heaven.',
+    'Move to Xi’an for the Ancient City Wall, Silk Road city texture, and Terracotta Warriors.',
+    'Finish in Shanghai with Yu Garden, the Bund, and a free day for shopping or optional city modules.',
+    'Keep the product short enough for travelers who want a recognizable China route without a two-week commitment.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXASC09' },
+    { label: 'Starts', value: 'Beijing' },
+    { label: 'Ends', value: 'Shanghai' },
+    { label: 'Hotels', value: '4-star or 5-star options' },
+    { label: 'Guide', value: 'Private local guides' },
+    { label: 'Transport', value: 'Rail or flight by quote' },
+    { label: 'Best for', value: 'Compact first-time China trips' }
+  ],
+  gallery: [
+    { title: 'Splendid China', city: 'China', image: chinaTourRemoteImages.splendidChina, alt: 'China cultural landmark scenery', featured: true },
+    productGallery.classic[0],
+    productGallery.classic[1],
+    { title: 'Shanghai Skyline', city: 'Shanghai', image: shanghaiSkylineImage, alt: 'Shanghai skyline at night along the Huangpu River' }
+  ],
+  days: [
+    { day: 'Day 1', city: 'Beijing', meals: '- / - / -', title: 'Arrival in Beijing', summary: 'Meet the guide on arrival and transfer to the hotel. Keep the day light for rest or a short neighborhood walk.', sights: ['Arrival transfer', 'Hotel check-in'] },
+    { day: 'Day 2', city: 'Beijing', meals: 'B / L / -', title: 'Beijing imperial landmarks', summary: 'Visit Tiananmen Square and the Forbidden City with guide interpretation of imperial history, courtyards, and palace architecture.', sights: ['Tiananmen Square', 'Forbidden City'] },
+    { day: 'Day 3', city: 'Beijing', meals: 'B / L / -', title: 'Great Wall and Temple of Heaven', summary: 'Tour a Great Wall section, then return to Beijing for Temple of Heaven and its ritual-garden setting.', sights: ['Great Wall', 'Temple of Heaven'] },
+    { day: 'Day 4', city: 'Beijing to Xi’an', meals: 'B / - / -', title: 'Train or fly to Xi’an', summary: 'Travel to Xi’an and begin with the Ancient City Wall, Bell and Drum Tower area, or a Silk Road neighborhood walk.', sights: ['Rail or flight to Xi’an', 'Ancient City Wall option', 'Muslim Quarter option'] },
+    { day: 'Day 5', city: 'Xi’an', meals: 'B / L / -', title: 'Terracotta Army discovery', summary: 'Visit the Terracotta Warriors, then add Big Wild Goose Pagoda, a Tang-dynasty city module, or free time according to guest pace.', sights: ['Terracotta Warriors', 'Big Wild Goose Pagoda option', 'Tang city option'] },
+    { day: 'Day 6', city: 'Xi’an to Shanghai', meals: 'B / - / -', title: 'Travel to Shanghai', summary: 'Fly or take rail to Shanghai. Keep the evening open for the Bund, Nanjing Road, or a simple skyline walk.', sights: ['Transfer to Shanghai', 'The Bund option', 'Nanjing Road option'] },
+    { day: 'Day 7', city: 'Shanghai', meals: 'B / L / -', title: 'Shanghai city tour', summary: 'Explore Yu Garden, the old quarter, the Bund, and Pudong skyline viewpoints to contrast classical garden space with modern riverfront architecture.', sights: ['Yu Garden', 'Old quarter', 'The Bund', 'Pudong skyline'] },
+    { day: 'Day 8', city: 'Shanghai', meals: 'B / - / -', title: 'Shanghai leisure day', summary: 'Leave a flexible day for shopping, museums, French Concession, Suzhou, Hangzhou, or additional business meetings by request.', sights: ['Free day', 'Museum option', 'Suzhou or Hangzhou option'] },
+    { day: 'Day 9', city: 'Shanghai', meals: 'B / - / -', title: 'Departure from Shanghai', summary: 'Transfer to the airport or railway station for onward travel.', sights: ['Departure transfer'] }
+  ],
+  hotels: [
+    { city: 'Beijing', hotel: 'Central Beijing 4-star or 5-star option' },
+    { city: 'Xi’an', hotel: 'Xi’an city-center hotel by quote' },
+    { city: 'Shanghai', hotel: 'Central Shanghai 4-star or 5-star option' }
+  ],
+  prices: [
+    { group: 'Land only benchmark', price: 'Custom quote', basis: 'Final quote depends on hotel tier, rail or flight choice, and season' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from rooming list, meal scope, guide language, and transport plan' }
+  ],
+  inclusions: standardChinaProductInclusions,
+  exclusions: standardChinaProductExclusions
+}
+
+const txGrandChinaYangtzeHongKong19DayProduct: TourProduct = {
+  slug: 'tx-grand-china-yangtze-hong-kong-19-day',
+  name: '19 Days Grand China, Yangtze and Hong Kong',
+  eyebrow: 'TXPYG19 · 19-day China, Yangtze cruise and Hong Kong route',
+  duration: '19 days / 18 nights',
+  route: 'Beijing · Yangtze Cruise · Guilin · Xi’an · Shanghai · Hong Kong',
+  destinations: ['Beijing', 'Yichang', 'Yangtze River', 'Chongqing', 'Guilin', 'Yangshuo', 'Xi’an', 'Shanghai', 'Hong Kong'],
+  heroImage: chinaTourRemoteImages.grandChinaYangtze,
+  heroAlt: 'Yangtze cruise and China city route scenery',
+  summary:
+    'A long-form premium China route following the supplied PYG19 sequence: Beijing, Yangtze River cruise, Guilin and Yangshuo, Xi’an, Shanghai, and Hong Kong.',
+  galleryTitle: 'Imperial Beijing, Yangtze cruise scenery, Guilin landscapes, Xi’an heritage, Shanghai, and Hong Kong.',
+  quoteSubject: 'TXPYG19 Grand China Yangtze Hong Kong quote',
+  sourceNote:
+    'Reference structure follows the supplied ChinaTour PYG19 city sequence and day titles; copy, product code, and final cruise/hotel/transport terms are Tengxuan-owned.',
+  highlights: [
+    'Start with Beijing’s imperial landmarks before transferring to Yichang for the Yangtze cruise segment.',
+    'Use the cruise for a slower middle chapter through gorges, shore excursions, and Chongqing disembarkation.',
+    'Add Guilin and Yangshuo for karst landscapes before moving into Xi’an history and Shanghai city contrast.',
+    'Finish in Hong Kong with a guided city day plus free time for harbor, food, shopping, or family extensions.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXPYG19' },
+    { label: 'Starts', value: 'Beijing' },
+    { label: 'Ends', value: 'Hong Kong' },
+    { label: 'Hotels', value: 'Premium city hotels + cruise cabin by quote' },
+    { label: 'Guide', value: 'Private local guides' },
+    { label: 'Transport', value: 'Flight, rail, private vehicle + Yangtze cruise' },
+    { label: 'Best for', value: 'Long-stay premium China travelers' }
+  ],
+  gallery: [
+    { title: 'Yangtze Cruise', city: 'Yangtze River', image: chinaTourRemoteImages.yangtzeCruise, alt: 'Yangtze River cruise ship', featured: true },
+    productGallery.classic[0],
+    { title: 'Guilin', city: 'Guilin', image: guilinRiverPanoramaImage, alt: 'Li River bend and karst peaks near Guilin at sunrise' },
+    productGallery.classic[1],
+    { title: 'Hong Kong', city: 'Hong Kong', image: images.hongKong, alt: 'Hong Kong skyline and Victoria Harbour at dusk' }
+  ],
+  days: [
+    { day: 'Day 1', city: 'En route to Beijing', meals: '- / - / -', title: 'Hometown to Beijing', summary: 'Begin the international flight plan toward Beijing.', sights: ['International flight'] },
+    { day: 'Day 2', city: 'Beijing', meals: '- / - / -', title: 'Arrive in Beijing', summary: 'Meet the guide on arrival, transfer to the hotel, and rest after the long-haul flight.', sights: ['Arrival transfer', 'Hotel check-in'] },
+    { day: 'Day 3', city: 'Beijing', meals: 'B / L / -', title: 'Beijing imperial core', summary: 'Tour Tiananmen Square, the Forbidden City, and hutongs or Jingshan according to reservation timing.', sights: ['Tiananmen Square', 'Forbidden City', 'Hutong or Jingshan'] },
+    { day: 'Day 4', city: 'Beijing', meals: 'B / L / -', title: 'Great Wall and Beijing garden', summary: 'Visit the Great Wall, then add Summer Palace or Temple of Heaven based on season and guest mobility.', sights: ['Great Wall', 'Summer Palace option', 'Temple of Heaven option'] },
+    { day: 'Day 5', city: 'Yichang / Yangtze River', meals: 'B / - / D', title: 'Yichang and board the Yangtze cruise', summary: 'Transfer to Yichang and board the Yangtze cruise ship. Cabin, pier, and embarkation details are confirmed by final cruise inventory.', sights: ['Yichang transfer', 'Yangtze cruise embarkation'] },
+    { day: 'Day 6', city: 'Yangtze River', meals: 'B / L / D', title: 'Cruise the Yangtze', summary: 'Sail through the Yangtze corridor with included or optional shore excursions according to cruise company operation.', sights: ['Yangtze River cruise', 'Shore excursion option'] },
+    { day: 'Day 7', city: 'Yangtze River', meals: 'B / L / D', title: 'Cruise the Yangtze', summary: 'Continue the cruise chapter through gorge scenery, ship activities, and port calls by season.', sights: ['Gorge scenery', 'Cruise activities'] },
+    { day: 'Day 8', city: 'Yangtze River', meals: 'B / L / D', title: 'Cruise the Yangtze', summary: 'A final full cruise day protects a slower rhythm before Chongqing disembarkation.', sights: ['Yangtze River', 'Cruise program'] },
+    { day: 'Day 9', city: 'Chongqing to Guilin', meals: 'B / - / -', title: 'Disembark in Chongqing and travel to Guilin', summary: 'Disembark in Chongqing, then fly or rail to Guilin for the landscape chapter.', sights: ['Chongqing disembarkation', 'Transfer to Guilin'] },
+    { day: 'Day 10', city: 'Guilin / Longsheng', meals: 'B / L / -', title: 'Longsheng or Guilin scenery', summary: 'Use the day for Longsheng rice terraces or a Guilin city and cave program depending on season and guest interest.', sights: ['Longsheng option', 'Guilin city option'] },
+    { day: 'Day 11', city: 'Guilin / Yangshuo', meals: 'B / L / -', title: 'Li River and Yangshuo', summary: 'Cruise or drive through Li River karst scenery, then add Yangshuo countryside or old-town time.', sights: ['Li River', 'Yangshuo countryside'] },
+    { day: 'Day 12', city: 'Guilin to Xi’an', meals: 'B / - / -', title: 'Travel to Xi’an', summary: 'Transfer from Guilin to Xi’an and keep the evening flexible for Muslim Quarter or Tang city texture.', sights: ['Domestic flight or rail', 'Muslim Quarter option'] },
+    { day: 'Day 13', city: 'Xi’an', meals: 'B / L / -', title: 'Terracotta Warriors and Xi’an heritage', summary: 'Visit the Terracotta Warriors and add Ancient City Wall, Big Wild Goose Pagoda, or Tang evening options.', sights: ['Terracotta Warriors', 'Ancient City Wall', 'Big Wild Goose Pagoda option'] },
+    { day: 'Day 14', city: 'Xi’an to Shanghai', meals: 'B / - / -', title: 'Travel to Shanghai', summary: 'Fly or rail to Shanghai. Evening is open for the Bund or Nanjing Road.', sights: ['Transfer to Shanghai', 'The Bund option'] },
+    { day: 'Day 15', city: 'Shanghai', meals: 'B / L / -', title: 'Shanghai city day', summary: 'Tour Yu Garden, old Shanghai, the Bund, and Pudong skyline viewpoints.', sights: ['Yu Garden', 'The Bund', 'Pudong skyline'] },
+    { day: 'Day 16', city: 'Shanghai to Hong Kong', meals: 'B / - / -', title: 'Travel to Hong Kong', summary: 'Transfer from Shanghai to Hong Kong and settle into the final city chapter.', sights: ['Flight or rail to Hong Kong', 'Hotel check-in'] },
+    { day: 'Day 17', city: 'Hong Kong', meals: 'B / L / -', title: 'Hong Kong city tour', summary: 'Plan Victoria Harbour, Peak views, local market texture, or Kowloon waterfront according to hotel location and guest profile.', sights: ['Victoria Harbour', 'The Peak option', 'Kowloon waterfront'] },
+    { day: 'Day 18', city: 'Hong Kong', meals: 'B / - / -', title: 'Hong Kong free day', summary: 'Leave a free day for shopping, food, museums, Disneyland, Lantau, or business calls.', sights: ['Free day', 'Disneyland option', 'Lantau option'] },
+    { day: 'Day 19', city: 'Hong Kong', meals: 'B / - / -', title: 'Departure from Hong Kong', summary: 'Transfer to the airport for departure or onward travel.', sights: ['Departure transfer'] }
+  ],
+  hotels: [
+    { city: 'Beijing', hotel: 'Premium Beijing hotel by quote' },
+    { city: 'Yangtze River', hotel: 'Yangtze cruise cabin by selected ship and sailing date' },
+    { city: 'Guilin/Yangshuo', hotel: 'Guilin or Yangshuo hotel by quote' },
+    { city: 'Xi’an', hotel: 'Central Xi’an hotel by quote' },
+    { city: 'Shanghai', hotel: 'Central Shanghai hotel by quote' },
+    { city: 'Hong Kong', hotel: 'Hong Kong hotel by quote' }
+  ],
+  prices: [
+    { group: 'Premium private', price: 'Custom quote', basis: 'Depends on cruise ship, cabin, hotels, domestic transport, and season' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from sailing date, rooming, cabin mix, guide language, and meal scope' }
+  ],
+  inclusions: standardChinaProductInclusions.concat(['Yangtze cruise cabin and cruise meals as confirmed in the final quote']),
+  exclusions: standardChinaProductExclusions.concat(['Hong Kong extensions or theme parks unless confirmed in the final quote'])
+}
+
+const txLhasaEssence4DayProduct: TourProduct = {
+  slug: 'tx-lhasa-essence-4-day',
+  name: '4 Days Lhasa Essence Tour',
+  eyebrow: 'TXLX0401 · 4-day Lhasa city essence package',
+  duration: '4 days / 3 nights',
+  route: 'Lhasa',
+  destinations: ['Lhasa'],
+  heroImage: chinaTourRemoteImages.lhasaEssence,
+  heroAlt: 'Potala Palace and Lhasa city scenery',
+  summary:
+    'A short Lhasa city package for travelers who want Potala Palace, Jokhang Temple, Barkhor Street, and monastery culture with protected altitude-acclimatization time.',
+  galleryTitle: 'Potala Palace, Jokhang Temple, Barkhor pilgrimage streets, and Lhasa monastery culture.',
+  quoteSubject: 'TXLX0401 Lhasa Essence 4-day quote',
+  sourceNote:
+    'Reference page title and image come from the supplied ChinaTour INLX0401 page; its schedule text was inconsistent, so this Tengxuan product uses a standard Lhasa essence itinerary.',
+  highlights: [
+    'Protect the arrival day for altitude acclimatization before any major sightseeing.',
+    'Use Potala Palace, Jokhang Temple, and Barkhor Street as the essential Lhasa core.',
+    'Add Sera, Drepung, Norbulingka, or Tibet Museum according to permits and opening schedules.',
+    'Tibet permit, passport, visa, train or flight details, and guest health profile must be checked before confirmation.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXLX0401' },
+    { label: 'Starts', value: 'Lhasa' },
+    { label: 'Ends', value: 'Lhasa' },
+    { label: 'Hotels', value: 'Lhasa hotel by quote' },
+    { label: 'Guide', value: 'Licensed local guide' },
+    { label: 'Transport', value: 'Private vehicle' },
+    { label: 'Best for', value: 'Short Tibet city stays' }
+  ],
+  gallery: [
+    { title: 'Potala Palace', city: 'Lhasa', image: images.lhasa, alt: 'Potala Palace in Lhasa', featured: true },
+    { title: 'Lhasa City', city: 'Lhasa', image: chinaTourRemoteImages.lhasaEssence, alt: 'Lhasa city and palace scenery' },
+    { title: 'Tibet Highland', city: 'Lhasa', image: lhasaGalleryTwoImage, alt: 'Tibet highland scenery near Lhasa' },
+    { title: 'Monastery Day', city: 'Lhasa', image: lhasaGalleryThreeImage, alt: 'Tibetan monastery and mountain scenery' }
+  ],
+  days: [
+    { day: 'Day 1', city: 'Lhasa', meals: '- / - / -', title: 'Arrive in Lhasa and acclimatize', summary: 'Meet the guide at the airport or railway station, transfer to the hotel, and keep the rest of the day quiet for altitude adjustment.', sights: ['Arrival transfer', 'Hotel check-in', 'Altitude acclimatization'], note: 'Avoid strenuous activity and alcohol on arrival day.' },
+    { day: 'Day 2', city: 'Lhasa', meals: 'B / L / -', title: 'Potala Palace, Jokhang Temple and Barkhor', summary: 'Visit Potala Palace when permits and ticketing allow, then continue to Jokhang Temple and Barkhor Street for the pilgrimage and old-city layer.', sights: ['Potala Palace', 'Jokhang Temple', 'Barkhor Street'] },
+    { day: 'Day 3', city: 'Lhasa', meals: 'B / L / -', title: 'Lhasa monastery and culture day', summary: 'Use the day for Sera Monastery, Drepung Monastery, Norbulingka, or Tibet Museum according to opening schedule and guest pace.', sights: ['Sera Monastery option', 'Drepung Monastery option', 'Norbulingka option', 'Tibet Museum option'] },
+    { day: 'Day 4', city: 'Lhasa', meals: 'B / - / -', title: 'Departure from Lhasa', summary: 'Transfer to Lhasa airport or railway station for departure or onward Tibet travel.', sights: ['Departure transfer'] }
+  ],
+  hotels: [
+    { city: 'Lhasa', hotel: 'Lhasa hotel by permit, season, and selected comfort level' }
+  ],
+  prices: [
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Depends on permit timing, hotel, transfers, and guide scope' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from permit documents, rooming list, and transport plan' }
+  ],
+  inclusions: standardChinaProductInclusions.concat(['Tibet permit coordination support by final booking scope']),
+  exclusions: standardChinaProductExclusions.concat(['Tibet permit document delays caused by missing or invalid traveler documents'])
+}
+
+const txTibetTrainXining7DayProduct: TourProduct = {
+  slug: 'tx-tibet-train-xining-7-day',
+  name: '7 Days Tibet Pilgrim Tour by Train from Xining',
+  eyebrow: 'TXTT05 · 7-day Xining to Lhasa train and Tibet city route',
+  duration: '7 days / 6 nights',
+  route: 'Xining · Qinghai-Tibet Railway · Lhasa',
+  destinations: ['Xining', 'Qinghai-Tibet Railway', 'Lhasa'],
+  heroImage: chinaTourRemoteImages.tibetTrain,
+  heroAlt: 'Qinghai-Tibet Railway and highland route scenery',
+  summary:
+    'A Tibet route following the supplied TT05 structure: fly to Xining, take the Qinghai-Tibet train to Lhasa, then explore Lhasa highlights with acclimatization built in.',
+  galleryTitle: 'Xining, the Qinghai-Tibet train, Potala Palace, Jokhang Temple, and Lhasa monastery life.',
+  quoteSubject: 'TXTT05 Tibet train from Xining quote',
+  sourceNote:
+    'Reference structure follows the supplied ChinaTour TT05 day titles; copy, permit handling, and final train/hotel terms are Tengxuan-owned.',
+  highlights: [
+    'Use Xining as the rail gateway for the Qinghai-Tibet train experience.',
+    'Protect the Lhasa arrival day for acclimatization after high-altitude rail travel.',
+    'Build the Lhasa sightseeing around Potala Palace, Jokhang Temple, Barkhor Street, and monastery options.',
+    'Confirm Tibet permits, train berth availability, passport and visa documents, and health profile before final booking.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXTT05' },
+    { label: 'Starts', value: 'Xining' },
+    { label: 'Ends', value: 'Lhasa' },
+    { label: 'Hotels', value: 'Xining + Lhasa + train berth by quote' },
+    { label: 'Guide', value: 'Licensed local guide in Tibet' },
+    { label: 'Transport', value: 'Qinghai-Tibet train + private vehicle' },
+    { label: 'Best for', value: 'Travelers wanting a Tibet train entry' }
+  ],
+  gallery: [
+    { title: 'Qinghai-Tibet Train', city: 'Xining / Lhasa', image: chinaTourRemoteImages.tibetTrain, alt: 'Qinghai-Tibet train route scenery', featured: true },
+    { title: 'Xining', city: 'Xining', image: chinaTourRemoteImages.xining, alt: 'Xining city and highland gateway scenery' },
+    { title: 'Potala Palace', city: 'Lhasa', image: images.lhasa, alt: 'Potala Palace in Lhasa' },
+    { title: 'Tibet Highland', city: 'Lhasa', image: lhasaGalleryTwoImage, alt: 'Tibet highland scenery near Lhasa' }
+  ],
+  days: [
+    { day: 'Day 1', city: 'Xining', meals: '- / - / -', title: 'Fly to Xining', summary: 'Begin the flight plan toward Xining, the practical gateway for the Qinghai-Tibet railway.', sights: ['Flight to Xining'] },
+    { day: 'Day 2', city: 'Xining', meals: '- / - / -', title: 'Arrive in Xining', summary: 'Meet on arrival, transfer to the hotel, and prepare documents and timing for the train departure.', sights: ['Arrival transfer', 'Xining hotel', 'Train preparation'] },
+    { day: 'Day 3', city: 'Xining to Lhasa', meals: 'B / - / -', title: 'Xining to Lhasa by train', summary: 'Board the Qinghai-Tibet train. Berth class, departure time, and document handling are confirmed before final booking.', sights: ['Qinghai-Tibet Railway', 'Overnight train'] },
+    { day: 'Day 4', city: 'Lhasa', meals: '- / - / -', title: 'Arrive in Lhasa', summary: 'Arrive in Lhasa, meet the local guide, transfer to the hotel, and keep the rest of the day for altitude adjustment.', sights: ['Lhasa railway station', 'Hotel transfer', 'Acclimatization'] },
+    { day: 'Day 5', city: 'Lhasa', meals: 'B / L / -', title: 'Lhasa scenic tour', summary: 'Use the first Lhasa sightseeing day for monastery or city-culture modules at a measured pace.', sights: ['Sera Monastery option', 'Drepung Monastery option', 'Norbulingka option'] },
+    { day: 'Day 6', city: 'Lhasa', meals: 'B / L / -', title: 'Potala Palace and Jokhang Temple', summary: 'Visit Potala Palace, Jokhang Temple, and Barkhor Street according to permit and ticket availability.', sights: ['Potala Palace', 'Jokhang Temple', 'Barkhor Street'] },
+    { day: 'Day 7', city: 'Lhasa', meals: 'B / - / -', title: 'Departure from Lhasa', summary: 'Transfer to airport or railway station for onward travel.', sights: ['Departure transfer'] }
+  ],
+  hotels: [
+    { city: 'Xining', hotel: 'Xining hotel by quote' },
+    { city: 'Train', hotel: 'Qinghai-Tibet train berth by availability' },
+    { city: 'Lhasa', hotel: 'Lhasa hotel by permit, season, and selected comfort level' }
+  ],
+  prices: [
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Depends on train berth, permit timing, hotels, and guide scope' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from permit documents, berth inventory, and rooming list' }
+  ],
+  inclusions: standardChinaProductInclusions.concat(['Qinghai-Tibet train ticket and Tibet permit coordination support by final quote']),
+  exclusions: standardChinaProductExclusions.concat(['Train berth changes caused by railway inventory or document timing'])
+}
+
+const txXianTerracottaCityWall1DayProduct: TourProduct = {
+  slug: 'tx-xian-terracotta-city-wall-1-day',
+  name: '1 Day Xi’an Terracotta Warriors and Ancient City Wall Tour',
+  eyebrow: 'TXINXI0102 · 1-day Xi’an heritage product',
+  duration: '1 day',
+  route: 'Xi’an · Terracotta Warriors · Ancient City Wall · Xi’an',
+  destinations: ['Xi’an'],
+  heroImage: chinaTourRemoteImages.xianTerracotta,
+  heroAlt: 'Terracotta Warriors archaeological pit in Xi’an',
+  summary:
+    'A focused Xi’an day product based on the supplied INXI0102 structure: Terracotta Warriors, Ancient City Wall, and hotel pickup/return in one efficient heritage day.',
+  galleryTitle: 'Terracotta Warriors, Xi’an City Wall, and old-capital texture in one day.',
+  quoteSubject: 'TXINXI0102 Xi’an Terracotta Warriors day tour quote',
+  sourceNote:
+    'Reference structure follows the supplied ChinaTour INXI0102 title and schedule title; copy, code, and final quote terms are Tengxuan-owned.',
+  highlights: [
+    'Use the Terracotta Warriors as the anchor sight with enough interpretation time.',
+    'Add Xi’an Ancient City Wall for city-scale context and an optional bike or walk segment.',
+    'Keep the product simple for travelers with one spare day in Xi’an.',
+    'Pickup point, traffic, museum ticketing, and closure rules should be confirmed before quote finalization.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXINXI0102' },
+    { label: 'Starts', value: 'Xi’an' },
+    { label: 'Ends', value: 'Xi’an' },
+    { label: 'Hotels', value: 'Not included' },
+    { label: 'Guide', value: 'Private local guide' },
+    { label: 'Transport', value: 'Private vehicle' },
+    { label: 'Best for', value: 'Xi’an stopover travelers' }
+  ],
+  gallery: [
+    { title: 'Terracotta Warriors', city: 'Xi’an', image: chinaTourRemoteImages.xianTerracotta, alt: 'Terracotta Warriors archaeological pit', featured: true },
+    { title: 'Terracotta Army', city: 'Xi’an', image: terracottaWarriorsImage, alt: "Terracotta Warriors archaeological pit in Xi'an" },
+    { title: 'Ancient City Wall', city: 'Xi’an', image: images.xianCityWall, alt: "Xi'an Ancient City Wall" }
+  ],
+  days: [
+    { day: 'Day Tour', city: 'Xi’an', meals: '- / L / -', title: 'Terracotta Warriors and Ancient City Wall', summary: 'Meet at the Xi’an hotel, drive to the Terracotta Warriors, then return to the city for the Ancient City Wall and a short old-city or Muslim Quarter add-on if timing allows.', sights: ['Hotel pickup', 'Terracotta Warriors', 'Ancient City Wall', 'Muslim Quarter option'], note: 'Museum ticketing, guide timing, and City Wall bike rental should be confirmed in the final quote.' }
+  ],
+  hotels: [
+    { city: 'Xi’an', hotel: 'Accommodation not included in the day-tour price' }
+  ],
+  prices: [
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Per person after vehicle, guide, entrance, and pickup location are confirmed' }
+  ],
+  inclusions: [
+    'Private Xi’an hotel pickup and return transfer',
+    'English-speaking local guide',
+    'Terracotta Warriors and City Wall admission by final quote',
+    'Lunch if confirmed in the final quote'
+  ],
+  exclusions: [
+    'Accommodation',
+    'City Wall bike or electric car unless confirmed',
+    'Personal expenses and travel insurance',
+    'Guide and driver gratuities'
+  ]
+}
+
+const txXianLuoyangHighlights4DayProduct: TourProduct = {
+  slug: 'tx-xian-luoyang-highlights-4-day',
+  name: '4 Days Xi’an and Luoyang Highlights Tour',
+  eyebrow: 'TXINXI0401 · 4-day Xi’an and Luoyang heritage route',
+  duration: '4 days / 3 nights',
+  route: 'Xi’an · Luoyang',
+  destinations: ['Xi’an', 'Luoyang'],
+  heroImage: chinaTourRemoteImages.xianLuoyang,
+  heroAlt: 'Xi’an and Luoyang heritage route image',
+  summary:
+    'A compact ancient-capital route based on the supplied INXI0401 schedule: Xi’an arrival, Terracotta Warriors, City Wall, Small Wild Goose Pagoda, Longmen Grottoes, and Shaolin Temple.',
+  galleryTitle: 'Xi’an archaeology, Luoyang Buddhist caves, and Shaolin Temple in four days.',
+  quoteSubject: 'TXINXI0401 Xi’an Luoyang Highlights quote',
+  sourceNote:
+    'Reference structure follows the supplied ChinaTour INXI0401 title and day titles; copy, product code, and final quote terms are Tengxuan-owned.',
+  highlights: [
+    'Combine Xi’an and Luoyang for travelers who want two ancient capitals in one compact route.',
+    'Use Terracotta Warriors and Ancient City Wall for the Xi’an heritage core.',
+    'Add Small Wild Goose Pagoda and Longmen Grottoes before continuing to Luoyang.',
+    'Finish with Shaolin Temple for a recognizable Henan culture and martial-arts chapter.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXINXI0401' },
+    { label: 'Starts', value: 'Xi’an' },
+    { label: 'Ends', value: 'Luoyang or Xi’an by quote' },
+    { label: 'Hotels', value: 'Xi’an + Luoyang by quote' },
+    { label: 'Guide', value: 'Private local guides' },
+    { label: 'Transport', value: 'Private vehicle + rail or road transfer' },
+    { label: 'Best for', value: 'Ancient-capital heritage travelers' }
+  ],
+  gallery: [
+    { title: 'Xi’an and Luoyang', city: 'Xi’an / Luoyang', image: chinaTourRemoteImages.xianLuoyang, alt: 'Xi’an and Luoyang heritage route image', featured: true },
+    { title: 'Terracotta Warriors', city: 'Xi’an', image: terracottaWarriorsImage, alt: "Terracotta Warriors archaeological pit in Xi'an" },
+    { title: 'Longmen Grottoes', city: 'Luoyang', image: images.longmenGrottoes, alt: 'Longmen Grottoes Buddhist caves near Luoyang' },
+    { title: 'Shaolin Temple', city: 'Dengfeng', image: images.shaolinTemple, alt: 'Shaolin Temple mountain gate in Henan' }
+  ],
+  days: [
+    { day: 'Day 1', city: 'Xi’an', meals: '- / - / -', title: 'Arrival in Xi’an', summary: 'Meet on arrival and transfer to the hotel. If time allows, add a light Bell Tower, Drum Tower, or Muslim Quarter walk.', sights: ['Arrival transfer', 'Hotel check-in', 'Muslim Quarter option'] },
+    { day: 'Day 2', city: 'Xi’an', meals: 'B / L / -', title: 'Terracotta Warriors and Ancient City Wall', summary: 'Visit the Terracotta Warriors, then return to the city for Ancient City Wall and an optional Tang-style evening module.', sights: ['Terracotta Warriors', 'Ancient City Wall', 'Tang evening option'] },
+    { day: 'Day 3', city: 'Xi’an to Luoyang', meals: 'B / L / -', title: 'Small Wild Goose Pagoda and Longmen Grottoes', summary: 'Visit Small Wild Goose Pagoda or a Xi’an museum module, then transfer to Luoyang for Longmen Grottoes.', sights: ['Small Wild Goose Pagoda', 'Transfer to Luoyang', 'Longmen Grottoes'] },
+    { day: 'Day 4', city: 'Luoyang', meals: 'B / L / -', title: 'Shaolin Temple and departure', summary: 'Tour Shaolin Temple and its surrounding heritage area, then transfer to Luoyang or Xi’an station/airport according to the final plan.', sights: ['Shaolin Temple', 'Kung fu culture option', 'Departure transfer'] }
+  ],
+  hotels: [
+    { city: 'Xi’an', hotel: 'Central Xi’an hotel by quote' },
+    { city: 'Luoyang', hotel: 'Luoyang hotel by quote' }
+  ],
+  prices: [
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Depends on hotel, rail or road transfer, guide scope, and departure city' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from rooming list, meal scope, and transport plan' }
+  ],
+  inclusions: standardChinaProductInclusions,
+  exclusions: standardChinaProductExclusions
+}
+
+const txXianHighlights3DayProduct: TourProduct = {
+  slug: 'tx-xian-highlights-3-day',
+  name: '3 Days Xi’an Highlights Tour',
+  eyebrow: 'TXINXI0301 · 3-day Xi’an highlights package',
+  duration: '3 days / 2 nights',
+  route: 'Xi’an',
+  destinations: ['Xi’an'],
+  heroImage: chinaTourRemoteImages.xianHighlights,
+  heroAlt: 'Xi’an city and heritage route scenery',
+  summary:
+    'A short Xi’an product based on the supplied INXI0301 structure: arrival, Terracotta Warriors and City Wall, then cultural sites and departure.',
+  galleryTitle: 'Terracotta Warriors, Ancient City Wall, pagodas, and old Xi’an neighborhoods.',
+  quoteSubject: 'TXINXI0301 Xi’an Highlights 3-day quote',
+  sourceNote:
+    'Reference structure follows the supplied ChinaTour INXI0301 title and day titles; copy, product code, and final quote terms are Tengxuan-owned.',
+  highlights: [
+    'Protect one full day for Terracotta Warriors and the Ancient City Wall.',
+    'Use arrival and departure windows for Muslim Quarter, pagoda, museum, or Tang-style city modules.',
+    'Fits travelers adding Xi’an between Beijing, Shanghai, Chengdu, or Luoyang.',
+    'Final operation depends on arrival time, museum ticketing, hotel location, and onward transport.'
+  ],
+  facts: [
+    { label: 'Code', value: 'TXINXI0301' },
+    { label: 'Starts', value: 'Xi’an' },
+    { label: 'Ends', value: 'Xi’an' },
+    { label: 'Hotels', value: 'Xi’an hotel by quote' },
+    { label: 'Guide', value: 'Private local guide' },
+    { label: 'Transport', value: 'Private vehicle' },
+    { label: 'Best for', value: 'Short Xi’an heritage stays' }
+  ],
+  gallery: [
+    { title: 'Xi’an Highlights', city: 'Xi’an', image: chinaTourRemoteImages.xianHighlights, alt: 'Xi’an heritage scenery', featured: true },
+    { title: 'Terracotta Warriors', city: 'Xi’an', image: terracottaWarriorsImage, alt: "Terracotta Warriors archaeological pit in Xi'an" },
+    { title: 'Ancient City Wall', city: 'Xi’an', image: images.xianCityWall, alt: "Xi'an Ancient City Wall" },
+    { title: 'Big Wild Goose Pagoda', city: 'Xi’an', image: images.bigWildGoosePagoda, alt: "Big Wild Goose Pagoda in Xi'an" }
+  ],
+  days: [
+    { day: 'Day 1', city: 'Xi’an', meals: '- / - / -', title: 'Arrival in Xi’an', summary: 'Meet on arrival and transfer to the hotel. Add a short Muslim Quarter, Bell Tower, or Drum Tower walk if time allows.', sights: ['Arrival transfer', 'Hotel check-in', 'Muslim Quarter option'] },
+    { day: 'Day 2', city: 'Xi’an', meals: 'B / L / -', title: 'Terracotta Warriors and City Wall tour', summary: 'Spend the main sightseeing day at the Terracotta Warriors, then return to the city for Ancient City Wall and old-capital texture.', sights: ['Terracotta Warriors', 'Ancient City Wall', 'Old city walk option'] },
+    { day: 'Day 3', city: 'Xi’an', meals: 'B / - / -', title: 'Cultural sites and departure', summary: 'Use the departure day for Big Wild Goose Pagoda, Small Wild Goose Pagoda, Shaanxi History Museum, or Great Tang All Day Mall according to timing.', sights: ['Big Wild Goose Pagoda option', 'Small Wild Goose Pagoda option', 'Shaanxi History Museum option', 'Departure transfer'] }
+  ],
+  hotels: [
+    { city: 'Xi’an', hotel: 'Central Xi’an hotel by quote' }
+  ],
+  prices: [
+    { group: 'Private 2-6 pax', price: 'Custom quote', basis: 'Depends on hotel, arrival time, guide, tickets, and vehicle scope' },
+    { group: 'Agency group', price: 'Custom quote', basis: 'Built from rooming list, meal scope, and transfer plan' }
+  ],
+  inclusions: standardChinaProductInclusions,
+  exclusions: standardChinaProductExclusions
+}
+
 export const tourProducts: TourProduct[] = [
   txBeijingMutianyu4DayProduct,
   txJinshanlingHiking1DayProduct,
   txBeijingVisaFree3DayProduct,
   txBeijingJuyongguan4DayProduct,
-  txBestOfChina11DayProduct
+  txXianTerracottaCityWall1DayProduct,
+  txXianHighlights3DayProduct,
+  txXianLuoyangHighlights4DayProduct,
+  txSplendidChina9DayProduct,
+  txBestOfChina11DayProduct,
+  txGuilinYangshuoHighlights3DayProduct,
+  txGuilinYangshuoLongji4DayProduct,
+  txBestOfChinaPanda13DayProduct,
+  txLhasaEssence4DayProduct,
+  txTibetTrainXining7DayProduct,
+  txGrandChinaYangtzeHongKong19DayProduct,
+  txChengduJiuzhaigouHuanglongDujiangyan7DayProduct,
+  txChengduGiantPanda4DayProduct,
+  txChengduJiuzhaigouEmei8DayProduct,
+  txChengduVisaFree3DayProduct
 ]
 
 export const productBySlug = Object.fromEntries(tourProducts.map((product) => [product.slug, product])) as Record<

@@ -6,6 +6,7 @@ import {
   tourProducts,
   type AttractionDetail,
   type City,
+  type CompanyActivityCategory,
   type TourProduct
 } from '@/content/travel'
 
@@ -288,6 +289,16 @@ function resolvePageSeo(path: string): Partial<SeoMeta> & { title: string; descr
     }
   }
 
+  const companyActivity = matchDetail(path, '/company/', companyDetail.activityCategories)
+  if (companyActivity) {
+    return {
+      title: `${companyActivity.title} | Tengxuan Travel Group`,
+      description: companyActivity.summary,
+      image: companyActivity.cover,
+      type: 'article'
+    }
+  }
+
   if (path === '/unsubscribe') {
     return {
       title: 'Manage Email Subscription | Tengxuan Travel',
@@ -319,6 +330,7 @@ function getContentPaths() {
   return [
     '/',
     '/company',
+    ...companyDetail.activityCategories.map((category) => `/company/${category.slug}`),
     '/destinations',
     '/custom-trip',
     '/cities',
@@ -537,7 +549,7 @@ function buildTravelAgencySchema(): JsonLd {
     },
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '北京市东城区南竹杆胡同2号1幢5层50519',
+      streetAddress: '北京市东城区朝阳门银河SOHO D座5层50520',
       addressLocality: 'Beijing',
       addressCountry: 'CN'
     },
@@ -618,7 +630,7 @@ function hasLocalePrefix(path: string) {
   return isSeoLocale(getLocaleFromPath(path))
 }
 
-function matchDetail<T extends City | AttractionDetail | TourProduct>(path: string, prefix: string, entries: T[]) {
+function matchDetail<T extends City | AttractionDetail | TourProduct | CompanyActivityCategory>(path: string, prefix: string, entries: T[]) {
   if (!path.startsWith(prefix)) return null
   const slug = path.slice(prefix.length)
   return entries.find((entry) => entry.slug === slug) || null

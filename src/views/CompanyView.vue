@@ -92,15 +92,69 @@ const { companyDetail: company } = useTravelContent()
       </div>
     </section>
 
+    <section class="company-detail-section company-activity-section" aria-labelledby="company-activity-title">
+      <div class="company-detail-heading">
+        <p class="product-eyebrow">{{ t('company.activityEyebrow') }}</p>
+        <h2 id="company-activity-title">{{ t('company.activityTitle') }}</h2>
+      </div>
+      <div class="company-activity-card-grid">
+        <RouterLink
+          v-for="category in company.activityCategories"
+          :key="category.slug"
+          class="company-activity-card"
+          :to="{ name: 'company-activity', params: { slug: category.slug } }"
+        >
+          <img :src="category.cover" :alt="category.coverAlt" width="720" height="480" loading="lazy" />
+          <span>{{ category.eyebrow }}</span>
+          <strong>{{ category.title }}</strong>
+          <p>{{ category.summary }}</p>
+        </RouterLink>
+      </div>
+    </section>
+
     <section class="company-detail-section branch-section" aria-labelledby="branch-title">
       <div class="company-detail-heading">
         <p class="product-eyebrow">{{ t('company.distributionEyebrow') }}</p>
         <h2 id="branch-title">{{ t('company.distributionTitle') }}</h2>
       </div>
       <div class="branch-grid" :aria-label="t('company.branchAria')">
-        <article v-for="branch in company.branches" :key="branch.city">
-          <strong>{{ branch.city }}</strong>
-          <span>{{ branch.role }}</span>
+        <article
+          v-for="(branch, index) in company.branches"
+          :key="branch.city"
+          class="branch-card"
+          :class="{ 'branch-card--hub': index === 0 }"
+        >
+          <img
+            v-if="branch.image"
+            class="branch-card-image"
+            :src="branch.image"
+            :alt="branch.imageAlt || branch.city"
+            width="1000"
+            height="1000"
+            loading="lazy"
+          />
+          <div class="branch-card-top">
+            <div class="branch-marker" aria-hidden="true">{{ String(index + 1).padStart(2, '0') }}</div>
+            <div>
+              <strong>{{ branch.city }}</strong>
+              <span>{{ branch.role }}</span>
+            </div>
+          </div>
+          <div class="branch-card-meta">
+            <p v-if="branch.phone">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.3 19.3 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6.4 6.4l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0 1 22 16.9z" />
+              </svg>
+              {{ branch.phone }}
+            </p>
+            <p>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0z" />
+                <path d="M12 10.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+              </svg>
+              {{ branch.address }}
+            </p>
+          </div>
         </article>
       </div>
     </section>
