@@ -2628,6 +2628,7 @@ button:disabled {
   display: grid;
   grid-template-columns: minmax(300px, 1.32fr) repeat(3, minmax(0, 1fr));
   grid-auto-rows: minmax(184px, auto);
+  align-items: start;
   gap: 14px;
 }
 
@@ -5318,6 +5319,10 @@ button:disabled {
 
   .route-media-grid {
     grid-template-columns: 1fr;
+  }
+
+  .route-media-card:not(.featured) {
+    display: none;
   }
 
   .route-media-card,

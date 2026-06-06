@@ -1,47 +1,50 @@
-import forbiddenCityImage from '@/assets/products/beijing-xian-shanghai/forbidden-city.webp'
-import chengqiangImage from '@/assets/products/beijing-xian-shanghai/chengqiang.png'
-import longmenGrottoesImage from '@/assets/products/beijing-xian-shanghai/longmen-grottoes.jpg'
-import olympicParkImage from '@/assets/products/beijing-xian-shanghai/olympic-park.webp'
-import palaceRoofDetailImage from '@/assets/products/beijing-xian-shanghai/palace-roof-detail.webp'
-import shanghaiBundImage from '@/assets/products/beijing-xian-shanghai/waitan.png'
-import shanghaiSkylineImage from '@/assets/products/beijing-xian-shanghai/shanghai-skyline.webp'
-import summerPalaceImage from '@/assets/products/beijing-xian-shanghai/summer-palace.webp'
-import terracottaWarriorsImage from '@/assets/products/beijing-xian-shanghai/terracotta-warriors.webp'
-import guilinRiverPanoramaImage from '@/assets/products/guilin/guilin-river-panorama.png'
-import guilinRiverCruiseImage from '@/assets/products/guilin/guilin-river-cruise-new.png'
-import guilinRiverSunsetImage from '@/assets/products/guilin/guilin-river-sunset-new.png'
-import hangzhouWestLakeOneImage from '@/assets/products/hangzhou/xihu1.webp'
-import hangzhouWestLakeTwoImage from '@/assets/products/hangzhou/xihu2.jpg'
-import suzhouGalleryOneImage from '@/assets/products/suzhou/su1.png'
-import suzhouGalleryTwoImage from '@/assets/products/suzhou/su2.webp'
-import suzhouGalleryThreeImage from '@/assets/products/suzhou/su3.webp'
-import zhangjiajieGalleryTwoImage from '@/assets/products/zhangjiajie/zhang.jpg'
-import zhangjiajieGalleryThreeImage from '@/assets/products/zhangjiajie/zhang3.webp'
-import lhasaGalleryTwoImage from '@/assets/products/lhasa/xizang.jpg'
-import lhasaGalleryThreeImage from '@/assets/products/lhasa/xizang2.webp'
-import dujiangyanImage from '@/assets/products/chengdu/doujiangyan.jpeg'
-import jiuzhaigouImage from '@/assets/products/chengdu/jiuzhaigou.jpeg'
-import sanxingduiImage from '@/assets/products/chengdu/sanxingdui.webp'
-import chongqingLocalOneImage from '@/assets/products/chongqing/chongqing.jpeg'
-import chongqingLocalTwoImage from '@/assets/products/chongqing/chongqing2.webp'
-import beijingHeadquartersImage from '@/assets/company/beijing-headquarters.jpg'
-import awardCabinetImage from '@/assets/company/certificates/award-cabinet.webp'
-import awardWallImage from '@/assets/company/certificates/award-wall.webp'
-import annualConferenceGroupImage from '@/assets/company/local-moments/annual-conference-group.webp'
-import basketballTeamImage from '@/assets/company/local-moments/basketball-team.webp'
-import conferenceVenueGroupImage from '@/assets/company/local-moments/conference-venue-group.webp'
-import finnairCustomerAppreciationImage from '@/assets/company/local-moments/finnair-customer-appreciation.webp'
-import grasslandTeamBuildingImage from '@/assets/company/local-moments/grassland-team-building.webp'
-import imperialCostumeServiceTeamImage from '@/assets/company/local-moments/imperial-costume-service-team.webp'
-import industryForumSigningWallImage from '@/assets/company/local-moments/industry-forum-signing-wall.webp'
-import longtengAwardCeremonyImage from '@/assets/company/local-moments/longteng-award-ceremony.webp'
-import officeFestivalTeamImage from '@/assets/company/local-moments/office-festival-team.webp'
-import officeTeamVisitImage from '@/assets/company/local-moments/office-team-visit.webp'
-import outdoorBranchTeamImage from '@/assets/company/local-moments/outdoor-branch-team.webp'
-import partnerMeetingAwardImage from '@/assets/company/local-moments/partner-meeting-award.webp'
-import qatarAirwaysTeamImage from '@/assets/company/local-moments/qatar-airways-team.webp'
-import unitedAirlinesAwardStageImage from '@/assets/company/local-moments/united-airlines-award-stage.webp'
-import unitedAirlinesDinnerImage from '@/assets/company/local-moments/united-airlines-dinner.webp'
+import officeWorkImage from '@/assets/company/work.webp'
+
+const websiteAssetBase = 'https://yj-travel.s3.amazonaws.com/website/assets'
+const forbiddenCityImage = `${websiteAssetBase}/products/beijing-xian-shanghai/forbidden-city.webp`
+const chengqiangImage = `${websiteAssetBase}/products/beijing-xian-shanghai/chengqiang.webp`
+const longmenGrottoesImage = `${websiteAssetBase}/products/beijing-xian-shanghai/longmen-grottoes.webp`
+const olympicParkImage = `${websiteAssetBase}/products/beijing-xian-shanghai/olympic-park.webp`
+const palaceRoofDetailImage = `${websiteAssetBase}/products/beijing-xian-shanghai/palace-roof-detail.webp`
+const shanghaiBundImage = `${websiteAssetBase}/products/beijing-xian-shanghai/waitan.webp`
+const shanghaiSkylineImage = `${websiteAssetBase}/products/beijing-xian-shanghai/shanghai-skyline.webp`
+const summerPalaceImage = `${websiteAssetBase}/products/beijing-xian-shanghai/summer-palace.webp`
+const terracottaWarriorsImage = `${websiteAssetBase}/products/beijing-xian-shanghai/terracotta-warriors.webp`
+const guilinRiverPanoramaImage = `${websiteAssetBase}/products/guilin/guilin-river-panorama.webp`
+const guilinRiverCruiseImage = `${websiteAssetBase}/products/guilin/guilin-river-cruise-new.webp`
+const guilinRiverSunsetImage = `${websiteAssetBase}/products/guilin/guilin-river-sunset-new.webp`
+const hangzhouWestLakeOneImage = `${websiteAssetBase}/products/hangzhou/xihu1.webp`
+const hangzhouWestLakeTwoImage = `${websiteAssetBase}/products/hangzhou/xihu2.webp`
+const suzhouGalleryOneImage = `${websiteAssetBase}/products/suzhou/su1.webp`
+const suzhouGalleryTwoImage = `${websiteAssetBase}/products/suzhou/su2.webp`
+const suzhouGalleryThreeImage = `${websiteAssetBase}/products/suzhou/su3.webp`
+const zhangjiajieGalleryTwoImage = `${websiteAssetBase}/products/zhangjiajie/zhang.webp`
+const zhangjiajieGalleryThreeImage = `${websiteAssetBase}/products/zhangjiajie/zhang3.webp`
+const lhasaGalleryTwoImage = `${websiteAssetBase}/products/lhasa/xizang.webp`
+const lhasaGalleryThreeImage = `${websiteAssetBase}/products/lhasa/xizang2.webp`
+const dujiangyanImage = `${websiteAssetBase}/products/chengdu/doujiangyan.webp`
+const jiuzhaigouImage = `${websiteAssetBase}/products/chengdu/jiuzhaigou.webp`
+const sanxingduiImage = `${websiteAssetBase}/products/chengdu/sanxingdui.webp`
+const chongqingLocalOneImage = `${websiteAssetBase}/products/chongqing/chongqing.webp`
+const chongqingLocalTwoImage = `${websiteAssetBase}/products/chongqing/chongqing2.webp`
+const beijingHeadquartersImage = `${websiteAssetBase}/company/beijing-headquarters.webp`
+const awardCabinetImage = `${websiteAssetBase}/company/certificates/award-cabinet.webp`
+const awardWallImage = `${websiteAssetBase}/company/certificates/award-wall.webp`
+const annualConferenceGroupImage = `${websiteAssetBase}/company/local-moments/annual-conference-group.webp`
+const basketballTeamImage = `${websiteAssetBase}/company/local-moments/basketball-team.webp`
+const conferenceVenueGroupImage = `${websiteAssetBase}/company/local-moments/conference-venue-group.webp`
+const finnairCustomerAppreciationImage = `${websiteAssetBase}/company/local-moments/finnair-customer-appreciation.webp`
+const grasslandTeamBuildingImage = `${websiteAssetBase}/company/local-moments/grassland-team-building.webp`
+const imperialCostumeServiceTeamImage = `${websiteAssetBase}/company/local-moments/imperial-costume-service-team.webp`
+const industryForumSigningWallImage = `${websiteAssetBase}/company/local-moments/industry-forum-signing-wall.webp`
+const longtengAwardCeremonyImage = `${websiteAssetBase}/company/local-moments/longteng-award-ceremony.webp`
+const officeFestivalTeamImage = `${websiteAssetBase}/company/local-moments/office-festival-team.webp`
+const officeTeamVisitImage = `${websiteAssetBase}/company/local-moments/office-team-visit.webp`
+const outdoorBranchTeamImage = `${websiteAssetBase}/company/local-moments/outdoor-branch-team.webp`
+const partnerMeetingAwardImage = `${websiteAssetBase}/company/local-moments/partner-meeting-award.webp`
+const qatarAirwaysTeamImage = `${websiteAssetBase}/company/local-moments/qatar-airways-team.webp`
+const unitedAirlinesAwardStageImage = `${websiteAssetBase}/company/local-moments/united-airlines-award-stage.webp`
+const unitedAirlinesDinnerImage = `${websiteAssetBase}/company/local-moments/united-airlines-dinner.webp`
 
 export type City = {
   slug: string
@@ -648,10 +651,10 @@ export const companyDetail: CompanyDetail = {
     'A Beijing-headquartered travel group connecting enterprise clients, travel agencies, airlines, and inbound China travel demand through long-running supply-chain and service capabilities.',
   photoSlots: [
     {
-      label: 'Annual conference',
-      caption: 'Group annual conference scene with employees and partners.',
-      image: annualConferenceGroupImage,
-      alt: 'Tengxuan Travel Group annual conference group photo'
+      label: 'Company office',
+      caption: 'Tengxuan Travel Group office reception and brand wall.',
+      image: officeWorkImage,
+      alt: 'Tengxuan Travel Group office reception area and brand wall'
     },
     {
       label: 'Office visit',
@@ -720,7 +723,7 @@ export const companyDetail: CompanyDetail = {
       city: 'Shanghai',
       role: 'Branch office',
       phone: '+86 021-53085001',
-      address: 'Room 202, Building 2, Linkong SOHO Tianhui Business Plaza, No. 968 Jinzhong Road, Changning District, Shanghai'
+      address: 'Room 202, Bldg 2, Linkong SOHO, 968 Jinzhong Road, Changning District, Shanghai'
     },
     {
       city: 'Hong Kong',
@@ -3916,8 +3919,8 @@ const txXianLuoyangHighlights4DayProduct: TourProduct = {
   duration: '4 days / 3 nights',
   route: 'Xi’an · Luoyang',
   destinations: ['Xi’an', 'Luoyang'],
-  heroImage: chinaTourRemoteImages.xianLuoyang,
-  heroAlt: 'Xi’an and Luoyang heritage route image',
+  heroImage: images.longmenGrottoes,
+  heroAlt: 'Longmen Grottoes Buddhist caves near Luoyang',
   summary:
     'A compact ancient-capital route based on the supplied INXI0401 schedule: Xi’an arrival, Terracotta Warriors, City Wall, Small Wild Goose Pagoda, Longmen Grottoes, and Shaolin Temple.',
   galleryTitle: 'Xi’an archaeology, Luoyang Buddhist caves, and Shaolin Temple in four days.',
@@ -3940,7 +3943,7 @@ const txXianLuoyangHighlights4DayProduct: TourProduct = {
     { label: 'Best for', value: 'Ancient-capital heritage travelers' }
   ],
   gallery: [
-    { title: 'Xi’an and Luoyang', city: 'Xi’an / Luoyang', image: chinaTourRemoteImages.xianLuoyang, alt: 'Xi’an and Luoyang heritage route image', featured: true },
+    { title: 'Xi’an and Luoyang', city: 'Xi’an / Luoyang', image: images.longmenGrottoes, alt: 'Longmen Grottoes Buddhist caves near Luoyang', featured: true },
     { title: 'Terracotta Warriors', city: 'Xi’an', image: terracottaWarriorsImage, alt: "Terracotta Warriors archaeological pit in Xi'an" },
     { title: 'Longmen Grottoes', city: 'Luoyang', image: images.longmenGrottoes, alt: 'Longmen Grottoes Buddhist caves near Luoyang' },
     { title: 'Shaolin Temple', city: 'Dengfeng', image: images.shaolinTemple, alt: 'Shaolin Temple mountain gate in Henan' }

@@ -43,10 +43,6 @@ const { companyDetail: company } = useTravelContent()
             :loading="index === 0 ? 'eager' : 'lazy'"
             :fetchpriority="index === 0 ? 'high' : 'auto'"
           />
-          <div aria-hidden="true" class="company-photo-label">
-            <span>{{ slot.label }}</span>
-          </div>
-          <figcaption>{{ slot.caption }}</figcaption>
         </figure>
       </div>
     </section>

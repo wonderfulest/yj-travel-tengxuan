@@ -2,22 +2,17 @@
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { tm } from '@/i18n'
-import flightImage from '@/assets/booking/china-flight.jpg'
-import hotelImage from '@/assets/booking/china-hotel.jpg'
-import guideImage from '@/assets/booking/china-guide.jpg'
-import railImage from '@/assets/booking/china-rail.jpg'
-import carImage from '@/assets/booking/china-car.jpg'
-import ticketImage from '@/assets/products/beijing-xian-shanghai/terracotta-warriors.webp'
 
 type ServiceType = 'flight' | 'hotel' | 'guide' | 'rail' | 'ticket' | 'car'
 
+const websiteAssetBase = 'https://yj-travel.s3.amazonaws.com/website/assets'
 const serviceImages: Record<ServiceType, string> = {
-  flight: flightImage,
-  hotel: hotelImage,
-  guide: guideImage,
-  rail: railImage,
-  ticket: ticketImage,
-  car: carImage
+  flight: `${websiteAssetBase}/booking/china-flight.webp`,
+  hotel: `${websiteAssetBase}/booking/china-hotel.webp`,
+  guide: `${websiteAssetBase}/booking/china-guide.webp`,
+  rail: `${websiteAssetBase}/booking/china-rail.webp`,
+  ticket: `${websiteAssetBase}/products/beijing-xian-shanghai/terracotta-warriors.webp`,
+  car: `${websiteAssetBase}/booking/china-car.webp`
 }
 
 type InfoPage = {
