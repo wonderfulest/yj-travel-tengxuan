@@ -21,6 +21,16 @@ const baseRoutes: RouteRecordRaw[] = [
     component: () => import('@/views/CompanyView.vue')
   },
   {
+    path: '/destinations',
+    name: 'destinations',
+    component: () => import('@/views/DestinationsView.vue')
+  },
+  {
+    path: '/custom-trip',
+    name: 'custom-trip',
+    component: () => import('@/views/CustomTripView.vue')
+  },
+  {
     path: '/cities',
     name: 'cities',
     component: () => import('@/views/CitiesView.vue')
@@ -39,6 +49,11 @@ const baseRoutes: RouteRecordRaw[] = [
     path: '/attractions/:slug',
     name: 'attraction-detail',
     component: () => import('@/views/AttractionDetailView.vue')
+  },
+  {
+    path: '/products',
+    name: 'products',
+    component: () => import('@/views/ProductsView.vue')
   },
   {
     path: '/products/:slug',

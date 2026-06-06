@@ -53,6 +53,18 @@ const staticSeo: Record<string, { title: string; description: string; image?: st
       'Tengxuan Travel Group company profile, airline resources, inbound China travel capability, branch network, brand system, milestones, honors, and corporate culture.',
     image: companyDetail.photoSlots[0]?.image
   },
+  '/destinations': {
+    title: 'China Destinations: City Guides and Must-See Attractions | Tengxuan',
+    description:
+      'Browse China destination planning in one place: city guides for route rhythm, stay length, season, and transport plus attraction guides for visit flow and practical notes.',
+    image: images.greatWall
+  },
+  '/custom-trip': {
+    title: 'Custom China Itinerary for Inbound Travelers | Tengxuan',
+    description:
+      'Request a custom China itinerary by email with arrival city, departure city, travel dates, group size, hotel level, pace, interests, and inbound travel needs.',
+    image: images.shanghai
+  },
   '/cities': {
     title: 'China City Guides for Private Tours and Group Itineraries',
     description:
@@ -64,6 +76,12 @@ const staticSeo: Record<string, { title: string; description: string; image?: st
     description:
       'Plan Great Wall tours from Beijing, Terracotta Army visits, The Bund, Panda Base, Li River, and West Lake with timing, transport, route context, and FAQ.',
     image: images.xian
+  },
+  '/products': {
+    title: 'Classic China Travel Products by Destination | Tengxuan',
+    description:
+      'Browse classic China travel products by destination, including Beijing and Xi’an routes with day-by-day plans, guide service, destination filters, and traveler feedback.',
+    image: images.greatWall
   },
   '/contact': {
     title: 'Contact Tengxuan China Travel Specialists',
@@ -82,9 +100,9 @@ const staticSeo: Record<string, { title: string; description: string; image?: st
       'Check China visa-free transit eligibility, traveler nationality, passport validity, routing, hotel details, invitation-letter needs, and official entry rules before booking.'
   },
   '/before-you-go': {
-    title: 'China Trip Preparation Checklist',
+    title: 'China Travel Booking Services',
     description:
-      'Prepare passport details, hotel rooming, trains, attractions, guide language, payment details, dietary needs, and weather buffers before travel.'
+      'Arrange China flights, hotels, train tickets, car rental, private guides, attraction tickets, and SIM cards with Tengxuan Travel booking support.'
   },
   '/privacy': {
     title: 'Privacy Policy | Tengxuan Travel',
@@ -244,7 +262,7 @@ function resolvePageSeo(path: string): Partial<SeoMeta> & { title: string; descr
   if (city) {
     return {
       title: `${city.name} City Guide for China Private Tours | Tengxuan`,
-      description: `${city.name} travel guide for China private tours: best for ${city.bestFor.join(', ')}, recommended stay ${city.duration}, season, transport, attractions, related products, and FAQ.`,
+      description: `${city.name} travel guide for China private tours: best for ${city.bestFor.join(', ')}, recommended stay ${city.duration}, season, transport, and attractions.`,
       image: city.image,
       type: 'article'
     }
@@ -301,10 +319,13 @@ function getContentPaths() {
   return [
     '/',
     '/company',
+    '/destinations',
+    '/custom-trip',
     '/cities',
     ...cities.map((city) => `/cities/${city.slug}`),
     '/attractions',
     ...attractionDetails.map((attraction) => `/attractions/${attraction.slug}`),
+    '/products',
     ...tourProducts.map((product) => `/products/${product.slug}`),
     '/contact',
     '/faq',
@@ -370,30 +391,16 @@ function buildStructuredData(path: string): JsonLd[] {
   }
 
   if (path === '/before-you-go') {
-    data.push(buildHowToSchema('China trip preparation checklist', [
-      'Collect full passport names, passport numbers, rooming needs, dietary needs, and mobility notes.',
-      'Confirm hotels, trains, flights, guide language, attraction tickets, and local contact details.',
-      'Plan payment methods, comfortable walking gear, weather buffers, and final emergency contacts.'
+    data.push(buildHowToSchema('China travel booking service request', [
+      'Share travel dates, arrival and departure cities, traveler count, route preferences, and budget range.',
+      'Provide passport names and passport numbers for real-name flights, trains, and attraction tickets.',
+      'Confirm hotel level, rooming needs, vehicle requirements, guide language, SIM card needs, and must-visit sights.'
     ]))
   }
 
   const city = matchDetail(path, '/cities/', cities)
   if (city) {
     data.push(
-      buildFaqSchema([
-        {
-          question: `Who is ${city.name} best for?`,
-          answer: `${city.name} works best for ${city.bestFor.join(', ').toLowerCase()} travelers. ${city.signature}`
-        },
-        {
-          question: `How long should travelers stay in ${city.name}?`,
-          answer: `${city.duration} is the usual planning range. ${city.itinerary[0] || city.travelNote}`
-        },
-        {
-          question: `What is the best season for ${city.name}?`,
-          answer: city.season
-        }
-      ]),
       buildBreadcrumbSchema([
         { name: 'Home', path: '/' },
         { name: 'City Guides', path: '/cities' },
@@ -497,7 +504,7 @@ function buildStructuredData(path: string): JsonLd[] {
       ]),
       buildBreadcrumbSchema([
         { name: 'Home', path: '/' },
-        { name: 'Products', path: '/#trips' },
+        { name: 'Products', path: '/products' },
         { name: product.name, path }
       ])
     )

@@ -42,12 +42,12 @@ function changeLocale(nextLocale: Locale) {
       </button>
 
       <div id="primary-menu" class="nav-links" :class="{ 'is-open': menuOpen }">
-        <RouterLink :to="{ name: 'cities' }" @click="closeMenu">{{ t('nav.cities') }}</RouterLink>
-        <RouterLink :to="{ name: 'company' }" @click="closeMenu">{{ t('nav.company') }}</RouterLink>
-        <RouterLink :to="{ name: 'attractions' }" @click="closeMenu">{{ t('nav.attractions') }}</RouterLink>
-        <RouterLink :to="{ name: 'home', hash: '#trips' }" @click="closeMenu">{{ t('nav.trips') }}</RouterLink>
-        <RouterLink :to="{ name: 'product-detail', params: { slug: 'beijing-xian-shanghai' } }" @click="closeMenu">{{ t('nav.product') }}</RouterLink>
+        <RouterLink :to="{ name: 'home', hash: '#top' }" @click="closeMenu">{{ t('nav.home') }}</RouterLink>
+        <RouterLink :to="{ name: 'destinations' }" @click="closeMenu">{{ t('nav.destinations') }}</RouterLink>
+        <RouterLink :to="{ name: 'custom-trip' }" @click="closeMenu">{{ t('nav.customTrip') }}</RouterLink>
+        <RouterLink :to="{ name: 'products' }" @click="closeMenu">{{ t('nav.trips') }}</RouterLink>
         <RouterLink :to="{ name: 'before-you-go' }" @click="closeMenu">{{ t('nav.planning') }}</RouterLink>
+        <RouterLink :to="{ name: 'company' }" @click="closeMenu">{{ t('nav.company') }}</RouterLink>
         <label class="language-select language-select--mobile">
           <span class="sr-only">{{ t('nav.language') }}</span>
           <select v-model="locale" :aria-label="t('nav.language')" @change="changeLocale(($event.target as HTMLSelectElement).value as Locale)">
@@ -67,7 +67,7 @@ function changeLocale(nextLocale: Locale) {
             </option>
           </select>
         </label>
-        <RouterLink class="icon-button" :to="{ name: 'product-detail', params: { slug: 'beijing-xian-shanghai' } }" :aria-label="t('nav.searchTrips')">
+        <RouterLink class="icon-button" :to="{ name: 'products' }" :aria-label="t('nav.searchTrips')">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="m21 21-4.3-4.3m2.3-5.2a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z" />
           </svg>

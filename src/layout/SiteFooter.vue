@@ -59,9 +59,10 @@ async function updateNewsletterSubscription(action: 'subscribe' | 'unsubscribe')
       <div>
         <h2>{{ t('footer.explore') }}</h2>
         <RouterLink :to="{ name: 'company' }">{{ t('footer.companyProfile') }}</RouterLink>
+        <RouterLink :to="{ name: 'destinations' }">{{ t('footer.destinations') }}</RouterLink>
         <RouterLink :to="{ name: 'cities' }">{{ t('footer.cityGuides') }}</RouterLink>
         <RouterLink :to="{ name: 'attractions' }">{{ t('footer.attractions') }}</RouterLink>
-        <RouterLink :to="{ name: 'home', hash: '#trips' }">{{ t('footer.travelProducts') }}</RouterLink>
+        <RouterLink :to="{ name: 'products' }">{{ t('footer.travelProducts') }}</RouterLink>
         <RouterLink :to="{ name: 'product-detail', params: { slug: 'beijing-xian-shanghai' } }">{{ t('footer.productName') }}</RouterLink>
       </div>
       <div>

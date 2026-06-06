@@ -53,7 +53,7 @@ function normalizeRouteText(value: string) {
         <img :src="product.heroImage" :alt="product.heroAlt" width="800" height="1170" loading="eager" fetchpriority="high" />
       </div>
       <div class="product-hero-copy">
-        <RouterLink class="product-back-link" :to="{ name: 'home', hash: '#trips' }">
+        <RouterLink class="product-back-link" :to="{ name: 'products' }">
           {{ t('product.back') }}
         </RouterLink>
         <p class="product-eyebrow">{{ product.eyebrow }}</p>

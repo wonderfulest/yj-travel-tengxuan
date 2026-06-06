@@ -46,16 +46,19 @@ const messages = {
     },
     nav: {
       aria: 'Primary navigation',
+      home: 'Home',
       homeAria: 'Tengxuan Travel home',
       openMenu: 'Open menu',
+      destinations: 'Places',
+      customTrip: 'Custom',
       cities: 'Cities',
       company: 'Company',
       attractions: 'Attractions',
-      trips: 'Trips',
+      trips: 'Tours',
       product: 'Product',
-      planning: 'Planning',
+      planning: 'Booking',
       searchTrips: 'Search trips',
-      contact: 'Contact Us',
+      contact: 'Contact',
       language: 'Language'
     },
     hero: {
@@ -69,6 +72,7 @@ const messages = {
       intro: 'Private travel experiences, thoughtfully planned for international visitors.',
       explore: 'Explore',
       companyProfile: 'Company Profile',
+      destinations: 'Destinations',
       cityGuides: 'City Guides',
       attractions: 'Attractions',
       travelProducts: 'Travel Products',
@@ -128,6 +132,22 @@ const messages = {
         aria: 'Planning advantages'
       }
     },
+    destinations: {
+      title: 'China destinations by city',
+      eyebrow: 'Destination planning',
+      summary:
+        'Start with the city rhythm first. Each city guide now keeps its representative images, planning notes, and must-see classic sights in one place.',
+      tabsAria: 'Destination filters',
+      all: 'All',
+      cities: 'Cities',
+      attractions: 'Attractions',
+      cityEyebrow: 'City destinations',
+      cityTitle: 'Plan the route by city first',
+      citySummary: 'Use city guides for stay length, season, transport, traveler type, and the pace of each destination.',
+      attractionEyebrow: 'Must-see attractions',
+      attractionTitle: 'Add specific sights after the route shape is clear',
+      attractionSummary: 'Use attraction guides for visit flow, practical notes, source links, and nearby route pairings.'
+    },
     city: {
       title: 'Major China cities for first-time and repeat travelers',
       eyebrow: 'China city planning',
@@ -155,6 +175,15 @@ const messages = {
       linkTitle: 'Use {city} in a China private tour',
       relatedAttraction: 'Attraction guide',
       relatedProduct: 'Tour product',
+      galleryControls: 'City image carousel controls',
+      galleryThumbnails: 'City image thumbnails',
+      previousImage: 'Previous city image',
+      nextImage: 'Next city image',
+      showImage: 'Show {title}',
+      cityStory: 'City introduction',
+      cityStoryTitle: 'How to understand {city}',
+      popularClassics: 'Popular classics',
+      popularClassicsTitle: 'Classic sights in {city}',
       faq: 'FAQ',
       faqTitle: '{city} travel FAQ',
       faqBestFor: 'Who is {city} best for?',
@@ -193,6 +222,28 @@ const messages = {
       faqSeason: 'What is the best season for {attraction}?',
       faqTransport: 'What is the best way to visit {attraction}?',
       titleSuffix: 'Attraction Guide'
+    },
+    productList: {
+      title: 'Classic Products',
+      eyebrow: 'Destination-based products',
+      summary:
+        'Browse recommended China travel products by destination, then open the itinerary that matches the group pace, hotel level, guide language, and quote scope.',
+      filtersAria: 'Product destination filters',
+      all: 'All products',
+      recommendedCount: '{count} recommended products',
+      dayPlan: 'Day plan',
+      destinations: 'Destinations',
+      consultation: 'Consult advisor',
+      viewDetail: 'View details',
+      feedbackEyebrow: 'Traveler feedback',
+      feedbackTitle: 'What guests notice after the trip',
+      feedbackSummary:
+        'Short feedback samples are written from common private-group priorities: clear pacing, guide support, transfers, tickets, and food comfort.',
+      reviews: [
+        { city: 'Beijing', name: 'Family group from Singapore', text: 'The guide kept the Forbidden City and Great Wall days clear for the children, and the vehicle timing made the whole Beijing stay feel controlled.' },
+        { city: 'Xi’an', name: 'Agency group from Spain', text: 'The Terracotta Warriors day was the highlight. The wall, Muslim Quarter, and Tang night route gave the group enough variety without changing hotels.' },
+        { city: 'Beijing', name: 'Couple from Germany', text: 'We liked that the hutong walk and teahouse time were not rushed. It felt more personal than a checklist tour.' }
+      ]
     },
     product: {
       back: 'Back to travel products',
@@ -281,26 +332,69 @@ const messages = {
     },
     pages: {
       beforeYouGo: {
-        title: 'China trip preparation',
-        eyebrow: 'Before you go',
-        summary: 'Use this checklist before finalizing hotels, trains, flights, guides, and attraction tickets.',
-        sections: [
+        title: 'China travel booking services',
+        eyebrow: 'Booking service',
+        summary: '',
+        heroServices: [
           {
-            title: 'Booking details',
-            items: [
-              'Full passport names and passport numbers for ticketed services.',
-              'Rooming list, bedding needs, and single supplement requirements.',
-              'Dietary restrictions and mobility needs.',
-              'Preferred pace: compact, balanced, relaxed, or family-friendly.'
-            ]
+            type: 'flight',
+            title: 'China flight booking',
+            label: 'Domestic and international ticketing',
+            summary: 'Route matching, date options, baggage notes, and passport-name checks before ticketing.',
+            imageAlt: 'Air China aircraft at Shanghai Pudong International Airport'
           },
           {
-            title: 'On-trip comfort',
+            type: 'hotel',
+            title: 'China hotel booking',
+            label: 'Hotels by city and comfort level',
+            summary: 'Rooming lists, bed types, location preferences, family rooms, and confirmed check-in details.',
+            imageAlt: 'Hotel building in Beijing'
+          },
+          {
+            type: 'guide',
+            title: 'Multilingual guide service',
+            label: 'Guides for private and group trips',
+            summary: 'English, German, French, Spanish, and other language-guide requests coordinated by route.',
+            imageAlt: 'Tour guide addressing a group of travelers in China'
+          },
+          {
+            type: 'rail',
+            title: 'China high-speed rail booking',
+            label: 'Rail tickets between major cities',
+            summary: 'Seat class, departure station, passport details, and route timing checked before booking.',
+            imageAlt: 'China high-speed trains at Shanghai Railway Station'
+          },
+          {
+            type: 'ticket',
+            title: 'Attraction ticket booking',
+            label: 'Popular sights and timed entries',
+            summary: 'Real-name tickets for major museums, heritage sites, scenic areas, and family-friendly stops.',
+            imageAlt: 'Terracotta Warriors museum in Xi’an'
+          },
+          {
+            type: 'car',
+            title: 'Car rental and vehicle service',
+            label: 'Private vehicles and group transfers',
+            summary: 'Airport pickup, city transfers, business vehicles, family vans, and multi-city vehicle plans.',
+            imageAlt: 'Buick GL8 vehicle in China'
+          }
+        ],
+        floatingCard: {
+          title: 'Need China booking help?',
+          summary: 'Send your dates, cities, traveler count, and the services you want us to reserve.',
+          button: 'Email our booking team',
+          subject: 'China travel booking service request',
+          body: 'Hello Tengxuan Travel team,\n\nI would like help booking China travel services.\n\nTravel dates:\nArrival city:\nDeparture city:\nTraveler count:\nServices needed: China flights / China hotels / multilingual guide / train tickets / car rental / attraction tickets / SIM card\nHotel level:\nGuide language:\nOther notes:\n\nPlease share available options and next steps.\n\nThank you.',
+          points: ['China flights and hotels first', 'Guide language matched by route', 'Ticketed services checked before payment']
+        },
+        sections: [
+          {
+            title: 'Helpful details to send',
             items: [
-              'Carry passports for major sights and rail travel.',
-              'Use comfortable walking shoes for palace, wall, garden, and mountain routes.',
-              'Keep a weather buffer for Zhangjiajie, Guilin, and Great Wall touring.',
-              'Confirm payment methods and local contact details before arrival.'
+              'Travel dates, arrival and departure cities, traveler count, and preferred schedule.',
+              'Passport names and passport numbers for services that require real-name booking.',
+              'Hotel level, rooming list, bed type, guide language, and vehicle requirements.',
+              'Meal restrictions, mobility needs, phone card requirements, and any must-visit sights.'
             ]
           }
         ]
@@ -327,6 +421,55 @@ const messages = {
         ],
         services: ['Private city routes and multi-city China itineraries.', 'Hotels, vehicles, guides, tickets, interpreters, and meeting support.', 'Agency group quotes and customized product packaging.'],
         checklist: ['Travel window, arrival and departure cities, and must-see places.', 'Traveler count, rooming list, hotel level, guide language, and pace.', 'Budget range, nationality, dietary needs, mobility needs, and invoice requirements.']
+      },
+      customTrip: {
+        title: 'Custom China trips made simple',
+        eyebrow: 'Custom itinerary',
+        summary:
+          'Tell us how your guests enter China, what pace feels comfortable, and what they actually want to experience. We turn that into a private inbound itinerary with hotels, vehicles, guides, tickets, and practical entry planning.',
+        email: 'support@tengxuan.com',
+        formTitle: 'Start with your email',
+        emailLabel: 'Email address',
+        emailPlaceholder: 'name@example.com',
+        travelWindowLabel: 'Travel window',
+        travelWindowPlaceholder: 'October 2026, 8-10 days',
+        travelersLabel: 'Travelers',
+        travelersPlaceholder: '2 adults, 1 child',
+        arrivalLabel: 'Arrival city or airport',
+        arrivalPlaceholder: 'Beijing PEK / Shanghai PVG',
+        departureLabel: 'Departure city or airport',
+        departurePlaceholder: 'Hong Kong / Shanghai',
+        interestsLabel: 'Cities, sights, and interests',
+        interestsPlaceholder: 'Great Wall, pandas, food, gardens, light hiking...',
+        paceLabel: 'Preferred pace',
+        pacePlaceholder: 'Relaxed, balanced, compact',
+        hotelLabel: 'Hotel level',
+        hotelPlaceholder: 'Boutique, 4-star, 5-star, family rooms',
+        notesLabel: 'Diet, mobility, visa, or business needs',
+        notesPlaceholder: 'Vegetarian meals, wheelchair access, interpreter, invoice...',
+        submitLabel: 'Ask for a custom plan',
+        successTitle: 'Email draft ready.',
+        successText: 'Your mail app should open with the request details. You can edit anything before sending.',
+        responseLabel: 'Inbound planning',
+        responseText: 'A cleaner first step for overseas guests than phone-first forms.',
+        proofTitle: 'What the team checks',
+        benefitsTitle: 'Built around inbound travel habits',
+        ideasTitle: 'Popular starting points',
+        templateSubject: 'Custom inbound China itinerary request',
+        templateBody:
+          'Hello Tengxuan Travel team,\n\nI would like help designing a custom inbound China trip.\n\nEmail: {email}\nTravel window: {travelWindow}\nNumber of travelers: {travelers}\nArrival city / airport: {arrival}\nDeparture city / airport: {departure}\nCities, sights, or interests: {interests}\nPreferred pace: {pace}\nHotel level: {hotelLevel}\nOther notes: {notes}\n\nPlease suggest an itinerary, service scope, and quote range.\n\nThank you.',
+        proofPoints: ['Start with email, then refine details across time zones', 'Share arrival and departure cities so the route can be shaped properly', 'Add pace, diet, mobility, and visa notes before the quote'],
+        benefits: [
+          { title: 'No phone-first friction', text: 'International travelers can start with an email address and add route details when they are ready.' },
+          { title: 'Route before quotation', text: 'We clarify entry city, exit city, trip length, hotel level, guide language, and interests before pricing.' },
+          { title: 'Private, not mixed group', text: 'The itinerary can be shaped for couples, families, agency groups, business visitors, and senior travelers.' },
+          { title: 'Operational details included', text: 'Hotels, vehicles, guides, tickets, trains, interpreters, meeting support, and invoice needs can be coordinated together.' }
+        ],
+        ideas: [
+          { title: 'First China trip', text: "Beijing, Xi'an, Shanghai, and one softer city such as Hangzhou, Chengdu, or Guilin." },
+          { title: 'Family pace', text: 'Later starts, fewer hotel changes, child-friendly guide rhythm, food comfort, and vehicle support.' },
+          { title: 'Business plus leisure', text: 'Meetings, interpreters, airport transfers, invoice support, and short cultural extensions.' }
+        ]
       },
       faq: {
         title: 'Common planning questions',
@@ -465,14 +608,17 @@ const messages = {
     },
     nav: {
       aria: 'Hauptnavigation',
+      home: 'Start',
       homeAria: 'Tengxuan Travel Startseite',
       openMenu: 'Menu offnen',
+      destinations: 'Ziele',
+      customTrip: 'Massreise',
       cities: 'Staedte',
-      company: 'Unternehmen',
+      company: 'Firma',
       attractions: 'Highlights',
-      trips: 'Reisen',
+      trips: 'Touren',
       product: 'Produkt',
-      planning: 'Planung',
+      planning: 'Buchen',
       searchTrips: 'Reisen suchen',
       contact: 'Kontakt',
       language: 'Sprache'
@@ -488,6 +634,7 @@ const messages = {
       intro: 'Private Reiseerlebnisse, sorgfaeltig fur internationale Besucher geplant.',
       explore: 'Entdecken',
       companyProfile: 'Unternehmensprofil',
+      destinations: 'Ziele',
       cityGuides: 'Staedteguides',
       attractions: 'Highlights',
       travelProducts: 'Reiseprodukte',
@@ -546,6 +693,22 @@ const messages = {
         aria: 'Planungsvorteile'
       }
     },
+    destinations: {
+      title: 'China-Ziele: Stadtrhythmus und wichtige Sehenswuerdigkeiten',
+      eyebrow: 'Zielplanung',
+      summary:
+        'Staedte und Sehenswuerdigkeiten gemeinsam durchsuchen und dann den passenden Detailguide fuer Route oder Besuchsablauf oeffnen.',
+      tabsAria: 'Zielfilter',
+      all: 'Alle',
+      cities: 'Staedte',
+      attractions: 'Highlights',
+      cityEyebrow: 'Stadtziele',
+      cityTitle: 'Route zuerst nach Stadt planen',
+      citySummary: 'Stadtguides klaeren Aufenthalt, Saison, Verkehr, Reisetyp und Tempo der einzelnen Ziele.',
+      attractionEyebrow: 'Wichtige Sehenswuerdigkeiten',
+      attractionTitle: 'Konkrete Orte nach der Routenskizze ergaenzen',
+      attractionSummary: 'Attraktionsguides klaeren Besuchsablauf, Hinweise, Quellenlinks und passende Kombinationen.'
+    },
     city: {
       title: 'Wichtige China-Staedte fur Erstbesucher und Wiederholer',
       eyebrow: 'China-Stadtplanung',
@@ -568,6 +731,26 @@ const messages = {
       ideas: 'Routenideen',
       pairWith: '{city} kombinieren mit',
       titleSuffix: 'Stadtguide'
+    },
+    productList: {
+      title: '经典产品',
+      eyebrow: '按目的地筛选产品',
+      summary: '按目的地浏览中国旅行推荐玩法，再打开适合团型、酒店等级、导游语言和报价范围的具体行程。',
+      filtersAria: '产品目的地筛选',
+      all: '全部产品',
+      recommendedCount: '共有 {count} 个推荐玩法',
+      dayPlan: '行程摘要',
+      destinations: '目的地',
+      consultation: '咨询顾问',
+      viewDetail: '查看详情',
+      feedbackEyebrow: '旅行归来用户体验',
+      feedbackTitle: '游客最常提到的体验点',
+      feedbackSummary: '反馈样例围绕私家团常见关注点：节奏、导游、接送、票务和餐食舒适度。',
+      reviews: [
+        { city: '北京', name: '新加坡亲子家庭', text: '故宫和长城两天安排得很清楚，孩子不会太累，车辆衔接让北京停留很省心。' },
+        { city: '西安', name: '西班牙旅行社团队', text: '兵马俑当天是全团亮点，城墙、回民街和大唐夜游补足了城市层次，而且不用频繁换酒店。' },
+        { city: '北京', name: '德国情侣客人', text: '胡同和茶馆时间没有被压缩，导游讲得细，整体不像打卡线路。' }
+      ]
     },
     product: {
       back: 'Zuruck zu Reiseprodukten',
@@ -650,14 +833,17 @@ const messages = {
     },
     nav: {
       aria: 'Navigation principale',
+      home: 'Accueil',
       homeAria: 'Accueil Tengxuan Travel',
       openMenu: 'Ouvrir le menu',
+      destinations: 'Lieux',
+      customTrip: 'Sur mesure',
       cities: 'Villes',
       company: 'Societe',
       attractions: 'Sites',
-      trips: 'Voyages',
+      trips: 'Circuits',
       product: 'Produit',
-      planning: 'Preparation',
+      planning: 'Reserver',
       searchTrips: 'Rechercher des voyages',
       contact: 'Contact',
       language: 'Langue'
@@ -673,6 +859,7 @@ const messages = {
       intro: 'Experiences de voyage privees, pensees pour les visiteurs internationaux.',
       explore: 'Explorer',
       companyProfile: 'Profil de la societe',
+      destinations: 'Destinations',
       cityGuides: 'Guides des villes',
       attractions: 'Sites',
       travelProducts: 'Produits de voyage',
@@ -730,6 +917,22 @@ const messages = {
         contact: 'Contacter l equipe',
         aria: 'Avantages de preparation'
       }
+    },
+    destinations: {
+      title: 'Destinations en Chine, du rythme des villes aux sites majeurs',
+      eyebrow: 'Preparation des destinations',
+      summary:
+        'Parcourez villes et sites ensemble, puis ouvrez le guide dedie selon la question: rythme de destination ou deroulement de visite.',
+      tabsAria: 'Filtres destinations',
+      all: 'Tout',
+      cities: 'Villes',
+      attractions: 'Sites',
+      cityEyebrow: 'Destinations urbaines',
+      cityTitle: 'Construire l itineraire par ville',
+      citySummary: 'Les guides de villes aident a definir duree, saison, transport, profil voyageur et rythme.',
+      attractionEyebrow: 'Sites incontournables',
+      attractionTitle: 'Ajouter les visites quand la route est claire',
+      attractionSummary: 'Les guides de sites couvrent deroulement, notes pratiques, sources et combinaisons proches.'
     },
     city: {
       title: 'Grandes villes chinoises pour premiers voyages et retours',
@@ -835,14 +1038,17 @@ const messages = {
     },
     nav: {
       aria: 'Navegacion principal',
+      home: 'Inicio',
       homeAria: 'Inicio de Tengxuan Travel',
       openMenu: 'Abrir menu',
+      destinations: 'Destinos',
+      customTrip: 'A medida',
       cities: 'Ciudades',
       company: 'Empresa',
       attractions: 'Atracciones',
-      trips: 'Viajes',
+      trips: 'Tours',
       product: 'Producto',
-      planning: 'Planificacion',
+      planning: 'Reservas',
       searchTrips: 'Buscar viajes',
       contact: 'Contacto',
       language: 'Idioma'
@@ -858,6 +1064,7 @@ const messages = {
       intro: 'Experiencias privadas de viaje, planificadas para visitantes internacionales.',
       explore: 'Explorar',
       companyProfile: 'Perfil de empresa',
+      destinations: 'Destinos',
       cityGuides: 'Guias de ciudades',
       attractions: 'Atracciones',
       travelProducts: 'Productos de viaje',
@@ -915,6 +1122,22 @@ const messages = {
         contact: 'Contactar al equipo',
         aria: 'Ventajas de planificacion'
       }
+    },
+    destinations: {
+      title: 'Destinos de China, del ritmo urbano a las visitas clave',
+      eyebrow: 'Planificacion de destinos',
+      summary:
+        'Explore ciudades y atracciones juntas, y abra despues la guia dedicada segun la pregunta: ritmo del destino o flujo de visita.',
+      tabsAria: 'Filtros de destinos',
+      all: 'Todo',
+      cities: 'Ciudades',
+      attractions: 'Atracciones',
+      cityEyebrow: 'Destinos urbanos',
+      cityTitle: 'Planificar primero por ciudad',
+      citySummary: 'Las guias de ciudad ayudan con estancia, temporada, transporte, tipo de viajero y ritmo.',
+      attractionEyebrow: 'Atracciones imprescindibles',
+      attractionTitle: 'Anadir visitas concretas cuando la ruta este clara',
+      attractionSummary: 'Las guias de atracciones cubren flujo de visita, notas practicas, fuentes y combinaciones cercanas.'
     },
     city: {
       title: 'Ciudades de China para primeros viajes y repetidores',
@@ -1020,14 +1243,17 @@ const messages = {
     },
     nav: {
       aria: '主导航',
+      home: '首页',
       homeAria: '腾轩旅行首页',
       openMenu: '打开菜单',
+      destinations: '目的地',
+      customTrip: '定制行程',
       cities: '城市',
-      company: '公司',
+      company: '公司介绍',
       attractions: '景点',
-      trips: '线路',
+      trips: '经典产品',
       product: '产品',
-      planning: '行前准备',
+      planning: '代订服务',
       searchTrips: '搜索线路',
       contact: '联系我们',
       language: '语言'
@@ -1042,6 +1268,7 @@ const messages = {
       intro: '面向国际游客的私家旅行体验，由专业团队细致规划。',
       explore: '探索',
       companyProfile: '公司简介',
+      destinations: '目的地',
       cityGuides: '城市指南',
       attractions: '精选景点',
       travelProducts: '旅行产品',
@@ -1100,6 +1327,21 @@ const messages = {
         aria: '规划优势'
       }
     },
+    destinations: {
+      title: '中国城市目的地',
+      eyebrow: '目的地',
+      summary: '旅行社选品、散客定制，先从城市入口开始。',
+      tabsAria: '目的地筛选',
+      all: '全部',
+      cities: '目的地城市',
+      attractions: '热门景点',
+      cityEyebrow: '城市入口',
+      cityTitle: '选择要去的城市',
+      citySummary: '快速查看停留天数、季节、交通和适合人群。',
+      attractionEyebrow: '必看景点',
+      attractionTitle: '线路结构清楚后再加入具体参观对象',
+      attractionSummary: '景点指南用于判断参观流程、预约与注意事项、资料来源和可搭配景点。'
+    },
     city: {
       title: '适合首次和深度游客的中国重点城市',
       eyebrow: '中国城市规划',
@@ -1126,6 +1368,15 @@ const messages = {
       linkTitle: '把 {city} 放入中国私家游线路',
       relatedAttraction: '景点指南',
       relatedProduct: '旅行产品',
+      galleryControls: '城市图片轮播控制',
+      galleryThumbnails: '城市图片缩略图',
+      previousImage: '上一张城市图片',
+      nextImage: '下一张城市图片',
+      showImage: '查看{title}',
+      cityStory: '城市介绍',
+      cityStoryTitle: '如何理解{city}',
+      popularClassics: '热门景点',
+      popularClassicsTitle: '{city}热门景点',
       faq: 'FAQ',
       faqTitle: '{city} 旅行常见问题',
       faqBestFor: '{city} 适合哪些人？',
@@ -1253,26 +1504,26 @@ const messages = {
 const extraPageMessages = {
   de: {
     beforeYouGo: {
-      title: 'Vorbereitung der China-Reise',
-      eyebrow: 'Vor der Reise',
-      summary: 'Nutzen Sie diese Checkliste vor der finalen Buchung von Hotels, Zuegen, Fluegen, Guides und Tickets.',
+      title: 'Buchungsservice fuer China-Reisen',
+      eyebrow: 'Buchungsservice',
+      summary: 'Wir unterstuetzen Besucher bei Fluegen, Hotels, Zugtickets, Mietwagen, Guides, Eintrittskarten und China-SIM-Karten.',
       sections: [
         {
-          title: 'Buchungsdetails',
+          title: 'Was wir buchen koennen',
           items: [
-            'Vollstaendige Passnamen und Passnummern fur ticketierte Leistungen.',
-            'Zimmerliste, Bettenwuensche und Einzelzimmerzuschlaege.',
-            'Ernaehrungs- und Mobilitaetsanforderungen.',
-            'Gewuenschtes Tempo: kompakt, ausgewogen, entspannt oder familienfreundlich.'
+            'Fluege passend zu Route, Reisedaten und Budget.',
+            'Hotels nach Stadt, Zimmerliste, Komfortniveau und Lagewunsch.',
+            'China-Zugtickets, Mietwagen, Privatfahrzeuge und Gruppenfahrzeuge.',
+            'Lizenzierte Guides, Eintrittskarten und SIM-Karten fuer China.'
           ]
         },
         {
-          title: 'Komfort unterwegs',
+          title: 'Hilfreiche Angaben',
           items: [
-            'Paesse fur wichtige Sehenswuerdigkeiten und Bahnreisen mitnehmen.',
-            'Bequeme Schuhe fur Palast-, Mauer-, Garten- und Bergrouten einplanen.',
-            'Wetterpuffer fur Zhangjiajie, Guilin und die Grosse Mauer lassen.',
-            'Zahlungsmethoden und lokale Kontaktdaten vor Ankunft bestaetigen.'
+            'Reisedaten, Ankunft, Abreise, Personenzahl und bevorzugter Zeitplan.',
+            'Passnamen und Passnummern fuer Leistungen mit Realnamenpflicht.',
+            'Hotelkategorie, Zimmer, Guide-Sprache, Fahrzeugtyp und Gepaeck.',
+            'Essenswuensche, Mobilitaet, SIM-Karten-Dauer und wichtige Sehenswuerdigkeiten.'
           ]
         }
       ]
@@ -1299,6 +1550,55 @@ const extraPageMessages = {
       ],
       services: ['Private Stadtrouten und mehrtaegige China-Reisen.', 'Hotels, Fahrzeuge, Guides, Tickets, Dolmetscher und Meeting-Support.', 'Gruppenangebote fuer Agenturen und individuelle Produktpakete.'],
       checklist: ['Reisezeitraum, Ankunft, Abreise und wichtige Orte.', 'Reisende, Zimmer, Hotelniveau, Guide-Sprache und Reisetempo.', 'Budget, Nationalitaet, Ernaehrung, Mobilitaet und Rechnungsbedarf.']
+    },
+    customTrip: {
+      title: 'Ihre private China-Reise einfach anfragen',
+      eyebrow: 'Massreise',
+      summary:
+        'Senden Sie uns Ihre E-Mail, Ankunftsstadt, Abreisestadt, Reisezeit und Ihr bevorzugtes Tempo. Daraus entwickeln wir eine private China-Route mit Hotels, Fahrzeugen, Guides, Tickets, Zuegen und praktischen Hinweisen zur Einreise.',
+      email: 'support@tengxuan.com',
+      formTitle: 'Reisewunsch senden',
+      emailLabel: 'E-Mail-Adresse',
+      emailPlaceholder: 'name@example.com',
+      travelWindowLabel: 'Reisezeit',
+      travelWindowPlaceholder: 'Oktober 2026, 8-10 Tage',
+      travelersLabel: 'Reisende',
+      travelersPlaceholder: '2 Erwachsene, 1 Kind',
+      arrivalLabel: 'Ankunftsstadt oder Flughafen',
+      arrivalPlaceholder: 'Peking PEK / Shanghai PVG',
+      departureLabel: 'Abreisestadt oder Flughafen',
+      departurePlaceholder: 'Hongkong / Shanghai',
+      interestsLabel: 'Staedte, Sehenswuerdigkeiten und Interessen',
+      interestsPlaceholder: 'Grosse Mauer, Pandas, Essen, Gaerten, leichte Wanderungen...',
+      paceLabel: 'Bevorzugtes Tempo',
+      pacePlaceholder: 'Entspannt, ausgewogen, kompakt',
+      hotelLabel: 'Hotelstandard',
+      hotelPlaceholder: 'Boutique, 4 Sterne, 5 Sterne, Familienzimmer',
+      notesLabel: 'Essen, Mobilitaet, Visum oder Geschaeftsbedarf',
+      notesPlaceholder: 'Vegetarisch, Rollstuhlzugang, Dolmetscher, Rechnung...',
+      submitLabel: 'Bitte meine Reise planen',
+      successTitle: 'E-Mail-Entwurf ist bereit.',
+      successText: 'Ihr Mailprogramm oeffnet die Anfrage. Sie koennen alles vor dem Senden anpassen.',
+      responseLabel: 'China-Reiseplanung',
+      responseText: 'Teilen Sie zuerst die wichtigsten Reisedaten, dann stimmen wir die Route Schritt fuer Schritt ab.',
+      proofTitle: 'Was wir zuerst klaeren',
+      benefitsTitle: 'Auf internationale China-Reisen abgestimmt',
+      ideasTitle: 'Beliebte Startpunkte',
+      templateSubject: 'Anfrage fuer private China-Reise',
+      templateBody:
+        'Hallo Tengxuan Travel Team,\n\nich moechte eine private China-Reise planen lassen.\n\nE-Mail: {email}\nReisezeit: {travelWindow}\nAnzahl der Reisenden: {travelers}\nAnkunftsstadt / Flughafen: {arrival}\nAbreisestadt / Flughafen: {departure}\nStaedte, Sehenswuerdigkeiten oder Interessen: {interests}\nBevorzugtes Tempo: {pace}\nHotelstandard: {hotelLevel}\nWeitere Hinweise: {notes}\n\nBitte senden Sie mir einen Routenvorschlag, den Leistungsumfang und eine erste Preisspanne.\n\nVielen Dank.',
+      proofPoints: ['Mit E-Mail starten und Details spaeter ergaenzen', 'Ankunft und Abreise helfen bei einer sinnvollen Tagesroute', 'Tempo, Essen, Mobilitaet und Visum frueh einplanen'],
+      benefits: [
+        { title: 'Einfacher Start per E-Mail', text: 'Sie koennen die Anfrage ohne lokale Telefonnummer beginnen und spaeter Fluege, Hotels und Namen ergaenzen.' },
+        { title: 'Route vor Preis', text: 'Vor dem Angebot klaeren wir Staedte, Reisedauer, Hotelstandard, Guide-Sprache und Interessen.' },
+        { title: 'Privat statt gemischte Gruppe', text: 'Die Route passt zu Paaren, Familien, Agenturgruppen, Geschaeftsreisenden und Senioren.' },
+        { title: 'Details gemeinsam geplant', text: 'Hotels, Fahrzeuge, Guides, Tickets, Zuege, Dolmetscher, Meetings und Rechnungen koennen zusammen koordiniert werden.' }
+      ],
+      ideas: [
+        { title: 'Erste China-Reise', text: "Peking, Xi'an, Shanghai und eine ruhigere Stadt wie Hangzhou, Chengdu oder Guilin." },
+        { title: 'Familientempo', text: 'Spaetere Starts, weniger Hotelwechsel, kindgerechte Guides, stabile Mahlzeiten und gute Fahrzeugunterstuetzung.' },
+        { title: 'Business plus Freizeit', text: 'Meetings, Dolmetscher, Transfers, Rechnungen und kurze Kulturprogramme.' }
+      ]
     },
     faq: {
       title: 'Haeufige Planungsfragen',
@@ -1347,12 +1647,12 @@ const extraPageMessages = {
   },
   fr: {
     beforeYouGo: {
-      title: 'Preparation du voyage en Chine',
-      eyebrow: 'Avant le depart',
-      summary: 'Utilisez cette liste avant de finaliser hotels, trains, vols, guides et billets de sites.',
+      title: 'Service de reservation pour la Chine',
+      eyebrow: 'Service de reservation',
+      summary: 'Nous pouvons aider les visiteurs a reserver vols, hotels, trains, voitures, guides, billets de sites et cartes SIM Chine.',
       sections: [
-        { title: 'Details de reservation', items: ['Noms et numeros de passeport complets pour les services avec billet.', 'Repartition des chambres, literie et supplements single.', 'Restrictions alimentaires et besoins de mobilite.', 'Rythme prefere: compact, equilibre, detendu ou familial.'] },
-        { title: 'Confort sur place', items: ['Porter les passeports pour les sites majeurs et le train.', 'Prevoir des chaussures confortables.', 'Garder une marge meteo pour Zhangjiajie, Guilin et la Grande Muraille.', 'Confirmer paiements et contacts locaux avant arrivee.'] }
+        { title: 'Ce que nous pouvons reserver', items: ['Vols selon votre itineraire, vos dates et votre budget.', 'Hotels selon ville, chambres, niveau de confort et emplacement souhaite.', 'Billets de train en Chine, location de voiture, vehicule prive ou transport de groupe.', 'Guides professionnels, billets de sites touristiques et cartes SIM Chine.'] },
+        { title: 'Informations utiles', items: ['Dates, arrivee, depart, nombre de voyageurs et rythme prefere.', 'Noms et numeros de passeport pour les services en nom reel.', 'Niveau hotelier, chambres, langue du guide, vehicule et bagages.', 'Repas, mobilite, duree de carte SIM et sites prioritaires.'] }
       ]
     },
     contact: {
@@ -1377,6 +1677,55 @@ const extraPageMessages = {
       ],
       services: ['Itineraires prives par ville et circuits Chine multi-villes.', 'Hotels, vehicules, guides, billets, interpretes et support reunions.', 'Devis groupes agences et packaging produit sur mesure.'],
       checklist: ['Periode, arrivee, depart et sites prioritaires.', 'Nombre de voyageurs, chambres, hotel, langue du guide et rythme.', 'Budget, nationalite, repas, mobilite et besoins de facturation.']
+    },
+    customTrip: {
+      title: 'Creer simplement votre voyage prive en Chine',
+      eyebrow: 'Voyage sur mesure',
+      summary:
+        'Indiquez votre email, votre ville d arrivee, votre ville de depart, vos dates et le rythme souhaite. Nous preparons ensuite un itineraire prive avec hotels, vehicules, guides, billets, trains et points pratiques pour l entree en Chine.',
+      email: 'support@tengxuan.com',
+      formTitle: 'Envoyer votre idee de voyage',
+      emailLabel: 'Adresse email',
+      emailPlaceholder: 'name@example.com',
+      travelWindowLabel: 'Periode de voyage',
+      travelWindowPlaceholder: 'Octobre 2026, 8-10 jours',
+      travelersLabel: 'Voyageurs',
+      travelersPlaceholder: '2 adultes, 1 enfant',
+      arrivalLabel: 'Ville ou aeroport d arrivee',
+      arrivalPlaceholder: 'Pekin PEK / Shanghai PVG',
+      departureLabel: 'Ville ou aeroport de depart',
+      departurePlaceholder: 'Hong Kong / Shanghai',
+      interestsLabel: 'Villes, sites et centres d interet',
+      interestsPlaceholder: 'Grande Muraille, pandas, cuisine, jardins, marche legere...',
+      paceLabel: 'Rythme prefere',
+      pacePlaceholder: 'Calme, equilibre, compact',
+      hotelLabel: 'Niveau hotelier',
+      hotelPlaceholder: 'Boutique, 4 etoiles, 5 etoiles, chambres famille',
+      notesLabel: 'Repas, mobilite, visa ou besoins business',
+      notesPlaceholder: 'Vegetarien, acces fauteuil, interprete, facture...',
+      submitLabel: 'Aidez-moi a creer mon voyage',
+      successTitle: 'Brouillon d email pret.',
+      successText: 'Votre application mail s ouvre avec la demande. Vous pouvez modifier avant l envoi.',
+      responseLabel: 'Preparation Chine',
+      responseText: 'Partagez les elements essentiels du voyage; nous affinerons la route avec vous.',
+      proofTitle: 'A confirmer en premier',
+      benefitsTitle: 'Pense pour les voyageurs internationaux',
+      ideasTitle: 'Points de depart frequents',
+      templateSubject: 'Demande de voyage prive en Chine',
+      templateBody:
+        'Bonjour equipe Tengxuan Travel,\n\nje souhaite preparer un voyage prive en Chine.\n\nEmail: {email}\nPeriode de voyage: {travelWindow}\nNombre de voyageurs: {travelers}\nVille / aeroport d arrivee: {arrival}\nVille / aeroport de depart: {departure}\nVilles, sites ou interets: {interests}\nRythme prefere: {pace}\nNiveau hotelier: {hotelLevel}\nAutres notes: {notes}\n\nMerci de me proposer un itineraire, les services inclus et une premiere fourchette de prix.\n\nMerci.',
+      proofPoints: ['Commencer par email et completer les details ensuite', 'Arrivee et depart permettent de construire une route coherente', 'Rythme, repas, mobilite et visa sont pris en compte tot'],
+      benefits: [
+        { title: 'Demarrage simple par email', text: 'Vous pouvez lancer la demande sans numero local et ajouter ensuite vols, hotels et informations voyageurs.' },
+        { title: 'La route avant le prix', text: 'Avant le devis, nous clarifions villes, duree, niveau hotelier, langue du guide et interets.' },
+        { title: 'Prive, pas groupe melange', text: 'L itineraire peut convenir aux couples, familles, groupes d agence, voyageurs business et seniors.' },
+        { title: 'Details coordonnes ensemble', text: 'Hotels, vehicules, guides, billets, trains, interpretes, reunions et facturation peuvent etre planifies ensemble.' }
+      ],
+      ideas: [
+        { title: 'Premier voyage en Chine', text: "Pekin, Xi'an, Shanghai, avec une ville plus douce comme Hangzhou, Chengdu ou Guilin." },
+        { title: 'Rythme famille', text: 'Departs plus tardifs, moins de changements d hotel, guide adapte aux enfants, repas confortables et vehicule fiable.' },
+        { title: 'Business plus loisirs', text: 'Reunions, interpretes, transferts, facturation et courtes extensions culturelles.' }
+      ]
     },
     faq: {
       title: 'Questions frequentes de preparation',
@@ -1425,12 +1774,12 @@ const extraPageMessages = {
   },
   es: {
     beforeYouGo: {
-      title: 'Preparacion del viaje a China',
-      eyebrow: 'Antes de viajar',
-      summary: 'Use esta lista antes de cerrar hoteles, trenes, vuelos, guias y entradas.',
+      title: 'Servicio de reservas para viajar a China',
+      eyebrow: 'Servicio de reservas',
+      summary: 'Podemos ayudar a visitantes con vuelos, hoteles, trenes, alquiler de coche, guias, entradas y tarjetas SIM para China.',
       sections: [
-        { title: 'Datos de reserva', items: ['Nombres completos y numeros de pasaporte para servicios con billete.', 'Lista de habitaciones, camas y suplementos individuales.', 'Restricciones alimentarias y necesidades de movilidad.', 'Ritmo preferido: compacto, equilibrado, relajado o familiar.'] },
-        { title: 'Comodidad durante el viaje', items: ['Llevar pasaportes para sitios principales y trenes.', 'Usar calzado comodo para palacios, murallas, jardines y montanas.', 'Dejar margen de clima para Zhangjiajie, Guilin y la Gran Muralla.', 'Confirmar pagos y contactos locales antes de llegar.'] }
+        { title: 'Que podemos reservar', items: ['Vuelos segun ruta, fechas y presupuesto.', 'Hoteles por ciudad, habitaciones, nivel de comodidad y ubicacion preferida.', 'Trenes en China, alquiler de coche, vehiculo privado o transporte para grupos.', 'Guias profesionales, entradas a atracciones y tarjetas SIM para China.'] },
+        { title: 'Datos utiles para enviar', items: ['Fechas, llegada, salida, numero de viajeros y ritmo preferido.', 'Nombres y numeros de pasaporte para servicios con registro real.', 'Nivel de hotel, habitaciones, idioma del guia, vehiculo y equipaje.', 'Comidas, movilidad, dias de tarjeta SIM y atracciones imprescindibles.'] }
       ]
     },
     contact: {
@@ -1455,6 +1804,55 @@ const extraPageMessages = {
       ],
       services: ['Rutas privadas por ciudad e itinerarios multi-ciudad en China.', 'Hoteles, vehiculos, guias, entradas, interpretes y soporte para reuniones.', 'Cotizaciones de grupos para agencias y productos personalizados.'],
       checklist: ['Ventana de viaje, llegada, salida y lugares imprescindibles.', 'Viajeros, habitaciones, hotel, idioma del guia y ritmo.', 'Presupuesto, nacionalidad, dieta, movilidad y factura.']
+    },
+    customTrip: {
+      title: 'Disene facilmente su viaje privado a China',
+      eyebrow: 'Viaje a medida',
+      summary:
+        'Comparta su email, ciudad de llegada, ciudad de salida, fechas de viaje y ritmo preferido. Con esa informacion preparamos una ruta privada con hoteles, vehiculos, guias, entradas, trenes y notas practicas de entrada a China.',
+      email: 'support@tengxuan.com',
+      formTitle: 'Enviar idea de viaje',
+      emailLabel: 'Direccion de email',
+      emailPlaceholder: 'name@example.com',
+      travelWindowLabel: 'Fechas de viaje',
+      travelWindowPlaceholder: 'Octubre de 2026, 8-10 dias',
+      travelersLabel: 'Viajeros',
+      travelersPlaceholder: '2 adultos, 1 nino',
+      arrivalLabel: 'Ciudad o aeropuerto de llegada',
+      arrivalPlaceholder: 'Pekin PEK / Shanghai PVG',
+      departureLabel: 'Ciudad o aeropuerto de salida',
+      departurePlaceholder: 'Hong Kong / Shanghai',
+      interestsLabel: 'Ciudades, visitas e intereses',
+      interestsPlaceholder: 'Gran Muralla, pandas, comida, jardines, caminatas suaves...',
+      paceLabel: 'Ritmo preferido',
+      pacePlaceholder: 'Relajado, equilibrado, compacto',
+      hotelLabel: 'Nivel de hotel',
+      hotelPlaceholder: 'Boutique, 4 estrellas, 5 estrellas, habitaciones familiares',
+      notesLabel: 'Comida, movilidad, visa o necesidades de negocio',
+      notesPlaceholder: 'Vegetariano, silla de ruedas, interprete, factura...',
+      submitLabel: 'Ayudenme a disenar mi viaje',
+      successTitle: 'Borrador de email listo.',
+      successText: 'Su aplicacion de correo se abre con la solicitud. Puede editar antes de enviar.',
+      responseLabel: 'Planificacion China',
+      responseText: 'Comparta primero los datos clave del viaje; despues ajustamos la ruta con usted.',
+      proofTitle: 'Que confirmamos primero',
+      benefitsTitle: 'Pensado para viajeros internacionales',
+      ideasTitle: 'Puntos de partida frecuentes',
+      templateSubject: 'Solicitud de viaje privado a China',
+      templateBody:
+        'Hola equipo de Tengxuan Travel,\n\nquisiera preparar un viaje privado a China.\n\nEmail: {email}\nFechas de viaje: {travelWindow}\nNumero de viajeros: {travelers}\nCiudad / aeropuerto de llegada: {arrival}\nCiudad / aeropuerto de salida: {departure}\nCiudades, visitas o intereses: {interests}\nRitmo preferido: {pace}\nNivel de hotel: {hotelLevel}\nOtras notas: {notes}\n\nPor favor envienme una propuesta de itinerario, alcance de servicios y una primera referencia de precio.\n\nGracias.',
+      proofPoints: ['Empezar por email y completar detalles despues', 'Llegada y salida ayudan a construir una ruta coherente', 'Ritmo, comidas, movilidad y visa se consideran desde el inicio'],
+      benefits: [
+        { title: 'Inicio sencillo por email', text: 'Puede iniciar la solicitud sin telefono local y agregar luego vuelos, hoteles y datos de viajeros.' },
+        { title: 'Ruta antes del precio', text: 'Antes de cotizar aclaramos ciudades, duracion, nivel de hotel, idioma del guia e intereses.' },
+        { title: 'Privado, no grupo mixto', text: 'La ruta puede adaptarse a parejas, familias, grupos de agencia, viajeros de negocio y personas mayores.' },
+        { title: 'Detalles coordinados juntos', text: 'Hoteles, vehiculos, guias, entradas, trenes, interpretes, reuniones y facturacion se pueden planificar juntos.' }
+      ],
+      ideas: [
+        { title: 'Primer viaje a China', text: "Pekin, Xi'an, Shanghai y una ciudad mas tranquila como Hangzhou, Chengdu o Guilin." },
+        { title: 'Ritmo familiar', text: 'Salidas mas tarde, menos cambios de hotel, guia adaptado a ninos, comidas comodas y buen apoyo de vehiculo.' },
+        { title: 'Negocio mas ocio', text: 'Reuniones, interpretes, traslados, factura y extensiones culturales breves.' }
+      ]
     },
     faq: {
       title: 'Preguntas comunes de planificacion',
@@ -1503,12 +1901,63 @@ const extraPageMessages = {
   },
   zh: {
     beforeYouGo: {
-      title: '中国旅行准备清单',
-      eyebrow: '行前准备',
-      summary: '在确认酒店、火车、航班、导游和景点门票前，可先用这份清单核对关键资料。',
+      title: '中国旅行代订服务',
+      eyebrow: '代订服务',
+      summary: '',
+      heroServices: [
+        {
+          type: 'flight',
+          title: '中国机票代订',
+          label: '国内段与国际段票务支持',
+          summary: '根据入境城市、离境城市、跨城顺序和预算，协助匹配航班、核对护照姓名并确认出票信息。',
+          imageAlt: '上海浦东机场的中国航班真实照片'
+        },
+        {
+          type: 'hotel',
+          title: '中国酒店代订',
+          label: '按城市、房型和预算匹配',
+          summary: '支持酒店等级、分房名单、床型、家庭房、商务出行和团队入住等预订需求。',
+          imageAlt: '北京酒店真实照片'
+        },
+        {
+          type: 'guide',
+          title: '各语种导游服务',
+          label: '私家团与团队游均可协调',
+          summary: '可按路线协调英语、德语、法语、西语等语种导游，适合家庭、商务和旅行社团队。',
+          imageAlt: '中国导游为游客团队讲解的真实照片'
+        },
+        {
+          type: 'rail',
+          title: '中国高铁代订',
+          label: '主要城市之间的高铁票',
+          summary: '可按出发城市、到达城市、时间、席别和护照信息协助确认中国高铁/火车票。',
+          imageAlt: '上海火车站中国高铁真实照片'
+        },
+        {
+          type: 'ticket',
+          title: '景点门票代订',
+          label: '热门景区与实名制门票',
+          summary: '协助确认博物馆、世界遗产、热门景区和亲子景点的实名制门票与入园时间。',
+          imageAlt: '西安兵马俑景点真实照片'
+        },
+        {
+          type: 'car',
+          title: '租车用车代订',
+          label: '接送机、商务车与团队车',
+          summary: '支持机场接送、城市用车、商务用车、家庭 MPV 和多城市车辆衔接安排。',
+          imageAlt: '中国商务用车真实照片'
+        }
+      ],
+      floatingCard: {
+        title: '需要代订中国旅行服务？',
+        summary: '把日期、城市、人数和需要代订的项目发给我们，团队会按实际资源回复可选方案。',
+        button: '邮件联系顾问',
+        subject: '中国旅行代订服务咨询',
+        body: '腾轩旅行团队您好：\n\n我想咨询中国旅行代订服务。\n\n出行日期：\n抵达城市：\n离境城市：\n出行人数：\n需要代订：中国机票 / 中国酒店 / 各语种导游 / 火车票 / 租车 / 景点门票 / 电话卡\n酒店等级：\n导游语种：\n其他说明：\n\n请协助回复可选方案和下一步确认方式。\n\n谢谢。',
+        points: ['优先确认中国机票与酒店', '按路线匹配导游语种', '实名票务付款前先核对信息']
+      },
       sections: [
-        { title: '预订信息', items: ['用于出票服务的完整护照姓名和护照号码。', '分房名单、床型需求和单房差要求。', '饮食限制和行动便利需求。', '偏好节奏：紧凑、均衡、轻松或亲子友好。'] },
-        { title: '途中舒适度', items: ['主要景点和铁路出行需随身携带护照。', '宫殿、长城、园林和山地线路建议穿舒适步行鞋。', '张家界、桂林和长城游览建议预留天气缓冲。', '到达前确认支付方式和当地联系方式。'] }
+        { title: '建议提前提供', items: ['出行日期、抵达/离境城市、人数、预算范围和希望保留的自由时间。', '护照姓名和护照号码，用于实名制机票、火车票、门票等服务。', '酒店等级、房型、床型、导游语言、用车人数和行李数量。', '饮食限制、行动便利需求、电话卡使用天数和必去景点。'] }
       ]
     },
     contact: {
@@ -1528,6 +1977,55 @@ const extraPageMessages = {
       items: ['产品报价：北京、西安、上海、成都、桂林、张家界及定制线路。', '商务需求：会议、翻译、车辆、酒店和发票支持。', '建议提供：日期、人数、分房、预算、国籍和饮食需求。'],
       services: ['中国城市私家线路与多城市连线行程。', '酒店、车辆、导游、门票、翻译、会议和发票支持。', '面向旅行社的团队报价和定制产品包装。'],
       checklist: ['出行窗口、抵达/离境城市、必去城市或景点。', '人数、分房、酒店等级、导游语言和旅行节奏。', '预算、国籍、饮食、行动便利和商务开票需求。']
+    },
+    customTrip: {
+      title: '告诉我们你的想法，我们来定制中国行程',
+      eyebrow: '定制行程',
+      summary:
+        '先留下你的邮箱、入境城市、离境城市、旅行时间和偏好节奏。我们会根据你的旅行目标，把酒店、车辆、导游、门票、火车和入境注意事项整理成一份可沟通、可报价的私家行程。',
+      email: 'support@tengxuan.com',
+      formTitle: '填写你的行程需求',
+      emailLabel: '邮箱地址',
+      emailPlaceholder: 'name@example.com',
+      travelWindowLabel: '出行时间',
+      travelWindowPlaceholder: '2026年10月，8-10天',
+      travelersLabel: '出行人数',
+      travelersPlaceholder: '2位成人，1位儿童',
+      arrivalLabel: '抵达城市或机场',
+      arrivalPlaceholder: '北京首都 / 上海浦东',
+      departureLabel: '离境城市或机场',
+      departurePlaceholder: '香港 / 上海',
+      interestsLabel: '想去的城市、景点或兴趣',
+      interestsPlaceholder: '长城、熊猫、美食、园林、轻徒步等',
+      paceLabel: '偏好节奏',
+      pacePlaceholder: '轻松、均衡、紧凑',
+      hotelLabel: '酒店等级',
+      hotelPlaceholder: '精品酒店、4星、5星、家庭房',
+      notesLabel: '饮食、行动便利、签证或商务需求',
+      notesPlaceholder: '素食、轮椅通行、翻译、发票等',
+      submitLabel: '请帮我定制行程',
+      successTitle: '邮件草稿已生成。',
+      successText: '邮件客户端会带着表单内容打开，发送前仍可修改。',
+      responseLabel: '入境游规划',
+      responseText: '把你已经确定的信息先发给我们，其余细节可以在邮件里继续确认。',
+      proofTitle: '我们会优先核对',
+      benefitsTitle: '你的中国行程可以这样开始',
+      ideasTitle: '常见定制方向',
+      templateSubject: '中国入境定制行程咨询',
+      templateBody:
+        '腾轩旅行团队，你好：\n\n我想咨询一份中国入境私家行程。\n\n邮箱：{email}\n出行时间：{travelWindow}\n出行人数：{travelers}\n抵达城市或机场：{arrival}\n离境城市或机场：{departure}\n想去的城市、景点或兴趣：{interests}\n偏好节奏：{pace}\n酒店等级：{hotelLevel}\n其他说明：{notes}\n\n请根据以上信息，帮我整理一份行程建议、服务范围和初步报价范围。\n\n谢谢。',
+      proofPoints: ['留下邮箱即可开始，后续细节可以慢慢补充', '告诉我们抵达和离境城市，路线会更顺', '把节奏、饮食、行动便利和签证情况提前说明'],
+      benefits: [
+        { title: '先从邮箱沟通', text: '不需要一开始就提供中国手机号。你可以先说明需求，再补充航班、酒店和证件信息。' },
+        { title: '先理路线再报价', text: '我们会先确认入境城市、离境城市、天数、酒店等级、导游语言和兴趣重点。' },
+        { title: '私家行程，不拼团', text: '可按情侣、家庭、旅行社团队、商务客人和长者节奏调整，不套固定大团行程。' },
+        { title: '服务细节一起安排', text: '酒店、车辆、导游、门票、火车、翻译、会议支持和开票需求可以统一规划。' }
+      ],
+      ideas: [
+        { title: '首次来中国', text: '北京、西安、上海，再搭配杭州、成都或桂林等节奏更舒缓的城市。' },
+        { title: '亲子家庭', text: '晚一点出发、少换酒店、导游节奏更轻、餐食更稳、车辆接驳更充分。' },
+        { title: '商务加旅行', text: '会议、翻译、接送机、发票支持和短线文化体验组合安排。' }
+      ]
     },
     faq: {
       title: '常见规划问题',
@@ -1582,15 +2080,136 @@ for (const code of Object.keys(extraPageMessages) as Array<keyof typeof extraPag
 
 const cityTranslations: Partial<Record<Locale, Record<string, Partial<City>>>> = {
   zh: {
-    beijing: { name: '北京', region: '华北', summary: '帝都历史、胡同、故宫和长城一日游。', duration: '3-5天' },
-    shanghai: { name: '上海', region: '华东', summary: '海派街区、天际线、设计酒店和便捷高铁连接。', duration: '2-4天' },
-    xian: { name: '西安', region: '西北', summary: '古都气质、城墙、回民街美食和兵马俑。', duration: '2-3天' },
-    chengdu: { name: '成都', region: '西南', summary: '熊猫、茶馆、川菜和松弛的城市节奏。', duration: '2-4天' },
-    guilin: { name: '桂林', region: '华南', summary: '喀斯特山水、漓江游船、骑行和乡村住宿。', duration: '2-4天' },
-    hangzhou: { name: '杭州', region: '华东', summary: '西湖、茶村、寺庙和上海周边轻松延伸。', duration: '1-3天' },
-    suzhou: { name: '苏州', region: '华东', summary: '古典园林、运河、丝绸文化和精致一日游。', duration: '1-2天' },
-    guangzhou: { name: '广州', region: '华南', summary: '粤菜、商贸文化、珠江夜景和大湾区连接。', duration: '1-3天' },
-    shenzhen: { name: '深圳', region: '华南', summary: '现代设计、科技城区、主题乐园和香港连接。', duration: '1-3天' },
+    beijing: {
+      name: '北京',
+      region: '华北',
+      summary: '帝都历史、胡同、故宫和长城一日游。',
+      duration: '3-5天',
+      alt: '北京故宫宫殿建筑群',
+      signature: '北京适合作为首次访华的第一站：皇家中轴线、胡同生活、世界遗产和高铁衔接都非常清晰。',
+      story: [
+        '北京是理解中国古都气质最直接的城市。它不像单一景点集合，而是一座由中轴线、宫殿、城门、坛庙、胡同和城外山脉共同构成的历史空间。以天安门、故宫、景山、钟鼓楼为线索，可以看到皇家礼制如何决定城市方向；再进入胡同和四合院，又能看到普通居民、街巷商业、传统院落和现代生活并存的一面。',
+        '故宫是北京行程的核心，但不适合只当作拍照点处理。午门、太和殿、中和殿、保和殿、乾清宫和御花园串联起明清皇城的政治秩序与生活细节。天坛则提供另一种角度：这里不是宫殿，而是祭天礼仪空间，清晨进入还能看到本地人锻炼、唱歌、下棋，让宏大的坛庙建筑和日常公园生活自然同框。',
+        '北京的慢节奏最好放在胡同和颐和园。胡同适合安排半天步行，结合四合院、老字号、小吃、茶馆或家庭访问，帮助海外游客从皇家叙事切换到城市生活。颐和园则以昆明湖、万寿山、长廊、佛香阁和十七孔桥呈现皇家园林的湖山格局，适合在密集参观之后放慢节奏。',
+        '长城通常安排为独立一日或大半日，不建议塞进抵达当天。慕田峪、居庸关、八达岭或司马台的体验差异很大，需要按客人年龄、体力、拍照需求和季节选择。北京热门景点普遍需要实名预约，故宫、国家博物馆、热门展览和长城车辆接驳都应提前确认；对入境私家团来说，护照信息、门票窗口、导游讲解和用餐动线决定了北京停留是否顺畅。'
+      ],
+      bestFor: ['首次访华', '世界遗产', '皇家历史'],
+      highlights: ['故宫', '天坛', '胡同漫步', '颐和园', '慕田峪或居庸关长城'],
+      itinerary: [
+        '第1天：天安门区域、故宫、景山视角和老城晚餐。',
+        '第2天：天坛清晨、胡同漫步、茶馆或小吃体验。',
+        '第3天：长城一日游，按体力选择徒步、缆车或轻松观景。',
+        '第4天：颐和园、博物馆或奥林匹克公园，作为节奏缓冲。'
+      ],
+      travelNote: '故宫、热门博物馆和部分长城线路需要提前预约；入园常要核验护照，行前资料要尽早确认。',
+      season: '春秋最舒适；冬季人少但天气寒冷，夏季需避开正午高温。',
+      connections: '北京可用高铁衔接西安、上海、济南、天津，也有航班连接成都、桂林、张家界和新疆方向。'
+    },
+    shanghai: {
+      name: '上海',
+      region: '华东',
+      summary: '海派街区、天际线、设计酒店和便捷高铁连接。',
+      duration: '2-4天',
+      story: [
+        '上海的吸引力来自强烈对比：外滩保留历史建筑尺度，黄浦江对岸则是浦东现代天际线。',
+        '老城厢、豫园、前租界街区、博物馆、咖啡馆和设计酒店，让上海成为国际游客抵达中国时最容易适应的城市之一。',
+        '高铁网络让上海也适合作为华东基地，顺接苏州园林、杭州西湖和江南水乡。'
+      ]
+    },
+    xian: {
+      name: '西安',
+      region: '西北',
+      summary: '古都气质、城墙、回民街美食和兵马俑。',
+      duration: '2-3天',
+      story: [
+        '西安承载多朝古都记忆，同时城市游览非常集中：城墙、钟鼓楼、博物馆、坊巷美食和大雁塔片区都便于串联。',
+        '兵马俑是最关键的一天，它把秦始皇陵、秦帝国制度、陶俑工艺和中国统一王朝叙事连接起来。',
+        '对首次访华游客来说，西安适合放在北京和上海之间，增加历史深度，又不明显打断经典高铁线路。'
+      ],
+      bestFor: ['古都文化', '坊巷美食', '经典高铁线路'],
+      highlights: ['兵马俑', '西安城墙', '回民街', '大雁塔'],
+      itinerary: [
+        '第1天：西安城墙、钟楼片区和回民街美食步行。',
+        '第2天：导游讲解兵马俑，下午搭配大雁塔或唐风夜游。',
+        '第3天：补充汉阳陵、陕西历史博物馆，或继续高铁衔接。'
+      ],
+      travelNote: '兵马俑建议保留导游讲解和足够节奏，不要压缩成快速拍照点。',
+      season: '春秋季天气和客流更平衡，适合安排城墙、临潼和夜游。',
+      connections: '通常由北京高铁进入，并继续衔接上海、成都或洛阳等城市。'
+    },
+    luoyang: {
+      name: '洛阳',
+      region: '华中',
+      summary: '古都历史、龙门石窟、少林寺和白马寺。',
+      duration: '2-3天',
+      alt: '洛阳龙门石窟佛教造像',
+      signature: '洛阳适合放在西安、郑州之间，形成以佛教艺术、古都历史和河南遗产线路为核心的紧凑章节。',
+      story: [
+        '洛阳是中国重要古都之一，但对入境游客来说，最清晰的线路是龙门石窟、白马寺、老城背景和少林寺延伸，2到3天就能形成完整主题。',
+        '龙门石窟是洛阳的核心景点。伊河两岸的洞窟、龛像和大型佛教造像，把北魏到唐代的皇家赞助、佛教艺术和石刻工艺集中呈现出来。',
+        '白马寺补充佛教传入中国早期的寺院故事；少林寺则适合作为嵩山一日延伸，面向关注禅宗、武术文化和山地景观的客人。'
+      ],
+      bestFor: ['古都文化', '佛教艺术', '河南遗产线路'],
+      highlights: ['龙门石窟', '少林寺', '白马寺', '洛阳老城'],
+      itinerary: [
+        '第1天：龙门石窟，配导游讲解造像脉络和伊河视角。',
+        '第2天：白马寺、洛阳老城，以及博物馆或街区慢游。',
+        '第3天：如时间允许，安排少林寺和嵩山区域一日延伸。'
+      ],
+      travelNote: '龙门石窟需要留足讲解和步行时间；少林寺不在洛阳市区，需给车程和参观节奏留缓冲。',
+      season: '春秋最舒适；牡丹季有城市特色但客流也会更集中。',
+      connections: '洛阳可通过高铁衔接西安、郑州、北京和华中更多遗产线路。'
+    },
+    chengdu: {
+      name: '成都',
+      region: '西南',
+      summary: '熊猫、茶馆、川菜和松弛的城市节奏。',
+      duration: '2-4天',
+      highlights: ['熊猫基地', '都江堰', '九寨沟', '三星堆', '人民公园茶馆', '四川火锅'],
+      itinerary: [
+        '第1天：清晨参观熊猫基地，下午安排茶馆和公园慢游。',
+        '第2天：老街区、川菜体验，可加入川剧或夜间美食。',
+        '第3天：按节奏选择都江堰+青城山、三星堆、乐山大佛，或预留九寨沟延伸。'
+      ],
+      story: [
+        '成都是进入西南中国的柔和入口：清晨看熊猫，下午进入公园、茶馆、老街和更松弛的本地节奏。',
+        '川菜、火锅、小吃和辣度选择本身就是旅行内容，常常比单个景点更能让游客记住这座城市。',
+        '成都也是乐山、都江堰、青城山、九寨沟、重庆以及更远西部线路的重要枢纽。'
+      ]
+    },
+    guilin: {
+      name: '桂林',
+      region: '华南',
+      summary: '喀斯特山水、漓江游船、骑行和乡村住宿。',
+      duration: '2-4天',
+      story: [
+        '桂林更像一个山水区域，而不只是单个城市：喀斯特峰林、洞穴、河流、村落和桂林到阳朔的漓江段共同构成体验。',
+        '阳朔通常更容易留下深刻记忆，游客可以通过乘船、骑行、短途步行和乡村住宿慢慢进入山水。',
+        '如果加入龙脊梯田或更深入的乡村日，需要给天气、车程和季节景观留出缓冲。'
+      ]
+    },
+    hangzhou: {
+      name: '杭州',
+      region: '华东',
+      summary: '西湖、茶村、寺庙和上海周边轻松延伸。',
+      duration: '1-3天',
+      story: [
+        '杭州围绕西湖展开，堤岸、岛屿、寺塔、园林和低山把城市参观变成一段段湖边步行。',
+        '龙井茶村和灵隐寺为线路增加安静的文化层次，很适合放在上海之后作为更柔和的华东停留。',
+        '杭州不适合只做匆忙中转，更适合留出一整天，减少车程，安排湖边、茶或寺庙的慢节奏体验。'
+      ]
+    },
+    suzhou: {
+      name: '苏州',
+      region: '华东',
+      summary: '古典园林、运河、丝绸文化和精致一日游。',
+      duration: '1-2天',
+      story: [
+        '苏州古典园林把山石、池水、亭台、树木和借景浓缩在有限空间里，细看一座园林往往比赶三座更有价值。',
+        '运河街巷和丝绸传统让苏州即使离上海很近，也呈现出完全不同的江南气质。',
+        '私家游可以把苏州做成高质量一日游，也可以住一晚，留给夜晚运河和第二座园林更多余地。'
+      ]
+    },
     chongqing: {
       name: '重庆',
       region: '西南',
@@ -1598,8 +2217,13 @@ const cityTranslations: Partial<Record<Locale, Record<string, Partial<City>>>> =
       duration: '2-3天',
       alt: '江对岸视角下的重庆夜景天际线',
       signature: '重庆是一座层次丰富的山城，轨道交通、夜景、火锅、过江体验和长江游轮出发本身就构成旅行亮点。',
+      story: [
+        '重庆的地形就是城市故事：山坡、桥梁、江面、扶梯、轻轨和层层叠叠的街道，让日常移动本身像观景。',
+        '夜景和火锅最容易让游客迅速进入状态，白天则可通过磁器口、博物馆、江边街区和老街补足城市背景。',
+        '重庆也是长江游轮常见出发地，线路设计要提前考虑码头时间、行李移动和山城接驳。'
+      ],
       bestFor: ['夜景', '火锅', '长江线路'],
-      highlights: ['洪崖洞片区', '李子坝轻轨', '磁器口古镇', '长江游轮码头'],
+      highlights: ['洪崖洞', '三峡', '李子坝轻轨', '磁器口古镇', '长江游轮码头'],
       itinerary: [
         '第1天：山城观景点、江边夜景和火锅。',
         '第2天：古镇漫步、城市交通景观，以及博物馆或洞穴延伸。',
@@ -1609,19 +2233,61 @@ const cityTranslations: Partial<Record<Locale, Record<string, Partial<City>>>> =
       season: '春秋季最舒适；夏季可能非常炎热。',
       connections: '高铁紧密连接重庆与成都，也可继续飞往张家界和华东城市。'
     },
-    zhangjiajie: { name: '张家界', region: '华中', summary: '砂岩峰林、玻璃桥、索道和高冲击自然景观。', duration: '2-3天' },
-    'hong-kong': { name: '香港', region: '大湾区', summary: '海港天际线、高效交通、海岛徒步、点心和国际航班。', duration: '2-4天' }
+    zhangjiajie: {
+      name: '张家界',
+      region: '华中',
+      summary: '砂岩峰林、玻璃桥、索道和高冲击自然景观。',
+      duration: '2-3天',
+      story: [
+        '张家界武陵源以密集砂岩峰柱、峡谷、森林和随云雾变化的视角闻名，天气和光线会明显改变观感。',
+        '这里的体验高度依赖索道、电梯、景区车、步道和排队节奏，因此线路顺序比简单罗列景点更重要。',
+        '摄影客或自然景观型游客最好预留机动半天，用来应对雾、雨和能见度变化。'
+      ]
+    },
+    lhasa: {
+      name: '拉萨',
+      region: '西藏',
+      summary: '布达拉宫、大昭寺、藏地文化、高海拔节奏和寺院参观。',
+      duration: '3-5天',
+      story: [
+        '拉萨首先要按海拔来规划：抵达恢复、轻量步行、供氧条件和许可时间，都是线路设计的一部分。',
+        '布达拉宫、大昭寺、八廓街和主要寺院，让游客集中理解藏传佛教建筑、朝圣生活和城市精神核心。',
+        '由于准入、导游、证件和门票窗口要求较严格，拉萨通常需要比普通城市更早协调。'
+      ]
+    },
+    dunhuang: {
+      name: '敦煌',
+      region: '西北',
+      summary: '莫高窟、沙漠鸣沙山、月牙泉和丝路历史。',
+      duration: '2-3天',
+      story: [
+        '敦煌把丝路文化和沙漠景观压缩在相对集中的区域：莫高窟是艺术史核心，鸣沙山和月牙泉提供强烈景观对比。',
+        '莫高窟参观依赖预约、限流和讲解衔接，不适合安排在晚到后的匆忙半天。',
+        '沙丘和夜市的傍晚节奏，让敦煌很适合作为西安、张掖等西北线路之间的缓冲站。'
+      ]
+    },
+    'hong-kong': {
+      name: '香港',
+      region: '大湾区',
+      summary: '海港天际线、高效交通、海岛徒步、点心和国际航班。',
+      duration: '2-4天',
+      story: [
+        '香港适合作为华南线路的高效率收尾：维港、太平山、天星小轮、电车、市场、博物馆和点心都能压缩在紧凑天数里。',
+        '城市高密度街区之外，离岛步道、海滩、大屿山和山脊绿道让香港有明显的自然反差。',
+        '对入境中国线路而言，香港最适合结合航班、口岸、高铁、渡轮或国际离境安排，作为华南线路的灵活节点。'
+      ],
+      highlights: ['维多利亚港', '香港迪士尼', '太平山', '中环与上环', '大屿山或离岛步道']
+    }
   },
   de: {
     beijing: { name: 'Peking', region: 'Nordchina', summary: 'Kaiserliche Geschichte, Hutongs, Verbotene Stadt und Ausfluege zur Grossen Mauer.', duration: '3-5 Tage' },
     shanghai: { name: 'Shanghai', region: 'Ostchina', summary: 'Art-Deco-Strassen, Skyline, Designhotels und schnelle Bahnverbindungen.', duration: '2-4 Tage' },
     xian: { name: "Xi'an", region: 'Nordwestchina', summary: 'Alte Hauptstadt, Stadtmauer, muslimisches Viertel und Terrakotta-Armee.', duration: '2-3 Tage' },
+    luoyang: { name: 'Luoyang', region: 'Zentralchina', summary: 'Alte Hauptstadt, Longmen-Grotten, Shaolin-Tempel und White Horse Temple.', duration: '2-3 Tage' },
     chengdu: { name: 'Chengdu', region: 'Suedwestchina', summary: 'Pandas, Teehaeuser, scharfes Essen und entspannte Sichuan-Kultur.', duration: '2-4 Tage' },
     guilin: { name: 'Guilin', region: 'Suedchina', summary: 'Karstberge, Li-Fluss-Kreuzfahrten, Radrouten und Aufenthalte auf dem Land.', duration: '2-4 Tage' },
     hangzhou: { name: 'Hangzhou', region: 'Ostchina', summary: 'Westsee, Teedoerfer, Tempel und eine ruhige Erweiterung ab Shanghai.', duration: '1-3 Tage' },
     suzhou: { name: 'Suzhou', region: 'Ostchina', summary: 'Klassische Gaerten, Kanaele, Seidenkultur und feine Tagesausfluege ab Shanghai.', duration: '1-2 Tage' },
-    guangzhou: { name: 'Guangzhou', region: 'Suedchina', summary: 'Kantonesische Kueche, Handelsgeschichte, Flussabende und Bay-Area-Verbindungen.', duration: '1-3 Tage' },
-    shenzhen: { name: 'Shenzhen', region: 'Suedchina', summary: 'Modernes Design, Technologieviertel, Themenparks und Hongkong-Anbindung.', duration: '1-3 Tage' },
     chongqing: {
       name: 'Chongqing',
       region: 'Suedwestchina',
@@ -1630,7 +2296,7 @@ const cityTranslations: Partial<Record<Locale, Record<string, Partial<City>>>> =
       alt: 'Chongqing-Skyline bei Nacht ueber dem Fluss',
       signature: 'Chongqing ist eine vielschichtige Bergstadt, in der Nahverkehr, Nachtblicke, Hotpot, Flussueberquerungen und Jangtse-Kreuzfahrtstarts selbst zu Reiseerlebnissen werden.',
       bestFor: ['Nachtblicke', 'Hotpot', 'Jangtse-Routen'],
-      highlights: ['Hongya-Cave-Viertel', 'Liziba-Monorail', 'Altstadt Ciqikou', 'Jangtse-Kreuzfahrtpier'],
+      highlights: ['Hongya Cave', 'Drei Schluchten', 'Liziba-Monorail', 'Altstadt Ciqikou', 'Jangtse-Kreuzfahrtpier'],
       itinerary: [
         'Tag 1: Aussichtspunkte der Bergstadt, Abend am Fluss und Hotpot.',
         'Tag 2: Altstadtspaziergang, urbane Verkehrsmotive und Museum oder Hoehlen-Erweiterung.',
@@ -1647,12 +2313,11 @@ const cityTranslations: Partial<Record<Locale, Record<string, Partial<City>>>> =
     beijing: { name: 'Pekin', region: 'Chine du Nord', summary: 'Histoire imperiale, hutongs, Cite interdite et Grande Muraille.', duration: '3-5 jours' },
     shanghai: { name: 'Shanghai', region: 'Chine de l Est', summary: 'Rues art deco, vues de skyline, hotels design et trains rapides.', duration: '2-4 jours' },
     xian: { name: "Xi'an", region: 'Nord-ouest de la Chine', summary: 'Ancienne capitale, remparts, quartier musulman et armee de terre cuite.', duration: '2-3 jours' },
+    luoyang: { name: 'Luoyang', region: 'Chine centrale', summary: 'Ancienne capitale, grottes de Longmen, temple Shaolin et temple du Cheval blanc.', duration: '2-3 jours' },
     chengdu: { name: 'Chengdu', region: 'Sud-ouest de la Chine', summary: 'Pandas, maisons de the, cuisine epicee et culture sichuanaise detendue.', duration: '2-4 jours' },
     guilin: { name: 'Guilin', region: 'Chine du Sud', summary: 'Pics karstiques, croisieres sur la riviere Li, velo et sejours campagne.', duration: '2-4 jours' },
     hangzhou: { name: 'Hangzhou', region: 'Chine de l Est', summary: 'Lac de l Ouest, villages de the, temples et extension douce depuis Shanghai.', duration: '1-3 jours' },
     suzhou: { name: 'Suzhou', region: 'Chine de l Est', summary: 'Jardins classiques, canaux, soie et excursion raffinee depuis Shanghai.', duration: '1-2 jours' },
-    guangzhou: { name: 'Guangzhou', region: 'Chine du Sud', summary: 'Cuisine cantonaise, culture commerciale, soirees sur la riviere et liens Greater Bay.', duration: '1-3 jours' },
-    shenzhen: { name: 'Shenzhen', region: 'Chine du Sud', summary: 'Design moderne, quartiers tech, parcs a theme et connexions Hong Kong.', duration: '1-3 jours' },
     chongqing: {
       name: 'Chongqing',
       region: 'Sud-ouest de la Chine',
@@ -1661,7 +2326,7 @@ const cityTranslations: Partial<Record<Locale, Record<string, Partial<City>>>> =
       alt: 'Skyline de Chongqing de nuit vue depuis la riviere',
       signature: 'Chongqing est une ville montagne en strates, ou metro aerien, vues de nuit, hotpot, traversees de riviere et departs de croisieres Yangtze deviennent des temps forts.',
       bestFor: ['Vues nocturnes', 'Hotpot', 'Routes Yangtze'],
-      highlights: ['Quartier Hongya Cave', 'Monorail Liziba', 'Vieille ville Ciqikou', 'Embarcadere des croisieres Yangtze'],
+      highlights: ['Hongya Cave', 'Trois Gorges', 'Monorail Liziba', 'Vieille ville Ciqikou', 'Embarcadere des croisieres Yangtze'],
       itinerary: [
         'Jour 1: Points de vue de la ville montagne, soiree au bord du fleuve et hotpot.',
         'Jour 2: Balade vieille ville, scenes de transport urbain et musee ou extension grotte.',
@@ -1678,12 +2343,11 @@ const cityTranslations: Partial<Record<Locale, Record<string, Partial<City>>>> =
     beijing: { name: 'Pekin', region: 'Norte de China', summary: 'Historia imperial, hutongs, Ciudad Prohibida y excursiones a la Gran Muralla.', duration: '3-5 dias' },
     shanghai: { name: 'Shanghai', region: 'Este de China', summary: 'Calles art deco, skyline, hoteles de diseno y trenes rapidos.', duration: '2-4 dias' },
     xian: { name: "Xi'an", region: 'Noroeste de China', summary: 'Antigua capital, murallas, barrio musulman y Guerreros de Terracota.', duration: '2-3 dias' },
+    luoyang: { name: 'Luoyang', region: 'China central', summary: 'Antigua capital, grutas de Longmen, templo Shaolin y templo del Caballo Blanco.', duration: '2-3 dias' },
     chengdu: { name: 'Chengdu', region: 'Suroeste de China', summary: 'Pandas, casas de te, comida picante y cultura relajada de Sichuan.', duration: '2-4 dias' },
     guilin: { name: 'Guilin', region: 'Sur de China', summary: 'Picos karsticos, cruceros por el rio Li, rutas en bici y estancias rurales.', duration: '2-4 dias' },
     hangzhou: { name: 'Hangzhou', region: 'Este de China', summary: 'Lago del Oeste, aldeas de te, templos y extension tranquila desde Shanghai.', duration: '1-3 dias' },
     suzhou: { name: 'Suzhou', region: 'Este de China', summary: 'Jardines clasicos, canales, seda y excursion refinada desde Shanghai.', duration: '1-2 dias' },
-    guangzhou: { name: 'Guangzhou', region: 'Sur de China', summary: 'Comida cantonesa, cultura comercial, noches junto al rio y conexiones de la Bahia.', duration: '1-3 dias' },
-    shenzhen: { name: 'Shenzhen', region: 'Sur de China', summary: 'Diseno moderno, distritos tecnologicos, parques tematicos y conexion con Hong Kong.', duration: '1-3 dias' },
     chongqing: {
       name: 'Chongqing',
       region: 'Suroeste de China',
@@ -1692,7 +2356,7 @@ const cityTranslations: Partial<Record<Locale, Record<string, Partial<City>>>> =
       alt: 'Skyline nocturno de Chongqing visto desde el rio',
       signature: 'Chongqing es una ciudad montana por capas, donde el transporte, las vistas nocturnas, el hotpot, los cruces de rio y las salidas de cruceros Yangtze son parte central del viaje.',
       bestFor: ['Vistas nocturnas', 'Hotpot', 'Rutas Yangtze'],
-      highlights: ['Zona de Hongya Cave', 'Monorriel Liziba', 'Casco antiguo Ciqikou', 'Muelle de cruceros Yangtze'],
+      highlights: ['Hongya Cave', 'Tres Gargantas', 'Monorriel Liziba', 'Casco antiguo Ciqikou', 'Muelle de cruceros Yangtze'],
       itinerary: [
         'Dia 1: Miradores de ciudad montana, noche junto al rio y hotpot.',
         'Dia 2: Paseo por casco antiguo, escenas de transporte urbano y museo o extension de cuevas.',
@@ -1756,6 +2420,67 @@ const tripTranslations: Partial<Record<Locale, Record<string, Partial<Trip>>>> =
 
 const productTranslations: Partial<Record<Locale, Record<string, Partial<TourProduct>>>> = {
   zh: {
+    'beijing-central-axis-5-day': {
+      name: '北京经典精华4日',
+      eyebrow: '4天紧凑北京经典线路',
+      duration: '4天 / 3晚',
+      route: '北京',
+      summary: '面向首次到访北京的紧凑单城产品，组合胡同、王府井、慕田峪长城、颐和园、奥林匹克公园、天安门、故宫、景山、天坛和离境前市场时间。',
+      galleryTitle: '皇城、长城、胡同生活和离境日前的经典北京。',
+      highlights: [
+        '4天内压缩北京最核心的皇城、长城、胡同和天坛体验，适合首次到访客人。',
+        '用私家车把慕田峪长城、颐和园、奥林匹克公园、故宫、景山和天坛高效串联。',
+        '保留王府井、胡同家访、金面王朝演出、前门或红桥市场等城市生活与晚间选项。',
+        '把护照预约、故宫周一闭馆、长城缆车选择和离境时间缓冲写进行程说明。'
+      ],
+      days: [
+        {
+          day: '第 1',
+          city: '北京',
+          meals: '- / - / -',
+          title: '抵达北京、胡同三轮车与王府井',
+          summary: '抵达后由英文导游接机或接站，以轻量城市初识开始行程。根据航班时间安排胡同三轮车、老北京院落家访选项，傍晚前往王府井步行街，方便客人适应城市节奏、用餐和购物。',
+          sights: ['机场或火车站接站', '胡同三轮车', '老北京院落家访选项', '王府井步行街', '市区酒店'],
+          note: '如航班抵达较晚，当天胡同或王府井可缩短或调整。'
+        },
+        {
+          day: '第 2',
+          city: '北京',
+          meals: 'B / L / -',
+          title: '慕田峪长城、颐和园与奥林匹克公园',
+          summary: '上午前往慕田峪长城，用相对舒适的景区动线完成长城观景和轻徒步。下午回城游览颐和园，重点看昆明湖、万寿山和十七孔桥；之后到奥林匹克公园外观鸟巢和水立方，适合拍照收尾。',
+          sights: ['慕田峪长城', '颐和园', '昆明湖', '奥林匹克公园', '鸟巢和水立方外观'],
+          note: '慕田峪缆车、索道、滑道等项目可按报价单单独确认。'
+        },
+        {
+          day: '第 3',
+          city: '北京',
+          meals: 'B / L / -',
+          title: '天安门、故宫、景山与晚间演出',
+          summary: '全天聚焦北京皇城核心。先游览天安门广场，再进入故宫看主要宫殿、院落和中轴线空间；下午登景山俯瞰故宫全景。晚上可按报价加入金面王朝或同等级演出，让团队有更完整的文化体验。',
+          sights: ['天安门广场', '故宫', '景山公园', '金面王朝演出选项'],
+          note: '天安门和故宫预约需要护照信息；故宫通常每周一闭馆，法定节假日安排以官方开放为准。'
+        },
+        {
+          day: '第 4',
+          city: '北京',
+          meals: 'B / - / -',
+          title: '天坛、红桥市场或前门与离京送站',
+          summary: '离京前安排天坛，理解明清皇帝祭天祈谷的礼制空间。之后根据航班或高铁时间加入红桥市场、前门或轻量购物停留，最后送往机场或火车站，预留充足离境手续时间。',
+          sights: ['天坛', '红桥市场或前门', '机场或火车站送站'],
+          note: '若需要完整游览天坛，建议安排下午较晚航班或高铁。'
+        }
+      ]
+    },
+    'beijing-family-museums-7-day': { name: '北京亲子博物馆与环球7日', eyebrow: '7天亲子友好北京产品', duration: '7天 / 6晚', route: '北京', summary: '面向亲子家庭的北京线路，覆盖故宫、国家级博物馆、科技学习、校园氛围、长城、奥林匹克公园和可选环球影城。', galleryTitle: '博物馆、学习体验、长城和轻松主题乐园日。' },
+    'beijing-jingwei-6-day': { name: '京韵京味北京6日', eyebrow: '6天皇城与胡同生活线路', duration: '6天 / 5晚', route: '北京', summary: '把故宫、长城与胡同、茶馆、老街和北京风味结合，适合希望看见城市生活层次的客人。', galleryTitle: '皇家地标与老北京街巷生活。' },
+    'beijing-great-wall-autumn-5-day': { name: '北京长城与秋色公园5日', eyebrow: '5天季节性北京短线', duration: '5天 / 4晚', route: '北京', summary: '短线北京产品，组合故宫、颐和园、长城、香山秋色和胡同体验，适合停留时间有限的客人。', galleryTitle: '宫殿尺度、长城风景和季节公园。' },
+    'beijing-gubei-water-town-6-day': { name: '北京+古北水镇6日', eyebrow: '6天北京与司马台夜长城线路', duration: '6天 / 5晚', route: '北京 · 古北水镇', summary: '在北京经典景点之外加入古北水镇和司马台长城，适合希望节奏更慢的小包团。', galleryTitle: '经典北京之外的水镇和夜长城延伸。' },
+    'xian-terracotta-entry-5-day': { name: '西安入境遗产5日', eyebrow: '5天西安入门遗产线路', duration: '5天 / 4晚', route: '西安 · 临潼', summary: '清晰的西安入境产品，覆盖兵马俑、城墙、回民街、大雁塔和大唐夜游氛围。', galleryTitle: '兵马俑、明城墙与唐风夜色。' },
+    'xian-huashan-hukou-6-day': { name: '西安华山壶口6日', eyebrow: '6天陕西山河与古都线路', duration: '6天 / 5晚', route: '西安 · 临潼 · 华山 · 韩城 · 宜川', summary: '高识别度陕西线路，加入华山、壶口瀑布、华清宫、关中文化和兵马俑。', galleryTitle: '古都西安之外的华山与黄河景观。' },
+    'xian-family-intangible-5-day': { name: '西安亲子非遗5日', eyebrow: '5天亲子考古与非遗体验产品', duration: '5天 / 4晚', route: '西安 · 临潼', summary: '亲子友好西安线路，结合兵马俑、大明宫、大雁塔、城墙、唐风街区和非遗体验。', galleryTitle: '用家庭节奏打开考古和民俗文化。' },
+    'xian-tang-night-4-day': { name: '西安唐风夜游4日', eyebrow: '4天西安短停城市产品', duration: '4天 / 3晚', route: '西安', summary: '适合周末或延伸停留的西安短线，组合城墙、回民街、大雁塔、大唐不夜城和兵马俑一日。', galleryTitle: '紧凑短线里的西安夜色和古都核心。' },
+    'xian-yanan-huashan-6-day': { name: '西安延安华山印象6日', eyebrow: '6天陕西深度历史延伸', duration: '6天 / 5晚', route: '西安 · 延安 · 华山 · 临潼', summary: '区域型陕西线路，结合西安遗产、延安历史、华山或壶口延伸和本地餐食规划。', galleryTitle: '从古都到山河与红色历史的陕西深度线。' },
     'beijing-xian-shanghai': {
       name: '北京-西安-上海',
       eyebrow: '8天中国经典遗产陪同游',
@@ -1771,7 +2496,7 @@ const productTranslations: Partial<Record<Locale, Record<string, Partial<TourPro
     'chengdu-chongqing-zhangjiajie': { name: '成都、重庆与张家界之旅', eyebrow: '10天熊猫、山城与峰林线路', duration: '10天 / 9晚', route: '成都 · 重庆 · 张家界', summary: '结合熊猫、川渝美食、重庆夜景和张家界山水的高识别度线路。', galleryTitle: '熊猫、火锅、江城夜景与砂岩峰林。' },
     'beijing-zhangjiajie-shanghai': { name: '中国城市+自然：北京、张家界、上海', eyebrow: '9天经典城市与自然线路', duration: '9天 / 8晚', route: '北京 · 张家界 · 上海', summary: '用张家界替代常规古都章节，适合摄影和自然偏好的首次访华客人。', galleryTitle: '经典门户城市与震撼自然核心。' },
     'guilin-yangshuo-landscape': { name: '桂林山水度假', eyebrow: '5天漓江与阳朔乡村线路', duration: '5天 / 4晚', route: '桂林 · 阳朔 · 龙脊可选', summary: '以山水为主的中国南方延伸线路，含漓江、阳朔乡村和可选梯田。', galleryTitle: '喀斯特山水、漓江游船和乡村节奏。' },
-    'business-leisure-custom': { name: '商务+休闲定制行程', eyebrow: '灵活会奖与商务旅行延伸', duration: '灵活 / 定制', route: '北京 · 上海 · 广州 · 深圳 · 定制城市', summary: '面向商务代表团、会议、翻译、供应商拜访和短时文化体验的定制产品。', galleryTitle: '商务后勤与可选文化时间。' },
+    'business-leisure-custom': { name: '商务+休闲定制行程', eyebrow: '灵活会奖与商务旅行延伸', duration: '灵活 / 定制', route: '北京 · 上海 · 成都 · 定制城市', summary: '面向商务代表团、会议、翻译、供应商拜访和短时文化体验的定制产品。', galleryTitle: '商务后勤与可选文化时间。' },
     'private-family-china': { name: '私家亲子中国游', eyebrow: '8-12天亲子友好私家线路', duration: '8-12天 / 定制', route: '北京 · 西安 · 上海 · 成都或桂林可选', summary: '节奏更慢、酒店位置更合理、导游风格更亲子的私家家庭线路。', galleryTitle: '按家庭节奏调整的经典中国。' }
   },
   de: {
@@ -1790,7 +2515,7 @@ const productTranslations: Partial<Record<Locale, Record<string, Partial<TourPro
     'chengdu-chongqing-zhangjiajie': { name: 'Chengdu, Chongqing & Zhangjiajie', eyebrow: '10 Tage Pandas, Bergstadt und Avatar-Landschaften', duration: '10 Tage / 9 Naechte', route: 'Chengdu · Chongqing · Zhangjiajie', summary: 'Intensive Route mit Pandas, Sichuan-Kueche, Chongqing-Nachtblicken und Zhangjiajie.', galleryTitle: 'Pandas, Hotpot, Flusslichter und Sandsteinspitzen.' },
     'beijing-zhangjiajie-shanghai': { name: 'China + Natur: Peking, Zhangjiajie & Shanghai', eyebrow: '9 Tage klassische Stadt- und Naturroute', duration: '9 Tage / 8 Naechte', route: 'Peking · Zhangjiajie · Shanghai', summary: 'Alternative Erstbesucherroute mit Peking, Shanghai und dramatischem Naturkapitel.', galleryTitle: 'Klassische Gateways mit Naturmittelpunkt.' },
     'guilin-yangshuo-landscape': { name: 'Guilin Landschaftsauszeit', eyebrow: '5 Tage Li-Fluss und Yangshuo-Land', duration: '5 Tage / 4 Naechte', route: 'Guilin · Yangshuo · Longji optional', summary: 'Landschaftsorientierte Suedchina-Erweiterung mit Li-Fluss, Yangshuo und Reisterrassenoption.', galleryTitle: 'Karstberge, Flussfahrt und ruhiges Landtempo.' },
-    'business-leisure-custom': { name: 'Business + Leisure nach Mass', eyebrow: 'Flexible MICE- und Geschaeftsreise-Erweiterung', duration: 'Flexibel / individuell', route: 'Peking · Shanghai · Guangzhou · Shenzhen · Wunschstaedte', summary: 'Massgeschneidert fur Delegationen, Meetings, Dolmetscher, Besuche und Kulturmodule.', galleryTitle: 'Geschaeftslogistik mit optionaler Kulturzeit.' },
+    'business-leisure-custom': { name: 'Business + Leisure nach Mass', eyebrow: 'Flexible MICE- und Geschaeftsreise-Erweiterung', duration: 'Flexibel / individuell', route: 'Peking · Shanghai · Chengdu · Wunschstaedte', summary: 'Massgeschneidert fur Delegationen, Meetings, Dolmetscher, Besuche und Kulturmodule.', galleryTitle: 'Geschaeftslogistik mit optionaler Kulturzeit.' },
     'private-family-china': { name: 'Private Familienreise China', eyebrow: '8-12 Tage familienfreundliche Privatreise', duration: '8-12 Tage / individuell', route: "Peking · Xi'an · Shanghai · Chengdu oder Guilin", summary: 'Private Familienroute mit langsamerem Tempo, passenden Hotels und kinderfreundlichen Guides.', galleryTitle: 'Klassisches China im Familientempo.' }
   },
   fr: {
@@ -1809,7 +2534,7 @@ const productTranslations: Partial<Record<Locale, Record<string, Partial<TourPro
     'chengdu-chongqing-zhangjiajie': { name: 'Chengdu, Chongqing & Zhangjiajie', eyebrow: '10 jours pandas, ville montagne et paysages Avatar', duration: '10 jours / 9 nuits', route: 'Chengdu · Chongqing · Zhangjiajie', summary: 'Route forte avec pandas, cuisine du Sichuan, vues de Chongqing et montagnes de Zhangjiajie.', galleryTitle: 'Pandas, hotpot, lumieres de fleuve et pics de gres.' },
     'beijing-zhangjiajie-shanghai': { name: 'Chine + nature: Pekin, Zhangjiajie & Shanghai', eyebrow: '9 jours ville classique et nature', duration: '9 jours / 8 nuits', route: 'Pekin · Zhangjiajie · Shanghai', summary: 'Alternative premier voyage avec Pekin, Shanghai et chapitre nature spectaculaire.', galleryTitle: 'Portes classiques avec centre nature intense.' },
     'guilin-yangshuo-landscape': { name: 'Echappee paysages de Guilin', eyebrow: '5 jours riviere Li et campagne de Yangshuo', duration: '5 jours / 4 nuits', route: 'Guilin · Yangshuo · Longji option', summary: 'Extension sud Chine centree paysages avec riviere Li, Yangshuo et option rizieres.', galleryTitle: 'Karst, croisiere et rythme campagne.' },
-    'business-leisure-custom': { name: 'Business + loisirs sur mesure', eyebrow: 'Extension MICE et affaires flexible', duration: 'Flexible / sur mesure', route: 'Pekin · Shanghai · Guangzhou · Shenzhen · villes sur mesure', summary: 'Produit pour delegations, reunions, interpretes, visites fournisseurs et modules culturels.', galleryTitle: 'Logistique business avec temps culturel optionnel.' },
+    'business-leisure-custom': { name: 'Business + loisirs sur mesure', eyebrow: 'Extension MICE et affaires flexible', duration: 'Flexible / sur mesure', route: 'Pekin · Shanghai · Chengdu · villes sur mesure', summary: 'Produit pour delegations, reunions, interpretes, visites fournisseurs et modules culturels.', galleryTitle: 'Logistique business avec temps culturel optionnel.' },
     'private-family-china': { name: 'Voyage prive famille en Chine', eyebrow: 'Itineraire prive famille de 8-12 jours', duration: '8-12 jours / sur mesure', route: "Pekin · Xi'an · Shanghai · Chengdu ou Guilin", summary: 'Route famille au rythme plus doux avec hotels pratiques et guides adaptes aux enfants.', galleryTitle: 'Chine classique ajustee au rythme famille.' }
   },
   es: {
@@ -1828,7 +2553,7 @@ const productTranslations: Partial<Record<Locale, Record<string, Partial<TourPro
     'chengdu-chongqing-zhangjiajie': { name: 'Chengdu, Chongqing y Zhangjiajie', eyebrow: '10 dias pandas, ciudad montana y paisajes Avatar', duration: '10 dias / 9 noches', route: 'Chengdu · Chongqing · Zhangjiajie', summary: 'Ruta intensa con pandas, comida Sichuan, vistas de Chongqing y montanas de Zhangjiajie.', galleryTitle: 'Pandas, hotpot, luces de rio y picos de arenisca.' },
     'beijing-zhangjiajie-shanghai': { name: 'China + naturaleza: Pekin, Zhangjiajie y Shanghai', eyebrow: '9 dias de ciudades clasicas y naturaleza', duration: '9 dias / 8 noches', route: 'Pekin · Zhangjiajie · Shanghai', summary: 'Alternativa para primer viaje con Pekin, Shanghai y un capitulo natural dramatico.', galleryTitle: 'Puertas clasicas con centro natural intenso.' },
     'guilin-yangshuo-landscape': { name: 'Escapada paisajistica Guilin', eyebrow: '5 dias rio Li y campo de Yangshuo', duration: '5 dias / 4 noches', route: 'Guilin · Yangshuo · Longji opcional', summary: 'Extension del sur de China centrada en paisaje con rio Li, Yangshuo y arrozales opcionales.', galleryTitle: 'Karst, crucero fluvial y ritmo rural.' },
-    'business-leisure-custom': { name: 'Negocios + ocio a medida', eyebrow: 'Extension flexible MICE y negocios', duration: 'Flexible / a medida', route: 'Pekin · Shanghai · Guangzhou · Shenzhen · ciudades a medida', summary: 'Producto para delegaciones, reuniones, interpretes, visitas a proveedores y modulos culturales.', galleryTitle: 'Logistica de negocios con tiempo cultural opcional.' },
+    'business-leisure-custom': { name: 'Negocios + ocio a medida', eyebrow: 'Extension flexible MICE y negocios', duration: 'Flexible / a medida', route: 'Pekin · Shanghai · Chengdu · ciudades a medida', summary: 'Producto para delegaciones, reuniones, interpretes, visitas a proveedores y modulos culturales.', galleryTitle: 'Logistica de negocios con tiempo cultural opcional.' },
     'private-family-china': { name: 'Tour privado familiar China', eyebrow: 'Itinerario privado familiar de 8-12 dias', duration: '8-12 dias / a medida', route: "Pekin · Xi'an · Shanghai · Chengdu o Guilin", summary: 'Ruta familiar privada con ritmo mas lento, hoteles practicos y guias para ninos.', galleryTitle: 'China clasica ajustada al ritmo familiar.' }
   }
 }
@@ -1837,34 +2562,74 @@ const attractionTranslations: Partial<Record<Locale, Record<string, Partial<Attr
   zh: {
     'Great Wall': { city: '北京', name: '长城', summary: '适合安排私家车接送、弹性徒步节奏和相对安静的修缮段。' },
     'Terracotta Army': { city: '西安', name: '兵马俑', summary: '通过导游讲解理解秦帝国雄心、陶俑工艺和考古现场规模。' },
+    'Big Wild Goose Pagoda': { city: '西安', name: '大雁塔', summary: '串联唐代佛教文化、城市广场和西安夜游片区的地标。' },
+    "Xi'an City Wall": { city: '西安', name: '西安城墙', summary: '适合骑行、日落观景，并直观理解古都城市格局。' },
+    'Great Tang All Day Mall': { city: '西安', name: '大唐不夜城', summary: '唐风夜游街区，适合灯光、街头表演、晚餐和轻松拍照。' },
     'The Bund': { city: '上海', name: '外滩', summary: '黄浦江两岸同时呈现历史建筑和浦东现代天际线。' },
     'Panda Base': { city: '成都', name: '熊猫基地', summary: '适合清晨安排的大熊猫、小熊猫和保护科普体验。' },
     'Li River': { city: '桂林', name: '漓江', summary: '穿行桂林与阳朔喀斯特山水的一日慢节奏景观路线。' },
-    'West Lake': { city: '杭州', name: '西湖', summary: '由诗词、堤岸、寺塔和园林共同塑造的湖山文化景观。' }
+    'West Lake': { city: '杭州', name: '西湖', summary: '由诗词、堤岸、寺塔和园林共同塑造的湖山文化景观。' },
+    'Mogao Caves': { city: '敦煌', name: '莫高窟', summary: '丝路佛教艺术核心景点，需按预约窗口安排洞窟、壁画和塑像讲解。' },
+    'Crescent Moon Spring': { city: '敦煌', name: '月牙泉', summary: '鸣沙山下的沙漠绿洲，适合傍晚光线、沙丘景观和轻松收尾。' },
+    'Hongya Cave': { city: '重庆', name: '洪崖洞', summary: '山城夜景代表片区，可串联解放碑、江边步道和桥梁视角。' },
+    'Three Gorges': { city: '重庆', name: '三峡', summary: '从重庆开启长江游轮和峡谷风光线路时最具代表性的经典景观。' },
+    'Longmen Grottoes': { city: '洛阳', name: '龙门石窟', summary: '沿伊河展开的佛教艺术线路，适合配导游理解洞窟、龛像和大型石刻。' },
+    'Shaolin Temple': { city: '洛阳', name: '少林寺', summary: '嵩山一日延伸，结合禅宗、武术文化和山地景观。' },
+    'White Horse Temple': { city: '洛阳', name: '白马寺', summary: '面向中国佛教早期历史和寺院院落节奏的洛阳文化停留。' }
   },
   de: {
     'Great Wall': { city: 'Peking', name: 'Grosse Mauer', summary: 'Am besten mit Privattransfer, flexiblem Wandertempo und ruhigerem restauriertem Abschnitt.' },
     'Terracotta Army': { city: "Xi'an", name: 'Terrakotta-Armee' },
+    'Big Wild Goose Pagoda': { city: "Xi'an", name: 'Grosse Wildganspagode' },
+    "Xi'an City Wall": { city: "Xi'an", name: 'Stadtmauer von Xi an' },
+    'Great Tang All Day Mall': { city: "Xi'an", name: 'Great Tang All Day Mall' },
     'The Bund': { city: 'Shanghai', name: 'Bund' },
     'Panda Base': { city: 'Chengdu', name: 'Panda-Basis' },
     'Li River': { city: 'Guilin', name: 'Li-Fluss' },
-    'West Lake': { city: 'Hangzhou', name: 'Westsee' }
+    'West Lake': { city: 'Hangzhou', name: 'Westsee' },
+    'Mogao Caves': { city: 'Dunhuang', name: 'Mogao-Grotten' },
+    'Crescent Moon Spring': { city: 'Dunhuang', name: 'Crescent Moon Spring' },
+    'Hongya Cave': { city: 'Chongqing', name: 'Hongya Cave' },
+    'Three Gorges': { city: 'Chongqing', name: 'Drei Schluchten' },
+    'Longmen Grottoes': { city: 'Luoyang', name: 'Longmen-Grotten' },
+    'Shaolin Temple': { city: 'Luoyang', name: 'Shaolin-Tempel' },
+    'White Horse Temple': { city: 'Luoyang', name: 'White Horse Temple' }
   },
   fr: {
     'Great Wall': { city: 'Pekin', name: 'Grande Muraille', summary: 'Ideal avec transfert prive, rythme de marche flexible et section restauree plus calme.' },
     'Terracotta Army': { city: "Xi'an", name: 'Armee de terre cuite' },
+    'Big Wild Goose Pagoda': { city: "Xi'an", name: 'Grande pagode de l oie sauvage' },
+    "Xi'an City Wall": { city: "Xi'an", name: 'Remparts de Xi an' },
+    'Great Tang All Day Mall': { city: "Xi'an", name: 'Great Tang All Day Mall' },
     'The Bund': { city: 'Shanghai', name: 'Le Bund' },
     'Panda Base': { city: 'Chengdu', name: 'Base des pandas' },
     'Li River': { city: 'Guilin', name: 'Riviere Li' },
-    'West Lake': { city: 'Hangzhou', name: 'Lac de l Ouest' }
+    'West Lake': { city: 'Hangzhou', name: 'Lac de l Ouest' },
+    'Mogao Caves': { city: 'Dunhuang', name: 'Grottes de Mogao' },
+    'Crescent Moon Spring': { city: 'Dunhuang', name: 'Source du Croissant de Lune' },
+    'Hongya Cave': { city: 'Chongqing', name: 'Hongya Cave' },
+    'Three Gorges': { city: 'Chongqing', name: 'Trois Gorges' },
+    'Longmen Grottoes': { city: 'Luoyang', name: 'Grottes de Longmen' },
+    'Shaolin Temple': { city: 'Luoyang', name: 'Temple Shaolin' },
+    'White Horse Temple': { city: 'Luoyang', name: 'Temple du Cheval blanc' }
   },
   es: {
     'Great Wall': { city: 'Pekin', name: 'Gran Muralla', summary: 'Mejor con traslado privado, ritmo flexible de caminata y una seccion restaurada mas tranquila.' },
     'Terracotta Army': { city: "Xi'an", name: 'Guerreros de Terracota' },
+    'Big Wild Goose Pagoda': { city: "Xi'an", name: 'Gran Pagoda del Ganso Salvaje' },
+    "Xi'an City Wall": { city: "Xi'an", name: 'Muralla de Xi an' },
+    'Great Tang All Day Mall': { city: "Xi'an", name: 'Great Tang All Day Mall' },
     'The Bund': { city: 'Shanghai', name: 'El Bund' },
     'Panda Base': { city: 'Chengdu', name: 'Base de pandas' },
     'Li River': { city: 'Guilin', name: 'Rio Li' },
-    'West Lake': { city: 'Hangzhou', name: 'Lago del Oeste' }
+    'West Lake': { city: 'Hangzhou', name: 'Lago del Oeste' },
+    'Mogao Caves': { city: 'Dunhuang', name: 'Cuevas de Mogao' },
+    'Crescent Moon Spring': { city: 'Dunhuang', name: 'Manantial de la Luna Creciente' },
+    'Hongya Cave': { city: 'Chongqing', name: 'Hongya Cave' },
+    'Three Gorges': { city: 'Chongqing', name: 'Tres Gargantas' },
+    'Longmen Grottoes': { city: 'Luoyang', name: 'Grutas de Longmen' },
+    'Shaolin Temple': { city: 'Luoyang', name: 'Templo Shaolin' },
+    'White Horse Temple': { city: 'Luoyang', name: 'Templo del Caballo Blanco' }
   }
 }
 
@@ -1914,6 +2679,72 @@ const attractionDetailTranslations: Partial<Record<Locale, Record<string, Partia
       practicalNotes: ['不要把兵马俑压缩成快速拍照点。', '节假日和团队高峰期室内人流较大。', '导游能显著提升对陵区体系的理解。'],
       imageCredit: '图片来自 Unsplash，并沿用当前官网已有媒体配置。'
     },
+    'big-wild-goose-pagoda': {
+      eyebrow: '唐代佛教文化地标',
+      heroTitle: '大雁塔',
+      intro: '大雁塔是西安城市游览中识别度很高的唐代地标，能把佛教文化传播、寺院空间、城市广场和夜游片区自然串联起来。',
+      facts: [
+        { label: '区域', value: '西安雁塔区' },
+        { label: '建议节奏', value: '下午至傍晚' },
+        { label: '适合', value: '唐文化、城市游览、亲子节奏' }
+      ],
+      whyGo: [
+        { title: '唐代长安信号清晰', text: '大雁塔能让游客快速建立对唐代长安、佛教交流和西安城市气质的直观印象。' },
+        { title: '组合方便', text: '可接在博物馆、城墙或兵马俑之后，不需要额外拉长转场。' },
+        { title: '夜游价值高', text: '周边广场和唐风街区适合安排轻量夜游，平衡白天较重的历史参观。' }
+      ],
+      visitFlow: [
+        '放在较重的白天行程之后，控制节奏不要过赶。',
+        '结合寺院和塔体讲解唐长安、佛教传播和玄奘相关背景。',
+        '傍晚可继续周边广场或唐风夜游片区，并就近安排晚餐。'
+      ],
+      practicalNotes: ['夜间人流需提前评估。', '不要只作为拍照点，应给出唐文化背景。', '如果当天已去临潼，晚间安排要更轻。'],
+      imageCredit: '图片来自 Wikimedia Commons，并沿用当前官网媒体配置。'
+    },
+    'xian-city-wall': {
+      eyebrow: '古都城墙路线',
+      heroTitle: '西安城墙',
+      intro: '西安城墙适合用一到两小时打开古都空间感：城门、墙体、护城河、骑行和日落视角，都能让游客直观理解老城格局。',
+      facts: [
+        { label: '区域', value: '西安市中心' },
+        { label: '建议节奏', value: '1-2 小时' },
+        { label: '适合', value: '城市格局、骑行、日落观景' }
+      ],
+      whyGo: [
+        { title: '城市结构一目了然', text: '城墙比普通街区更容易帮助游客理解西安古城的尺度和方向。' },
+        { title: '活动强度可调', text: '可以短距离步行、局部骑行，也可以只安排城门和观景点，适配不同年龄客人。' },
+        { title: '衔接晚间顺畅', text: '下午上城墙后，可自然接钟鼓楼、回民街或老城晚餐。' }
+      ],
+      visitFlow: [
+        '根据酒店位置和团队体力选择城门与登墙点。',
+        '预留墙上拍照和老城视角时间。',
+        '结束后接回民街、钟楼片区或晚餐，不宜再叠加太重的室内参观。'
+      ],
+      practicalNotes: ['骑行受天气和客流影响。', '夏季正午墙上暴晒明显。', '老年客人需提前确认楼梯、电梯和步行预期。'],
+      imageCredit: '图片来自腾轩航旅本地媒体。'
+    },
+    'datang-everbright-city': {
+      eyebrow: '唐风夜游街区',
+      heroTitle: '大唐不夜城',
+      intro: '大唐不夜城适合放在西安傍晚到夜间行程里，用唐风街区、灯光装置、街头表演和就近晚餐承接白天较重的历史参观。',
+      facts: [
+        { label: '区域', value: '西安雁塔区' },
+        { label: '建议节奏', value: '傍晚至夜间步行' },
+        { label: '适合', value: '夜景拍照、唐风氛围、亲子和轻松晚间行程' }
+      ],
+      whyGo: [
+        { title: '夜游价值明确', text: '白天走完兵马俑、城墙或博物馆后，大唐不夜城能让节奏变轻，同时保留西安辨识度。' },
+        { title: '唐风信号直观', text: '灯光、街区、演艺氛围和旅拍场景能让游客快速感知唐代长安意象。' },
+        { title: '组合方便', text: '它靠近大雁塔片区，适合和晚餐、广场散步、轻量夜游连在一起。' }
+      ],
+      visitFlow: [
+        '傍晚从大雁塔或附近晚餐开始，之后步行进入街区。',
+        '预留灯光、街头表演和拍照时间，不要把夜游排得过紧。',
+        '适合接在兵马俑、城墙或博物馆之后，作为当天较轻的收尾。'
+      ],
+      practicalNotes: ['晚间和节假日人流较密。', '步行街区接送点要提前确认。', '如承诺具体演出，需另查当天安排和天气。'],
+      imageCredit: '图片来自 Wikimedia Commons，并沿用当前官网媒体配置。'
+    },
     'the-bund': {
       eyebrow: '滨江天际线与建筑',
       heroTitle: '上海外滩',
@@ -1934,7 +2765,7 @@ const attractionDetailTranslations: Partial<Record<Locale, Record<string, Partia
         '晚间继续南京路、豫园周边或晚餐，不必把活动排得过满。'
       ],
       practicalNotes: ['冬季江边风大，夜景游览要注意保暖。', '晚间高峰需关注团队集合和走失风险。', '如增加水上交通，应选择正规游船或轮渡。'],
-      imageCredit: '图片来自 Unsplash，并沿用当前官网已有媒体配置。'
+      imageCredit: '图片来自腾轩航旅本地媒体。'
     },
     'panda-base': {
       eyebrow: '成都野生动物与保护',
@@ -2001,6 +2832,116 @@ const attractionDetailTranslations: Partial<Record<Locale, Record<string, Partia
       ],
       practicalNotes: ['不要把西湖变成过多点位的清单。', '春季茶季和秋季天气尤其适合。', '如果游客想要更柔和的华东节奏，建议杭州过夜。'],
       imageCredit: '图片来自 Wikimedia Commons，并沿用当前官网已有媒体配置。'
+    },
+    'mogao-caves': {
+      eyebrow: '丝路佛教艺术',
+      heroTitle: '莫高窟',
+      intro: '莫高窟是敦煌最核心的文化遗产景点，洞窟壁画、彩塑、藏经洞故事和丝绸之路交流背景，需要预约窗口和导游讲解共同支撑。',
+      facts: [
+        { label: '区域', value: '甘肃敦煌' },
+        { label: '建议节奏', value: '半日，按预约时段进入' },
+        { label: '适合', value: '丝路历史、佛教艺术、世界遗产文化' }
+      ],
+      whyGo: [
+        { title: '世界遗产核心', text: '莫高窟是很多客人加入敦煌的主要文化理由，让西北线路不只是沙漠景观，也有高密度艺术史内容。' },
+        { title: '讲解非常关键', text: '洞窟顺序、壁画主题、彩塑、保护限制和丝路背景，需要通过导游才能形成完整理解。' },
+        { title: '必须提前规划', text: '门票、限流、开放窗口和接驳时间决定当天节奏，不能当作临时加点。' }
+      ],
+      visitFlow: [
+        '先确认莫高窟预约时段，再锁定敦煌当天其他行程。',
+        '把洞窟参观作为当天主要文化章节，预留讲解、接驳和缓冲时间。',
+        '天气和体力允许时，下午或傍晚再接鸣沙山月牙泉。'
+      ],
+      practicalNotes: ['不建议安排在晚到后的匆忙半天。', '洞窟拍摄和开放范围会因保护要求受限。', '夏季要注意高温、补水和接驳节奏。'],
+      imageCredit: '图片来自 Wikimedia Commons，并沿用当前官网媒体配置。'
+    },
+    'crescent-moon-spring': {
+      eyebrow: '沙漠绿洲与鸣沙山',
+      heroTitle: '月牙泉',
+      intro: '月牙泉是敦煌最直观的沙漠景观对比：一弯绿洲嵌在鸣沙山沙丘之间，适合安排在傍晚，以柔和光线、沙丘视角和轻松节奏收尾。',
+      facts: [
+        { label: '区域', value: '敦煌鸣沙山' },
+        { label: '建议节奏', value: '下午至日落' },
+        { label: '适合', value: '沙漠景观、摄影、家庭友好收尾' }
+      ],
+      whyGo: [
+        { title: '视觉辨识度强', text: '月牙形泉水和周边沙丘能让游客快速感受到敦煌的沙漠绿洲气质。' },
+        { title: '适合接在莫高窟之后', text: '莫高窟偏文化和室内讲解，月牙泉则提供更放松的户外景观段。' },
+        { title: '光线和天气影响大', text: '傍晚光线、风沙、高温和客流会明显影响体验，需要按当天条件调整。' }
+      ],
+      visitFlow: [
+        '避开最热时段，选择下午后段进入。',
+        '把鸣沙山视角和月牙泉区域作为一个整体景观点来安排。',
+        '结束后可接夜市或简单晚餐，不要再叠加太重的文化参观。'
+      ],
+      practicalNotes: ['沙地、风和高温会影响舒适度和设备。', '家庭和长者要提前确认步行距离。', '不要承诺固定日落效果，应看当天风沙和天气。'],
+      imageCredit: '图片来自 Wikimedia Commons，并沿用当前官网媒体配置。'
+    },
+    'longmen-grottoes': {
+      eyebrow: '佛教艺术世界遗产',
+      heroTitle: '龙门石窟',
+      intro: '龙门石窟是洛阳最核心的遗产景点，伊河两岸的洞窟、龛像、题记和大型佛教石刻共同呈现皇家赞助与宗教艺术。',
+      facts: [
+        { label: '区域', value: '河南洛阳' },
+        { label: '建议节奏', value: '半日，建议配导游' },
+        { label: '适合', value: '佛教艺术、古都文化、遗产线路' }
+      ],
+      whyGo: [
+        { title: '世界遗产核心', text: 'UNESCO 认可龙门石窟在佛教石窟艺术和北魏至唐代艺术成就上的突出价值。' },
+        { title: '讲解价值高', text: '导游能把洞窟序列、供养题记、造像风格和奉先寺大像龛串联起来。' },
+        { title: '河南线路支点', text: '龙门让洛阳成为西安、郑州和华中遗产线路之间很有价值的一站。' }
+      ],
+      visitFlow: [
+        '优先安排西山石窟主线，利用较好的体力和光线。',
+        '通过重点洞窟和造像群讲解佛教图像、朝代背景和保护限制。',
+        '预留伊河两岸视角，不要参观完重点点位就立刻离开。'
+      ],
+      practicalNotes: ['景区步行和台阶较多，鞋子要舒适。', '夏季石壁和开阔区域较晒，上午或傍晚体验更好。', '不要把龙门和少林寺压缩得过紧，除非客人接受较长车程日。'],
+      imageCredit: '图片来自腾轩航旅本地媒体。'
+    },
+    'shaolin-temple': {
+      eyebrow: '禅宗与武术文化',
+      heroTitle: '少林寺',
+      intro: '少林寺通常从洛阳或郑州安排为登封一日延伸，把禅宗历史、武术文化和嵩山山地环境组合在一起。',
+      facts: [
+        { label: '区域', value: '河南登封' },
+        { label: '建议节奏', value: '一日延伸' },
+        { label: '适合', value: '武术文化、佛教文化、主动型遗产游客' }
+      ],
+      whyGo: [
+        { title: '识别度高', text: '少林是河南最容易被海外游客识别的文化名片之一，尤其适合关注功夫和禅宗传统的客人。' },
+        { title: '山地背景重要', text: '寺院、塔林、演出时间和嵩山景观需要作为一条完整动线规划。' },
+        { title: '与龙门互补', text: '龙门偏静态石刻艺术，少林偏寺院和武术文化，两者组合后主题更立体。' }
+      ],
+      visitFlow: [
+        '从洛阳早点出发，保障车程、寺院参观和演出时间。',
+        '不要只看表演，寺院院落和塔林也要有基本讲解。',
+        '当天对家庭和长者会偏长，返程晚餐应安排简单。'
+      ],
+      practicalNotes: ['少林寺不在洛阳市区，不适合当作快速市内景点。', '节假日客流和演出安排会影响顺序。', '报价前确认客人想要多少步行和山地景观。'],
+      imageCredit: '图片来自 Wikimedia Commons，并沿用当前官网媒体配置。'
+    },
+    'white-horse-temple': {
+      eyebrow: '中国佛教早期历史',
+      heroTitle: '白马寺',
+      intro: '白马寺为洛阳增加一个节奏更舒缓的寺院历史停留，常被用来讲述佛教传入中国早期的重要节点。',
+      facts: [
+        { label: '区域', value: '河南洛阳' },
+        { label: '建议节奏', value: '半日或市区组合' },
+        { label: '适合', value: '寺院历史、慢节奏、古都线路' }
+      ],
+      whyGo: [
+        { title: '佛教早期背景', text: '白马寺帮助游客理解佛教如何进入并融入中国宗教与文化史。' },
+        { title: '节奏更柔和', text: '当团队需要比龙门或少林更轻松的一天时，白马寺适合搭配老城或博物馆。' },
+        { title: '主题衔接清楚', text: '白马寺、龙门石窟和少林寺可以组成洛阳周边三个不同的佛教文化章节。' }
+      ],
+      visitFlow: [
+        '把白马寺作为上午或下午的完整停留，而不是赶路间隙。',
+        '通过院落动线讲清佛教传入中国的早期故事。',
+        '之后可搭配老城美食、博物馆或轻量街区漫步。'
+      ],
+      practicalNotes: ['保持寺院参观礼貌，不要叠加太多附近点位。', '对白天步行能力有限的客人，白马寺比龙门和少林更轻松。', '适合平衡已经包含石窟或山地景点的线路。'],
+      imageCredit: '图片来自 Wikimedia Commons，并沿用当前官网媒体配置。'
     }
   }
 }
@@ -2050,7 +2991,6 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
       { city: '上海', role: '分公司' },
       { city: '成都', role: '分公司' },
       { city: '合肥', role: '分公司' },
-      { city: '广州', role: '分公司' },
       { city: '香港', role: '分公司' },
       { city: '美国', role: '海外分支' },
       { city: '彬州', role: '分公司' }
@@ -2707,14 +3647,19 @@ function localizeProduct(base: TourProduct, localized?: Partial<TourProduct>): T
       label: copy.factLabels[fact.label] || fact.label,
       value: copy.factValues[fact.value] || translateCompoundValue(fact.value, copy.factValues)
     })),
-    days: base.days.map((day, index) => ({
-      ...day,
-      day: translateDayLabel(day.day, currentLocale.value),
-      city: translateCompoundValue(day.city, copy.factValues),
-      title: `${copy.dayPlan} ${index + 1}`,
-      summary: copy.daySummary,
-      sights: day.sights.slice(0, 4).map((sight) => translateCompoundValue(sight, copy.factValues))
-    })),
+    days: base.days.map((day, index) => {
+      const localizedDay = localized?.days?.[index]
+      return {
+        ...day,
+        ...localizedDay,
+        day: localizedDay?.day || translateDayLabel(day.day, currentLocale.value),
+        city: localizedDay?.city || translateCompoundValue(day.city, copy.factValues),
+        title: localizedDay?.title || `${copy.dayPlan} ${index + 1}`,
+        summary: localizedDay?.summary || copy.daySummary,
+        sights: localizedDay?.sights || day.sights.slice(0, 4).map((sight) => translateCompoundValue(sight, copy.factValues)),
+        note: localizedDay?.note || day.note
+      }
+    }),
     gallery: base.gallery.map((image) => ({
       ...image,
       city: translateCompoundValue(image.city, copy.factValues),

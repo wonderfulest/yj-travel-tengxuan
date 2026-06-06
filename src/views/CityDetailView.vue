@@ -1,50 +1,119 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { useI18n, useTravelContent } from '@/i18n'
+import { cityClassicSpotsBySlug, cityGalleryBySlug, type CityGalleryImage } from '@/content/travel'
 
 const route = useRoute()
-const { t } = useI18n()
-const { attractionDetails, cities, tourProducts } = useTravelContent()
+const { locale, t } = useI18n()
+const { attractionDetails, cities } = useTravelContent()
+const activeGalleryIndex = ref(0)
+const carouselIntervalMs = 3000
+let galleryTimer: ReturnType<typeof window.setInterval> | undefined
 
 const city = computed(() => cities.value.find((item) => item.slug === route.params.slug) ?? cities.value[0])
 const nearbyCities = computed(() => cities.value.filter((item) => item.slug !== city.value.slug).slice(0, 3))
 const cityAttractions = computed(() =>
   attractionDetails.value.filter((item) => item.city === city.value.name).slice(0, 4)
 )
-const cityProducts = computed(() =>
-  tourProducts.value
-    .filter((product) => routeMentionsCity(product.route, city.value.name))
-    .slice(0, 3)
+const cityClassicSpots = computed(() =>
+  (cityClassicSpotsBySlug[city.value.slug] ?? []).map((item) => {
+    const localized = locale.value === 'zh' ? item.zh : undefined
+    return {
+      name: localized?.name ?? item.name,
+      summary: localized?.summary ?? item.summary,
+      image: item.image,
+      alt: localized?.alt ?? item.alt,
+      fit: item.fit
+    }
+  })
 )
-const cityFaq = computed(() => [
-  {
-    question: t('city.faqBestFor', { city: city.value.name }),
-    answer: `${city.value.name} works best for ${city.value.bestFor.join(', ').toLowerCase()} travelers. ${city.value.signature}`
-  },
-  {
-    question: t('city.faqStay', { city: city.value.name }),
-    answer: `${city.value.duration || '2-4 days'} is the usual planning range. ${city.value.itinerary[0] || city.value.travelNote}`
-  },
-  {
-    question: t('city.faqSeason', { city: city.value.name }),
-    answer: city.value.season
-  },
-  {
-    question: t('city.faqTransport', { city: city.value.name }),
-    answer: city.value.connections
+const hasCityClassicSpots = computed(() => cityClassicSpots.value.length > 0)
+const cityGallery = computed<CityGalleryImage[]>(() => {
+  const seededGallery = cityGalleryBySlug[city.value.slug] ?? []
+  const gallery = seededGallery.length
+    ? seededGallery
+    : [
+        {
+          image: city.value.image || '',
+          alt: city.value.alt || city.value.name,
+          title: city.value.name
+        },
+        ...cityAttractions.value.map((item) => ({
+          image: item.image,
+          alt: item.alt,
+          title: item.name
+        }))
+      ]
+
+  return gallery.filter((item) => item.image).slice(0, 5)
+})
+const activeGalleryImage = computed(() => cityGallery.value[activeGalleryIndex.value] ?? cityGallery.value[0])
+const cityStory = computed(() =>
+  city.value.story?.length
+    ? city.value.story
+    : [
+        city.value.signature,
+        city.value.summary,
+        city.value.travelNote,
+        `${t('city.season')}: ${city.value.season}`,
+        `${t('city.transport')}: ${city.value.connections}`
+      ]
+)
+function showGalleryImage(index: number) {
+  activeGalleryIndex.value = index
+  restartGalleryAutoplay()
+}
+
+function showPreviousGalleryImage() {
+  activeGalleryIndex.value = (activeGalleryIndex.value - 1 + cityGallery.value.length) % cityGallery.value.length
+  restartGalleryAutoplay()
+}
+
+function showNextGalleryImage() {
+  activeGalleryIndex.value = (activeGalleryIndex.value + 1) % cityGallery.value.length
+  restartGalleryAutoplay()
+}
+
+function advanceGalleryImage() {
+  if (cityGallery.value.length < 2) return
+  activeGalleryIndex.value = (activeGalleryIndex.value + 1) % cityGallery.value.length
+}
+
+function startGalleryAutoplay() {
+  stopGalleryAutoplay()
+  if (cityGallery.value.length < 2) return
+  galleryTimer = window.setInterval(advanceGalleryImage, carouselIntervalMs)
+}
+
+function stopGalleryAutoplay() {
+  if (!galleryTimer) return
+  window.clearInterval(galleryTimer)
+  galleryTimer = undefined
+}
+
+function restartGalleryAutoplay() {
+  startGalleryAutoplay()
+}
+
+watch(
+  () => city.value.slug,
+  () => {
+    activeGalleryIndex.value = 0
+    startGalleryAutoplay()
   }
-])
+)
 
-function routeMentionsCity(route: string, name: string) {
-  const normalizedRoute = normalizeRouteText(route)
-  const normalizedCity = normalizeRouteText(name)
-  return normalizedRoute.includes(normalizedCity)
-}
+watch(
+  () => cityGallery.value.length,
+  () => {
+    if (activeGalleryIndex.value >= cityGallery.value.length) activeGalleryIndex.value = 0
+    startGalleryAutoplay()
+  }
+)
 
-function normalizeRouteText(value: string) {
-  return value.toLowerCase().replace(/[’']/g, '').replace(/\s+/g, '')
-}
+onMounted(startGalleryAutoplay)
+onBeforeUnmount(stopGalleryAutoplay)
 </script>
 
 <template>
@@ -59,9 +128,47 @@ function normalizeRouteText(value: string) {
         <h1 id="city-detail-title">{{ city.name }}</h1>
         <p>{{ city.signature }}</p>
       </div>
-      <figure class="city-detail-media">
-        <img v-if="city.image" :src="city.image" :alt="city.alt" width="1100" height="733" loading="eager" fetchpriority="high" />
-        <figcaption>{{ city.summary }}</figcaption>
+      <figure class="city-detail-media city-detail-carousel">
+        <img
+          v-if="activeGalleryImage"
+          :src="activeGalleryImage.image"
+          :alt="activeGalleryImage.alt"
+          :class="{ 'is-contain-image': activeGalleryImage.fit === 'contain' }"
+          :style="{ objectPosition: activeGalleryImage.position }"
+          width="1100"
+          height="733"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <div v-if="cityGallery.length > 1" class="city-carousel-controls" :aria-label="t('city.galleryControls')">
+          <button type="button" :aria-label="t('city.previousImage')" @click="showPreviousGalleryImage">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+          </button>
+          <button type="button" :aria-label="t('city.nextImage')" @click="showNextGalleryImage">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>
+          </button>
+        </div>
+        <div v-if="cityGallery.length > 1" class="city-carousel-thumbs" :aria-label="t('city.galleryThumbnails')">
+          <button
+            v-for="(item, index) in cityGallery"
+            :key="`${item.title}-${index}`"
+            type="button"
+            :class="{ 'is-active': index === activeGalleryIndex }"
+            :aria-label="t('city.showImage', { title: item.title })"
+            @click="showGalleryImage(index)"
+          >
+            <img
+              :src="item.image"
+              :alt="item.alt"
+              :class="{ 'is-contain-image': item.fit === 'contain' }"
+              :style="{ objectPosition: item.position }"
+              width="120"
+              height="80"
+              loading="lazy"
+            />
+          </button>
+        </div>
+        <figcaption>{{ activeGalleryImage?.title || city.summary }}</figcaption>
       </figure>
     </section>
 
@@ -84,65 +191,44 @@ function normalizeRouteText(value: string) {
       </div>
     </section>
 
-    <section class="city-detail-section">
+    <section class="city-detail-section city-story-section" aria-labelledby="city-story-title">
       <div class="city-detail-heading">
-        <p class="product-eyebrow">{{ t('city.whatToSee') }}</p>
-        <h2>{{ t('city.coreExperiences') }}</h2>
+        <p class="product-eyebrow">{{ t('city.cityStory') }}</p>
+        <h2 id="city-story-title">{{ t('city.cityStoryTitle', { city: city.name }) }}</h2>
       </div>
-      <div class="city-pill-grid">
-        <span v-for="highlight in city.highlights" :key="highlight">{{ highlight }}</span>
+      <div class="city-story-copy">
+        <p v-for="paragraph in cityStory" :key="paragraph">{{ paragraph }}</p>
       </div>
     </section>
 
-    <section class="city-detail-section city-route-section">
+    <section v-if="hasCityClassicSpots || cityAttractions.length" class="city-detail-section" aria-labelledby="city-classics-title">
       <div class="city-detail-heading">
-        <p class="product-eyebrow">{{ t('city.pace') }}</p>
-        <h2>{{ t('city.rhythm') }}</h2>
+        <p class="product-eyebrow">{{ t('city.popularClassics') }}</p>
+        <h2 id="city-classics-title">{{ t('city.popularClassicsTitle', { city: city.name }) }}</h2>
       </div>
-      <ol class="city-itinerary-list">
-        <li v-for="step in city.itinerary" :key="step">{{ step }}</li>
-      </ol>
-    </section>
-
-    <section v-if="cityAttractions.length || cityProducts.length" class="city-detail-section" aria-labelledby="city-links-title">
-      <div class="city-detail-heading">
-        <p class="product-eyebrow">{{ t('city.internalLinks') }}</p>
-        <h2 id="city-links-title">{{ t('city.linkTitle', { city: city.name }) }}</h2>
+      <div v-if="hasCityClassicSpots" class="city-classic-grid">
+        <article v-for="item in cityClassicSpots" :key="item.name" class="city-classic-card city-classic-card--static">
+          <img :src="item.image" :alt="item.alt" :class="{ 'is-contain-image': item.fit === 'contain' }" width="720" height="480" loading="lazy" />
+          <div>
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.summary }}</p>
+          </div>
+        </article>
       </div>
-      <div class="seo-link-grid">
+      <div v-else class="city-classic-grid">
         <RouterLink
           v-for="item in cityAttractions"
           :key="item.slug"
-          class="seo-link-card"
+          class="city-classic-card"
           :to="{ name: 'attraction-detail', params: { slug: item.slug } }"
         >
-          <span>{{ t('city.relatedAttraction') }}</span>
-          <strong>{{ item.name }}</strong>
-          <p>{{ item.summary }}</p>
+          <img :src="item.image" :alt="item.alt" width="720" height="480" loading="lazy" />
+          <div>
+            <span>{{ t('city.relatedAttraction') }}</span>
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.summary }}</p>
+          </div>
         </RouterLink>
-        <RouterLink
-          v-for="item in cityProducts"
-          :key="item.slug"
-          class="seo-link-card"
-          :to="{ name: 'product-detail', params: { slug: item.slug } }"
-        >
-          <span>{{ t('city.relatedProduct') }}</span>
-          <strong>{{ item.name }}</strong>
-          <p>{{ item.summary }}</p>
-        </RouterLink>
-      </div>
-    </section>
-
-    <section class="city-detail-section" aria-labelledby="city-faq-title">
-      <div class="city-detail-heading">
-        <p class="product-eyebrow">{{ t('city.faq') }}</p>
-        <h2 id="city-faq-title">{{ t('city.faqTitle', { city: city.name }) }}</h2>
-      </div>
-      <div class="seo-faq-list">
-        <article v-for="item in cityFaq" :key="item.question">
-          <h3>{{ item.question }}</h3>
-          <p>{{ item.answer }}</p>
-        </article>
       </div>
     </section>
 

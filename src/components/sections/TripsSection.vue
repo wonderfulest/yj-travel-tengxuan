@@ -16,7 +16,7 @@ const standardTrips = computed(() => trips.value.filter((trip) => !trip.featured
         <h2 id="trips-title">{{ t('sections.trips.title') }}</h2>
         <p>{{ t('sections.trips.summary') }}</p>
       </div>
-      <RouterLink class="text-link" :to="{ name: 'contact' }">{{ t('product.quote') }}</RouterLink>
+      <RouterLink class="text-link" :to="{ name: 'products' }">{{ t('productList.viewDetail') }}</RouterLink>
     </div>
 
     <div class="trip-grid">
