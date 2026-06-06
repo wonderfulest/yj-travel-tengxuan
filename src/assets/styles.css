@@ -378,17 +378,17 @@ button:disabled {
 
 .hero-panel-left {
   margin-top: 86px;
-  background-image: url("https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=900&q=82");
+  background-image: url("https://yj-travel.s3.amazonaws.com/website/assets/remote/unsplash/great-wall.webp");
 }
 
 .hero-panel-center {
-  background-image: url("https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?auto=format&fit=crop&w=900&q=82");
+  background-image: url("https://yj-travel.s3.amazonaws.com/website/assets/remote/unsplash/hero-center.webp");
 }
 
 .hero-panel-right {
   margin-top: 42px;
   margin-bottom: 72px;
-  background-image: url("https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=900&q=82");
+  background-image: url("https://yj-travel.s3.amazonaws.com/website/assets/remote/unsplash/chengdu.webp");
 }
 
 .company-section {
@@ -2483,8 +2483,9 @@ button:disabled {
 
 .company-detail-facts {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 10px;
+  width: min(100% - 32px, 1380px);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
   padding: 0 0 44px;
 }
 
@@ -2493,7 +2494,10 @@ button:disabled {
   padding: 18px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--soft);
@@ -2627,14 +2631,15 @@ button:disabled {
 .branch-grid {
   display: grid;
   grid-template-columns: minmax(300px, 1.32fr) repeat(3, minmax(0, 1fr));
-  grid-auto-rows: minmax(184px, auto);
-  align-items: start;
+  grid-auto-rows: 224px;
+  align-items: stretch;
   gap: 14px;
 }
 
 .branch-card {
   position: relative;
-  min-height: 184px;
+  min-height: 0;
+  height: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -2662,8 +2667,8 @@ button:disabled {
 
 .branch-card--hub {
   grid-row: span 2;
-  padding: 18px;
-  aspect-ratio: 1 / 1;
+  padding: 24px;
+  aspect-ratio: auto;
   color: white;
   border-color: rgba(255, 255, 255, 0.14);
   background:
@@ -2687,17 +2692,19 @@ button:disabled {
 
 .branch-card--hub .branch-card-image {
   position: absolute;
-  inset: 18px;
-  width: calc(100% - 36px);
-  height: calc(100% - 36px);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  box-shadow: none;
 }
 
 .branch-card--hub::before {
   content: "";
   position: absolute;
-  inset: 18px;
+  inset: 0;
   z-index: 2;
-  border-radius: calc(var(--radius) - 6px);
+  border-radius: inherit;
   background:
     linear-gradient(180deg, rgba(23, 20, 17, 0.04), rgba(23, 20, 17, 0.26) 48%, rgba(23, 20, 17, 0.78)),
     linear-gradient(90deg, rgba(23, 20, 17, 0.62), rgba(23, 20, 17, 0.08) 62%);

@@ -1,6 +1,5 @@
-import officeWorkImage from '@/assets/company/work.webp'
-
 const websiteAssetBase = 'https://yj-travel.s3.amazonaws.com/website/assets'
+const remoteAssetBase = `${websiteAssetBase}/remote`
 const forbiddenCityImage = `${websiteAssetBase}/products/beijing-xian-shanghai/forbidden-city.webp`
 const chengqiangImage = `${websiteAssetBase}/products/beijing-xian-shanghai/chengqiang.webp`
 const longmenGrottoesImage = `${websiteAssetBase}/products/beijing-xian-shanghai/longmen-grottoes.webp`
@@ -27,6 +26,7 @@ const jiuzhaigouImage = `${websiteAssetBase}/products/chengdu/jiuzhaigou.webp`
 const sanxingduiImage = `${websiteAssetBase}/products/chengdu/sanxingdui.webp`
 const chongqingLocalOneImage = `${websiteAssetBase}/products/chongqing/chongqing.webp`
 const chongqingLocalTwoImage = `${websiteAssetBase}/products/chongqing/chongqing2.webp`
+const officeWorkImage = `${websiteAssetBase}/company/work.webp`
 const beijingHeadquartersImage = `${websiteAssetBase}/company/beijing-headquarters.webp`
 const awardCabinetImage = `${websiteAssetBase}/company/certificates/award-cabinet.webp`
 const awardWallImage = `${websiteAssetBase}/company/certificates/award-wall.webp`
@@ -275,62 +275,39 @@ export const images = {
   templeOfHeaven: 'https://yj-travel.s3.amazonaws.com/company/temple-of-heaven-no-people.webp',
   beijingHutong:
     'https://yj-travel.s3.amazonaws.com/company/beijing-hutong-courtyard-lane.webp',
-  greatWall:
-    'https://images.unsplash.com/photo-1508804185872-d7badad00f7d?auto=format&fit=crop&w=1100&q=82',
+  greatWall: `${remoteAssetBase}/unsplash/great-wall.webp`,
   shanghaiBundNight: shanghaiSkylineImage,
   theBund: shanghaiBundImage,
-  shanghai:
-    'https://images.unsplash.com/photo-1548919973-5cef591cdbc9?auto=format&fit=crop&w=900&q=82',
-  terracottaWarriors:
-    'https://commons.wikimedia.org/wiki/Special:FilePath/Terracotta%20Army%2C%20View%20of%20Pit%201.jpg?width=1100',
-  bigWildGoosePagoda:
-    'https://commons.wikimedia.org/wiki/Special:FilePath/Dayan%20%22Big%20Wild%20Goose%22%20Pagoda%20%289911465686%29.jpg?width=1100',
+  shanghai: `${remoteAssetBase}/unsplash/shanghai.webp`,
+  terracottaWarriors: `${remoteAssetBase}/xian/terracotta-army-pit-1.webp`,
+  bigWildGoosePagoda: `${remoteAssetBase}/xian/big-wild-goose-pagoda.webp`,
   xianCityWall: chengqiangImage,
-  datangEverbrightCity:
-    'https://ctdsb.clouddiffuse.xyz/1200X900_pub_cb20231214103425990030.jpg_0a308fd6a5ca4098b70fa38b4de54880.jpg',
-  xian:
-    'https://images.unsplash.com/photo-1589553416260-f586c8f1514f?auto=format&fit=crop&w=900&q=82',
+  datangEverbrightCity: `${remoteAssetBase}/xian/great-tang-mall.webp`,
+  xian: `${remoteAssetBase}/unsplash/xian.webp`,
   longmenGrottoes: longmenGrottoesImage,
-  shaolinTemple:
-    'https://commons.wikimedia.org/wiki/Special:FilePath/Shaolin%20Temple%20%2810199695405%29.jpg?width=1100',
-  whiteHorseTemple:
-    'https://commons.wikimedia.org/wiki/Special:FilePath/27471-Luoyang%2C%20White%20Horse%20Temple.jpg?width=1100',
-  chengdu:
-    'https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?auto=format&fit=crop&w=900&q=82',
+  shaolinTemple: `${remoteAssetBase}/luoyang/shaolin-temple.webp`,
+  whiteHorseTemple: `${remoteAssetBase}/luoyang/white-horse-temple.webp`,
+  chengdu: `${remoteAssetBase}/unsplash/chengdu.webp`,
   dujiangyan: dujiangyanImage,
   jiuzhaigou: jiuzhaigouImage,
   sanxingdui: sanxingduiImage,
-  guilin:
-    'https://commons.wikimedia.org/wiki/Special:FilePath/Karst%20peaks%20and%20bamboo%20forest.jpg?width=900',
-  hangzhou:
-    'https://commons.wikimedia.org/wiki/Special:FilePath/West_Lake_IMG_8795_leifeng_pagoda.jpg?width=900',
-  chongqing:
-    'https://commons.wikimedia.org/wiki/Special:FilePath/Chongqing_Skyline_At_Night.png?width=900',
+  guilin: `${remoteAssetBase}/cities/karst-peaks-bamboo.webp`,
+  hangzhou: `${remoteAssetBase}/cities/west-lake-leifeng.webp`,
+  chongqing: `${remoteAssetBase}/cities/chongqing-skyline-night.webp`,
   hongyaCave: chongqingLocalOneImage,
   threeGorges: chongqingLocalTwoImage,
-  chongqingHotpot:
-    'https://commons.wikimedia.org/wiki/Special:FilePath/Chongqing%20Hot%20Pot.jpg?width=1100',
-  zhangjiajie:
-    'https://commons.wikimedia.org/wiki/Special:FilePath/1_zhangjiajie_huangshizhai_wulingyuan_panorama_2012.jpg?width=900',
-  lhasa: 'https://commons.wikimedia.org/wiki/Special:FilePath/Potala.jpg?width=900',
-  dunhuang:
-    'https://commons.wikimedia.org/wiki/Special:FilePath/Mogao%20Caves%20%2854378046034%29.jpg?width=900',
-  mogaoCaveGrottoes:
-    'https://commons.wikimedia.org/wiki/Special:FilePath/Mogao%20Caves%20%2854377840476%29.jpg?width=1100',
-  crescentMoonSpring:
-    'https://commons.wikimedia.org/wiki/Special:FilePath/Mingsha%20Mountain%20and%20Crescent%20Moon%20Spring%20%2854532735143%29.jpg?width=1100',
-  suzhou:
-    'https://english.suzhou.gov.cn/szdoc/uploadfile/gl_13758/sqjs_13759/csmp_13773/sjwhyc_13779/201611/W020161109367321819174.jpg',
-  suzhouTigerHill:
-    'https://english.suzhou.gov.cn/szsenglish/sz5ajjq/201611/9b1909ce503e4597849ea06d8a755c1a/images/14b18b6957f447edbef5334a4aff018f.jpg',
-  suzhouPingjiangRoad:
-    'https://english.suzhou.gov.cn/szdoc/uploadfile/gl_13758/sqjs_13759/csmp_13773/zglswhmj_13778/201611/W020161130387089347496.jpg',
-  suzhouCanalPagoda:
-    'https://english.suzhou.gov.cn/szsenglish/szdtcyb/202411/066c4903706b4f6f934636a3e0bb2357/images/fb49eb22943d444bacfbadb25bd5dabf.png',
-  hongKong:
-    'https://images.unsplash.com/photo-1536599018102-9f803c140fc1?auto=format&fit=crop&w=1100&q=82',
-  hongKongDisneyland:
-    'https://commons.wikimedia.org/wiki/Special:FilePath/20201019%20Castle%20of%20Magical%20Dreams.jpg?width=1100'
+  chongqingHotpot: `${remoteAssetBase}/cities/chongqing-hot-pot.webp`,
+  zhangjiajie: `${remoteAssetBase}/cities/zhangjiajie-panorama.webp`,
+  lhasa: `${remoteAssetBase}/cities/potala.webp`,
+  dunhuang: `${remoteAssetBase}/dunhuang/mogao-caves.webp`,
+  mogaoCaveGrottoes: `${remoteAssetBase}/dunhuang/mogao-caves-detail.webp`,
+  crescentMoonSpring: `${remoteAssetBase}/dunhuang/mingsha-crescent.webp`,
+  suzhou: `${remoteAssetBase}/suzhou/classical-garden.webp`,
+  suzhouTigerHill: `${remoteAssetBase}/suzhou/tongli-water-town.webp`,
+  suzhouPingjiangRoad: `${remoteAssetBase}/suzhou/pingjiang-road.webp`,
+  suzhouCanalPagoda: `${remoteAssetBase}/suzhou/suzhou-museum.webp`,
+  hongKong: `${remoteAssetBase}/unsplash/hong-kong.webp`,
+  hongKongDisneyland: `${remoteAssetBase}/hong-kong/castle-of-magical-dreams.webp`
 }
 
 export const cityGalleryBySlug: Record<string, CityGalleryImage[]> = {
@@ -342,7 +319,7 @@ export const cityGalleryBySlug: Record<string, CityGalleryImage[]> = {
   ],
   shanghai: [
     { image: images.shanghai, alt: 'Shanghai city skyline', title: 'Pudong skyline' },
-    { image: 'https://images.unsplash.com/photo-1538428494232-9c0d8a3ab403?auto=format&fit=crop&w=1100&q=82', alt: 'Historic Shanghai street architecture', title: 'Old city and lane walks' }
+    { image: `${remoteAssetBase}/unsplash/shanghai-street.webp`, alt: 'Historic Shanghai street architecture', title: 'Old city and lane walks' }
   ],
   xian: [
     { image: images.terracottaWarriors, alt: "Terracotta warriors in Xi'an", title: 'Terracotta Army' },
@@ -687,9 +664,9 @@ export const companyDetail: CompanyDetail = {
         'The group works with 2000+ quality supplier partners across transportation, hotels, destination services, ticketing, and travel-resource allocation.'
     },
     {
-      title: 'Broad business coverage',
+      title: 'Inbound tourism focus',
       text:
-        'Its business covers major transportation, independent ticketing, travel management, online booking, air cargo, and travel-resource allocation.'
+        'Tengxuan focuses on inbound China tourism, overseas source-market acquisition, China sightseeing reception, multilingual guide service, and coordinated operations for steady inbound-business growth.'
     }
   ],
   branches: [
@@ -3573,24 +3550,15 @@ const txChengduVisaFree3DayProduct: TourProduct = {
 }
 
 const chinaTourRemoteImages = {
-  splendidChina:
-    'https://chinatour.com/wp-content/uploads/2025/12/SplendidChinaFolkVillageTicketinGuangdongChina-Klook.jpg',
-  grandChinaYangtze:
-    'https://chinatour.com/wp-content/uploads/2025/12/beijing-yangtze-tour.jpg',
-  yangtzeCruise:
-    'https://chinatour.com/wp-content/uploads/2025/12/century-paragon-cruise_3.jpg',
-  lhasaEssence:
-    'https://chinatour.com/wp-content/uploads/2025/12/4-days-lhasa-city-tour.jpg',
-  tibetTrain:
-    'https://chinatour.com/wp-content/uploads/2025/12/7-Days-Tibet-Pilgrim-Tour-by-Train-from-Xining.jpg',
-  xining:
-    'https://chinatour.com/wp-content/uploads/2025/12/Xining_-_53725921152-1.jpg',
-  xianTerracotta:
-    'https://chinatour.com/wp-content/uploads/2025/12/Terracotta1200.jpg',
-  xianLuoyang:
-    'https://chinatour.com/wp-content/uploads/2025/12/4-Days-Xian-Luoyang-Highlights-Tour-.jpg',
-  xianHighlights:
-    'https://chinatour.com/wp-content/uploads/2025/12/b4.jpg'
+  splendidChina: `${remoteAssetBase}/chinatour/splendid-china.webp`,
+  grandChinaYangtze: `${remoteAssetBase}/chinatour/grand-china-yangtze.webp`,
+  yangtzeCruise: `${remoteAssetBase}/chinatour/century-paragon-cruise.webp`,
+  lhasaEssence: `${remoteAssetBase}/chinatour/lhasa-city-tour.webp`,
+  tibetTrain: `${remoteAssetBase}/chinatour/tibet-train.webp`,
+  xining: `${remoteAssetBase}/chinatour/xining.webp`,
+  xianTerracotta: `${remoteAssetBase}/chinatour/terracotta1200.webp`,
+  xianLuoyang: `${remoteAssetBase}/chinatour/xian-luoyang-highlights.webp`,
+  xianHighlights: `${remoteAssetBase}/chinatour/xian-highlights.webp`
 }
 
 const standardChinaProductInclusions = [

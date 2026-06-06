@@ -3867,7 +3867,7 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
     overview: [
       { title: '稳定运营基础', text: '腾轩旅游集团有限公司成立于 2001 年，总部位于北京，注册资本 11,053 万元。' },
       { title: '供应商合作网络', text: '集团连接 2000+ 优质供应商合作伙伴，覆盖交通、酒店、目的地服务、票务和旅行资源配置。' },
-      { title: '广泛业务覆盖', text: '业务覆盖大交通、自由行票务、差旅管理、在线预订、航空货运和旅行资源配置。' }
+      { title: '入境旅游业务', text: '腾轩航旅主营入境旅游，专注境外客源招徕与来华观光接待；依托经营管理、市场营销和多语种导游团队，持续拓展入境业务。' }
     ],
     brands: [
       { name: '在路上商旅', summary: '围绕成本、数据和供应链控制的商务旅行管理。' },
@@ -3895,7 +3895,7 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
       { city: '成都', role: '分公司', phone: '+86 028-68170115', address: '四川省成都市高新区天府新谷 9 号楼 2 单元 2102 室' },
       { city: '合肥', role: '分公司', phone: '+86 0551-65238888', address: '安徽省合肥市蜀山区蜀山电子产业园四期 D 座 19 楼北侧' },
       { city: '上海', role: '分公司', phone: '+86 021-53085001', address: '上海市长宁区金钟路 968 号凌空 SOHO 天会商务广场 2 号楼 202 室' },
-      { city: '香港', role: '分公司', address: 'RM19, UNIT 1003, 10/F, THE RAINBOW 22 WANG YIP STREET, SOUTH YUEN LONG, NT' },
+      { city: '香港', role: '分公司', address: 'RM19, Unit 1003, 10/F, The Rainbow, 22 Wang Yip Street, South Yuen Long, NT' },
       { city: '美国', role: '海外分支', phone: '+1 626-723-3197', address: '680 Brea Canyon Road, Suite 288, Diamond Bar, CA 91789' }
     ],
     inbound: {
