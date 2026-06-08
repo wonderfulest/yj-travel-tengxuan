@@ -98,10 +98,6 @@ function destinationSortWeight(destination: string) {
           </button>
         </div>
       </div>
-      <aside class="product-list-stat" :aria-label="recommendedCount">
-        <span>{{ recommendedCount }}</span>
-        <strong>{{ selectedDestination === 'all' ? t('productList.all') : destinationLabel(selectedDestination) }}</strong>
-      </aside>
     </section>
 
     <section class="product-list-section" aria-labelledby="product-list-results-title">

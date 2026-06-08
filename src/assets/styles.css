@@ -2972,10 +2972,6 @@ button:disabled {
 
 .product-list-hero {
   padding: 42px 0 44px;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.28fr);
-  gap: 28px;
-  align-items: end;
 }
 
 .product-list-copy h1 {
@@ -3034,20 +3030,6 @@ button:disabled {
   color: white;
 }
 
-.product-list-stat {
-  min-height: 210px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background:
-    linear-gradient(135deg, rgba(184, 50, 34, 0.12), transparent 44%),
-    var(--soft);
-}
-
-.product-list-stat span,
 .product-list-card-topline span,
 .product-feedback-grid span,
 .product-list-action {
@@ -3055,15 +3037,6 @@ button:disabled {
   font-size: 0.78rem;
   font-weight: 700;
   text-transform: uppercase;
-}
-
-.product-list-stat span {
-  color: var(--jade);
-}
-
-.product-list-stat strong {
-  font-size: clamp(2rem, 3.2vw, 3.2rem);
-  line-height: 0.95;
 }
 
 .product-list-section {
