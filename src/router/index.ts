@@ -1,4 +1,5 @@
 import { createMemoryHistory, createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
+import { trackPageView } from '@/analytics'
 import { applySeoMeta, getLocaleFromPath, isLocalePrefix } from '@/seo'
 import { getCurrentLocale, getStoredLocale, setLocale, type Locale } from '@/i18n'
 
@@ -19,6 +20,11 @@ const baseRoutes: RouteRecordRaw[] = [
     path: '/company',
     name: 'company',
     component: () => import('@/views/CompanyView.vue')
+  },
+  {
+    path: '/company/photos',
+    name: 'company-photos',
+    component: () => import('@/views/CompanyPhotosView.vue')
   },
   {
     path: '/company/:slug',
@@ -154,6 +160,7 @@ export function createWebsiteRouter() {
   router.afterEach((to) => {
     if (typeof document === 'undefined') return
     applySeoMeta(to.name === 'not-found' ? '/404' : to.path)
+    trackPageView(to.fullPath)
   })
 
   return router

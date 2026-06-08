@@ -969,10 +969,10 @@ export const companyDetail: CompanyDetail = {
     },
     {
       slug: 'office-scenes',
-      eyebrow: 'Office scenes',
-      title: 'Office openings and workplace culture',
+      eyebrow: 'Office and team culture',
+      title: 'Office scenes and team culture',
       summary:
-        'Ribbon-cutting, brand-wall visits, opening ceremonies, and office celebration scenes that show the group’s workplace and branch culture.',
+        'Ribbon-cutting, brand-wall visits, office celebrations, outdoor routes, and employee activities that show the group’s workplace and team culture.',
       cover: `${companyActivityImageBase}/office-celebration-team.webp`,
       coverAlt: 'Tengxuan office team celebration group photo',
       images: [
@@ -1018,25 +1018,13 @@ export const companyDetail: CompanyDetail = {
           image: `${companyActivityImageBase}/office-festive-visit.webp`,
           alt: 'Two team members visiting Tengxuan office during a festive season',
           caption: 'Employee visit and festive office setup around the group brand wall.'
-        }
-      ]
-    },
-    {
-      slug: 'team-culture',
-      eyebrow: 'Team culture',
-      title: 'Team building and employee activities',
-      summary:
-        'Outdoor routes, office team photos, sports participation, and group-building scenes that show Tengxuan’s employee culture.',
-      cover: `${companyActivityImageBase}/outdoor-team-photo.webp`,
-      coverAlt: 'Tengxuan outdoor team building group photo',
-      images: [
+        },
         {
           title: 'Outdoor team route',
           label: 'Team building',
           image: `${companyActivityImageBase}/outdoor-team-photo.webp`,
           alt: 'Tengxuan employees in an outdoor team building group photo',
-          caption: 'Outdoor group-building activity with the Tengxuan team.',
-          featured: true
+          caption: 'Outdoor group-building activity with the Tengxuan team.'
         },
         {
           title: 'Office team night',

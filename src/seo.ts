@@ -54,6 +54,12 @@ const staticSeo: Record<string, { title: string; description: string; image?: st
       'Tengxuan Travel Group company profile, airline resources, inbound China travel capability, branch network, brand system, milestones, honors, and corporate culture.',
     image: companyDetail.photoSlots[0]?.image
   },
+  '/company/photos': {
+    title: 'Tengxuan Travel Group Team Photos',
+    description:
+      'Team photos from Tengxuan Travel Group offices, company activities, partner events, meetings, and employee culture moments.',
+    image: companyDetail.mediaGallery[0]?.image || companyDetail.photoSlots[0]?.image
+  },
   '/destinations': {
     title: 'China Destinations: City Guides and Must-See Attractions | Tengxuan',
     description:
@@ -330,6 +336,7 @@ function getContentPaths() {
   return [
     '/',
     '/company',
+    '/company/photos',
     ...companyDetail.activityCategories.map((category) => `/company/${category.slug}`),
     '/destinations',
     '/custom-trip',

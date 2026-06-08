@@ -321,7 +321,64 @@ const messages = {
       cultureTitle: 'Direction, responsibility, and shared operating values.',
       vision: 'Vision',
       mission: 'Mission',
-      values: 'Values'
+      values: 'Values',
+      servicePlatform: {
+        title: 'All-Scenario One-Stop Custom Travel Solutions',
+        summary:
+          'One-stop exclusive travel services including escorted inbound group tours, bespoke private family journeys and MICE & corporate travel',
+        cards: [
+          {
+            title: 'Inbound Escorted Group Tours'
+          },
+          {
+            title: 'Bespoke Private Family Travel'
+          },
+          {
+            title: 'MICE & Corporate Travel'
+          }
+        ]
+      },
+      detailPage: {
+        heroTitle: 'Global Travel Resource Allocation Platform',
+        heroSubtitle: 'Global travel resource allocation platform',
+        scrollAria: 'Scroll to company introduction',
+        scrollLabel: 'Scroll',
+        introAria: 'Tengxuan Travel Group introduction',
+        introLines: [
+          'Tengxuan Travel Group, stock code 833741,',
+          'was founded in 2001 and is headquartered in Beijing.',
+          "It has branches in Xi'an, the United States, Hong Kong, Chengdu, Hefei, and Shanghai.",
+          'As a leading global travel resource allocation platform,',
+          'it provides competitive travel products and services for tens of thousands of enterprise clients.',
+          'Customer-centered, growing together with customers.'
+        ],
+        cultureVisualTitle: 'Corporate Culture',
+        visionLines: [
+          'Become the leading global travel resource allocation platform.',
+          'Become the most trusted travel service provider for global enterprises through service quality.'
+        ],
+        valueSeparator: ', ',
+        chain: {
+          title: 'Integrated Across the Air Travel Industry Chain',
+          summaries: [
+            'Full-resource, full-product, and full-process air travel solutions.',
+            'Connecting industry channels from procurement to management.'
+          ],
+          cards: [
+            { title: 'Air Travel SaaS', summary: 'Professional air travel management cloud platform.' },
+            { title: 'B2B Platform', summary: 'Full-category travel procurement platform.' },
+            { title: 'Long-Haul Transportation', summary: 'Provider of major transportation solutions.' }
+          ]
+        },
+        team: {
+          title: 'Team Moments',
+          summary: 'Office, activities, meetings, partner exchanges, and team-building photos from Tengxuan.',
+          more: 'Learn more'
+        },
+        contactTitle: 'Contact Us',
+        mapAlt: 'Tengxuan Travel Group city and country distribution map',
+        mapPoints: ['Beijing', "Xi'an", 'Chengdu', 'Hefei', 'Shanghai', 'Hong Kong', 'Los Angeles']
+      }
     },
     subscription: {
       kicker: 'Tengxuan Travel email preferences',
@@ -589,7 +646,7 @@ const messages = {
         title: 'Cookie policy',
         eyebrow: 'Cookie Policy',
         summary:
-          'The website uses essential browser storage for language preference and subscription experience. Analytics or advertising cookies should be enabled only after a project decision.',
+          'The website uses essential browser storage for language preference and subscription experience. Google Analytics is enabled only when a measurement ID is configured.',
         sections: [
           {
             title: 'Essential storage',
@@ -600,10 +657,10 @@ const messages = {
             ]
           },
           {
-            title: 'Future analytics',
+            title: 'Google Analytics',
             items: [
-              'Any analytics, advertising, or third-party tracking should be documented before launch.',
-              'Cookie notices should be updated when non-essential tracking is added.',
+              'Google Analytics page_view events help measure page views and visitor trends.',
+              'Website operators can use GA4 Views as PV and Users or Active users as UV.',
               'Visitors should be given a clear way to manage optional cookies when required.'
             ]
           }
@@ -1642,7 +1699,60 @@ const messages = {
       cultureTitle: '方向、责任和共同的运营价值观。',
       vision: '愿景',
       mission: '使命',
-      values: '价值观'
+      values: '价值观',
+      servicePlatform: {
+        title: '一站式全场景定制旅行服务',
+        summary: '涵盖入境精品跟团、私家家庭定制、企业MICE商务出行的一站式专属旅行服务',
+        cards: [
+          {
+            title: '精品入境全程陪同跟团游'
+          },
+          {
+            title: '私家专属家庭定制旅行'
+          },
+          {
+            title: '企业MICE商务出行'
+          }
+        ]
+      },
+      detailPage: {
+        heroTitle: '全球旅行资源配置平台',
+        heroSubtitle: 'Global travel resource allocation platform',
+        scrollAria: '滚动到公司介绍',
+        scrollLabel: '滑动',
+        introAria: '腾轩旅游集团简介',
+        introLines: [
+          '腾轩旅游集团（证券代码：833741），',
+          '成立于 2001 年，总部在北京，',
+          '在西安、美国、香港、成都、合肥、上海设立了分部，',
+          '作为行业领先的全球旅行资源配置平台，',
+          '为数万家企业客户提供有竞争力的出行产品及服务。',
+          '以客户为中心，与客户共赢'
+        ],
+        cultureVisualTitle: '企业文化',
+        visionLines: [
+          '成为全球旅行资源配置第一平台',
+          '在服务质量上，成为全球企业最信赖的旅行服务提供商'
+        ],
+        valueSeparator: '，',
+        chain: {
+          title: '全面贯穿航旅产业链',
+          summaries: ['全资源、全产品、全流程的航旅解决方案', '从采购到管理打通产业链渠道'],
+          cards: [
+            { title: '航旅 SAAS', summary: '专业航旅管理云平台' },
+            { title: 'B2B 平台', summary: '旅行全品类采购平台' },
+            { title: '大交通出行', summary: '大交通解决方案提供商' }
+          ]
+        },
+        team: {
+          title: '团队风采展示',
+          summary: '展示腾轩团队办公、活动、会议、伙伴交流和团队建设照片',
+          more: '了解更多'
+        },
+        contactTitle: '联系我们',
+        mapAlt: '腾轩旅游集团城市与国家分布地图',
+        mapPoints: ['北京', '西安', '成都', '合肥', '上海', '香港', '洛杉矶']
+      }
     },
     subscription: {
       kicker: '腾轩旅行邮件偏好',
@@ -3983,29 +4093,19 @@ const companyTranslations: Partial<Record<Locale, Partial<CompanyDetail>>> = {
           ]
         },
         {
-          eyebrow: '办公场景',
-          title: '办公开业与职场文化',
-          summary: '剪彩、品牌墙参观、开业仪式和办公庆祝场景，展示集团职场和分支文化。',
+          eyebrow: '办公与团队文化',
+          title: '办公场景与团队文化',
+          summary: '剪彩、品牌墙参观、开业仪式、办公庆祝、户外路线和员工活动，展示集团职场与团队文化。',
           coverAlt: '腾轩办公室团队庆祝合影',
-          labels: ['开业', '开业', '办公', '开业', '团队', '办公'],
-          titles: ['办公室剪彩', '开业仪式', '品牌历程墙', '舞狮开业', '办公室团队庆祝', '节日办公到访'],
+          labels: ['开业', '开业', '办公', '开业', '团队', '办公', '团建', '团队', '运动'],
+          titles: ['办公室剪彩', '开业仪式', '品牌历程墙', '舞狮开业', '办公室团队庆祝', '节日办公到访', '户外团队路线', '办公室团队夜间合影', '四川马拉松完赛'],
           captions: [
             '办公室开业剪彩和本地团队合影。',
             '分支开业现场，布置鲜花和剪彩仪式。',
             '面向访客和员工展示的品牌墙与公司发展历程。',
             '以舞狮和仪式感呈现的开业庆祝。',
             '办公室节日布置中的团队庆祝合影。',
-            '员工到访和节日办公场景。'
-          ]
-        },
-        {
-          eyebrow: '团队文化',
-          title: '团建与员工活动',
-          summary: '户外路线、办公室团队照、运动参与和团建场景，展示腾轩员工文化。',
-          coverAlt: '腾轩户外团建合影',
-          labels: ['团建', '团队', '运动'],
-          titles: ['户外团队路线', '办公室团队夜间合影', '四川马拉松完赛'],
-          captions: [
+            '员工到访和节日办公场景。',
             '腾轩团队户外团建活动。',
             '一次内部活动后的办公室团队合影。',
             '员工参与马拉松活动，体现团队活力。'
