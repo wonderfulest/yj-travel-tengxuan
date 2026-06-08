@@ -41,14 +41,20 @@ const page = computed(() => tm<InfoPage>('pages.beforeYouGo'))
 
 const detailSections = computed(() => page.value.sections)
 
+function buildMailtoParams(params: Record<string, string>) {
+  return Object.entries(params)
+    .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+    .join('&')
+}
+
 const emailHref = computed(() => {
   const card = page.value.floatingCard
   if (!card) return 'mailto:support@tengxuan.com'
-  const params = new URLSearchParams({
+  const params = buildMailtoParams({
     subject: card.subject,
     body: card.body
   })
-  return `mailto:support@tengxuan.com?${params.toString()}`
+  return `mailto:support@tengxuan.com?${params}`
 })
 </script>
 

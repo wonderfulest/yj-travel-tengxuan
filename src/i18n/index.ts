@@ -186,7 +186,7 @@ const messages = {
       nextImage: 'Next city image',
       showImage: 'Show {title}',
       cityStory: 'City introduction',
-      cityStoryTitle: 'How to understand {city}',
+      cityStoryTitle: 'How to experience {city}',
       popularClassics: 'Popular classics',
       popularClassicsTitle: 'Classic sights in {city}',
       faq: 'FAQ',
@@ -446,8 +446,8 @@ const messages = {
         emailPlaceholder: 'name@example.com',
         travelWindowLabel: 'Travel window',
         travelWindowPlaceholder: 'October 2026, 8-10 days',
-        travelersLabel: 'Travelers',
-        travelersPlaceholder: '2 adults, 1 child',
+        travelersLabel: 'Travelers (include child ages)',
+        travelersPlaceholder: '2 adults, 1 child (age 6)',
         arrivalLabel: 'Arrival city or airport',
         arrivalPlaceholder: 'Beijing PEK / Shanghai PVG',
         departureLabel: 'Departure city or airport',
@@ -470,7 +470,7 @@ const messages = {
         ideasTitle: 'Popular starting points',
         templateSubject: 'Custom inbound China itinerary request',
         templateBody:
-          'Hello Tengxuan Travel team,\n\nI would like help designing a custom inbound China trip.\n\nEmail: {email}\nTravel window: {travelWindow}\nNumber of travelers: {travelers}\nArrival city / airport: {arrival}\nDeparture city / airport: {departure}\nCities, sights, or interests: {interests}\nPreferred pace: {pace}\nHotel level: {hotelLevel}\nOther notes: {notes}\n\nPlease suggest an itinerary, service scope, and quote range.\n\nThank you.',
+          'Hello Tengxuan Travel team,\n\nI would like help designing a custom inbound China trip.\n\nEmail: {email}\nTravel window: {travelWindow}\nNumber of travelers and child ages: {travelers}\nArrival city / airport: {arrival}\nDeparture city / airport: {departure}\nCities, sights, or interests: {interests}\nPreferred pace: {pace}\nHotel level: {hotelLevel}\nOther notes: {notes}\n\nPlease suggest an itinerary, service scope, and quote range.\n\nThank you.',
         proofPoints: ['Start with email, then refine details across time zones', 'Share arrival and departure cities so the route can be shaped properly', 'Add pace, diet, mobility, and visa notes before the quote'],
         benefits: [
           { title: 'No phone-first friction', text: 'International travelers can start with an email address and add route details when they are ready.' },
@@ -748,6 +748,7 @@ const messages = {
       customRoute: 'Individuelle Route anfragen',
       ideas: 'Routenideen',
       pairWith: '{city} kombinieren mit',
+      cityStoryTitle: '{city} erleben',
       titleSuffix: 'Stadtguide'
     },
     productList: {
@@ -999,6 +1000,7 @@ const messages = {
       customRoute: 'Demander un itineraire',
       ideas: 'Idees d itineraire',
       pairWith: 'Associer {city} avec',
+      cityStoryTitle: 'Comment vivre {city}',
       titleSuffix: 'Guide de ville'
     },
     productList: {
@@ -1250,6 +1252,7 @@ const messages = {
       customRoute: 'Pedir ruta a medida',
       ideas: 'Ideas de ruta',
       pairWith: 'Combinar {city} con',
+      cityStoryTitle: 'Como vivir {city}',
       titleSuffix: 'Guia de ciudad'
     },
     productList: {
@@ -1510,7 +1513,7 @@ const messages = {
       nextImage: '下一张城市图片',
       showImage: '查看{title}',
       cityStory: '城市介绍',
-      cityStoryTitle: '如何理解{city}',
+      cityStoryTitle: '这座城的打开方式',
       popularClassics: '热门景点',
       popularClassicsTitle: '{city}热门景点',
       faq: 'FAQ',
@@ -1724,8 +1727,8 @@ const extraPageMessages = {
       emailPlaceholder: 'name@example.com',
       travelWindowLabel: 'Reisezeit',
       travelWindowPlaceholder: 'Oktober 2026, 8-10 Tage',
-      travelersLabel: 'Reisende',
-      travelersPlaceholder: '2 Erwachsene, 1 Kind',
+      travelersLabel: 'Reisende (Alter der Kinder angeben)',
+      travelersPlaceholder: '2 Erwachsene, 1 Kind (6 Jahre)',
       arrivalLabel: 'Ankunftsstadt oder Flughafen',
       arrivalPlaceholder: 'Peking PEK / Shanghai PVG',
       departureLabel: 'Abreisestadt oder Flughafen',
@@ -1748,7 +1751,7 @@ const extraPageMessages = {
       ideasTitle: 'Beliebte Startpunkte',
       templateSubject: 'Anfrage fuer private China-Reise',
       templateBody:
-        'Hallo Tengxuan Travel Team,\n\nich moechte eine private China-Reise planen lassen.\n\nE-Mail: {email}\nReisezeit: {travelWindow}\nAnzahl der Reisenden: {travelers}\nAnkunftsstadt / Flughafen: {arrival}\nAbreisestadt / Flughafen: {departure}\nStaedte, Sehenswuerdigkeiten oder Interessen: {interests}\nBevorzugtes Tempo: {pace}\nHotelstandard: {hotelLevel}\nWeitere Hinweise: {notes}\n\nBitte senden Sie mir einen Routenvorschlag, den Leistungsumfang und eine erste Preisspanne.\n\nVielen Dank.',
+        'Hallo Tengxuan Travel Team,\n\nich moechte eine private China-Reise planen lassen.\n\nE-Mail: {email}\nReisezeit: {travelWindow}\nAnzahl der Reisenden und Alter der Kinder: {travelers}\nAnkunftsstadt / Flughafen: {arrival}\nAbreisestadt / Flughafen: {departure}\nStaedte, Sehenswuerdigkeiten oder Interessen: {interests}\nBevorzugtes Tempo: {pace}\nHotelstandard: {hotelLevel}\nWeitere Hinweise: {notes}\n\nBitte senden Sie mir einen Routenvorschlag, den Leistungsumfang und eine erste Preisspanne.\n\nVielen Dank.',
       proofPoints: ['Mit E-Mail starten und Details spaeter ergaenzen', 'Ankunft und Abreise helfen bei einer sinnvollen Tagesroute', 'Tempo, Essen, Mobilitaet und Visum frueh einplanen'],
       benefits: [
         { title: 'Einfacher Start per E-Mail', text: 'Sie koennen die Anfrage ohne lokale Telefonnummer beginnen und spaeter Fluege, Hotels und Namen ergaenzen.' },
@@ -1851,8 +1854,8 @@ const extraPageMessages = {
       emailPlaceholder: 'name@example.com',
       travelWindowLabel: 'Periode de voyage',
       travelWindowPlaceholder: 'Octobre 2026, 8-10 jours',
-      travelersLabel: 'Voyageurs',
-      travelersPlaceholder: '2 adultes, 1 enfant',
+      travelersLabel: 'Voyageurs (indiquer l age des enfants)',
+      travelersPlaceholder: '2 adultes, 1 enfant (6 ans)',
       arrivalLabel: 'Ville ou aeroport d arrivee',
       arrivalPlaceholder: 'Pekin PEK / Shanghai PVG',
       departureLabel: 'Ville ou aeroport de depart',
@@ -1875,7 +1878,7 @@ const extraPageMessages = {
       ideasTitle: 'Points de depart frequents',
       templateSubject: 'Demande de voyage prive en Chine',
       templateBody:
-        'Bonjour equipe Tengxuan Travel,\n\nje souhaite preparer un voyage prive en Chine.\n\nEmail: {email}\nPeriode de voyage: {travelWindow}\nNombre de voyageurs: {travelers}\nVille / aeroport d arrivee: {arrival}\nVille / aeroport de depart: {departure}\nVilles, sites ou interets: {interests}\nRythme prefere: {pace}\nNiveau hotelier: {hotelLevel}\nAutres notes: {notes}\n\nMerci de me proposer un itineraire, les services inclus et une premiere fourchette de prix.\n\nMerci.',
+        'Bonjour equipe Tengxuan Travel,\n\nje souhaite preparer un voyage prive en Chine.\n\nEmail: {email}\nPeriode de voyage: {travelWindow}\nNombre de voyageurs et age des enfants: {travelers}\nVille / aeroport d arrivee: {arrival}\nVille / aeroport de depart: {departure}\nVilles, sites ou interets: {interests}\nRythme prefere: {pace}\nNiveau hotelier: {hotelLevel}\nAutres notes: {notes}\n\nMerci de me proposer un itineraire, les services inclus et une premiere fourchette de prix.\n\nMerci.',
       proofPoints: ['Commencer par email et completer les details ensuite', 'Arrivee et depart permettent de construire une route coherente', 'Rythme, repas, mobilite et visa sont pris en compte tot'],
       benefits: [
         { title: 'Demarrage simple par email', text: 'Vous pouvez lancer la demande sans numero local et ajouter ensuite vols, hotels et informations voyageurs.' },
@@ -1978,8 +1981,8 @@ const extraPageMessages = {
       emailPlaceholder: 'name@example.com',
       travelWindowLabel: 'Fechas de viaje',
       travelWindowPlaceholder: 'Octubre de 2026, 8-10 dias',
-      travelersLabel: 'Viajeros',
-      travelersPlaceholder: '2 adultos, 1 nino',
+      travelersLabel: 'Viajeros (incluya edades de ninos)',
+      travelersPlaceholder: '2 adultos, 1 nino (6 anos)',
       arrivalLabel: 'Ciudad o aeropuerto de llegada',
       arrivalPlaceholder: 'Pekin PEK / Shanghai PVG',
       departureLabel: 'Ciudad o aeropuerto de salida',
@@ -2002,7 +2005,7 @@ const extraPageMessages = {
       ideasTitle: 'Puntos de partida frecuentes',
       templateSubject: 'Solicitud de viaje privado a China',
       templateBody:
-        'Hola equipo de Tengxuan Travel,\n\nquisiera preparar un viaje privado a China.\n\nEmail: {email}\nFechas de viaje: {travelWindow}\nNumero de viajeros: {travelers}\nCiudad / aeropuerto de llegada: {arrival}\nCiudad / aeropuerto de salida: {departure}\nCiudades, visitas o intereses: {interests}\nRitmo preferido: {pace}\nNivel de hotel: {hotelLevel}\nOtras notas: {notes}\n\nPor favor envienme una propuesta de itinerario, alcance de servicios y una primera referencia de precio.\n\nGracias.',
+        'Hola equipo de Tengxuan Travel,\n\nquisiera preparar un viaje privado a China.\n\nEmail: {email}\nFechas de viaje: {travelWindow}\nNumero de viajeros y edades de ninos: {travelers}\nCiudad / aeropuerto de llegada: {arrival}\nCiudad / aeropuerto de salida: {departure}\nCiudades, visitas o intereses: {interests}\nRitmo preferido: {pace}\nNivel de hotel: {hotelLevel}\nOtras notas: {notes}\n\nPor favor envienme una propuesta de itinerario, alcance de servicios y una primera referencia de precio.\n\nGracias.',
       proofPoints: ['Empezar por email y completar detalles despues', 'Llegada y salida ayudan a construir una ruta coherente', 'Ritmo, comidas, movilidad y visa se consideran desde el inicio'],
       benefits: [
         { title: 'Inicio sencillo por email', text: 'Puede iniciar la solicitud sin telefono local y agregar luego vuelos, hoteles y datos de viajeros.' },
@@ -2151,8 +2154,8 @@ const extraPageMessages = {
       emailPlaceholder: 'name@example.com',
       travelWindowLabel: '出行时间',
       travelWindowPlaceholder: '2026年10月，8-10天',
-      travelersLabel: '出行人数',
-      travelersPlaceholder: '2位成人，1位儿童',
+      travelersLabel: '出行人数（儿童需填写年龄）',
+      travelersPlaceholder: '2位成人，1位儿童（6岁）',
       arrivalLabel: '抵达城市或机场',
       arrivalPlaceholder: '北京首都 / 上海浦东',
       departureLabel: '离境城市或机场',
@@ -2175,7 +2178,7 @@ const extraPageMessages = {
       ideasTitle: '常见定制方向',
       templateSubject: '中国入境定制行程咨询',
       templateBody:
-        '腾轩旅行团队，你好：\n\n我想咨询一份中国入境私家行程。\n\n邮箱：{email}\n出行时间：{travelWindow}\n出行人数：{travelers}\n抵达城市或机场：{arrival}\n离境城市或机场：{departure}\n想去的城市、景点或兴趣：{interests}\n偏好节奏：{pace}\n酒店等级：{hotelLevel}\n其他说明：{notes}\n\n请根据以上信息，帮我整理一份行程建议、服务范围和初步报价范围。\n\n谢谢。',
+        '腾轩旅行团队，你好：\n\n我想咨询一份中国入境私家行程。\n\n邮箱：{email}\n出行时间：{travelWindow}\n出行人数及儿童年龄：{travelers}\n抵达城市或机场：{arrival}\n离境城市或机场：{departure}\n想去的城市、景点或兴趣：{interests}\n偏好节奏：{pace}\n酒店等级：{hotelLevel}\n其他说明：{notes}\n\n请根据以上信息，帮我整理一份行程建议、服务范围和初步报价范围。\n\n谢谢。',
       proofPoints: ['留下邮箱即可开始，后续细节可以慢慢补充', '告诉我们抵达和离境城市，路线会更顺', '把节奏、饮食、行动便利和签证情况提前说明'],
       benefits: [
         { title: '先从邮箱沟通', text: '不需要一开始就提供中国手机号。你可以先说明需求，再补充航班、酒店和证件信息。' },

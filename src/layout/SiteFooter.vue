@@ -60,10 +60,6 @@ async function updateNewsletterSubscription(action: 'subscribe' | 'unsubscribe')
             <dd>{{ t('footer.address') }}</dd>
           </div>
           <div>
-            <dt>{{ t('footer.phoneLabel') }}</dt>
-            <dd><a href="tel:+861065210601">+86 010-65210601</a></dd>
-          </div>
-          <div>
             <dt>{{ t('footer.emailLabel') }}</dt>
             <dd><a href="mailto:support@tengxuan.com">support@tengxuan.com</a></dd>
           </div>

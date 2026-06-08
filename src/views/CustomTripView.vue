@@ -111,7 +111,7 @@ function submitRequest() {
           </label>
           <label>
             {{ page.travelersLabel }}
-            <input v-model="form.travelers" name="travelers" inputmode="numeric" :placeholder="page.travelersPlaceholder" />
+            <input v-model="form.travelers" name="travelers" autocomplete="off" :placeholder="page.travelersPlaceholder" />
           </label>
           <label>
             {{ page.arrivalLabel }}
