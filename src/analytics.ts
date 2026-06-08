@@ -16,6 +16,7 @@ declare global {
 const measurementId = 'G-R9ZJWT550Q'
 
 let initialized = false
+let initialPageViewHandledByHtml = false
 
 export function isGoogleAnalyticsEnabled() {
   return Boolean(measurementId) && typeof window !== 'undefined' && typeof document !== 'undefined'
@@ -31,20 +32,17 @@ export function initializeGoogleAnalytics() {
     function gtag(...args) {
       window.dataLayer?.push(args)
     }
-
-  const script = document.createElement('script')
-  script.async = true
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`
-  document.head.appendChild(script)
-
-  window.gtag('js', new Date())
-  window.gtag('config', measurementId, { send_page_view: false })
 }
 
 export function trackPageView(path: string) {
   if (!isGoogleAnalyticsEnabled()) return
 
   initializeGoogleAnalytics()
+
+  if (!initialPageViewHandledByHtml) {
+    initialPageViewHandledByHtml = true
+    return
+  }
 
   window.gtag?.('event', 'page_view', {
     page_title: document.title,

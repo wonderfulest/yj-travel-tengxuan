@@ -4652,7 +4652,7 @@ button:disabled {
 .tx-company-scroll {
   position: absolute;
   right: 0;
-  bottom: 54px;
+  bottom: 48px;
   left: 0;
   z-index: 2;
   width: max-content;
@@ -4660,7 +4660,7 @@ button:disabled {
   margin: auto;
   display: inline-grid;
   justify-items: center;
-  gap: 6px;
+  gap: 10px;
   color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
@@ -4670,13 +4670,33 @@ button:disabled {
 }
 
 .tx-company-scroll span {
-  display: block;
-  width: 22px;
-  height: 22px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 24px;
+  animation: tx-company-scroll-up 1.25s ease-in-out infinite;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.28));
+}
+
+.tx-company-scroll span::before,
+.tx-company-scroll span::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
   border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
   transform: rotate(45deg);
-  animation: tx-company-scroll-up 1s ease-in infinite;
+}
+
+.tx-company-scroll span::before {
+  top: 0;
+  opacity: 0.62;
+}
+
+.tx-company-scroll span::after {
+  top: 8px;
 }
 
 .tx-company-scroll b {
@@ -4686,18 +4706,15 @@ button:disabled {
 
 @keyframes tx-company-scroll-up {
   0% {
-    opacity: 0;
     transform: translateY(0);
   }
 
   50% {
-    opacity: 1;
-    transform: translateY(20px);
+    transform: translateY(8px);
   }
 
   100% {
-    opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(0);
   }
 }
 
@@ -5107,7 +5124,7 @@ button:disabled {
   margin: 0;
   overflow: hidden;
   border-radius: 10px;
-  background: #222;
+  background: #f3f3f3;
 }
 
 .tx-company-photo-card--large {
@@ -5127,32 +5144,19 @@ button:disabled {
 
 .tx-company-photo-card figcaption {
   position: absolute;
-  inset: auto 14px 14px;
-  padding: 12px 14px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 42px 16px 14px;
   color: #fff;
-  background: rgba(0, 0, 0, 0.62);
-  border-radius: 6px;
-  backdrop-filter: blur(12px);
-}
-
-.tx-company-photo-card span {
-  display: block;
-  color: #f1c06d;
-  font-size: 0.76rem;
-  font-weight: 700;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.58));
 }
 
 .tx-company-photo-card strong {
   display: block;
-  margin-top: 3px;
+  max-width: 92%;
   line-height: 1.2;
-}
-
-.tx-company-photo-card p {
-  margin: 8px 0 0;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.88rem;
-  line-height: 1.45;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
 }
 
 @media (max-width: 1180px) {

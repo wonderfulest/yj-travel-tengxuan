@@ -8,25 +8,19 @@ const { companyDetail: company } = useTravelContent()
 const allPhotos = computed(() => [
   ...company.value.photoSlots.map((photo) => ({
     title: photo.label,
-    label: '公司影像',
     image: photo.image,
-    alt: photo.alt,
-    caption: photo.caption
+    alt: photo.alt
   })),
   ...company.value.mediaGallery.map((photo) => ({
     title: photo.title,
-    label: photo.label,
     image: photo.image,
-    alt: photo.alt,
-    caption: ''
+    alt: photo.alt
   })),
   ...company.value.activityCategories.flatMap((category) =>
     category.images.map((photo) => ({
       title: photo.title,
-      label: category.title,
       image: photo.image,
-      alt: photo.alt,
-      caption: photo.caption
+      alt: photo.alt
     }))
   )
 ])
@@ -50,9 +44,7 @@ const allPhotos = computed(() => [
       >
         <img :src="photo.image" :alt="photo.alt" width="900" height="620" loading="lazy" />
         <figcaption>
-          <span>{{ photo.label }}</span>
           <strong>{{ photo.title }}</strong>
-          <p v-if="photo.caption">{{ photo.caption }}</p>
         </figcaption>
       </figure>
     </section>

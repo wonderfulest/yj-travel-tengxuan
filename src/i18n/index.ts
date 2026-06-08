@@ -646,7 +646,7 @@ const messages = {
         title: 'Cookie policy',
         eyebrow: 'Cookie Policy',
         summary:
-          'The website uses essential browser storage for language preference and subscription experience. Google Analytics is enabled only when a measurement ID is configured.',
+          'The website uses essential browser storage for language preference and subscription experience. Google Analytics is enabled to measure page views and visitor trends.',
         sections: [
           {
             title: 'Essential storage',
