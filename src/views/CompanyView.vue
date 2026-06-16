@@ -35,13 +35,13 @@ const chainCards = computed(() =>
 )
 
 const mapPointPositions = [
-  { x: 68, y: 33, level: 'strong' },
-  { x: 63, y: 48, level: 'small' },
-  { x: 64, y: 64, level: 'medium' },
-  { x: 66, y: 50, level: 'small' },
-  { x: 70, y: 48, level: 'medium' },
-  { x: 67, y: 77, level: 'small' },
-  { x: 13, y: 43, level: 'medium' }
+  { x: 81.0, y: 33.3, level: 'strong' },
+  { x: 79.0, y: 37.6, level: 'small' },
+  { x: 77.4, y: 41.3, level: 'medium' },
+  { x: 81.1, y: 40.4, level: 'small' },
+  { x: 82.7, y: 40.0, level: 'medium' },
+  { x: 80.6, y: 47.2, level: 'small' },
+  { x: 17.1, y: 38.6, level: 'medium' }
 ]
 
 const mapPoints = computed(() =>
@@ -193,7 +193,7 @@ const teamPhotos = computed(() => [
         <h2 id="company-contact-title">{{ t('company.detailPage.contactTitle') }}</h2>
       </div>
       <div class="tx-company-map">
-        <img :src="`${tengxuanAsset}/images/map.png`" :alt="t('company.detailPage.mapAlt')" width="1100" height="500" loading="lazy" />
+        <img :src="`${tengxuanAsset}/images/map.png`" :alt="t('company.detailPage.mapAlt')" width="1127" height="508" loading="lazy" />
         <span
           v-for="point in mapPoints"
           :key="point.city"
